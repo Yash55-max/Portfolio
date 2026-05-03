@@ -3267,213 +3267,7 @@
             <p class="section-desc">stuff i've built when i wasn't sleeping. which is often.</p>
         </div>
         <div class="projects-grid">
-            <!-- PROJECT 1: Last Signal -->
-            <div class="project-card reveal tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        // Last Signal
-                        const window = battery() < 20 || isLateNight();
-                        if (window) chat.unlock({ anonymous: true });
-                        // Time-boxed 1:1
-                    </div>
-                    <div class="project-number">01</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">Realtime PWA</div>
-                    <h3 class="project-name">Last Signal</h3>
-                    <p class="project-desc">Anonymous, time-boxed 1:1 chat that only opens during “signal windows” like
-                        low battery or late-night hours, built for calm, intentional conversations.</p>
-                    <div class="project-tech">
-                        <span>React 19</span><span>Firebase</span><span>Framer Motion</span><span>PWA</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://last-signal-605b1.web.app/" target="_blank" class="project-link">View Demo <span
-                                class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/Last-Signal" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 2: PathDiverge -->
-            <div class="project-card reveal tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        const simulation = {
-                        model: "Monte Carlo",
-                        trajectories: 2500,
-                        stack: ["FastAPI", "React"],
-                        deployment: "Railway"
-                        };
-                        // Simulating careers...
-                    </div>
-                    <div class="project-number">02</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">Simulation Platform</div>
-                    <h3 class="project-name">PathDiverge</h3>
-                    <p class="project-desc">Full-stack Monte Carlo simulation platform modeling early career decisions
-                        and long-term risk tolerances.</p>
-                    <div class="project-tech">
-                        <span>FastAPI</span><span>React</span><span>NumPy</span><span>Recharts</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://path-diverge.vercel.app/" target="_blank" class="project-link">View Demo <span
-                                class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/PathDiverge" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 3: Media Muse -->
-            <div class="project-card reveal reveal-delay-1 tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        // Media Muse AI
-                        async function recommend(user) {
-                        const mood = await Gemini.analyze(user);
-                        return Spotify.getTracks(mood);
-                        }
-                        // Personalized Vibes Only
-                    </div>
-                    <div class="project-number">03</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">AI Music Web App</div>
-                    <h3 class="project-name">Media Muse</h3>
-                    <p class="project-desc">AI-powered music recommendation platform integrating Spotify and Gemini APIs
-                        for personalized user experiences.</p>
-                    <div class="project-tech"><span>Python</span><span>Gemini API</span><span>Spotify
-                            API</span><span>PWA</span></div>
-                    <div class="project-links">
-                        <a href="https://media-muse.vercel.app/" target="_blank" class="project-link">View Demo <span
-                                class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/Media-Muse" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 4: EventSync -->
-            <div class="project-card reveal reveal-delay-2 tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        &lt;section id="events"&gt;
-                        &lt;h1&gt;Simplifying Events&lt;/h1&gt;
-                        &lt;p&gt;Auth, registration, tracking&lt;/p&gt;
-                        &lt;/section&gt;
-                        // Unified Management
-                    </div>
-                    <div class="project-number">04</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">Management Platform</div>
-                    <h3 class="project-name">EventSync</h3>
-                    <p class="project-desc">Full-stack event management system built to simplify creation, registration,
-                        and participant tracking.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">View Demo <span class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/EventSynce" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 5: Smart StockBot -->
-            <div class="project-card reveal reveal-delay-3 tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        while (retail.business) {
-                        StockBot.trackLoop();
-                        if (sold) StockBot.update();
-                        }
-                        // Intelligent Inventory
-                    </div>
-                    <div class="project-number">05</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">Inventory System</div>
-                    <h3 class="project-name">Smart StockBot</h3>
-                    <p class="project-desc">AI-powered web system designed to automate stock tracking and sales
-                        monitoring for retail use cases.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>JavaScript</span><span>Automation</span><span>CSV</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://stock-bot-two.vercel.app/" target="_blank" class="project-link">View Demo <span
-                                class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/StockBot" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 6: Student Performance Tracker -->
-            <div class="project-card reveal tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        const analytics = {
-                        database: "SQLite",
-                        framework: "Flask",
-                        analytics: ["Toppers", "Averages"],
-                        persistence: "localStorage"
-                        };
-                        // Tracking performance...
-                    </div>
-                    <div class="project-number">06</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">Educational Analytics</div>
-                    <h3 class="project-name">Performance Tracker</h3>
-                    <p class="project-desc">Comprehensive Flask-based platform for student performance tracking,
-                        featuring automated analytics, data export, and dark/light theme switching.</p>
-                    <div class="project-tech">
-                        <span>Flask</span><span>SQLite</span><span>Python</span><span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://student-performance-tracker-delta.vercel.app/" target="_blank"
-                            class="project-link">View Demo <span class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 7: FlowSync AI -->
+            <!-- PROJECT 01: FlowSync AI -->
             <div class="project-card reveal tilt-card">
                 <div class="project-preview">
                     <div class="project-preview-text">
@@ -3483,7 +3277,7 @@
                         operator.alert(route.risks);
                         // 100k+ attendees managed
                     </div>
-                    <div class="project-number">07</div>
+                    <div class="project-number">01</div>
                 </div>
                 <div class="project-info">
                     <div class="project-type">Crowd Intelligence Platform</div>
@@ -3509,8 +3303,8 @@
                 </div>
             </div>
 
-            <!-- PROJECT 8: FairHire AI -->
-            <div class="project-card reveal reveal-delay-1 tilt-card">
+            <!-- PROJECT 02: FairHire AI -->
+            <div class="project-card reveal tilt-card">
                 <div class="project-preview">
                     <div class="project-preview-text">
                         // FairHire AI ⚖️
@@ -3520,7 +3314,7 @@
                         }
                         // Ethical Hiring
                     </div>
-                    <div class="project-number">08</div>
+                    <div class="project-number">02</div>
                 </div>
                 <div class="project-info">
                     <div class="project-type">AI Ethics Platform</div>
@@ -3546,8 +3340,8 @@
                 </div>
             </div>
 
-            <!-- PROJECT 9: Vote Saathi -->
-            <div class="project-card reveal reveal-delay-2 tilt-card">
+            <!-- PROJECT 03: Vote Saathi -->
+            <div class="project-card reveal reveal-delay-1 tilt-card">
                 <div class="project-preview">
                     <div class="project-preview-text">
                         // VoteSaathi
@@ -3556,7 +3350,7 @@
                         saathi.guide(voter, 'hi');
                         // Every vote counts
                     </div>
-                    <div class="project-number">09</div>
+                    <div class="project-number">03</div>
                 </div>
                 <div class="project-info">
                     <div class="project-type">Civic Tech Platform</div>
@@ -3581,41 +3375,8 @@
                 </div>
             </div>
 
-            <!-- PROJECT 10: Decidr -->
-            <div class="project-card reveal reveal-delay-3 tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        // Decidr
-                        const factors = ML.extract(data);
-                        const decision = AI.reason(factors);
-                        return decision.explain();
-                        // Smarter decisions
-                    </div>
-                    <div class="project-number">10</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">AI Decision Platform</div>
-                    <h3 class="project-name">Decidr</h3>
-                    <p class="project-desc">AI-powered decision intelligence platform combining data analysis, machine
-                        learning, and intelligent reasoning to help users make smarter, data-driven decisions.</p>
-                    <div class="project-tech">
-                        <span>JavaScript</span><span>React</span><span>AI/ML</span><span>Data Analysis</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">View Demo <span class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/Decidr" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 11: BTC Regime Analysis -->
-            <div class="project-card reveal tilt-card">
+            <!-- PROJECT 04: BTC Regime Analysis -->
+            <div class="project-card reveal reveal-delay-2 tilt-card">
                 <div class="project-preview">
                     <div class="project-preview-text">
                         // Sentinel 🛰️
@@ -3624,7 +3385,7 @@
                         exposure = scaleUp(trend);
                         // Zero-lookahead trading
                     </div>
-                    <div class="project-number">11</div>
+                    <div class="project-number">04</div>
                 </div>
                 <div class="project-info">
                     <div class="project-type">Quantitative Finance</div>
@@ -3649,6 +3410,245 @@
                 </div>
             </div>
         </div>
+            <!-- PROJECT 05: Last Signal -->
+            <div class="project-card reveal reveal-delay-3 tilt-card">
+                <div class="project-preview">
+                    <div class="project-preview-text">
+                        // Last Signal
+                        const window = battery() < 20 || isLateNight();
+                        if (window) chat.unlock({ anonymous: true });
+                        // Time-boxed 1:1
+                    </div>
+                    <div class="project-number">05</div>
+                </div>
+                <div class="project-info">
+                    <div class="project-type">Realtime PWA</div>
+                    <h3 class="project-name">Last Signal</h3>
+                    <p class="project-desc">Anonymous, time-boxed 1:1 chat that only opens during “signal windows” like
+                        low battery or late-night hours, built for calm, intentional conversations.</p>
+                    <div class="project-tech">
+                        <span>React 19</span><span>Firebase</span><span>Framer Motion</span><span>PWA</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://last-signal-605b1.web.app/" target="_blank" class="project-link">View Demo <span
+                                class="arrow">→</span></a>
+                        <a href="https://github.com/Yash55-max/Last-Signal" target="_blank" class="project-github-link">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 06: PathDiverge -->
+            <div class="project-card reveal tilt-card">
+                <div class="project-preview">
+                    <div class="project-preview-text">
+                        const simulation = {
+                        model: "Monte Carlo",
+                        trajectories: 2500,
+                        stack: ["FastAPI", "React"],
+                        deployment: "Railway"
+                        };
+                        // Simulating careers...
+                    </div>
+                    <div class="project-number">06</div>
+                </div>
+                <div class="project-info">
+                    <div class="project-type">Simulation Platform</div>
+                    <h3 class="project-name">PathDiverge</h3>
+                    <p class="project-desc">Full-stack Monte Carlo simulation platform modeling early career decisions
+                        and long-term risk tolerances.</p>
+                    <div class="project-tech">
+                        <span>FastAPI</span><span>React</span><span>NumPy</span><span>Recharts</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://path-diverge.vercel.app/" target="_blank" class="project-link">View Demo <span
+                                class="arrow">→</span></a>
+                        <a href="https://github.com/Yash55-max/PathDiverge" target="_blank" class="project-github-link">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 07: Decidr -->
+            <div class="project-card reveal tilt-card">
+                <div class="project-preview">
+                    <div class="project-preview-text">
+                        // Decidr
+                        const factors = ML.extract(data);
+                        const decision = AI.reason(factors);
+                        return decision.explain();
+                        // Smarter decisions
+                    </div>
+                    <div class="project-number">07</div>
+                </div>
+                <div class="project-info">
+                    <div class="project-type">AI Decision Platform</div>
+                    <h3 class="project-name">Decidr</h3>
+                    <p class="project-desc">AI-powered decision intelligence platform combining data analysis, machine
+                        learning, and intelligent reasoning to help users make smarter, data-driven decisions.</p>
+                    <div class="project-tech">
+                        <span>JavaScript</span><span>React</span><span>AI/ML</span><span>Data Analysis</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Demo <span class="arrow">→</span></a>
+                        <a href="https://github.com/Yash55-max/Decidr" target="_blank" class="project-github-link">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 08: Media Muse -->
+            <div class="project-card reveal reveal-delay-1 tilt-card">
+                <div class="project-preview">
+                    <div class="project-preview-text">
+                        // Media Muse AI
+                        async function recommend(user) {
+                        const mood = await Gemini.analyze(user);
+                        return Spotify.getTracks(mood);
+                        }
+                        // Personalized Vibes Only
+                    </div>
+                    <div class="project-number">08</div>
+                </div>
+                <div class="project-info">
+                    <div class="project-type">AI Music Web App</div>
+                    <h3 class="project-name">Media Muse</h3>
+                    <p class="project-desc">AI-powered music recommendation platform integrating Spotify and Gemini APIs
+                        for personalized user experiences.</p>
+                    <div class="project-tech"><span>Python</span><span>Gemini API</span><span>Spotify
+                            API</span><span>PWA</span></div>
+                    <div class="project-links">
+                        <a href="https://media-muse.vercel.app/" target="_blank" class="project-link">View Demo <span
+                                class="arrow">→</span></a>
+                        <a href="https://github.com/Yash55-max/Media-Muse" target="_blank" class="project-github-link">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 09: Smart StockBot -->
+            <div class="project-card reveal reveal-delay-2 tilt-card">
+                <div class="project-preview">
+                    <div class="project-preview-text">
+                        while (retail.business) {
+                        StockBot.trackLoop();
+                        if (sold) StockBot.update();
+                        }
+                        // Intelligent Inventory
+                    </div>
+                    <div class="project-number">09</div>
+                </div>
+                <div class="project-info">
+                    <div class="project-type">Inventory System</div>
+                    <h3 class="project-name">Smart StockBot</h3>
+                    <p class="project-desc">AI-powered web system designed to automate stock tracking and sales
+                        monitoring for retail use cases.</p>
+                    <div class="project-tech">
+                        <span>Python</span><span>JavaScript</span><span>Automation</span><span>CSV</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://stock-bot-two.vercel.app/" target="_blank" class="project-link">View Demo <span
+                                class="arrow">→</span></a>
+                        <a href="https://github.com/Yash55-max/StockBot" target="_blank" class="project-github-link">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 10: Student Performance Tracker -->
+            <div class="project-card reveal reveal-delay-3 tilt-card">
+                <div class="project-preview">
+                    <div class="project-preview-text">
+                        const analytics = {
+                        database: "SQLite",
+                        framework: "Flask",
+                        analytics: ["Toppers", "Averages"],
+                        persistence: "localStorage"
+                        };
+                        // Tracking performance...
+                    </div>
+                    <div class="project-number">10</div>
+                </div>
+                <div class="project-info">
+                    <div class="project-type">Educational Analytics</div>
+                    <h3 class="project-name">Performance Tracker</h3>
+                    <p class="project-desc">Comprehensive Flask-based platform for student performance tracking,
+                        featuring automated analytics, data export, and dark/light theme switching.</p>
+                    <div class="project-tech">
+                        <span>Flask</span><span>SQLite</span><span>Python</span><span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://student-performance-tracker-delta.vercel.app/" target="_blank"
+                            class="project-link">View Demo <span class="arrow">→</span></a>
+                        <a href="https://github.com/Yash55-max" target="_blank" class="project-github-link">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 11: EventSync -->
+            <div class="project-card reveal tilt-card">
+                <div class="project-preview">
+                    <div class="project-preview-text">
+                        &lt;section id="events"&gt;
+                        &lt;h1&gt;Simplifying Events&lt;/h1&gt;
+                        &lt;p&gt;Auth, registration, tracking&lt;/p&gt;
+                        &lt;/section&gt;
+                        // Unified Management
+                    </div>
+                    <div class="project-number">11</div>
+                </div>
+                <div class="project-info">
+                    <div class="project-type">Management Platform</div>
+                    <h3 class="project-name">EventSync</h3>
+                    <p class="project-desc">Full-stack event management system built to simplify creation, registration,
+                        and participant tracking.</p>
+                    <div class="project-tech">
+                        <span>Python</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Demo <span class="arrow">→</span></a>
+                        <a href="https://github.com/Yash55-max/EventSynce" target="_blank" class="project-github-link">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
     </section>
 
     <!-- AWARDS -->
@@ -3694,6 +3694,23 @@
                     </a>
                 </div>
             </div>
+            <div class="award-card reveal reveal-delay-2 tilt-card">
+                <div class="award-badge">🏅</div>
+                <div class="award-info">
+                    <span class="award-issuer">Google Developers Group [Cloud Kochi]</span>
+                    <h3>Code Vipassana Season 14 - Top 58 Developer</h3>
+                    <p class="award-desc">Ranked among the top 58 developers for outstanding performance in building
+                        AI-powered applications on Google Cloud.</p>
+                    <a href="https://drive.google.com/file/d/1SlRTys9u1_XJye83XfCSzWgfZM1E-n0x/view?usp=sharing"
+                        target="_blank" class="award-link">
+                        View Certificate
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -3703,7 +3720,7 @@
         <div class="section-header reveal">
             <span class="section-number">06 //</span>
             <h2 class="section-title">Certifications</h2>
-            <p class="section-desc">verified by industry leaders — 22+ credentials &amp; counting.</p>
+            <p class="section-desc">verified by industry leaders — 28+ credentials &amp; counting.</p>
         </div>
 
         <!-- EMBEDDED BADGES (Credly + OpenBadgePassport) -->
@@ -3841,6 +3858,62 @@
                 <div class="badge-label"><strong>Altair RapidMiner</strong>Data Eng Professional · Sep 2024</div>
             </div>
 
+            <!-- MongoDB: Schema Design Patterns and Anti-patterns -->
+            <div class="badge-wrap">
+                <a class="credly-badge"
+                    href="https://www.credly.com/earner/earned/badge/fc6e95db-ceac-478d-9c8c-395fb04e9dd5"
+                    target="_blank">
+                    <div class="credly-badge-img-wrap" style="border-color:#13AA5266;">
+                        <span class="credly-badge-icon" style="color:#13AA52;font-size:0.75rem;font-weight:900;">MDB</span>
+                    </div>
+                    <div class="credly-badge-title">Schema Design Patterns &amp; Anti-patterns</div>
+                    <div class="credly-badge-issuer">MongoDB</div>
+                    <span class="credly-verify-btn">✓ Verify on Credly</span>
+                </a>
+            </div>
+
+            <!-- AWS: ML Foundations -->
+            <div class="badge-wrap">
+                <a class="credly-badge"
+                    href="https://www.credly.com/earner/earned/badge/aff19f47-1b2d-477a-a322-c98aff129a87"
+                    target="_blank">
+                    <div class="credly-badge-img-wrap" style="border-color:#FF990066;">
+                        <span class="credly-badge-icon" style="color:#FF9900;font-size:0.7rem;font-weight:900;">AWS</span>
+                    </div>
+                    <div class="credly-badge-title">ML Foundations</div>
+                    <div class="credly-badge-issuer">AWS Academy</div>
+                    <span class="credly-verify-btn">✓ Verify on Credly</span>
+                </a>
+            </div>
+
+            <!-- AWS: ML for Natural Language Processing -->
+            <div class="badge-wrap">
+                <a class="credly-badge"
+                    href="https://www.credly.com/earner/earned/badge/5426020a-0c89-49e7-9639-c12505690c87"
+                    target="_blank">
+                    <div class="credly-badge-img-wrap" style="border-color:#FF990066;">
+                        <span class="credly-badge-icon" style="color:#FF9900;font-size:0.7rem;font-weight:900;">AWS</span>
+                    </div>
+                    <div class="credly-badge-title">ML for Natural Language Processing</div>
+                    <div class="credly-badge-issuer">AWS Academy</div>
+                    <span class="credly-verify-btn">✓ Verify on Credly</span>
+                </a>
+            </div>
+
+            <!-- AWS: Generative AI Foundations -->
+            <div class="badge-wrap">
+                <a class="credly-badge"
+                    href="https://www.credly.com/earner/earned/badge/d8e599d8-dfa6-439a-9d64-26b3f00a72c8"
+                    target="_blank">
+                    <div class="credly-badge-img-wrap" style="border-color:#FF990066;">
+                        <span class="credly-badge-icon" style="color:#FF9900;font-size:0.7rem;font-weight:900;">AWS</span>
+                    </div>
+                    <div class="credly-badge-title">Generative AI Foundations</div>
+                    <div class="credly-badge-issuer">AWS Academy</div>
+                    <span class="credly-verify-btn">✓ Verify on Credly</span>
+                </a>
+            </div>
+
         </div>
 
         <!-- LINK CERTIFICATES -->
@@ -3964,6 +4037,28 @@
                     <span class="cert-issuer">Forage // Accenture</span>
                     <h3>Data Analytics &amp; Viz Job Sim</h3>
                     <span class="cert-date">Issued Jan 2025</span>
+                </div>
+                <span class="cert-arrow">→</span>
+            </a>
+
+            <a href="https://certificate.hack2skill.com/verify/2026H2S04GCGENAIAPACC1-P02029"
+                target="_blank" class="cert-card reveal reveal-delay-3 tilt-card">
+                <div class="cert-icon" style="color:#4285F4;font-size:0.6rem;font-weight:900;">GCP</div>
+                <div class="cert-info">
+                    <span class="cert-issuer">Hack2skill · Google Cloud</span>
+                    <h3>Gen AI Academy APAC Edition (Cohort 1)</h3>
+                    <span class="cert-date">Issued Apr 2026</span>
+                </div>
+                <span class="cert-arrow">→</span>
+            </a>
+
+            <a href="https://verify.skilljar.com/c/ha8xuxc4e7c7"
+                target="_blank" class="cert-card reveal tilt-card">
+                <div class="cert-icon" style="color:#D97757;font-size:0.55rem;font-weight:900;">Claude</div>
+                <div class="cert-info">
+                    <span class="cert-issuer">Anthropic</span>
+                    <h3>Claude Code in Action</h3>
+                    <span class="cert-date">Issued Mar 2026</span>
                 </div>
                 <span class="cert-arrow">→</span>
             </a>
