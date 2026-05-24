@@ -1029,6 +1029,13 @@
             letter-spacing: 0.5px;
         }
 
+        .skill-cat-note {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
         .skill-pills {
             display: flex;
             flex-wrap: wrap;
@@ -1744,6 +1751,63 @@
             width: 14px;
             height: 14px;
             fill: currentColor;
+        }
+
+        .project-archive {
+            margin-top: 30px;
+            background: var(--card);
+            border: 1px solid rgba(68, 255, 136, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .project-archive summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 24px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .project-archive summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .project-archive summary span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--red);
+            letter-spacing: 1px;
+        }
+
+        .project-archive summary strong {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .project-archive summary p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        .project-archive-icon {
+            color: var(--red);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-archive[open] .project-archive-icon {
+            transform: rotate(180deg);
+        }
+
+        .project-archive-grid {
+            padding: 0 30px 30px;
         }
 
         /* GITHUB SECTION */
@@ -2979,7 +3043,7 @@
                                     (Live Verified)</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number" data-count="50">0</div>
+                                <div class="stat-number" data-count="12">0</div>
                                 <div class="stat-label">Skills</div>
                             </div>
                             <div class="stat-item">
@@ -3046,139 +3110,36 @@
         <div class="section-header reveal">
             <span class="section-number">02 //</span>
             <h2 class="section-title">Skills</h2>
-            <p class="section-desc">the toolkit. No cap, these are actually what I work with daily.</p>
+            <p class="section-desc">grouped by the level of ownership I can take on an engineering build.</p>
         </div>
-        <!-- Proficiency bars for core skills -->
-        <div class="skills-bars reveal">
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>🐍 Python</span><span class="skill-pct">95%</span></div>
-                <div class="skill-level">
-                    <div class="skill-level-fill" data-width="95"></div>
-                </div>
-            </div>
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>🧠 Machine Learning</span><span class="skill-pct">88%</span></div>
-                <div class="skill-level">
-                    <div class="skill-level-fill" data-width="88"></div>
-                </div>
-            </div>
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>🗄️ SQL</span><span class="skill-pct">85%</span></div>
-                <div class="skill-level">
-                    <div class="skill-level-fill" data-width="85"></div>
-                </div>
-            </div>
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>📊 Data Analysis</span><span class="skill-pct">92%</span></div>
-                <div class="skill-level">
-                    <div class="skill-level-fill" data-width="92"></div>
-                </div>
-            </div>
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>☁️ Cloud (Azure / IBM)</span><span class="skill-pct">78%</span>
-                </div>
-                <div class="skill-level">
-                    <div class="skill-level-fill" data-width="78"></div>
-                </div>
-            </div>
-            <div class="skill-bar-item">
-                <div class="skill-bar-header"><span>⚛️ React / Node.js</span><span class="skill-pct">75%</span></div>
-                <div class="skill-level">
-                    <div class="skill-level-fill" data-width="75"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Categorized skill pills -->
         <div class="skills-categories reveal">
-
             <div class="skill-category-block">
-                <div class="skill-cat-label">💻 Languages</div>
+                <div class="skill-cat-label">Core Stack (Production-Ready)</div>
+                <p class="skill-cat-note">Tools I can use to design, ship, and maintain end-to-end products with
+                    full-stack ownership.</p>
                 <div class="skill-pills">
                     <span class="skill-pill">Python</span>
-                    <span class="skill-pill">JavaScript</span>
-                    <span class="skill-pill">TypeScript</span>
                     <span class="skill-pill">SQL</span>
-                    <span class="skill-pill">HTML &amp; CSS</span>
-                    <span class="skill-pill">R</span>
-                    <span class="skill-pill">Bash</span>
-                </div>
-            </div>
-
-            <div class="skill-category-block">
-                <div class="skill-cat-label">🤖 AI &amp; Machine Learning</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">TensorFlow</span>
-                    <span class="skill-pill">Scikit-learn</span>
-                    <span class="skill-pill">Keras</span>
-                    <span class="skill-pill">PyTorch</span>
-                    <span class="skill-pill">NLP</span>
-                    <span class="skill-pill">Computer Vision</span>
-                    <span class="skill-pill">OpenCV</span>
-                    <span class="skill-pill">Generative AI</span>
-                    <span class="skill-pill">LLMs / RAG</span>
-                    <span class="skill-pill">Prompt Engineering</span>
-                </div>
-            </div>
-
-            <div class="skill-category-block">
-                <div class="skill-cat-label">📊 Data &amp; Analytics</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">Pandas</span>
-                    <span class="skill-pill">NumPy</span>
-                    <span class="skill-pill">Matplotlib</span>
-                    <span class="skill-pill">Seaborn</span>
-                    <span class="skill-pill">Plotly</span>
-                    <span class="skill-pill">Power BI</span>
-                    <span class="skill-pill">Tableau</span>
-                    <span class="skill-pill">Excel</span>
-                    <span class="skill-pill">EDA</span>
-                    <span class="skill-pill">Feature Engineering</span>
-                </div>
-            </div>
-
-            <div class="skill-category-block">
-                <div class="skill-cat-label">☁️ Cloud &amp; DevOps</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">Microsoft Azure</span>
-                    <span class="skill-pill">IBM Cloud</span>
-                    <span class="skill-pill">Google Cloud</span>
-                    <span class="skill-pill">Git &amp; GitHub</span>
-                    <span class="skill-pill">Docker</span>
-                    <span class="skill-pill">CI/CD</span>
-                    <span class="skill-pill">Linux</span>
-                    <span class="skill-pill">REST APIs</span>
-                </div>
-            </div>
-
-            <div class="skill-category-block">
-                <div class="skill-cat-label">🌐 Web Development</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">React.js</span>
-                    <span class="skill-pill">Node.js</span>
-                    <span class="skill-pill">Flask</span>
                     <span class="skill-pill">FastAPI</span>
-                    <span class="skill-pill">Express.js</span>
-                    <span class="skill-pill">MongoDB</span>
-                    <span class="skill-pill">MySQL</span>
-                    <span class="skill-pill">PostgreSQL</span>
+                    <span class="skill-pill">Next.js</span>
+                    <span class="skill-pill">TypeScript</span>
+                    <span class="skill-pill">Pandas</span>
+                    <span class="skill-pill">Scikit-learn</span>
                 </div>
             </div>
 
             <div class="skill-category-block">
-                <div class="skill-cat-label">🛠️ Tools &amp; Platforms</div>
+                <div class="skill-cat-label">Framework Exposure (Academic/Foundational)</div>
+                <p class="skill-cat-note">Frameworks and platforms I have used in coursework, experiments, and prototypes,
+                    but would still frame as growing areas rather than primary ownership.</p>
                 <div class="skill-pills">
-                    <span class="skill-pill">Jupyter Notebook</span>
-                    <span class="skill-pill">VS Code</span>
-                    <span class="skill-pill">Postman</span>
-                    <span class="skill-pill">Kaggle</span>
-                    <span class="skill-pill">HuggingFace</span>
-                    <span class="skill-pill">Streamlit</span>
-                    <span class="skill-pill">Google Colab</span>
-                    <span class="skill-pill">Vercel / Railway</span>
+                    <span class="skill-pill">PyTorch</span>
+                    <span class="skill-pill">TensorFlow</span>
+                    <span class="skill-pill">OpenCV</span>
+                    <span class="skill-pill">Computer Vision</span>
+                    <span class="skill-pill">BigQuery</span>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -3188,7 +3149,7 @@
         <div class="section-header reveal">
             <span class="section-number">03 //</span>
             <h2 class="section-title">Experience</h2>
-            <p class="section-desc">where i've been putting in the work. no cap.</p>
+            <p class="section-desc">hands-on roles first, with training programs clearly separated from internship work.</p>
         </div>
         <div class="timeline">
             <div class="timeline-item">
@@ -3206,11 +3167,12 @@
                 <div class="timeline-date">JAN 2026 — FEB 2026</div>
                 <h3 class="timeline-role">Data Science Intern</h3>
                 <p class="timeline-company">Cognifyz Technologies · Internship</p>
-                <p class="timeline-desc">Performing exploratory data analysis, data pre-processing, and building
-                    predictive models to extract actionable insights from complex datasets.</p>
+                <p class="timeline-desc">Owned Python-based data cleaning and exploratory analysis workflows, surfaced
+                    dataset quality issues through notebook reporting, and compared baseline machine learning models to
+                    communicate precision/recall trade-offs on business datasets.</p>
                 <div class="timeline-tags">
-                    <span class="timeline-tag">Data Science</span><span class="timeline-tag">Python</span><span
-                        class="timeline-tag">Machine Learning</span>
+                    <span class="timeline-tag">Python</span><span class="timeline-tag">EDA</span><span
+                        class="timeline-tag">Model Evaluation</span>
                 </div>
             </div>
             <div class="timeline-item">
@@ -3225,34 +3187,15 @@
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-date">JUL 2025 — AUG 2025</div>
-                <h3 class="timeline-role">IBM Emerging Technologies (AI & Cloud)</h3>
-                <p class="timeline-company">Edunet Foundation · Internship</p>
-                <p class="timeline-desc">Completed a 4-week internship focused on AI & Cloud technologies, gaining
-                    hands-on experience with real-world applications and cloud infrastructure.</p>
+                <div class="timeline-date">NOV 2024 — AUG 2025</div>
+                <h3 class="timeline-role">Technical Training &amp; Simulations</h3>
+                <p class="timeline-company">Edunet Foundation · Microsoft / IBM partner programs</p>
+                <p class="timeline-desc">Completed short-form tracks covering Azure fundamentals, AI literacy, and cloud
+                    tooling. These programs focused on hands-on simulations and certification preparation in cloud
+                    technologies.</p>
                 <div class="timeline-tags">
-                    <span class="timeline-tag">AI</span><span class="timeline-tag">Cloud Infrastructure</span><span
-                        class="timeline-tag">IBM</span>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">MAY 2025 — JUN 2025</div>
-                <h3 class="timeline-role">Microsoft Azure Fundamentals</h3>
-                <p class="timeline-company">Edunet Foundation · Internship</p>
-                <p class="timeline-desc">Explored cloud computing principles and gained fundamental knowledge of
-                    Microsoft Azure services and architecture.</p>
-                <div class="timeline-tags">
-                    <span class="timeline-tag">Microsoft Azure</span><span class="timeline-tag">Cloud Computing</span>
-                </div>
-            <div class="timeline-item">
-                <div class="timeline-date">NOV 2024 — JAN 2025</div>
-                <h3 class="timeline-role">AI: Transformative Learning (TechSaksham)</h3>
-                <p class="timeline-company">Edunet Foundation · Internship</p>
-                <p class="timeline-desc">Collaborative program by Microsoft & SAP focused on Python programming and AI
-                    literacy for real-world impact.</p>
-                <div class="timeline-tags">
-                    <span class="timeline-tag">Python</span><span class="timeline-tag">Google Colab</span><span
-                        class="timeline-tag">AI</span>
+                    <span class="timeline-tag">Azure Fundamentals</span><span class="timeline-tag">AI Foundations</span><span
+                        class="timeline-tag">Cloud Tooling</span>
                 </div>
             </div>
         </div>
@@ -3264,7 +3207,7 @@
         <div class="section-header reveal">
             <span class="section-number">04 //</span>
             <h2 class="section-title">Projects</h2>
-            <p class="section-desc">stuff i've built when i wasn't sleeping. which is often.</p>
+            <p class="section-desc">featured systems first; everything else is tucked into the archive below.</p>
         </div>
         <div class="projects-grid">
             <!-- PROJECT 01: FlowSync AI -->
@@ -3282,9 +3225,9 @@
                 <div class="project-info">
                     <div class="project-type">Crowd Intelligence Platform</div>
                     <h3 class="project-name">FlowSync AI</h3>
-                    <p class="project-desc">Real-time crowd intelligence system for large-scale venues enabling
-                        density-aware routing, queue prediction, and AI-driven operator interventions for 100,000+
-                        attendees.</p>
+                    <p class="project-desc">Built a real-time routing and queue monitoring platform for large venues,
+                        combining density signals, route recommendations, and operator alerts to support 100,000+
+                        attendee scenarios.</p>
                     <div class="project-tech">
                         <span>React</span><span>TypeScript</span><span>FastAPI</span><span>Google Maps</span><span>Cloud Run</span>
                     </div>
@@ -3319,9 +3262,10 @@
                 <div class="project-info">
                     <div class="project-type">AI Ethics Platform</div>
                     <h3 class="project-name">FairHire AI</h3>
-                    <p class="project-desc">Enterprise hiring audit platform that trains models, detects bias, explains
-                        decisions via SHAP, and generates board-ready fairness compliance reports powered by Gemini
-                        AI.</p>
+                    <p class="project-desc">Built a bias-mitigation pipeline using Fairlearn to optimize demographic parity
+                        across tabular candidate data for hiring teams reviewing model fairness before deployment.
+                        Integrated SHAP to compute local/global feature importance values, rendering model explainability
+                        graphs via a FastAPI backend.</p>
                     <div class="project-tech">
                         <span>React 19</span><span>FastAPI</span><span>Gemini API</span><span>Firebase</span><span>SHAP</span>
                     </div>
@@ -3340,31 +3284,33 @@
                 </div>
             </div>
 
-            <!-- PROJECT 03: Vote Saathi -->
+            <!-- PROJECT 03: PathDiverge -->
             <div class="project-card reveal reveal-delay-1 tilt-card">
                 <div class="project-preview">
                     <div class="project-preview-text">
-                        // VoteSaathi
-                        const voter = await profile.load();
-                        const booth = Maps.nearest(voter);
-                        saathi.guide(voter, 'hi');
-                        // Every vote counts
+                        const simulation = {
+                        model: "Monte Carlo",
+                        trajectories: 2500,
+                        stack: ["FastAPI", "React"],
+                        deployment: "Railway"
+                        };
+                        // Simulating careers...
                     </div>
                     <div class="project-number">03</div>
                 </div>
                 <div class="project-info">
-                    <div class="project-type">Civic Tech Platform</div>
-                    <h3 class="project-name">Vote Saathi</h3>
-                    <p class="project-desc">Context-aware Indian election companion with multilingual Gemini AI
-                        assistance, real-time polling booth navigation, and an accessibility engine for elderly and
-                        differently-abled voters.</p>
+                    <div class="project-type">Simulation Platform</div>
+                    <h3 class="project-name">PathDiverge</h3>
+                    <p class="project-desc">Developed a full-stack simulation engine running 2,500+ Monte Carlo
+                        trajectories per execution request using NumPy vectorized operations to map probabilistic state
+                        transitions.</p>
                     <div class="project-tech">
-                        <span>Next.js 15</span><span>FastAPI</span><span>Gemini API</span><span>Firebase</span><span>BigQuery</span>
+                        <span>FastAPI</span><span>React</span><span>NumPy</span><span>Recharts</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">View Demo <span class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/Vote-Saathi" target="_blank"
-                            class="project-github-link">
+                        <a href="https://path-diverge.vercel.app/" target="_blank" class="project-link">View Demo <span
+                                class="arrow">→</span></a>
+                        <a href="https://github.com/Yash55-max/PathDiverge" target="_blank" class="project-github-link">
                             <svg viewBox="0 0 24 24">
                                 <path
                                     d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -3390,9 +3336,8 @@
                 <div class="project-info">
                     <div class="project-type">Quantitative Finance</div>
                     <h3 class="project-name">BTC Regime Analysis</h3>
-                    <p class="project-desc">High-performance quantitative framework for detecting and trading Bitcoin
-                        market regimes using a dual-window detection engine with adaptive exposure scaling and
-                        institutional-grade backtesting.</p>
+                    <p class="project-desc">Built a Bitcoin regime-detection workflow that evaluates dual-window signals and
+                        adaptive exposure scaling through zero-lookahead backtests on historical price series.</p>
                     <div class="project-tech">
                         <span>Python</span><span>NumPy</span><span>Pandas</span><span>Matplotlib</span>
                     </div>
@@ -3409,247 +3354,260 @@
                     </div>
                 </div>
             </div>
-
-            <!-- PROJECT 05: Last Signal -->
-            <div class="project-card reveal reveal-delay-3 tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        // Last Signal
-                        const window = battery() < 20 || isLateNight();
-                        if (window) chat.unlock({ anonymous: true });
-                        // Time-boxed 1:1
-                    </div>
-                    <div class="project-number">05</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">Realtime PWA</div>
-                    <h3 class="project-name">Last Signal</h3>
-                    <p class="project-desc">Anonymous, time-boxed 1:1 chat that only opens during “signal windows” like
-                        low battery or late-night hours, built for calm, intentional conversations.</p>
-                    <div class="project-tech">
-                        <span>React 19</span><span>Firebase</span><span>Framer Motion</span><span>PWA</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://last-signal-605b1.web.app/" target="_blank" class="project-link">View Demo <span
-                                class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/Last-Signal" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 06: PathDiverge -->
-            <div class="project-card reveal tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        const simulation = {
-                        model: "Monte Carlo",
-                        trajectories: 2500,
-                        stack: ["FastAPI", "React"],
-                        deployment: "Railway"
-                        };
-                        // Simulating careers...
-                    </div>
-                    <div class="project-number">06</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">Simulation Platform</div>
-                    <h3 class="project-name">PathDiverge</h3>
-                    <p class="project-desc">Full-stack Monte Carlo simulation platform modeling early career decisions
-                        and long-term risk tolerances.</p>
-                    <div class="project-tech">
-                        <span>FastAPI</span><span>React</span><span>NumPy</span><span>Recharts</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://path-diverge.vercel.app/" target="_blank" class="project-link">View Demo <span
-                                class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/PathDiverge" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 07: Decidr -->
-            <div class="project-card reveal tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        // Decidr
-                        const factors = ML.extract(data);
-                        const decision = AI.reason(factors);
-                        return decision.explain();
-                        // Smarter decisions
-                    </div>
-                    <div class="project-number">07</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">AI Decision Platform</div>
-                    <h3 class="project-name">Decidr</h3>
-                    <p class="project-desc">AI-powered decision intelligence platform combining data analysis, machine
-                        learning, and intelligent reasoning to help users make smarter, data-driven decisions.</p>
-                    <div class="project-tech">
-                        <span>JavaScript</span><span>React</span><span>AI/ML</span><span>Data Analysis</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">View Demo <span class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/Decidr" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 08: Media Muse -->
-            <div class="project-card reveal reveal-delay-1 tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        // Media Muse AI
-                        async function recommend(user) {
-                        const mood = await Gemini.analyze(user);
-                        return Spotify.getTracks(mood);
-                        }
-                        // Personalized Vibes Only
-                    </div>
-                    <div class="project-number">08</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">AI Music Web App</div>
-                    <h3 class="project-name">Media Muse</h3>
-                    <p class="project-desc">AI-powered music recommendation platform integrating Spotify and Gemini APIs
-                        for personalized user experiences.</p>
-                    <div class="project-tech"><span>Python</span><span>Gemini API</span><span>Spotify
-                            API</span><span>PWA</span></div>
-                    <div class="project-links">
-                        <a href="https://media-muse.vercel.app/" target="_blank" class="project-link">View Demo <span
-                                class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/Media-Muse" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 09: Smart StockBot -->
-            <div class="project-card reveal reveal-delay-2 tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        while (retail.business) {
-                        StockBot.trackLoop();
-                        if (sold) StockBot.update();
-                        }
-                        // Intelligent Inventory
-                    </div>
-                    <div class="project-number">09</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">Inventory System</div>
-                    <h3 class="project-name">Smart StockBot</h3>
-                    <p class="project-desc">AI-powered web system designed to automate stock tracking and sales
-                        monitoring for retail use cases.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>JavaScript</span><span>Automation</span><span>CSV</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://stock-bot-two.vercel.app/" target="_blank" class="project-link">View Demo <span
-                                class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/StockBot" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 10: Student Performance Tracker -->
-            <div class="project-card reveal reveal-delay-3 tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        const analytics = {
-                        database: "SQLite",
-                        framework: "Flask",
-                        analytics: ["Toppers", "Averages"],
-                        persistence: "localStorage"
-                        };
-                        // Tracking performance...
-                    </div>
-                    <div class="project-number">10</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">Educational Analytics</div>
-                    <h3 class="project-name">Performance Tracker</h3>
-                    <p class="project-desc">Comprehensive Flask-based platform for student performance tracking,
-                        featuring automated analytics, data export, and dark/light theme switching.</p>
-                    <div class="project-tech">
-                        <span>Flask</span><span>SQLite</span><span>Python</span><span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://student-performance-tracker-delta.vercel.app/" target="_blank"
-                            class="project-link">View Demo <span class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROJECT 11: EventSync -->
-            <div class="project-card reveal tilt-card">
-                <div class="project-preview">
-                    <div class="project-preview-text">
-                        &lt;section id="events"&gt;
-                        &lt;h1&gt;Simplifying Events&lt;/h1&gt;
-                        &lt;p&gt;Auth, registration, tracking&lt;/p&gt;
-                        &lt;/section&gt;
-                        // Unified Management
-                    </div>
-                    <div class="project-number">11</div>
-                </div>
-                <div class="project-info">
-                    <div class="project-type">Management Platform</div>
-                    <h3 class="project-name">EventSync</h3>
-                    <p class="project-desc">Full-stack event management system built to simplify creation, registration,
-                        and participant tracking.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">View Demo <span class="arrow">→</span></a>
-                        <a href="https://github.com/Yash55-max/EventSynce" target="_blank" class="project-github-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+        <details class="project-archive reveal">
+            <summary>
+                <div>
+                    <span>ARCHIVE //</span>
+                    <strong>Project Archive</strong>
+                    <p>Secondary builds, hackathon work, and earlier experiments that are still worth keeping on record.</p>
+                </div>
+                <div class="project-archive-icon">⌄</div>
+            </summary>
+            <div class="project-archive-grid">
+                <div class="projects-grid">
+                    <!-- PROJECT 05: Vote Saathi -->
+                    <div class="project-card reveal reveal-delay-3 tilt-card">
+                        <div class="project-preview">
+                            <div class="project-preview-text">
+                                // VoteSaathi
+                                const voter = await profile.load();
+                                const booth = Maps.nearest(voter);
+                                saathi.guide(voter, 'hi');
+                                // Every vote counts
+                            </div>
+                            <div class="project-number">05</div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-type">Civic Tech Platform</div>
+                            <h3 class="project-name">Vote Saathi</h3>
+                            <p class="project-desc">Engineered a location-aware election assistance platform for voter
+                                guidance and booth lookup, optimizing API latency and resource utilization through backend
+                                time-to-live (TTL) response caching and strict query limitations on Firestore
+                                collections.</p>
+                            <div class="project-tech">
+                                <span>Next.js 15</span><span>FastAPI</span><span>Gemini API</span><span>Firebase</span><span>BigQuery</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Demo <span class="arrow">→</span></a>
+                                <a href="https://github.com/Yash55-max/Vote-Saathi" target="_blank"
+                                    class="project-github-link">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 06: Last Signal -->
+                    <div class="project-card reveal reveal-delay-3 tilt-card">
+                        <div class="project-preview">
+                            <div class="project-preview-text">
+                                // Last Signal
+                                const window = battery() < 20 || isLateNight();
+                                if (window) chat.unlock({ anonymous: true });
+                                // Time-boxed 1:1
+                            </div>
+                            <div class="project-number">06</div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-type">Realtime PWA</div>
+                            <h3 class="project-name">Last Signal</h3>
+                            <p class="project-desc">Anonymous, time-boxed 1:1 chat that only opens during “signal windows” like
+                                low battery or late-night hours, built for calm, intentional conversations.</p>
+                            <div class="project-tech">
+                                <span>React 19</span><span>Firebase</span><span>Framer Motion</span><span>PWA</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://last-signal-605b1.web.app/" target="_blank" class="project-link">View Demo <span
+                                        class="arrow">→</span></a>
+                                <a href="https://github.com/Yash55-max/Last-Signal" target="_blank" class="project-github-link">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 07: Decidr -->
+                    <div class="project-card reveal tilt-card">
+                        <div class="project-preview">
+                            <div class="project-preview-text">
+                                // Decidr
+                                const factors = ML.extract(data);
+                                const decision = AI.reason(factors);
+                                return decision.explain();
+                                // Smarter decisions
+                            </div>
+                            <div class="project-number">07</div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-type">AI Decision Platform</div>
+                            <h3 class="project-name">Decidr</h3>
+                            <p class="project-desc">AI-powered decision intelligence platform combining data analysis, machine
+                                learning, and intelligent reasoning to help users make smarter, data-driven decisions.</p>
+                            <div class="project-tech">
+                                <span>JavaScript</span><span>React</span><span>AI/ML</span><span>Data Analysis</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Demo <span class="arrow">→</span></a>
+                                <a href="https://github.com/Yash55-max/Decidr" target="_blank" class="project-github-link">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 08: Media Muse -->
+                    <div class="project-card reveal reveal-delay-1 tilt-card">
+                        <div class="project-preview">
+                            <div class="project-preview-text">
+                                // Media Muse AI
+                                async function recommend(user) {
+                                const mood = await Gemini.analyze(user);
+                                return Spotify.getTracks(mood);
+                                }
+                                // Personalized Vibes Only
+                            </div>
+                            <div class="project-number">08</div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-type">AI Music Web App</div>
+                            <h3 class="project-name">Media Muse</h3>
+                            <p class="project-desc">AI-powered music recommendation platform integrating Spotify and Gemini APIs
+                                for personalized user experiences.</p>
+                            <div class="project-tech"><span>Python</span><span>Gemini API</span><span>Spotify
+                                    API</span><span>PWA</span></div>
+                            <div class="project-links">
+                                <a href="https://media-muse.vercel.app/" target="_blank" class="project-link">View Demo <span
+                                        class="arrow">→</span></a>
+                                <a href="https://github.com/Yash55-max/Media-Muse" target="_blank" class="project-github-link">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 09: Smart StockBot -->
+                    <div class="project-card reveal reveal-delay-2 tilt-card">
+                        <div class="project-preview">
+                            <div class="project-preview-text">
+                                while (retail.business) {
+                                StockBot.trackLoop();
+                                if (sold) StockBot.update();
+                                }
+                                // Intelligent Inventory
+                            </div>
+                            <div class="project-number">09</div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-type">Inventory System</div>
+                            <h3 class="project-name">Smart StockBot</h3>
+                            <p class="project-desc">AI-powered web system designed to automate stock tracking and sales
+                                monitoring for retail use cases.</p>
+                            <div class="project-tech">
+                                <span>Python</span><span>JavaScript</span><span>Automation</span><span>CSV</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://stock-bot-two.vercel.app/" target="_blank" class="project-link">View Demo <span
+                                        class="arrow">→</span></a>
+                                <a href="https://github.com/Yash55-max/StockBot" target="_blank" class="project-github-link">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 10: Student Performance Tracker -->
+                    <div class="project-card reveal reveal-delay-3 tilt-card">
+                        <div class="project-preview">
+                            <div class="project-preview-text">
+                                const analytics = {
+                                database: "SQLite",
+                                framework: "Flask",
+                                analytics: ["Toppers", "Averages"],
+                                persistence: "localStorage"
+                                };
+                                // Tracking performance...
+                            </div>
+                            <div class="project-number">10</div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-type">Educational Analytics</div>
+                            <h3 class="project-name">Performance Tracker</h3>
+                            <p class="project-desc">Comprehensive Flask-based platform for student performance tracking,
+                                featuring automated analytics, data export, and dark/light theme switching.</p>
+                            <div class="project-tech">
+                                <span>Flask</span><span>SQLite</span><span>Python</span><span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://student-performance-tracker-delta.vercel.app/" target="_blank"
+                                    class="project-link">View Demo <span class="arrow">→</span></a>
+                                <a href="https://github.com/Yash55-max" target="_blank" class="project-github-link">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 11: EventSync -->
+                    <div class="project-card reveal tilt-card">
+                        <div class="project-preview">
+                            <div class="project-preview-text">
+                                &lt;section id="events"&gt;
+                                &lt;h1&gt;Simplifying Events&lt;/h1&gt;
+                                &lt;p&gt;Auth, registration, tracking&lt;/p&gt;
+                                &lt;/section&gt;
+                                // Unified Management
+                            </div>
+                            <div class="project-number">11</div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-type">Management Platform</div>
+                            <h3 class="project-name">EventSync</h3>
+                            <p class="project-desc">Full-stack event management system built to simplify creation, registration,
+                                and participant tracking.</p>
+                            <div class="project-tech">
+                                <span>Python</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Demo <span class="arrow">→</span></a>
+                                <a href="https://github.com/Yash55-max/EventSynce" target="_blank" class="project-github-link">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
 
     </section>
 

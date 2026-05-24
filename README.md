@@ -12,9 +12,10 @@ A premium, high-performance developer portfolio built with a focus on system aes
     - Live-fetched pinned repositories with real-time stars and forks.
     - Automated contribution heatmap integration.
     - Profile statistics (followers, total repos, stars) updated on load.
-- **Interactive Skills Section**:
-    - 50+ localized skill pills with automated logo injection from Devicons and Simple Icons.
-    - Animated proficiency bars for core technical domains.
+- **Structured Skills Section**:
+    - Skills grouped by execution level so visitors can quickly distinguish production-ready tools from academic exposure.
+- **Curated Project Showcase**:
+    - Four featured projects on the main dashboard with the remaining builds moved into a collapsible archive.
 - **Embedded Resume**: Interactive PDF viewer with direct Google Drive integration for viewing and downloading.
 - **Custom UI/UX**:
     - Smooth scrolling with magnetic cursor effects.
