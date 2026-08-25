@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yashwanth Ponnam // DevOps × AI Systems Engineer</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500;700;800&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
 <style>
@@ -1699,12 +1701,13 @@ footer span{color:var(--cyan);}
     <div class="music-iframe-wrap">
       <iframe
         id="spotifyIframe"
-        src="https://open.spotify.com/embed/track/65X2koe1LhDgQmRkNdJFv9?utm_source=generator&theme=0"
+        src=""
+        data-src="https://open.spotify.com/embed/track/65X2koe1LhDgQmRkNdJFv9?utm_source=generator&theme=0"
         width="100%"
         height="152"
         frameBorder="0"
         allowfullscreen=""
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        allow="encrypted-media; fullscreen; picture-in-picture"
         loading="lazy">
       </iframe>
     </div>
@@ -2152,7 +2155,7 @@ function toggleMusicWidget(forceState){
     pill.classList.remove('paused');
     if(btnText) btnText.textContent = 'CLOSE';
     const track = playlist[currentTrackIndex];
-    if(iframe && !iframe.src.includes('autoplay=1')){
+    if(iframe && (!iframe.src || !iframe.src.includes('open.spotify.com'))){
       iframe.src = `https://open.spotify.com/embed/track/${track.id}?utm_source=generator&theme=0&autoplay=1`;
     }
   } else {
