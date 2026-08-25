@@ -1,99 +1,111 @@
-# ⚡ Yashwanth Ponnam // DevOps × AI Systems Engineer
+# Yashwanth Ponnam | DevOps & AI Systems Engineer
 
-> **LIMITLESS.SYS — SATORU GOJO PROTOCOL (六眼 v3.0)**  
-> A cyber-brutalist, ultra-fast developer portfolio engineered for zero-latency presentation, showcasing Kubernetes/EKS infrastructure, LLMOps, multi-agent AI networks, and 28+ verified industry credentials.
+> Production-grade cloud infrastructure, automated Kubernetes orchestration, LLMOps pipelines, and autonomous AI systems.
 
 [![Live Portfolio](https://img.shields.io/badge/Live-Portfolio-050608?style=for-the-badge&logo=vercel&logoColor=7fe3ff)](https://github.com/Yash55-max/Portfolio)
-[![DevOps & AI](https://img.shields.io/badge/Focus-DevOps%20%C3%97%20AI%20Systems-2f5dff?style=for-the-badge&logo=kubernetes&logoColor=white)](https://github.com/Yash55-max)
+[![DevOps & AI](https://img.shields.io/badge/Focus-DevOps%20%26%20AI%20Systems-2f5dff?style=for-the-badge&logo=kubernetes&logoColor=white)](https://github.com/Yash55-max)
 [![GitHub](https://img.shields.io/badge/GitHub-Yash55--max-12234f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Yash55-max)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Yashwanth%20Ponnam-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yashwanth-ponnam)
 
 ---
 
-## 🌌 Overview
+## Executive Summary
 
-In a world of legacy friction, this portfolio is built on the philosophy of the **Limitless (無下限)** — resilient cloud infrastructure, zero-downtime CI/CD pipelines, and high-throughput AI systems.
-
-Built with **pure HTML5, CSS3, and ES6+ JavaScript** (zero bloated frameworks, instant paint, 100% responsive, WCAG AA accessible).
+A high-performance developer portfolio built with pure HTML5, CSS3, and ES6+ JavaScript. Designed for zero-latency presentation, the platform highlights production-grade infrastructure, MLOps platforms, enterprise financial copilots, and autonomous multi-agent networks with a focus on high reliability, automated observability, and clean UI engineering.
 
 ---
 
-## ⚡ Key Highlights & Architecture
+## Core Systems & Features
 
-### 1. 呪術 // Satoru Gojo Hero Stage & Domain Expansion
-- **Cyber-Brutalist Hero Stage**: High-framerate HTML5 video container (`assets/1.mp4`) with corner reticles, scanlines, and 3D mouse parallax tracking.
-- **Cursed Technique Orbs**: Floating animated orbs representing Lapse: Blue (`順転「蒼」`), Reversal: Red (`反転「赫」`), and Hollow Purple (`虚式「茈」`).
-- **Interactive Domain Expansion (無量空処)**: Fullscreen 2D Canvas warp effect simulating infinite information and starfield acceleration on demand.
+### 1. High-Signal Flagship Systems
+- **llm-devops (Production LLM Infrastructure)**: Self-serve LLM inference platform on Kubernetes spanning local kind clusters to AWS EKS with Terraform Infrastructure as Code (IaC), automated CI/CD pipelines, and full-stack observability via Prometheus, Grafana, and Alertmanager.
+- **ClearLedger (Enterprise AP Reconciliation Copilot)**: Institutional accounts payable auditing platform pairing a deterministic matching engine with AI executive commentary and automated variance classification using FastAPI, React 18, and the Gemini API.
+- **rag-api (High-Throughput Vector Retrieval)**: Asynchronous FastAPI backend powered by ChromaDB vector store and local Ollama model serving for low-latency contextual retrieval and document embeddings.
+- **multi-agent-adk (Autonomous Multi-Agent Orchestration)**: Multi-agent productivity engine built with Google ADK, featuring orchestrator routing, specialized task agents, dynamic calendar execution, and persistent memory tools.
+- **FlowSync AI (Geo-Distributed Queue Management)**: Real-time routing and density monitoring system deployed on Google Cloud Run supporting large-scale venue navigation scenarios.
+- **FairHire AI (MLOps & Fairness Auditing)**: Enterprise hiring audit suite utilizing Fairlearn for bias mitigation in tabular datasets and local/global SHAP explainability visualizations.
 
-### 2. High-Signal vs. Archive System Tiering
-- **04 // Flagship Systems (High-Signal)**:
-  1. `llm-devops` — Production-grade LLM inference platform on Kubernetes (kind to AWS EKS) with Terraform IaC, Prometheus, Grafana, and Alertmanager.
-  2. `ClearLedger` — Institutional vendor AP reconciliation copilot with deterministic matching and Gemini API commentary.
-  3. `rag-api` — High-performance Retrieval-Augmented Generation backend with FastAPI, ChromaDB vector database, and local Ollama inference.
-  4. `multi-agent-adk` — Autonomous agent orchestration system built with Google ADK, dynamic tool calling, and persistent state.
-  5. `FlowSync AI` — Real-time venue routing and density intelligence engine deployed on Google Cloud Run.
-  6. `FairHire AI` — Enterprise hiring audit platform powered by Fairlearn bias mitigation and SHAP explainability graphs.
-- **Secondary Archive**: Collapsible accordion housing 8 additional hackathon builds, Monte Carlo financial divergence simulators (`PathDiverge`), civic tech platforms (`Vote Saathi`), time-boxed PWAs (`Last Signal`), and quantitative backtesting engines (`BTC Regime Analysis`).
+### 2. Secondary Project Archive
+An expandable repository containing 8 additional platforms, civic tech builds, simulation models, and web applications:
+- **Career Strategist Terminal**: Command-line inspired agentic dashboard for milestone tracking.
+- **Vote Saathi**: Context-aware election assistance platform deployed on Google Cloud Run with BigQuery telemetry.
+- **PathDiverge**: Monte Carlo simulation platform modeling career divergence with 2,500+ vectorized NumPy trajectories.
+- **BTC Regime Analysis**: Quantitative machine learning backtesting workflow with adaptive exposure scaling.
+- **Last Signal**: Time-boxed 1:1 chat Progressive Web Application (PWA) built with React 19 and Firebase.
+- **Media Muse**: Contextual music recommendation engine pairing Spotify metadata with the Gemini API.
+- **Smart StockBot**: Automated inventory management workflow with voice-enabled controls.
+- **Student Performance Tracker**: Academic analytics platform built on Flask and SQLite.
 
-### 3. Verified Credential & Academy Repository (28+ Certified Competencies)
-- **Verified Badges**: Direct Credly & OpenBadge links for Cisco (Data Analytics, Data Science, Modern AI), IBM (Journey to Cloud), ISC2 (Candidate), MongoDB (Schema Design Patterns), AWS Academy (ML Foundations, ML for NLP, Gen AI Foundations), and Altair RapidMiner.
-- **Professional Certifications**: Oracle Cloud Infrastructure (OCI Data Science Professional), Anthropic (Claude Code in Action), Google Cloud / Hack2skill (Gen AI Academy APAC), GDG Cloud Kochi (Code Vipassana Season 13 Top 10 Developer & Season 14 Top 58), NxtWave (Gen AI Buildathon), LetsUpgrade, HP LIFE, Intel, and Forage (BCG, Tata, Deloitte, Accenture).
+### 3. Verified Certifications & Credentials (28+ Total)
+- **Verified Academy Badges (Credly & OpenBadge)**:
+  - Cisco Networking Academy: Data Analytics Essentials, Introduction to Data Science, Introduction to Modern AI
+  - IBM SkillsBuild: Journey to Cloud
+  - ISC2: Cybersecurity Candidate
+  - MongoDB University: Schema Design Patterns
+  - AWS Academy: Machine Learning Foundations, Machine Learning for NLP, Generative AI Foundations
+  - Altair RapidMiner: Machine Learning & Data Engineering Master
+- **Professional Certifications & Job Simulations**:
+  - Oracle: OCI Data Science Professional
+  - Anthropic: Claude Code in Action
+  - Google Cloud / Hack2skill: Gen AI Academy APAC (Cohort 1)
+  - Google Developers Group [Cloud Kochi]: Code Vipassana Season 13 (Top 10 Developer) & Season 14 (Top 58 Developer)
+  - NxtWave: Gen AI Buildathon
+  - LetsUpgrade: Prompt Engineering
+  - HP LIFE: AI for Beginners, Data Analytics & Science
+  - Intel Corporation: AI Aware Certification (AI For All)
+  - Forage: BCG GenAI Simulation, Tata Data Visualisation, Deloitte Data Analytics, Accenture Data Analytics & Visualisation
 
-### 4. Floating Cyber-Brutalist Music Player
-- Docked audio widget with animated 4-bar equalizer and responsive Spotify embed.
-- **Dual-Track Playlist Switcher**:
-  - `1. AIZO (相剋)` — King Gnu // Jujutsu Kaisen Theme
-  - `2. SPECIALZ` — King Gnu // Shibuya Incident Opening Theme
-
-### 5. Production-Grade SVG Icon System
-- **100% Emoji-Free**: Replaced all unicode emojis and symbols with crisp, accessible inline vector SVG icons matching modern design standards.
-- Fully accessible with `:focus-visible` keyboard states and screen-reader `aria-label` tags.
+### 4. Technical UI Engineering & Accessibility
+- **Inline SVG Icon System**: 100% vector-based, emoji-free iconography conforming to consistent 24x24 viewBox stroke standards.
+- **Accessibility (WCAG 2.1 AA)**: Focus rings (`:focus-visible`), aria-label tags for screen readers, and structured semantic HTML landmarks.
+- **Integrated Audio Widget**: Docked Spotify player widget with an animated 4-bar equalizer and dual-track playlist management.
+- **Dynamic Terminal Telemetry**: Real-time typing loop displaying active infrastructure state and cluster operations.
 
 ---
 
-## 🛠️ Technology Stack
+## Technical Stack & Competencies
 
-| Domain | Technologies |
+| Layer | Technologies |
 | :--- | :--- |
-| **Cloud & DevOps** | Kubernetes (EKS / kind), Terraform (IaC), Docker, AWS, Google Cloud Run, GitHub Actions CI/CD, Prometheus, Grafana, Alertmanager |
+| **Cloud & Infrastructure** | Kubernetes (EKS / kind), Terraform (IaC), Docker, AWS, Google Cloud Run, GitHub Actions CI/CD, Prometheus, Grafana, Alertmanager |
 | **AI & MLOps** | FastAPI, Ollama, ChromaDB, PyTorch, Scikit-Learn, Fairlearn, SHAP, Google ADK, Gemini API, Pandas, NumPy |
-| **Frontend & Systems** | HTML5, Vanilla CSS3 (Custom Variables & Cyber-Brutalist Grid), Modern ES6+, Canvas 2D API, Spotify Embed API |
-| **Integrations** | Formspree Contact Endpoint, Credly Badge Verification, Google Drive Document Delivery |
+| **Frontend & Systems** | HTML5, Vanilla CSS3, Modern ES6+, Canvas 2D API, Spotify Embed API, Formspree API |
+| **Databases & Storage** | PostgreSQL, SQLite, ChromaDB, Firebase Firestore, BigQuery |
 
 ---
 
-## 📂 Project Structure
+## Repository Structure
 
-```bash
+```text
 Portfolio/
 ├── assets/
-│   └── 1.mp4           # Satoru Gojo hero video asset
-├── index.html          # Main single-page application (All components & styles)
-└── README.md           # Portfolio documentation
+│   └── 1.mp4           # Video background and media asset
+├── index.html          # Core single-page application (Markup, CSS, and JS)
+└── README.md           # Technical documentation and project overview
 ```
 
 ---
 
-## 🚀 Quick Start & Local Preview
+## Local Development & Setup
 
-Clone the repository and serve it locally with any static web server:
+To inspect or serve the application locally:
 
 ```bash
 # Clone the repository
 git clone https://github.com/Yash55-max/Portfolio.git
 
-# Navigate into the project directory
+# Navigate to the workspace
 cd Portfolio
 
-# Start a local HTTP server
+# Launch a local static server
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000` in your browser.
+Open `http://localhost:8000` in any modern web browser.
 
 ---
 
-## 📬 Transmission Channel
+## Contact & Professional Inquiries
 
 - **Email**: [yashwanthponnam55@gmail.com](mailto:yashwanthponnam55@gmail.com)
 - **Phone / WhatsApp**: [+91-9391223913](tel:+919391223913)
@@ -103,4 +115,4 @@ Open `http://localhost:8000` in your browser.
 
 ---
 
-© 2026 **Yashwanth Ponnam** // LIMITLESS.SYS — SATORU GOJO PROTOCOL // DEVOPS × AI
+(c) 2026 Yashwanth Ponnam | DevOps & AI Systems Engineer
