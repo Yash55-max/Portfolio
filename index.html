@@ -3,7 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yashwanth Ponnam // DevOps X AI Systems Engineer</title>
+<title>Yashwanth Ponnam // DevOps × AI Systems Engineer</title>
+
+<!-- SEO Meta -->
+<meta name="description" content="Yashwanth Ponnam — DevOps & AI Systems Engineer specializing in Kubernetes orchestration, MLOps, CI/CD automation, LLM serving, and multi-agent AI architecture.">
+<meta name="keywords" content="DevOps Engineer, AI Systems, Kubernetes, MLOps, Terraform, CI/CD, LLM, RAG, Multi-Agent AI, FastAPI, Yashwanth Ponnam">
+<meta name="author" content="Yashwanth Ponnam">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph (Facebook, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yash55-max.github.io/Portfolio/">
+<meta property="og:title" content="Yashwanth Ponnam // DevOps × AI Systems Engineer">
+<meta property="og:description" content="DevOps & AI Systems Engineer — Kubernetes, MLOps, CI/CD, LLM Ops & autonomous multi-agent architectures. Limitless by design.">
+<meta property="og:image" content="https://yash55-max.github.io/Portfolio/favicon.svg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yashwanth Ponnam // DevOps × AI Systems Engineer">
+<meta name="twitter:description" content="DevOps & AI Systems Engineer — Kubernetes, MLOps, CI/CD, LLM Ops & autonomous multi-agent architectures.">
+<meta name="twitter:image" content="https://yash55-max.github.io/Portfolio/favicon.svg">
+
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -808,6 +828,27 @@ section{padding:6rem 5vw;position:relative;}
 .form-input:focus, .form-textarea:focus{border-color:var(--cyan);}
 .form-textarea{resize:vertical;min-height:90px;}
 
+/* Contact form feedback states */
+.form-status{
+  display:none;padding:0.85rem 1rem;font-size:0.8rem;font-weight:700;
+  border:2px solid;letter-spacing:0.04em;text-align:center;
+}
+.form-status.success{display:block;border-color:var(--neon);color:var(--neon);background:rgba(68,255,136,0.08);}
+.form-status.error{display:block;border-color:var(--red);color:var(--red);background:rgba(255,51,102,0.08);}
+.form-submit-btn{position:relative;overflow:hidden;}
+.form-submit-btn.loading{opacity:0.7;pointer-events:none;}
+.form-submit-btn.loading::after{
+  content:'SENDING…';position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;background:rgba(5,6,8,0.85);font-size:0.75rem;letter-spacing:0.08em;
+}
+
+/* Active nav link on scroll */
+.navlinks a.nav-active{color:var(--cyan);}
+.navlinks a.nav-active::after{width:100%;}
+
+/* proj-card as anchor tag */
+a.proj-card{display:grid;}
+
 footer{
   text-align:center;padding:2.5rem;font-size:0.75rem;color:#7a8092;
   border-top:2px solid #1b2030;letter-spacing:0.05em;
@@ -1081,6 +1122,264 @@ footer span{color:var(--cyan);}
   }
 }
 
+/* =============================================
+   Floating Gojo Satoru Quote Widget
+   ============================================= */
+.gojo-quote-widget{
+  position:fixed;
+  bottom:28px;
+  left:28px;
+  z-index:996;
+  width:120px;
+  pointer-events:none;
+}
+
+/* ---- Character container ---- */
+.gojo-char-container{
+  width:120px;
+  pointer-events:all;
+  cursor:grab;
+  position:relative;
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:none;
+}
+.gojo-char-container:active{ cursor:grabbing; }
+.gojo-char-container.is-dragging{ cursor:grabbing; transition:none !important; }
+.gojo-char-container:focus-visible{ outline:2px solid var(--cyan); outline-offset:4px; }
+
+/* Drag handle badge */
+.gojo-drag-badge{
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  background:var(--ink);
+  border:1.5px solid var(--cyan);
+  color:var(--cyan);
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.48rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  padding:.15rem .35rem;
+  white-space:nowrap;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .2s ease;
+}
+.gojo-char-container:hover .gojo-drag-badge{ opacity:1; }
+
+.gojo-char-hint{
+  position:absolute;
+  bottom:-22px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.52rem;
+  font-weight:700;
+  color:var(--cyan);
+  letter-spacing:0.1em;
+  white-space:nowrap;
+  opacity:0;
+  transition:opacity .2s ease;
+  pointer-events:none;
+}
+.gojo-char-container:hover .gojo-char-hint{ opacity:1; }
+
+/* ---- Gojo image ---- */
+.gojo-img{
+  width:100%;
+  height:auto;
+  aspect-ratio:582 / 776;
+  display:block;
+  mix-blend-mode:lighten;
+  filter:drop-shadow(0 0 18px rgba(127,227,255,0.45)) drop-shadow(0 0 6px rgba(168,85,247,0.3));
+  animation:gojoHover 4.2s ease-in-out infinite;
+  pointer-events:none;
+  -webkit-user-drag:none;
+  user-drag:none;
+}
+.gojo-char-container.is-dragging .gojo-img{
+  animation:none;
+  filter:drop-shadow(0 0 24px rgba(127,227,255,0.75)) drop-shadow(0 0 10px rgba(168,85,247,0.6));
+}
+
+@keyframes gojoHover{
+  0%,100%{ transform:translateY(0px) rotate(0deg); }
+  30%{ transform:translateY(-6px) rotate(-0.6deg); }
+  70%{ transform:translateY(-3px) rotate(0.4deg); }
+}
+
+/* ---- Speech Bubble ---- */
+.gojo-speech-wrap{
+  position:absolute;
+  bottom:calc(100% + 14px);
+  left:0;
+  pointer-events:all;
+  z-index:997;
+}
+.gojo-quote-widget.bubble-below .gojo-speech-wrap{
+  bottom:auto;
+  top:calc(100% + 14px);
+}
+.gojo-quote-widget.bubble-right .gojo-speech-wrap{
+  left:auto;
+  right:0;
+}
+
+.gojo-speech-bubble{
+  background:var(--ink);
+  border:3px solid var(--cyan);
+  box-shadow:6px 6px 0 var(--purple);
+  padding:1rem 1.1rem 0.85rem;
+  width:230px;
+  position:relative;
+  opacity:0;
+  visibility:hidden;
+  transform:scale(0.88);
+  transform-origin:bottom left;
+  transition:all .28s cubic-bezier(.16,1,.3,1);
+  pointer-events:none;
+}
+.gojo-speech-bubble.visible{
+  opacity:1;
+  visibility:visible;
+  transform:scale(1);
+  pointer-events:all;
+}
+.gojo-quote-widget.bubble-below .gojo-speech-bubble{
+  transform-origin:top left;
+}
+.gojo-quote-widget.bubble-right .gojo-speech-bubble{
+  transform-origin:bottom right;
+}
+.gojo-quote-widget.bubble-below.bubble-right .gojo-speech-bubble{
+  transform-origin:top right;
+}
+
+/* Arrow pointing DOWN (bubble above character — default) */
+.gojo-speech-bubble::after{
+  content:'';
+  position:absolute;
+  bottom:-12px; top:auto;
+  left:24px; right:auto;
+  border-left:9px solid transparent;
+  border-right:9px solid transparent;
+  border-top:11px solid var(--cyan);
+  border-bottom:none;
+}
+.gojo-speech-bubble::before{
+  content:'';
+  position:absolute;
+  bottom:-8px; top:auto;
+  left:27px; right:auto;
+  border-left:6px solid transparent;
+  border-right:6px solid transparent;
+  border-top:8px solid var(--ink);
+  border-bottom:none;
+  z-index:1;
+}
+
+/* Arrow pointing UP (when bubble is below character) */
+.gojo-quote-widget.bubble-below .gojo-speech-bubble::after{
+  top:-12px; bottom:auto;
+  border-bottom:11px solid var(--cyan);
+  border-top:none;
+}
+.gojo-quote-widget.bubble-below .gojo-speech-bubble::before{
+  top:-8px; bottom:auto;
+  border-bottom:8px solid var(--ink);
+  border-top:none;
+}
+
+/* Arrow shifted right (when bubble is right-aligned) */
+.gojo-quote-widget.bubble-right .gojo-speech-bubble::after{
+  left:auto; right:24px;
+}
+.gojo-quote-widget.bubble-right .gojo-speech-bubble::before{
+  left:auto; right:27px;
+}
+
+.gojo-bubble-label{
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:.58rem;
+  font-weight:900;
+  color:var(--cyan);
+  letter-spacing:.12em;
+  margin-bottom:.55rem;
+}
+.gojo-bubble-label .jp{ color:var(--purple); }
+.gojo-bubble-label .sep{ color:#5a6070; }
+
+.gojo-quote-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.58rem;
+  color:var(--cyan);
+  letter-spacing:.08em;
+  margin-bottom:.3rem;
+  opacity:.7;
+}
+
+.gojo-quote-text{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;
+  line-height:1.65;
+  color:var(--white);
+  margin:0 0 .5rem 0;
+  min-height:3.8em;
+  transition:opacity .25s ease;
+}
+.gojo-quote-text.fading{ opacity:0; }
+
+.gojo-quote-jp{
+  font-family:'Noto Sans JP',sans-serif;
+  font-weight:900;
+  font-size:.7rem;
+  color:var(--purple);
+  letter-spacing:.18em;
+  margin-bottom:.75rem;
+  opacity:.85;
+}
+
+.gojo-bubble-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.gojo-next-btn{
+  background:var(--cyan);
+  color:var(--black);
+  border:none;
+  padding:.28rem .65rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:.06em;
+  cursor:pointer;
+  transition:background .15s ease, color .15s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.3rem;
+}
+.gojo-next-btn:hover{ background:var(--purple); color:var(--white); }
+.gojo-quote-counter{
+  font-size:.58rem;
+  color:#7a8092;
+  font-family:'JetBrains Mono',monospace;
+}
+
+@media(max-width:600px){
+  .gojo-quote-widget,
+  .gojo-char-container{ width:90px; }
+  .gojo-speech-bubble{ width:200px; }
+}
+@media(max-width:380px){
+  .gojo-quote-widget{ display:none; }
+}
+
+
 </style>
 </head>
 <body>
@@ -1164,7 +1463,7 @@ footer span{color:var(--cyan);}
     <div class="charwrap" id="charwrap">
       <!-- Satoru Gojo Video Container -->
       <div class="video-cyber-frame">
-        <video src="assets/1.mp4" autoplay loop muted playsinline class="gojo-video" poster="assets/1.mp4"></video>
+        <video src="assets/1.mp4" autoplay loop muted playsinline class="gojo-video" aria-label="Satoru Gojo animation"></video>
         <div class="video-overlay-scanline"></div>
         <div class="video-corner corner-tl"></div>
         <div class="video-corner corner-tr"></div>
@@ -1226,7 +1525,7 @@ footer span{color:var(--cyan);}
       <div class="stat-grid">
         <div>
           <div class="stat-num">99.98%</div>
-          <div class="stat-label">Target Uptime</div>
+          <div class="stat-label">Uptime SLO</div>
         </div>
         <div>
           <div class="stat-num">15+</div>
@@ -1667,12 +1966,13 @@ footer span{color:var(--cyan);}
       </div>
     </div>
 
-    <form class="contact-form" action="https://formspree.io/f/xjgejvoq" method="POST">
+    <form class="contact-form" id="contactForm" novalidate>
       <input type="text" name="name" class="form-input" placeholder="Your Name" required>
       <input type="email" name="email" class="form-input" placeholder="Your Email Address" required>
       <input type="text" name="subject" class="form-input" placeholder="Subject / Project Scope">
       <textarea name="message" class="form-textarea" placeholder="Your Message..." required></textarea>
-      <button type="submit" class="btn primary" style="justify-content:center;">Transmit Message <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+      <div class="form-status" id="formStatus" role="alert" aria-live="polite"></div>
+      <button type="submit" class="btn primary form-submit-btn" id="formSubmitBtn" style="justify-content:center;">Transmit Message <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
     </form>
   </div>
 </section>
@@ -1742,7 +2042,48 @@ footer span{color:var(--cyan);}
   </div>
 </aside>
 
-<footer>© 2026 <span>Yashwanth Ponnam</span> // LIMITLESS.SYS — SATORU GOJO PROTOCOL // DEVOPS × AI</footer>
+<!-- Floating Gojo Satoru Quote Widget (bottom-left) -->
+<div class="gojo-quote-widget" id="gojoQuoteWidget" aria-live="polite">
+
+  <!-- Speech Bubble (appears above character) -->
+  <div class="gojo-speech-wrap">
+    <div class="gojo-speech-bubble" id="gojoSpeechBubble" role="status">
+      <div class="gojo-bubble-label">
+        <span class="jp">五条 悟</span><span class="sep">//</span>SATORU GOJO
+      </div>
+      <div class="gojo-quote-tag" id="gojoQuoteTag">// ON RELIABILITY</div>
+      <p class="gojo-quote-text" id="gojoQuoteText"></p>
+      <div class="gojo-quote-jp" id="gojoQuoteJp">最強</div>
+      <div class="gojo-bubble-footer">
+        <button class="gojo-next-btn" onclick="nextGojoQuote()" aria-label="Next Gojo quote">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          NEXT
+        </button>
+        <span class="gojo-quote-counter" id="gojoQuoteCounter">1 / 12</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gojo Character Image (draggable) -->
+  <div class="gojo-char-container"
+       id="gojoCharContainer"
+       role="button"
+       tabindex="0"
+       aria-label="Gojo Satoru — drag to move, click to show quotes"
+       title="Drag me anywhere • Click for wisdom">
+
+    <!-- Actual Gojo image — mix-blend-mode:lighten dissolves the dark bg -->
+    <img src="assets/gojo.png"
+         class="gojo-img"
+         alt="Satoru Gojo — The Strongest"
+         draggable="false">
+
+    <div class="gojo-drag-badge">⠿ DRAG</div>
+    <div class="gojo-char-hint">CLICK FOR WISDOM</div>
+  </div>
+</div>
+
+<footer>© <span id="footerYear"></span> <span>Yashwanth Ponnam</span> // LIMITLESS.SYS — SATORU GOJO PROTOCOL // DEVOPS × AI</footer>
 
 <script>
 // Domain Expansion: Unlimited Void (無量空処) Interactive Warp
@@ -1827,16 +2168,6 @@ function toggleDrawer(){
   if(drawer) drawer.classList.toggle('open');
 }
 
-// Update archive badge text on toggle
-const archiveDetails = document.getElementById('archiveDetails');
-if(archiveDetails){
-  archiveDetails.addEventListener('toggle', () => {
-    const badge = archiveDetails.querySelector('.archive-badge span');
-    if(badge){
-      badge.textContent = archiveDetails.open ? 'COLLAPSE ARCHIVE' : 'EXPAND ARCHIVE (8 BUILDS)';
-    }
-  });
-}
 
 // Typing terminal lines for Satoru Gojo × DevOps & AI Engineer
 const lines = [
@@ -2023,22 +2354,28 @@ const archiveProjects = [
   }
 ];
 
-// Render High-Signal Flagship List
+// Render High-Signal Flagship List (proj-cards as <a> anchor tags)
 function renderHighSignal(){
   const list = document.getElementById('highSignalList');
   if(!list) return;
   list.innerHTML = '';
 
   highSignalProjects.forEach((p)=>{
-    const el = document.createElement('div');
+    // Use demo link if available, otherwise code link, otherwise '#'
+    const cardHref = p.demo || p.code || '#';
+    const el = document.createElement('a');
     el.className = 'proj-card';
-    
+    el.href = cardHref;
+    el.target = '_blank';
+    el.rel = 'noopener noreferrer';
+    el.setAttribute('aria-label', p.name);
+
     let linksHtml = '';
     if(p.demo){
-      linksHtml += `<a href="${p.demo}" target="_blank" class="proj-btn">Live Demo <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>`;
+      linksHtml += `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="proj-btn" onclick="event.stopPropagation()">Live Demo <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>`;
     }
     if(p.code){
-      linksHtml += `<a href="${p.code}" target="_blank" class="proj-btn">GitHub Code <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>`;
+      linksHtml += `<a href="${p.code}" target="_blank" rel="noopener noreferrer" class="proj-btn" onclick="event.stopPropagation()">GitHub Code <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>`;
     }
 
     el.innerHTML = `
@@ -2069,10 +2406,10 @@ function renderArchive(){
 
     let linksHtml = '';
     if(p.demo){
-      linksHtml += `<a href="${p.demo}" target="_blank" class="archive-btn">Demo <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>`;
+      linksHtml += `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="archive-btn">Demo <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>`;
     }
     if(p.code){
-      linksHtml += `<a href="${p.code}" target="_blank" class="archive-btn">Code <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>`;
+      linksHtml += `<a href="${p.code}" target="_blank" rel="noopener noreferrer" class="archive-btn">Code <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>`;
     }
 
     card.innerHTML = `
@@ -2090,6 +2427,28 @@ function renderArchive(){
 
 renderHighSignal();
 renderArchive();
+
+// Dynamic archive badge count (reads from archiveProjects array length)
+const archiveDetails = document.getElementById('archiveDetails');
+const archiveCount = archiveProjects.length;
+if(archiveDetails){
+  // Set initial badge text dynamically
+  const badgeSpan = document.getElementById('archiveBadgeText');
+  if(badgeSpan) badgeSpan.textContent = `EXPAND ARCHIVE (${archiveCount} BUILDS)`;
+
+  archiveDetails.addEventListener('toggle', () => {
+    const badge = archiveDetails.querySelector('#archiveBadgeText');
+    if(badge){
+      badge.textContent = archiveDetails.open
+        ? 'COLLAPSE ARCHIVE'
+        : `EXPAND ARCHIVE (${archiveCount} BUILDS)`;
+    }
+  });
+}
+
+// Dynamic footer year
+const footerYear = document.getElementById('footerYear');
+if(footerYear) footerYear.textContent = new Date().getFullYear();
 
 // Music Widget Controller (AIZO & SPECIALZ // King Gnu)
 const playlist = [
@@ -2143,7 +2502,7 @@ function toggleMusicWidget(forceState){
   const pill = document.getElementById('musicPill');
   const btnText = document.getElementById('musicBtnText');
   const iframe = document.getElementById('spotifyIframe');
-  
+
   if(typeof forceState === 'boolean'){
     isMusicOpen = forceState;
   } else {
@@ -2161,8 +2520,310 @@ function toggleMusicWidget(forceState){
   } else {
     panel.classList.remove('open');
     if(btnText) btnText.textContent = 'PLAY';
+    // Stop audio by clearing iframe src so Spotify stops streaming in background
+    if(iframe) iframe.src = '';
   }
 }
+
+// Active nav highlight on scroll using IntersectionObserver
+(function initNavObserver(){
+  const sections = document.querySelectorAll('section[id], div[id="hero"]');
+  const navLinks = document.querySelectorAll('.navlinks a');
+  if(!navLinks.length || !sections.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.toggle('nav-active', link.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+  sections.forEach(sec => observer.observe(sec));
+})();
+
+// AJAX contact form submission with success/error feedback
+(function initContactForm(){
+  const form = document.getElementById('contactForm');
+  const statusEl = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('formSubmitBtn');
+  if(!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+
+    submitBtn.classList.add('loading');
+    statusEl.className = 'form-status';
+    statusEl.textContent = '';
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch('https://formspree.io/f/xjgejvoq', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if(res.ok){
+        statusEl.className = 'form-status success';
+        statusEl.textContent = '✓ TRANSMISSION SUCCESSFUL — Message received. I\'ll respond within 24 hours.';
+        form.reset();
+      } else {
+        const json = await res.json().catch(() => ({}));
+        const msg = (json.errors || []).map(e => e.message).join(', ') || 'Unknown error';
+        statusEl.className = 'form-status error';
+        statusEl.textContent = `✗ TRANSMISSION FAILED — ${msg}. Please try emailing directly.`;
+      }
+    } catch(err) {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = '✗ NETWORK ERROR — Check your connection and try again.';
+    } finally {
+      submitBtn.classList.remove('loading');
+    }
+  });
+})();
+
+// Keyboard focus trap for mobile drawer (accessibility)
+(function initDrawerFocusTrap(){
+  const drawer = document.getElementById('mobileDrawer');
+  if(!drawer) return;
+  const focusableSelectors = 'a[href], button:not([disabled])';
+
+  drawer.addEventListener('keydown', (e) => {
+    if(!drawer.classList.contains('open')) return;
+    const focusable = Array.from(drawer.querySelectorAll(focusableSelectors));
+    if(!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if(e.key === 'Tab'){
+      if(e.shiftKey){
+        if(document.activeElement === first){ e.preventDefault(); last.focus(); }
+      } else {
+        if(document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+    }
+    if(e.key === 'Escape') toggleDrawer();
+  });
+
+  // Move focus into drawer when opened
+  const origToggle = window.toggleDrawer;
+  window.toggleDrawer = function(){
+    origToggle();
+    if(drawer.classList.contains('open')){
+      setTimeout(() => { drawer.querySelector(focusableSelectors)?.focus(); }, 50);
+    }
+  };
+})();
+
+// =============================================
+// Floating Gojo Satoru Quote Widget  (image + drag)
+// =============================================
+(function initGojoWidget(){
+  const gojoQuotes = [
+    { jp:'最強',       tag:'// ON RELIABILITY',    en:'"Don\'t worry. I\'m the strongest. My infrastructure just doesn\'t fail."' },
+    { jp:'無下限',     tag:'// ON PERFORMANCE',    en:'"Infinity is my shield. Zero latency is my weapon. Uptime is my throne."' },
+    { jp:'領域展開',   tag:'// ON DEPLOYMENT',     en:'"Domain Expansion — 42 cloud resources synced. Zero downtime. Unlimited Void."' },
+    { jp:'六眼',       tag:'// ON OBSERVABILITY',  en:'"With Six Eyes, I catch every anomaly before the first alert fires."' },
+    { jp:'虚式「茈」', tag:'// ON CI/CD',          en:'"Hollow Purple — obliterating the gap between dev, staging, and prod."' },
+    { jp:'心配するな', tag:'// ON TECH DEBT',      en:'"Legacy systems are just cursed energy I haven\'t automated away yet."' },
+    { jp:'反転術式',   tag:'// ON SRE',            en:'"Reversal Technique: convert every incident into a postmortem that prevents the next."' },
+    { jp:'順転「蒼」', tag:'// ON DEPLOYMENTS',    en:'"Lapse: Blue — pulling all traffic to the new version with zero-downtime rollout."' },
+    { jp:'無量空処',   tag:'// ON MULTI-AGENT AI', en:'"In my Unlimited Void, every agent runs in parallel. Infinite context, zero blocking."' },
+    { jp:'最高の術師', tag:'// ON AUTOMATION',     en:'"The strongest engineer isn\'t who writes the most code — it\'s whose systems run themselves."' },
+    { jp:'呪術師',     tag:'// ON INFRA',          en:'"Terraform apply. Prometheus watching. Grafana glowing. This is my Domain."' },
+    { jp:'天上天下唯我独尊', tag:'// ON EXCELLENCE', en:'"Throughout heaven and earth, I alone deploy with 99.98% SLO."' },
+  ];
+
+  let idx           = 0;
+  let isBubbleOpen  = false;
+  let autoTimer     = null;
+  let userInteracted= false;
+
+  const widget    = document.getElementById('gojoQuoteWidget');
+  const container = document.getElementById('gojoCharContainer');
+  const bubble    = document.getElementById('gojoSpeechBubble');
+  const textEl    = document.getElementById('gojoQuoteText');
+  const jpEl      = document.getElementById('gojoQuoteJp');
+  const tagEl     = document.getElementById('gojoQuoteTag');
+  const counterEl = document.getElementById('gojoQuoteCounter');
+
+  if(!widget || !container || !bubble || !textEl) return;
+
+  // =========================================
+  // DRAG SYSTEM  (Pointer Events API — works for mouse & touch)
+  // =========================================
+  let isDragging   = false;
+  let hasMoved     = false;
+  let startPtrX    = 0;
+  let startPtrY    = 0;
+  let startLeft    = 0;
+  let startTop     = 0;
+  const THRESHOLD  = 6; // px before treating pointer move as a drag
+
+  /** Clamp left/top to keep Gojo character fully inside the viewport */
+  function setPosition(left, top){
+    const margin = 8;
+    const w = container.offsetWidth  || 120;
+    const h = container.offsetHeight || 160;
+    left = Math.min(Math.max(margin, left), window.innerWidth  - w - margin);
+    top  = Math.min(Math.max(margin, top),  window.innerHeight - h - margin);
+    widget.style.left   = left + 'px';
+    widget.style.top    = top  + 'px';
+    widget.style.bottom = 'auto';
+
+    // Flip speech bubble below character if near the top of the viewport
+    widget.classList.toggle('bubble-below', top < 220);
+    // Align bubble to the right if character is near the right edge of viewport
+    widget.classList.toggle('bubble-right', left > (window.innerWidth - 260));
+  }
+
+  /** Restore saved position from localStorage, or fall back to bottom-left */
+  function initPosition(){
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem('gojo_pos')); } catch(e){}
+    if(saved && typeof saved.top === 'number' && typeof saved.left === 'number'){
+      requestAnimationFrame(() => setPosition(saved.left, saved.top));
+    } else {
+      requestAnimationFrame(() => {
+        const h = container.offsetHeight || 160;
+        setPosition(28, window.innerHeight - h - 28);
+      });
+    }
+  }
+
+  function savePosition(){
+    try {
+      localStorage.setItem('gojo_pos', JSON.stringify({
+        left: parseFloat(widget.style.left) || 28,
+        top:  parseFloat(widget.style.top)  || 0
+      }));
+    } catch(e){}
+  }
+
+  // ── Pointer down: record start coords ──
+  container.addEventListener('pointerdown', (e) => {
+    if(e.pointerType === 'mouse' && e.button !== 0) return;
+    isDragging = false;
+    hasMoved   = false;
+    startPtrX  = e.clientX;
+    startPtrY  = e.clientY;
+    const rect = widget.getBoundingClientRect();
+    startLeft  = rect.left;
+    startTop   = rect.top;
+    try { container.setPointerCapture(e.pointerId); } catch(err){}
+    e.preventDefault();
+  });
+
+  // ── Pointer move: drag if threshold exceeded ──
+  container.addEventListener('pointermove', (e) => {
+    if(!container.hasPointerCapture(e.pointerId)) return;
+    const dx = e.clientX - startPtrX;
+    const dy = e.clientY - startPtrY;
+    if(!hasMoved && (Math.abs(dx) > THRESHOLD || Math.abs(dy) > THRESHOLD)){
+      hasMoved   = true;
+      isDragging = true;
+      container.classList.add('is-dragging');
+      document.body.style.userSelect = 'none';
+    }
+    if(isDragging) setPosition(startLeft + dx, startTop + dy);
+  });
+
+  // ── Pointer up & cancel: save position or fire click ──
+  function onPointerEnd(e, wasCancelled){
+    if(container.hasPointerCapture && container.hasPointerCapture(e.pointerId)){
+      try { container.releasePointerCapture(e.pointerId); } catch(err){}
+    }
+    const wasDrag = isDragging;
+    isDragging = false;
+    container.classList.remove('is-dragging');
+    document.body.style.userSelect = '';
+    if(wasDrag && !wasCancelled){
+      savePosition();
+    } else if(!wasDrag && !wasCancelled){
+      toggleGojoSpeech();   // short tap / click → toggle bubble
+    }
+  }
+
+  container.addEventListener('pointerup', (e) => onPointerEnd(e, false));
+  container.addEventListener('pointercancel', (e) => onPointerEnd(e, true));
+
+  // ── Keyboard: Enter/Space to toggle, Escape to close ──
+  container.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleGojoSpeech(); }
+    if(e.key === 'Escape') hideBubble();
+  });
+
+  // ── Re-clamp on viewport resize ──
+  window.addEventListener('resize', () => {
+    setPosition(
+      parseFloat(widget.style.left) || 28,
+      parseFloat(widget.style.top)  || 0
+    );
+  });
+
+  // =========================================
+  // QUOTE SYSTEM
+  // =========================================
+  function renderQuote(i, animate){
+    const q = gojoQuotes[i];
+    const apply = () => {
+      textEl.textContent  = q.en;
+      if(jpEl)      jpEl.textContent  = q.jp;
+      if(tagEl)     tagEl.textContent = q.tag;
+      if(counterEl) counterEl.textContent = `${i + 1} / ${gojoQuotes.length}`;
+    };
+    if(animate){
+      textEl.classList.add('fading');
+      setTimeout(() => { apply(); textEl.classList.remove('fading'); }, 240);
+    } else {
+      apply();
+    }
+  }
+
+  function startAutoRotate(){
+    stopAutoRotate();
+    autoTimer = setInterval(() => {
+      if(!userInteracted){ idx = (idx + 1) % gojoQuotes.length; renderQuote(idx, true); }
+    }, 6000);
+  }
+  function stopAutoRotate(){ if(autoTimer){ clearInterval(autoTimer); autoTimer = null; } }
+
+  function showBubble(){
+    renderQuote(idx, false);
+    bubble.classList.add('visible');
+    isBubbleOpen = true;
+    startAutoRotate();
+  }
+  function hideBubble(){
+    bubble.classList.remove('visible');
+    isBubbleOpen = false;
+    stopAutoRotate();
+  }
+
+  // ── Public API (called by HTML button onclick) ──
+  window.toggleGojoSpeech = function(){ isBubbleOpen ? hideBubble() : showBubble(); };
+  window.nextGojoQuote    = function(){
+    userInteracted = true;
+    idx = (idx + 1) % gojoQuotes.length;
+    renderQuote(idx, true);
+    startAutoRotate();
+    clearTimeout(window._gojoIdleReset);
+    window._gojoIdleReset = setTimeout(() => { userInteracted = false; }, 15000);
+  };
+
+  // ── Boot ──
+  renderQuote(0, false);
+  initPosition();
+  setTimeout(showBubble, 2500);
+})();
 
 </script>
 </body>
