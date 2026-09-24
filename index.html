@@ -27,6 +27,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500;700;800&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -54,6 +55,53 @@ body{
   cursor:default;
 }
 ::selection{background:var(--purple);color:var(--white);}
+
+/* Accessibility: Skip to Content */
+.skip-link{
+  position:absolute;
+  top:-120px;
+  left:1.5rem;
+  background:var(--cyan);
+  color:var(--black);
+  padding:0.75rem 1.25rem;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:800;
+  font-size:0.85rem;
+  letter-spacing:0.05em;
+  z-index:10000;
+  border:3px solid var(--black);
+  box-shadow:4px 4px 0 var(--purple);
+  text-decoration:none;
+  transition:top .2s ease;
+}
+.skip-link:focus{
+  top:1.25rem;
+  outline:3px solid var(--white);
+}
+
+/* Accessibility: Universal High-Contrast Focus Ring */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex="0"]:focus-visible{
+  outline:2px solid var(--cyan) !important;
+  outline-offset:3px !important;
+}
+
+/* Accessibility: Screen-reader only text */
+.sr-only{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  padding:0 !important;
+  margin:-1px !important;
+  overflow:hidden !important;
+  clip:rect(0,0,0,0) !important;
+  white-space:nowrap !important;
+  border:0 !important;
+}
 
 /* Scanline / noise overlay */
 .noise{
@@ -510,10 +558,10 @@ section{padding:6rem 5vw;position:relative;}
   padding:1.8rem;
   background:var(--ink);
   border:3px solid var(--white);
-  transition:transform .15s ease, box-shadow .15s ease;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
   box-shadow:6px 6px 0 var(--blue-deep);
-  text-decoration:none;
   color:var(--white);
+  position:relative;
 }
 .proj-card:hover{transform:translate(-4px,-4px);box-shadow:10px 10px 0 var(--purple);border-color:var(--cyan);}
 .proj-index{
@@ -522,6 +570,12 @@ section{padding:6rem 5vw;position:relative;}
 }
 .proj-body .proj-type{font-size:0.7rem;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;}
 .proj-body h3{font-family:'Space Grotesk',sans-serif;font-size:1.35rem;margin-bottom:0.5rem;}
+.proj-title-link{
+  color:var(--white);
+  text-decoration:none;
+  transition:color .15s ease;
+}
+.proj-title-link:hover, .proj-card:hover .proj-title-link{color:var(--cyan);}
 .proj-body p{font-size:0.85rem;color:#9ba0ad;line-height:1.6;max-width:68ch;}
 .proj-links{display:flex;gap:0.8rem;margin-top:1.1rem;flex-wrap:wrap;}
 .proj-btn{
@@ -835,7 +889,7 @@ section{padding:6rem 5vw;position:relative;}
 }
 .form-status.success{display:block;border-color:var(--neon);color:var(--neon);background:rgba(68,255,136,0.08);}
 .form-status.error{display:block;border-color:var(--red);color:var(--red);background:rgba(255,51,102,0.08);}
-.form-submit-btn{position:relative;overflow:hidden;}
+.form-submit-btn{position:relative;overflow:hidden;justify-content:center;width:100%;}
 .form-submit-btn.loading{opacity:0.7;pointer-events:none;}
 .form-submit-btn.loading::after{
   content:'SENDING…';position:absolute;inset:0;display:flex;align-items:center;
@@ -846,8 +900,8 @@ section{padding:6rem 5vw;position:relative;}
 .navlinks a.nav-active{color:var(--cyan);}
 .navlinks a.nav-active::after{width:100%;}
 
-/* proj-card as anchor tag */
-a.proj-card{display:grid;}
+/* proj-card display grid */
+.proj-card, article.proj-card, a.proj-card{display:grid;}
 
 footer{
   text-align:center;padding:2.5rem;font-size:0.75rem;color:#7a8092;
@@ -864,13 +918,19 @@ footer span{color:var(--cyan);}
   opacity:0;pointer-events:none;transition:all .35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .domain-banner.show{opacity:1;transform:translate(-50%,-50%) scale(1);}
-.domain-banner h2{
+.domain-banner h2, .domain-banner .domain-banner-title{
   font-family:'Noto Sans JP',sans-serif;font-size:3rem;font-weight:900;
   color:var(--cyan);text-shadow:0 0 25px var(--cyan);letter-spacing:0.2em;
 }
 .domain-banner p{
   font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;
   color:var(--white);margin-top:0.8rem;letter-spacing:0.1em;
+}
+.domain-banner-sub{
+  font-size:0.75rem;
+  color:var(--purple);
+  margin-top:0.5rem;
+  letter-spacing:0.15em;
 }
 
 /* Responsive */
@@ -889,9 +949,10 @@ footer span{color:var(--cyan);}
   position:fixed;top:0;right:-100%;width:100%;height:100vh;
   background:rgba(5,6,8,0.98);z-index:9999;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:1.8rem;transition:right .3s ease;
+  gap:1.8rem;transition:right .3s ease, visibility .3s ease;
+  visibility:hidden;
 }
-.mobile-drawer.open{right:0;}
+.mobile-drawer.open{right:0;visibility:visible;}
 .mobile-drawer a{
   font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;
   color:var(--white);text-decoration:none;
@@ -900,7 +961,14 @@ footer span{color:var(--cyan);}
 .drawer-close{position:absolute;top:2rem;right:2rem;font-size:2rem;color:var(--white);background:none;border:none;cursor:pointer;}
 
 @media (prefers-reduced-motion: reduce){
-  *{animation:none !important;transition:none !important;}
+  html{scroll-behavior:auto !important;}
+  *, *::before, *::after{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .gojo-img{animation:none !important;}
+  .typed::after{animation:none !important;}
 }
 
 /* Floating Cyber-Brutalist Music Player Widget */
@@ -1196,7 +1264,6 @@ footer span{color:var(--cyan);}
   animation:gojoHover 4.2s ease-in-out infinite;
   pointer-events:none;
   -webkit-user-drag:none;
-  user-drag:none;
 }
 .gojo-char-container.is-dragging .gojo-img{
   animation:none;
@@ -1302,7 +1369,7 @@ footer span{color:var(--cyan);}
 .gojo-bubble-label{
   display:flex;
   align-items:center;
-  gap:.35rem;
+  justify-content:space-between;
   font-family:'Noto Sans JP',sans-serif;
   font-size:.58rem;
   font-weight:900;
@@ -1310,8 +1377,28 @@ footer span{color:var(--cyan);}
   letter-spacing:.12em;
   margin-bottom:.55rem;
 }
-.gojo-bubble-label .jp{ color:var(--purple); }
-.gojo-bubble-label .sep{ color:#5a6070; }
+.gojo-bubble-title{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+}
+.gojo-bubble-title .jp{ color:var(--purple); }
+.gojo-bubble-title .sep{ color:#5a6070; }
+.gojo-close-btn{
+  background:none;
+  border:none;
+  color:#7a8092;
+  cursor:pointer;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.8rem;
+  line-height:1;
+  padding:2px 4px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:color .15s ease;
+}
+.gojo-close-btn:hover{ color:var(--cyan); }
 
 .gojo-quote-tag{
   font-family:'JetBrains Mono',monospace;
@@ -1370,7 +1457,22 @@ footer span{color:var(--cyan);}
   font-family:'JetBrains Mono',monospace;
 }
 
+/* Music link and archive utility classes */
+.music-spotify-link{
+  color:var(--cyan);
+  text-decoration:none;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:0.3rem;
+  transition:color .15s ease;
+}
+.music-spotify-link:hover{ color:var(--white); }
+.archive-tags{ margin-top:0.8rem; }
+.archive-tag{ font-size:0.6rem; padding:0.15rem 0.4rem; }
+
 @media(max-width:600px){
+  .gojo-quote-widget{ bottom:84px; }
   .gojo-quote-widget,
   .gojo-char-container{ width:90px; }
   .gojo-speech-bubble{ width:200px; }
@@ -1383,18 +1485,19 @@ footer span{color:var(--cyan);}
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to main content</a>
 <div class="noise"></div>
 <canvas id="domainCanvas"></canvas>
 
 <!-- Domain Expansion Announcement Modal -->
-<div class="domain-banner" id="domainBanner">
-  <h2>領域展開 // 無量空処</h2>
+<div class="domain-banner" id="domainBanner" role="alert" aria-live="assertive">
+  <div class="domain-banner-title">領域展開 // 無量空処</div>
   <p>DOMAIN EXPANSION: UNLIMITED VOID</p>
-  <div style="font-size:0.75rem;color:var(--purple);margin-top:0.5rem;letter-spacing:0.15em;">// INFINITE INFORMATION &amp; 0ms UPTIME ONLINE</div>
+  <div class="domain-banner-sub">// INFINITE INFORMATION &amp; 0ms UPTIME ONLINE</div>
 </div>
 
 <!-- Mobile Drawer -->
-<div class="mobile-drawer" id="mobileDrawer">
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Mobile Navigation Menu" aria-hidden="true">
   <button class="drawer-close" onclick="toggleDrawer()" aria-label="Close Navigation Menu"><svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   <a href="#about" onclick="toggleDrawer()">ABOUT</a>
   <a href="#stack" onclick="toggleDrawer()">SKILLS</a>
@@ -1407,7 +1510,7 @@ footer span{color:var(--cyan);}
 </div>
 
 <!-- Nav -->
-<nav>
+<nav aria-label="Main Navigation">
   <a href="#hero" class="logo"><span class="dot"></span>LIMITLESS.SYS</a>
   <div class="navlinks">
     <a href="#about">ABOUT</a>
@@ -1420,11 +1523,14 @@ footer span{color:var(--cyan);}
     <a href="#contact">CONTACT</a>
   </div>
   <div class="nav-social">
-    <a href="https://github.com/Yash55-max" target="_blank" aria-label="GitHub"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GITHUB</a>
-    <a href="https://www.linkedin.com/in/yashwanth-ponnam" target="_blank" aria-label="LinkedIn"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg> LINKEDIN</a>
+    <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GITHUB</a>
+    <a href="https://www.linkedin.com/in/yashwanth-ponnam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg> LINKEDIN</a>
   </div>
-  <button class="menu-toggle" onclick="toggleDrawer()" aria-label="Open Navigation Menu"><svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  <button class="menu-toggle" id="menuToggle" onclick="toggleDrawer()" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobileDrawer"><svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
 </nav>
+
+<!-- Main Landmark -->
+<main id="main">
 
 <!-- Hero -->
 <section class="hero" id="hero">
@@ -1441,7 +1547,7 @@ footer span{color:var(--cyan);}
     <div class="cta-row">
       <button onclick="triggerDomainExpansion()" class="btn domain-btn"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Domain Expansion (無量空処)</button>
       <a href="#work" class="btn primary">View Systems <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="https://github.com/Yash55-max" target="_blank" class="btn ghost">GitHub Fleet</a>
+      <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer" class="btn ghost">GitHub Fleet</a>
     </div>
   </div>
 
@@ -1655,7 +1761,7 @@ footer span{color:var(--cyan);}
       <div class="award-issuer">Google Developers Group [Cloud Kochi]</div>
       <h3>Code Vipassana Season 13 - Top 10 Developer</h3>
       <p class="award-desc">Achieved 10th position among developers for building 100% Postgres-compatible AI applications using Google Cloud.</p>
-      <a href="https://drive.google.com/file/d/1oMowBdj_ViUgKLXOA5HFMvsCdACQ3dxy/view?usp=sharing" target="_blank" class="award-link">View Certificate <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
+      <a href="https://drive.google.com/file/d/1oMowBdj_ViUgKLXOA5HFMvsCdACQ3dxy/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="award-link">View Certificate <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
     </div>
 
     <div class="award-card">
@@ -1663,7 +1769,7 @@ footer span{color:var(--cyan);}
       <div class="award-issuer">NXTWAVE</div>
       <h3>Gen AI Buildathon - Certificate of Appreciation</h3>
       <p class="award-desc">Recognized for outstanding participation and contribution in the Gen AI Buildathon, showcasing generative AI mastery.</p>
-      <a href="https://cdn1.ccbp.in/misc/Buildathon-CertificateOfAppreciation/7PUBGLQYQ6.png" target="_blank" class="award-link">View Certificate <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
+      <a href="https://cdn1.ccbp.in/misc/Buildathon-CertificateOfAppreciation/7PUBGLQYQ6.png" target="_blank" rel="noopener noreferrer" class="award-link">View Certificate <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
     </div>
 
     <div class="award-card">
@@ -1671,7 +1777,7 @@ footer span{color:var(--cyan);}
       <div class="award-issuer">Google Developers Group [Cloud Kochi]</div>
       <h3>Code Vipassana Season 14 - Top 58 Developer</h3>
       <p class="award-desc">Ranked among the top 58 developers for outstanding performance in building AI-powered applications on Google Cloud.</p>
-      <a href="https://drive.google.com/file/d/1SlRTys9u1_XJye83XfCSzWgfZM1E-n0x/view?usp=sharing" target="_blank" class="award-link">View Certificate <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
+      <a href="https://drive.google.com/file/d/1SlRTys9u1_XJye83XfCSzWgfZM1E-n0x/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="award-link">View Certificate <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
     </div>
   </div>
 </section>
@@ -1689,7 +1795,7 @@ footer span{color:var(--cyan);}
   <div class="cert-subheading"><svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Verified Credly &amp; Academy Badges</div>
   <div class="badges-gallery">
     <!-- Cisco: Data Analytics Essentials -->
-    <a href="https://www.credly.com/badges/7ba25569-c48c-4d21-b73a-3252d551065e/public_url" target="_blank" class="badge-card">
+    <a href="https://www.credly.com/badges/7ba25569-c48c-4d21-b73a-3252d551065e/public_url" target="_blank" rel="noopener noreferrer" class="badge-card">
       <div class="badge-icon-wrap" style="color:#00bceb;border-color:#00bceb;">Cisco</div>
       <div class="badge-title">Data Analytics Essentials</div>
       <div class="badge-issuer">Cisco Networking Academy · Feb 2026</div>
@@ -1697,7 +1803,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- Cisco: Intro to Data Science -->
-    <a href="https://www.credly.com/badges/28520c1f-5865-4cad-ab51-a65d525d418c/public_url" target="_blank" class="badge-card">
+    <a href="https://www.credly.com/badges/28520c1f-5865-4cad-ab51-a65d525d418c/public_url" target="_blank" rel="noopener noreferrer" class="badge-card">
       <div class="badge-icon-wrap" style="color:#00bceb;border-color:#00bceb;">Cisco</div>
       <div class="badge-title">Intro to Data Science</div>
       <div class="badge-issuer">Cisco Networking Academy · Oct 2025</div>
@@ -1705,7 +1811,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- Cisco: Intro to Modern AI -->
-    <a href="https://www.credly.com/badges/b173c8ba-1bb1-4c7b-b819-e1301911f394/public_url" target="_blank" class="badge-card">
+    <a href="https://www.credly.com/badges/b173c8ba-1bb1-4c7b-b819-e1301911f394/public_url" target="_blank" rel="noopener noreferrer" class="badge-card">
       <div class="badge-icon-wrap" style="color:#00bceb;border-color:#00bceb;">Cisco</div>
       <div class="badge-title">Intro to Modern AI</div>
       <div class="badge-issuer">Cisco Networking Academy · Dec 2025</div>
@@ -1713,7 +1819,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- IBM: Journey to Cloud -->
-    <a href="https://www.credly.com/badges/3a2d6628-1e27-4bfb-b774-b1b397b4a1bf/public_url" target="_blank" class="badge-card">
+    <a href="https://www.credly.com/badges/3a2d6628-1e27-4bfb-b774-b1b397b4a1bf/public_url" target="_blank" rel="noopener noreferrer" class="badge-card">
       <div class="badge-icon-wrap" style="color:#1f70c1;border-color:#1f70c1;">IBM</div>
       <div class="badge-title">Journey to Cloud</div>
       <div class="badge-issuer">IBM SkillsBuild · Aug 2025</div>
@@ -1721,7 +1827,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- ISC2: Candidate -->
-    <a href="https://www.credly.com/badges/ede2b93c-d657-46dd-a1eb-65c5be1a1c39/public_url" target="_blank" class="badge-card">
+    <a href="https://www.credly.com/badges/ede2b93c-d657-46dd-a1eb-65c5be1a1c39/public_url" target="_blank" rel="noopener noreferrer" class="badge-card">
       <div class="badge-icon-wrap" style="color:#00c880;border-color:#00c880;">ISC2</div>
       <div class="badge-title">ISC2 Candidate</div>
       <div class="badge-issuer">ISC2 Cybersecurity</div>
@@ -1729,7 +1835,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- MongoDB: Schema Design -->
-    <a href="https://www.credly.com/earner/earned/badge/fc6e95db-ceac-478d-9c8c-395fb04e9dd5" target="_blank" class="badge-card">
+    <a href="https://www.credly.com/earner/earned/badge/fc6e95db-ceac-478d-9c8c-395fb04e9dd5" target="_blank" rel="noopener noreferrer" class="badge-card">
       <div class="badge-icon-wrap" style="color:#13AA52;border-color:#13AA52;">MDB</div>
       <div class="badge-title">Schema Design Patterns</div>
       <div class="badge-issuer">MongoDB University</div>
@@ -1737,7 +1843,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- AWS: ML Foundations -->
-    <a href="https://www.credly.com/earner/earned/badge/aff19f47-1b2d-477a-a322-c98aff129a87" target="_blank" class="badge-card">
+    <a href="https://www.credly.com/earner/earned/badge/aff19f47-1b2d-477a-a322-c98aff129a87" target="_blank" rel="noopener noreferrer" class="badge-card">
       <div class="badge-icon-wrap" style="color:#FF9900;border-color:#FF9900;">AWS</div>
       <div class="badge-title">ML Foundations</div>
       <div class="badge-issuer">AWS Academy</div>
@@ -1745,7 +1851,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- AWS: ML for NLP -->
-    <a href="https://www.credly.com/earner/earned/badge/5426020a-0c89-49e7-9639-c12505690c87" target="_blank" class="badge-card">
+    <a href="https://www.credly.com/earner/earned/badge/5426020a-0c89-49e7-9639-c12505690c87" target="_blank" rel="noopener noreferrer" class="badge-card">
       <div class="badge-icon-wrap" style="color:#FF9900;border-color:#FF9900;">AWS</div>
       <div class="badge-title">ML for NLP</div>
       <div class="badge-issuer">AWS Academy</div>
@@ -1753,7 +1859,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- AWS: Generative AI Foundations -->
-    <a href="https://www.credly.com/earner/earned/badge/d8e599d8-dfa6-439a-9d64-26b3f00a72c8" target="_blank" class="badge-card">
+    <a href="https://www.credly.com/earner/earned/badge/d8e599d8-dfa6-439a-9d64-26b3f00a72c8" target="_blank" rel="noopener noreferrer" class="badge-card">
       <div class="badge-icon-wrap" style="color:#FF9900;border-color:#FF9900;">AWS</div>
       <div class="badge-title">Gen AI Foundations</div>
       <div class="badge-issuer">AWS Academy</div>
@@ -1761,7 +1867,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- Altair RapidMiner: ML Master -->
-    <a href="https://openbadgepassport.com/app/badge/info/1095371/pic/embed" target="_blank" class="badge-card">
+    <a href="https://openbadgepassport.com/app/badge/info/1095371/pic/embed" target="_blank" rel="noopener noreferrer" class="badge-card">
       <div class="badge-icon-wrap" style="color:#00ffaa;border-color:#00ffaa;">ALTR</div>
       <div class="badge-title">ML &amp; Data Eng Master</div>
       <div class="badge-issuer">Altair RapidMiner · 2024</div>
@@ -1773,7 +1879,7 @@ footer span{color:var(--cyan);}
   <div class="cert-subheading"><svg class="icon" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> Professional Certificates &amp; Credentials</div>
   <div class="certs-grid">
     <!-- Oracle -->
-    <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=E5A03C6396E56916AC91CC0EFE35C54ACBA4BBAE5FE8B8924E86E24A917D9079" target="_blank" class="cert-card">
+    <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=E5A03C6396E56916AC91CC0EFE35C54ACBA4BBAE5FE8B8924E86E24A917D9079" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#C74634;">ORC</div>
       <div class="cert-info">
         <span class="cert-issuer">Oracle</span>
@@ -1784,7 +1890,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- Anthropic Claude Code -->
-    <a href="https://verify.skilljar.com/c/ha8xuxc4e7c7" target="_blank" class="cert-card">
+    <a href="https://verify.skilljar.com/c/ha8xuxc4e7c7" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#D97757;">Claude</div>
       <div class="cert-info">
         <span class="cert-issuer">Anthropic</span>
@@ -1795,7 +1901,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- Google Cloud Hack2skill -->
-    <a href="https://certificate.hack2skill.com/verify/2026H2S04GCGENAIAPACC1-P02029" target="_blank" class="cert-card">
+    <a href="https://certificate.hack2skill.com/verify/2026H2S04GCGENAIAPACC1-P02029" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#4285F4;">GCP</div>
       <div class="cert-info">
         <span class="cert-issuer">Google Cloud · Hack2skill</span>
@@ -1806,7 +1912,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- GDG Code Vipassana -->
-    <a href="https://drive.google.com/file/d/1oMowBdj_ViUgKLXOA5HFMvsCdACQ3dxy/view?usp=drive_link" target="_blank" class="cert-card">
+    <a href="https://drive.google.com/file/d/1oMowBdj_ViUgKLXOA5HFMvsCdACQ3dxy/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#4285F4;">GDG</div>
       <div class="cert-info">
         <span class="cert-issuer">GDG Cloud Kochi</span>
@@ -1817,7 +1923,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- NxtWave -->
-    <a href="https://cdn1.ccbp.in/misc/Buildathon-CertificateOfAppreciation/7PUBGLQYQ6.png" target="_blank" class="cert-card">
+    <a href="https://cdn1.ccbp.in/misc/Buildathon-CertificateOfAppreciation/7PUBGLQYQ6.png" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#00ff88;">NW</div>
       <div class="cert-info">
         <span class="cert-issuer">NxtWave</span>
@@ -1828,7 +1934,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- LetsUpgrade -->
-    <a href="https://verify.letsupgrade.in/certificate/LUEPESEPT125253" target="_blank" class="cert-card">
+    <a href="https://verify.letsupgrade.in/certificate/LUEPESEPT125253" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:var(--red);">LU</div>
       <div class="cert-info">
         <span class="cert-issuer">LetsUpgrade</span>
@@ -1839,7 +1945,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- HP LIFE AI -->
-    <a href="https://www.life-global.org/certificate/392aec82-190a-41b5-8f7f-628c69a7bc54" target="_blank" class="cert-card">
+    <a href="https://www.life-global.org/certificate/392aec82-190a-41b5-8f7f-628c69a7bc54" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#0096d6;">HP</div>
       <div class="cert-info">
         <span class="cert-issuer">HP LIFE</span>
@@ -1850,7 +1956,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- HP LIFE Data Analytics -->
-    <a href="https://www.life-global.org/certificate/f6e91724-f495-4beb-a48f-aed8b9cbaee6" target="_blank" class="cert-card">
+    <a href="https://www.life-global.org/certificate/f6e91724-f495-4beb-a48f-aed8b9cbaee6" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#0096d6;">HP</div>
       <div class="cert-info">
         <span class="cert-issuer">HP LIFE</span>
@@ -1861,7 +1967,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- Intel AI Aware -->
-    <a href="https://ai-for-all.in/#/badge?id=U2FsdGVkX19Y1s1L2a3S4hceODp1L2u3SaipKGMm9iWpGK2jd4uTwMfsurFbJuNSqW8M6MAXMn5dlH" target="_blank" class="cert-card">
+    <a href="https://ai-for-all.in/#/badge?id=U2FsdGVkX19Y1s1L2a3S4hceODp1L2u3SaipKGMm9iWpGK2jd4uTwMfsurFbJuNSqW8M6MAXMn5dlH" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#0071C5;">Intel</div>
       <div class="cert-info">
         <span class="cert-issuer">Intel Corporation</span>
@@ -1872,7 +1978,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- Forage BCG -->
-    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/SKZxezskWgmFjRvj9/gabev3vXhuACr48eb_SKZxezskWgmFjRvj9_yDWzw4o7ZQBMwvksM_1739549139918_completion_certificate.pdf" target="_blank" class="cert-card">
+    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/SKZxezskWgmFjRvj9/gabev3vXhuACr48eb_SKZxezskWgmFjRvj9_yDWzw4o7ZQBMwvksM_1739549139918_completion_certificate.pdf" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#6900FF;">BCG</div>
       <div class="cert-info">
         <span class="cert-issuer">Forage // BCG</span>
@@ -1883,7 +1989,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- Forage Tata -->
-    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_yDWzw4o7ZQBMwvksM_1739547988252_completion_certificate.pdf" target="_blank" class="cert-card">
+    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_yDWzw4o7ZQBMwvksM_1739547988252_completion_certificate.pdf" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#6900FF;">Tata</div>
       <div class="cert-info">
         <span class="cert-issuer">Forage // Tata Group</span>
@@ -1894,7 +2000,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- Forage Deloitte -->
-    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_yDWzw4o7ZQBMwvksM_1739545536501_completion_certificate.pdf" target="_blank" class="cert-card">
+    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_yDWzw4o7ZQBMwvksM_1739545536501_completion_certificate.pdf" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#6900FF;">Deloitte</div>
       <div class="cert-info">
         <span class="cert-issuer">Forage // Deloitte</span>
@@ -1905,7 +2011,7 @@ footer span{color:var(--cyan);}
     </a>
 
     <!-- Forage Accenture -->
-    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/T6kdcdKSTfg2aotxT/hzmoNKtzvAzXsEqx8_T6kdcdKSTfg2aotxT_yDWzw4o7ZQBMwvksM_1737518830901_completion_certificate.pdf" target="_blank" class="cert-card">
+    <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/T6kdcdKSTfg2aotxT/hzmoNKtzvAzXsEqx8_T6kdcdKSTfg2aotxT_yDWzw4o7ZQBMwvksM_1737518830901_completion_certificate.pdf" target="_blank" rel="noopener noreferrer" class="cert-card">
       <div class="cert-icon" style="color:#6900FF;">ACN</div>
       <div class="cert-info">
         <span class="cert-issuer">Forage // Accenture</span>
@@ -1930,8 +2036,8 @@ footer span{color:var(--cyan);}
       <p>Full experience, cloud coursework, projects, and 28+ verified industry certifications in one document.</p>
     </div>
     <div class="resume-btns">
-      <a href="https://drive.google.com/file/d/1w-zXIcoHuloWUqF7s9AlmwfiL5UpvaQD/view?usp=sharing" target="_blank" class="btn primary">View Resume PDF <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
-      <a href="https://drive.google.com/uc?export=download&id=1w-zXIcoHuloWUqF7s9AlmwfiL5UpvaQD" target="_blank" class="btn ghost">Download PDF</a>
+      <a href="https://drive.google.com/file/d/1w-zXIcoHuloWUqF7s9AlmwfiL5UpvaQD/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn primary">View Resume PDF <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>
+      <a href="https://drive.google.com/uc?export=download&id=1w-zXIcoHuloWUqF7s9AlmwfiL5UpvaQD" target="_blank" rel="noopener noreferrer" class="btn ghost">Download PDF</a>
     </div>
   </div>
 </section>
@@ -1954,34 +2060,39 @@ footer span{color:var(--cyan);}
       </div>
       <div class="contact-info-item">
         <div class="label"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub Fleet</div>
-        <a href="https://github.com/Yash55-max" target="_blank">github.com/Yash55-max</a>
+        <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer">github.com/Yash55-max</a>
       </div>
       <div class="contact-info-item">
         <div class="label"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn Network</div>
-        <a href="https://www.linkedin.com/in/yashwanth-ponnam" target="_blank">linkedin.com/in/yashwanth-ponnam</a>
+        <a href="https://www.linkedin.com/in/yashwanth-ponnam" target="_blank" rel="noopener noreferrer">linkedin.com/in/yashwanth-ponnam</a>
       </div>
       <div class="contact-info-item">
         <div class="label"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> Instagram</div>
-        <a href="https://www.instagram.com/_.unfav_.yash/" target="_blank">@_.unfav_.yash</a>
+        <a href="https://www.instagram.com/_.unfav_.yash/" target="_blank" rel="noopener noreferrer">@_.unfav_.yash</a>
       </div>
     </div>
 
     <form class="contact-form" id="contactForm" novalidate>
-      <input type="text" name="name" class="form-input" placeholder="Your Name" required>
-      <input type="email" name="email" class="form-input" placeholder="Your Email Address" required>
-      <input type="text" name="subject" class="form-input" placeholder="Subject / Project Scope">
-      <textarea name="message" class="form-textarea" placeholder="Your Message..." required></textarea>
+      <label class="sr-only" for="contactName">Your Name</label>
+      <input type="text" id="contactName" name="name" class="form-input" placeholder="Your Name" autocomplete="name" required>
+      <label class="sr-only" for="contactEmail">Your Email Address</label>
+      <input type="email" id="contactEmail" name="email" class="form-input" placeholder="Your Email Address" autocomplete="email" required>
+      <label class="sr-only" for="contactSubject">Subject / Project Scope</label>
+      <input type="text" id="contactSubject" name="subject" class="form-input" placeholder="Subject / Project Scope">
+      <label class="sr-only" for="contactMessage">Your Message</label>
+      <textarea id="contactMessage" name="message" class="form-textarea" placeholder="Your Message..." required></textarea>
       <div class="form-status" id="formStatus" role="alert" aria-live="polite"></div>
-      <button type="submit" class="btn primary form-submit-btn" id="formSubmitBtn" style="justify-content:center;">Transmit Message <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+      <button type="submit" class="btn primary form-submit-btn" id="formSubmitBtn">Transmit Message <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
     </form>
   </div>
 </section>
+</main>
 
 
 <!-- Floating Cyber-Brutalist Music Player Widget (AIZO & SPECIALZ // King Gnu) -->
 <aside class="music-widget-dock" id="musicWidgetDock" aria-label="Audio Player Widget">
   <!-- Expanded Spotify Player View -->
-  <div class="music-player-panel" id="musicPlayerPanel">
+  <div class="music-player-panel" id="musicPlayerPanel" role="region" aria-label="Spotify Player Controls">
     <div class="music-panel-header">
       <div class="music-panel-title" id="musicPanelTitle">
         <svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.08"/></svg>
@@ -2003,6 +2114,7 @@ footer span{color:var(--cyan);}
         id="spotifyIframe"
         src=""
         data-src="https://open.spotify.com/embed/track/65X2koe1LhDgQmRkNdJFv9?utm_source=generator&theme=0"
+        title="Spotify Embedded Audio Player"
         width="100%"
         height="152"
         frameBorder="0"
@@ -2013,7 +2125,7 @@ footer span{color:var(--cyan);}
     </div>
     <div class="music-panel-footer">
       <span class="music-live-indicator" id="musicLiveStatus"><span class="dot"></span> STATUS: PLAYING // "AIZO"</span>
-      <a href="https://open.spotify.com/track/65X2koe1LhDgQmRkNdJFv9" id="musicSpotifyLink" target="_blank" style="color:var(--cyan);text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:0.3rem;">
+      <a href="https://open.spotify.com/track/65X2koe1LhDgQmRkNdJFv9" id="musicSpotifyLink" target="_blank" rel="noopener noreferrer" class="music-spotify-link">
         Spotify
         <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
       </a>
@@ -2035,7 +2147,7 @@ footer span{color:var(--cyan);}
       </span>
       <span class="music-pill-artist" id="musicPillArtist">King Gnu // JJK OST</span>
     </div>
-    <button class="music-pill-btn" id="musicBtn" aria-label="Play or Open Music Player">
+    <button class="music-pill-btn" id="musicBtn" aria-label="Play or Open Music Player" aria-expanded="false">
       <svg class="icon icon-sm" id="musicIcon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       <span id="musicBtnText">PLAY</span>
     </button>
@@ -2049,7 +2161,10 @@ footer span{color:var(--cyan);}
   <div class="gojo-speech-wrap">
     <div class="gojo-speech-bubble" id="gojoSpeechBubble" role="status">
       <div class="gojo-bubble-label">
-        <span class="jp">五条 悟</span><span class="sep">//</span>SATORU GOJO
+        <div class="gojo-bubble-title">
+          <span class="jp">五条 悟</span><span class="sep">//</span>SATORU GOJO
+        </div>
+        <button class="gojo-close-btn" onclick="toggleGojoSpeech()" aria-label="Close quote bubble">✕</button>
       </div>
       <div class="gojo-quote-tag" id="gojoQuoteTag">// ON RELIABILITY</div>
       <p class="gojo-quote-text" id="gojoQuoteText"></p>
@@ -2069,6 +2184,7 @@ footer span{color:var(--cyan);}
        id="gojoCharContainer"
        role="button"
        tabindex="0"
+       aria-expanded="false"
        aria-label="Gojo Satoru — drag to move, click to show quotes"
        title="Drag me anywhere • Click for wisdom">
 
@@ -2162,10 +2278,14 @@ if(stage && charwrap){
   });
 }
 
-// Mobile drawer toggle
+// Mobile drawer toggle with accessibility sync
 function toggleDrawer(){
   const drawer = document.getElementById('mobileDrawer');
-  if(drawer) drawer.classList.toggle('open');
+  const toggleBtn = document.getElementById('menuToggle');
+  if(!drawer) return;
+  const isOpen = drawer.classList.toggle('open');
+  drawer.setAttribute('aria-hidden', !isOpen);
+  if(toggleBtn) toggleBtn.setAttribute('aria-expanded', isOpen);
 }
 
 
@@ -2183,6 +2303,10 @@ let li = 0, ci = 0, typing = true;
 const typedEl = document.getElementById('typedLine');
 function typeLoop(){
   if(!typedEl) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    typedEl.textContent = lines[li];
+    return;
+  }
   const current = lines[li];
   if(typing){
     ci++;
@@ -2194,6 +2318,12 @@ function typeLoop(){
     if(ci <= 0){ typing = true; li = (li+1)%lines.length; }
   }
   setTimeout(typeLoop, typing ? 45 : 25);
+}
+
+// Pause hero video if reduced motion is requested
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const gojoVid = document.querySelector('.gojo-video');
+  if(gojoVid) gojoVid.pause();
 }
 typeLoop();
 
@@ -2354,7 +2484,7 @@ const archiveProjects = [
   }
 ];
 
-// Render High-Signal Flagship List (proj-cards as <a> anchor tags)
+// Render High-Signal Flagship List (accessible article cards)
 function renderHighSignal(){
   const list = document.getElementById('highSignalList');
   if(!list) return;
@@ -2363,19 +2493,16 @@ function renderHighSignal(){
   highSignalProjects.forEach((p)=>{
     // Use demo link if available, otherwise code link, otherwise '#'
     const cardHref = p.demo || p.code || '#';
-    const el = document.createElement('a');
+    const el = document.createElement('article');
     el.className = 'proj-card';
-    el.href = cardHref;
-    el.target = '_blank';
-    el.rel = 'noopener noreferrer';
-    el.setAttribute('aria-label', p.name);
+    el.setAttribute('aria-labelledby', `proj-heading-${p.num}`);
 
     let linksHtml = '';
     if(p.demo){
-      linksHtml += `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="proj-btn" onclick="event.stopPropagation()">Live Demo <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>`;
+      linksHtml += `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="proj-btn" aria-label="Live Demo for ${p.name}">Live Demo <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>`;
     }
     if(p.code){
-      linksHtml += `<a href="${p.code}" target="_blank" rel="noopener noreferrer" class="proj-btn" onclick="event.stopPropagation()">GitHub Code <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>`;
+      linksHtml += `<a href="${p.code}" target="_blank" rel="noopener noreferrer" class="proj-btn" aria-label="GitHub Code for ${p.name}">GitHub Code <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>`;
     }
 
     el.innerHTML = `
@@ -2383,7 +2510,7 @@ function renderHighSignal(){
       <div class="proj-body">
         <span class="badge-tier">${p.badge}</span>
         <div class="proj-type">${p.type}</div>
-        <h3>${p.name}</h3>
+        <h3 id="proj-heading-${p.num}"><a href="${cardHref}" target="_blank" rel="noopener noreferrer" class="proj-title-link">${p.name}</a></h3>
         <p>${p.desc}</p>
         <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
         <div class="proj-links">${linksHtml}</div>
@@ -2406,10 +2533,10 @@ function renderArchive(){
 
     let linksHtml = '';
     if(p.demo){
-      linksHtml += `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="archive-btn">Demo <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>`;
+      linksHtml += `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="archive-btn" aria-label="Demo for ${p.name}">Demo <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>`;
     }
     if(p.code){
-      linksHtml += `<a href="${p.code}" target="_blank" rel="noopener noreferrer" class="archive-btn">Code <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>`;
+      linksHtml += `<a href="${p.code}" target="_blank" rel="noopener noreferrer" class="archive-btn" aria-label="Code for ${p.name}">Code <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>`;
     }
 
     card.innerHTML = `
@@ -2417,7 +2544,7 @@ function renderArchive(){
         <div class="archive-card-type">${p.type}</div>
         <h4>${p.name}</h4>
         <p>${p.desc}</p>
-        <div class="tags" style="margin-top:0.8rem;">${p.tags.map(t=>`<span class="tag" style="font-size:0.6rem;padding:0.15rem 0.4rem;">${t}</span>`).join('')}</div>
+        <div class="tags archive-tags">${p.tags.map(t=>`<span class="tag archive-tag">${t}</span>`).join('')}</div>
       </div>
       <div class="archive-card-links">${linksHtml}</div>
     `;
@@ -2501,6 +2628,7 @@ function toggleMusicWidget(forceState){
   const panel = document.getElementById('musicPlayerPanel');
   const pill = document.getElementById('musicPill');
   const btnText = document.getElementById('musicBtnText');
+  const musicBtn = document.getElementById('musicBtn');
   const iframe = document.getElementById('spotifyIframe');
 
   if(typeof forceState === 'boolean'){
@@ -2508,6 +2636,8 @@ function toggleMusicWidget(forceState){
   } else {
     isMusicOpen = !isMusicOpen;
   }
+
+  if(musicBtn) musicBtn.setAttribute('aria-expanded', isMusicOpen);
 
   if(isMusicOpen){
     panel.classList.add('open');
@@ -2685,7 +2815,7 @@ function toggleMusicWidget(forceState){
     widget.classList.toggle('bubble-right', left > (window.innerWidth - 260));
   }
 
-  /** Restore saved position from localStorage, or fall back to bottom-left */
+  /** Restore saved position from localStorage, or fall back to bottom-left (above music dock on mobile) */
   function initPosition(){
     let saved = null;
     try { saved = JSON.parse(localStorage.getItem('gojo_pos')); } catch(e){}
@@ -2694,7 +2824,9 @@ function toggleMusicWidget(forceState){
     } else {
       requestAnimationFrame(() => {
         const h = container.offsetHeight || 160;
-        setPosition(28, window.innerHeight - h - 28);
+        const isMobile = window.innerWidth <= 600;
+        const bottomOffset = isMobile ? 84 : 28;
+        setPosition(28, window.innerHeight - h - bottomOffset);
       });
     }
   }
@@ -2790,6 +2922,7 @@ function toggleMusicWidget(forceState){
 
   function startAutoRotate(){
     stopAutoRotate();
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     autoTimer = setInterval(() => {
       if(!userInteracted){ idx = (idx + 1) % gojoQuotes.length; renderQuote(idx, true); }
     }, 6000);
@@ -2800,13 +2933,28 @@ function toggleMusicWidget(forceState){
     renderQuote(idx, false);
     bubble.classList.add('visible');
     isBubbleOpen = true;
+    container.setAttribute('aria-expanded', 'true');
     startAutoRotate();
   }
   function hideBubble(){
     bubble.classList.remove('visible');
     isBubbleOpen = false;
+    container.setAttribute('aria-expanded', 'false');
     stopAutoRotate();
   }
+
+  // Dismiss on clicking outside the widget
+  document.addEventListener('pointerdown', (e) => {
+    if(isBubbleOpen && !widget.contains(e.target)){
+      hideBubble();
+    }
+  });
+
+  // Pause quote rotation while hovering/focusing
+  bubble.addEventListener('mouseenter', stopAutoRotate);
+  bubble.addEventListener('mouseleave', () => { if(isBubbleOpen && !userInteracted) startAutoRotate(); });
+  container.addEventListener('mouseenter', stopAutoRotate);
+  container.addEventListener('mouseleave', () => { if(isBubbleOpen && !userInteracted) startAutoRotate(); });
 
   // ── Public API (called by HTML button onclick) ──
   window.toggleGojoSpeech = function(){ isBubbleOpen ? hideBubble() : showBubble(); };
