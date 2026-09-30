@@ -1,0 +1,359 @@
+/* ============================================================
+   Yashwanth Ponnam (Yash55-max) — 365-Day Contribution Skyline
+   Pure Vanilla CSS (Zero Tailwind, Zero PostCSS)
+   ============================================================ */
+
+.skyline-card {
+  position: relative;
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  color: var(--card-fg, #f2f3f5);
+  padding: 0;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.skyline-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.skyline-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.skyline-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--card-fg, #f2f3f5);
+}
+
+.skyline-total {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--cyan, #7fe3ff);
+}
+
+.skyline-user-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: #9ba0ad;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.55rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.02em;
+}
+
+.skyline-toggle-box {
+  position: relative;
+  display: inline-flex;
+  border-radius: 6px;
+  border: 1px solid var(--border-color, #222736);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px;
+}
+
+.skyline-toggle-slider {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  width: 32px;
+  border-radius: 4px;
+  background: var(--card-fg, #f2f3f5);
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  pointer-events: none;
+}
+
+.skyline-toggle-btn {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 28px;
+  border: 0;
+  background: transparent;
+  color: #737373;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.skyline-toggle-btn.active {
+  color: var(--card-bg, #0c0e14);
+}
+
+.skyline-box {
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--border-color, #222736);
+  background: rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.skyline-viewport-wrap {
+  position: relative;
+  padding: 0.85rem;
+}
+
+.skyline-stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  outline-offset: 4px;
+}
+
+#skylineCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  outline: none;
+  cursor: grab;
+}
+
+/* 3D Corner Floating Stats */
+.skyline-corner-stats {
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: opacity 0.5s cubic-bezier(0.65, 0, 0.35, 1), transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 10;
+}
+
+.skyline-corner-stats.top-right {
+  top: 0.5rem;
+  right: 0.5rem;
+  align-items: flex-end;
+}
+
+.skyline-corner-stats.bottom-left {
+  bottom: 0.5rem;
+  left: 0.5rem;
+  align-items: flex-start;
+}
+
+.skyline-stat-item.end {
+  text-align: right;
+}
+
+.skyline-stat-item.start {
+  text-align: left;
+}
+
+/* Stat formatting */
+.stat-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-lbl {
+  font-size: 0.8rem;
+  color: #9ba0ad;
+  line-height: 1.2;
+}
+
+.stat-val-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+}
+
+.skyline-corner-stats .stat-val {
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.skyline-corner-stats .stat-unit {
+  font-size: 0.95rem;
+  color: var(--card-fg, #f2f3f5);
+}
+
+.stat-sub {
+  font-size: 0.75rem;
+  color: #737373;
+  margin-top: 0.15rem;
+  white-space: nowrap;
+}
+
+/* 2D Stats Row */
+.skyline-stats-row {
+  display: grid;
+  transition: grid-template-rows 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skyline-stats-grid {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media (max-width: 640px) {
+  .skyline-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+.skyline-row-stat .stat-val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.skyline-row-stat .stat-unit {
+  font-size: 0.82rem;
+  color: var(--card-fg, #f2f3f5);
+}
+
+/* Tooltip */
+.skyline-tooltip {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 30;
+  pointer-events: none;
+  white-space: nowrap;
+  border-radius: 6px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  background: var(--card-fg, #f2f3f5);
+  color: var(--card-bg, #0c0e14);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.skyline-tooltip-arrow {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--card-fg, #f2f3f5);
+}
+
+/* Footer & Legend */
+.skyline-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  color: #737373;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skyline-hint {
+  flex: 1;
+  min-width: 200px;
+}
+
+.skyline-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.skyline-swatches {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.skyline-swatch-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.skyline-swatch-btn:hover {
+  transform: scale(1.3);
+}
+
+/* Light / White Theme Adaptive Styles */
+body[data-theme="light"] .skyline-card,
+body[data-theme="white"] .skyline-card {
+  --card-bg: #ffffff;
+  --card-fg: #090d16;
+  --border-color: #e2e8f0;
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #090d16;
+}
+
+body[data-theme="light"] .skyline-box,
+body[data-theme="white"] .skyline-box {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+body[data-theme="light"] .skyline-user-pill,
+body[data-theme="white"] .skyline-user-pill {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+body[data-theme="light"] .skyline-toggle-box,
+body[data-theme="white"] .skyline-toggle-box {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+body[data-theme="light"] .skyline-stats-row,
+body[data-theme="white"] .skyline-stats-row,
+body[data-theme="light"] .skyline-footer,
+body[data-theme="white"] .skyline-footer {
+  border-top-color: #e2e8f0;
+}
+
+body[data-theme="light"] .stat-lbl,
+body[data-theme="white"] .stat-lbl,
+body[data-theme="light"] .stat-sub,
+body[data-theme="white"] .stat-sub,
+body[data-theme="light"] .skyline-footer,
+body[data-theme="white"] .skyline-footer {
+  color: #64748b;
+}
