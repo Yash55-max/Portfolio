@@ -16,13 +16,13 @@
 <meta property="og:url" content="https://yash55-max.github.io/Portfolio/">
 <meta property="og:title" content="Yashwanth Ponnam // DevOps × AI Systems Engineer">
 <meta property="og:description" content="DevOps & AI Systems Engineer — Kubernetes, MLOps, CI/CD, LLM Ops & autonomous multi-agent architectures. Limitless by design.">
-<meta property="og:image" content="https://yash55-max.github.io/Portfolio/favicon.svg">
+<meta property="og:image" content="https://yash55-max.github.io/Portfolio/assets/profile.jpg">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Yashwanth Ponnam // DevOps × AI Systems Engineer">
 <meta name="twitter:description" content="DevOps & AI Systems Engineer — Kubernetes, MLOps, CI/CD, LLM Ops & autonomous multi-agent architectures.">
-<meta name="twitter:image" content="https://yash55-max.github.io/Portfolio/favicon.svg">
+<meta name="twitter:image" content="https://yash55-max.github.io/Portfolio/assets/profile.jpg">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" href="favicon.ico">
@@ -462,12 +462,21 @@ nav{
   overflow:hidden;
   border-radius:4px;
 }
-.gojo-video{
+.gojo-video,
+.hero-photo{
   width:100%;
   height:auto;
+  aspect-ratio:3/4;
   max-height:500px;
   display:block;
   object-fit:cover;
+  object-position:center top;
+  filter:contrast(1.06) brightness(1.02);
+  transition:transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+}
+.video-cyber-frame:hover .hero-photo{
+  transform:scale(1.03);
+  filter:contrast(1.12) brightness(1.06);
 }
 .video-overlay-scanline{
   position:absolute;
@@ -1825,16 +1834,17 @@ body.mode-doc #matrixCanvas.active {
   z-index: 100;
   overflow: hidden;
 }
-.os-wallpaper-video {
+.os-wallpaper-video,
+.os-wallpaper-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 30%;
   z-index: 0;
-  opacity: 0.42;
-  filter: contrast(1.1) brightness(0.85) saturate(1.15);
+  opacity: 0.28;
+  filter: contrast(1.12) brightness(0.85);
   pointer-events: none;
   transition: opacity 0.5s ease;
 }
@@ -3669,8 +3679,10 @@ body[data-theme="white"] .os-desktop-grid {
                     linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px) !important;
 }
 body[data-theme="light"] .os-wallpaper-video,
-body[data-theme="white"] .os-wallpaper-video {
-  opacity: 0.28 !important;
+body[data-theme="white"] .os-wallpaper-video,
+body[data-theme="light"] .os-wallpaper-img,
+body[data-theme="white"] .os-wallpaper-img {
+  opacity: 0.18 !important;
   filter: contrast(1.05) brightness(1.08) saturate(1.1) !important;
 }
 body[data-theme="light"] .os-wallpaper-overlay,
@@ -4111,7 +4123,7 @@ body[data-theme="white"] [style*="color:#a0a6b8"] {
         <span id="osDropdownMatrixText"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg> Toggle Matrix Digital Rain</span>
       </button>
       <button class="os-dropdown-item" onclick="toggleWallpaper(); closeOsDropdown();" role="menuitem">
-        <span><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg> Toggle Video Wallpaper</span>
+        <span><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg> Toggle Wallpaper</span>
       </button>
       <button class="os-dropdown-item" onclick="toggleSoundFX(); closeOsDropdown();" role="menuitem">
         <span id="osDropdownSfxText"><svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg> Sound Effects: OFF</span>
@@ -4158,8 +4170,8 @@ body[data-theme="white"] [style*="color:#a0a6b8"] {
   <div class="os-snap-preview" id="osSnapPreview"></div>
   <div class="os-marquee-box" id="osMarqueeBox"></div>
 
-  <!-- Satoru Gojo Live Video Wallpaper -->
-  <video class="os-wallpaper-video" id="osWallpaperVideo" src="assets/1.mp4" autoplay loop muted playsinline aria-hidden="true" tabindex="-1"></video>
+  <!-- Limitless OS Desktop Wallpaper -->
+  <img class="os-wallpaper-img" id="osWallpaperImg" src="assets/profile.jpg" alt="Desktop Wallpaper" aria-hidden="true" tabindex="-1">
   <div class="os-wallpaper-overlay"></div>
   <div class="os-desktop-grid"></div>
 
@@ -4613,7 +4625,7 @@ body[data-theme="white"] [style*="color:#a0a6b8"] {
     <span id="osContextMatrixText"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg> Toggle Matrix Digital Rain</span>
   </button>
   <button class="os-context-item" onclick="toggleWallpaper(); closeContextMenu();" role="menuitem">
-    <span><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg> Toggle Video Wallpaper</span>
+    <span><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg> Toggle Wallpaper</span>
   </button>
   <button class="os-context-item" onclick="toggleSoundFX(); closeContextMenu();" role="menuitem">
     <span><svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.08"/></svg> Toggle Sound FX</span>
@@ -4693,10 +4705,10 @@ body[data-theme="white"] [style*="color:#a0a6b8"] {
     </div>
   </div>
 
-  <!-- Satoru Gojo Video Stage -->
+  <!-- Yashwanth Ponnam Stage -->
   <div class="stage" id="stage">
     <div class="gojo-badge">
-      <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg> 五条 悟 // SATORU GOJO (六眼)
+      <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg> 蓬男 泰和 // YASHWANTH PONNAM (無下限)
     </div>
 
     <div class="aura-ring ring3"></div>
@@ -4709,9 +4721,9 @@ body[data-theme="white"] [style*="color:#a0a6b8"] {
     <div class="infinity-orb orb-purple" title="Hollow Purple (虚式「茈」)"></div>
 
     <div class="charwrap" id="charwrap">
-      <!-- Satoru Gojo Video Container -->
+      <!-- Yashwanth Ponnam Cyber Portrait -->
       <div class="video-cyber-frame">
-        <video src="assets/1.mp4" autoplay loop muted playsinline class="gojo-video" aria-label="Satoru Gojo animation"></video>
+        <img src="assets/profile.jpg" alt="Yashwanth Ponnam — DevOps &amp; AI Systems Engineer" class="hero-photo" id="heroPhoto" loading="eager" decoding="async">
         <div class="video-overlay-scanline"></div>
         <div class="video-corner corner-tl"></div>
         <div class="video-corner corner-tr"></div>
@@ -5864,18 +5876,18 @@ function toggleSoundFX(){
   try { localStorage.setItem('limitless_sfx', OS.sfxEnabled ? '1' : '0'); } catch(e){}
 }
 
-// ── Desktop Video Wallpaper Controls ──
+// ── Desktop Wallpaper Controls ──
 function toggleWallpaper(forceState){
-  const vid = document.getElementById('osWallpaperVideo');
-  if(!vid) return;
-  const isHidden = forceState !== undefined ? !forceState : vid.style.display === 'none';
-  vid.style.display = isHidden ? 'block' : 'none';
-  if(isHidden){
-    if(OS.viewMode === 'os' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      vid.play().catch(()=>{});
+  const wp = document.getElementById('osWallpaperImg') || document.getElementById('osWallpaperVideo');
+  if(!wp) return;
+  const isHidden = forceState !== undefined ? !forceState : wp.style.display === 'none';
+  wp.style.display = isHidden ? 'block' : 'none';
+  if(wp.tagName === 'VIDEO'){
+    if(isHidden && OS.viewMode === 'os' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      wp.play().catch(()=>{});
+    } else {
+      wp.pause();
     }
-  } else {
-    vid.pause();
   }
   playSound('click');
 }
@@ -6956,7 +6968,7 @@ function executeTermCommand(rawCmd){
       printTermLine(`  ${ANSI.neon('open <app>')}      - Launch app (terminal, projects, files, resume)`);
       printTermLine(`  ${ANSI.neon('domain')}          - Execute Domain Expansion: Unlimited Void`);
       printTermLine(`  ${ANSI.neon('matrix')}          - Toggle Matrix digital rain overlay`);
-      printTermLine(`  ${ANSI.neon('wallpaper')}       - Toggle OS desktop live video wallpaper`);
+      printTermLine(`  ${ANSI.neon('wallpaper')}       - Toggle OS desktop background wallpaper`);
       printTermLine(`  ${ANSI.neon('sfx')}             - Toggle Web Audio synthesized sound effects`);
       printTermLine(`  ${ANSI.neon('doc')}             - Toggle continuous scroll document view`);
       printTermLine(`  ${ANSI.neon('clear')}           - Clear terminal screen buffer`);
@@ -7115,7 +7127,7 @@ function executeTermCommand(rawCmd){
     case 'wallpaper':
     case 'video':
       toggleWallpaper();
-      printTermLine(`Desktop Live Video Wallpaper toggled.`, 'accent');
+      printTermLine(`Desktop Wallpaper toggled.`, 'accent');
       break;
 
     case 'sfx':
@@ -7168,7 +7180,7 @@ const PALETTE_ACTIONS = [
   { id: 'act-domain',    title: 'Domain Expansion: Unlimited Void (無量空処)', cat: 'Action', run: () => triggerDomainExpansion() },
   { id: 'act-jjk-intro', title: 'Replay Jujutsu Kaisen Anime Loading Sequence (領域展開)', cat: 'Cinematic', run: () => playJjkIntro() },
   { id: 'act-matrix',    title: 'Toggle Matrix Digital Rain Overlay', cat: 'Visual', run: () => toggleMatrixRain() },
-  { id: 'act-wallpaper', title: 'Toggle Desktop Live Video Wallpaper (assets/1.mp4)', cat: 'Visual', run: () => toggleWallpaper() },
+  { id: 'act-wallpaper', title: 'Toggle Desktop Wallpaper Background', cat: 'Visual', run: () => toggleWallpaper() },
   { id: 'act-sfx',       title: 'Toggle Web Audio Sound Effects', cat: 'Settings', run: () => toggleSoundFX() },
   { id: 'act-mode',      title: 'Toggle OS Desktop / Document View', cat: 'Settings', run: () => toggleViewMode() },
   { id: 'link-resume',   title: 'Download Official Resume PDF', cat: 'Document', run: () => window.open('https://drive.google.com/file/d/1w-zXIcoHuloWUqF7s9AlmwfiL5UpvaQD/view?usp=sharing','_blank','noopener,noreferrer') },

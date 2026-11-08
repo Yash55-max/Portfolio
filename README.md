@@ -79,7 +79,9 @@ An expandable repository containing 8 additional platforms, civic tech builds, s
 ```text
 Portfolio/
 ├── assets/
-│   └── 1.mp4           # Video background and media asset
+│   ├── anime.min.js    # Anime.js animation engine
+│   ├── gojo.png        # Floating assistant companion
+│   └── profile.jpg     # Lead architect portrait & background
 ├── index.html          # Core single-page application (Markup, CSS, and JS)
 └── README.md           # Technical documentation and project overview
 ```
