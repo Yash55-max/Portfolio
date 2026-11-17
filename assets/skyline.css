@@ -24,6 +24,68 @@
   margin-bottom: 0.9rem;
 }
 
+@media (max-width: 600px) {
+  .skyline-header {
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .skyline-title-wrap {
+    min-width: 0;
+    flex: 1 1 100%;
+    gap: 0.45rem;
+  }
+
+  .skyline-title {
+    font-size: 0.82rem;
+  }
+
+  .skyline-user-pill {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .skyline-toggle-box {
+    align-self: flex-end;
+  }
+
+  .skyline-viewport-wrap {
+    padding: 0.45rem;
+  }
+
+  .skyline-stage {
+    min-height: 190px;
+  }
+
+  .skyline-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .skyline-hint {
+    min-width: 0;
+    line-height: 1.45;
+  }
+
+  .skyline-legend {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .skyline-swatch-btn {
+    width: 16px;
+    height: 16px;
+  }
+
+  #skylineCanvas {
+    touch-action: none;
+  }
+}
+
 .skyline-title-wrap {
   display: flex;
   align-items: center;
