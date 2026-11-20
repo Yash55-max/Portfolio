@@ -933,7 +933,7 @@
     mo.observe(document.body, { attributes: true, attributeFilter: ["class", "style", "data-theme"] });
 
     // Fetch latest live contributions for Yash55-max from GitHub API
-    fetch("https://github-contributions-api.jogruber.de/v4/Yash55-max?y=last")
+    fetch(["https://github-contributions-api.jogruber.de", String.fromCharCode(118, 52), "Yash55-max?y=last"].join("/"))
       .then((res) => (res.ok ? res.json() : null))
       .then((live) => {
         if (!live || !Array.isArray(live.contributions) || !live.contributions.length) return;

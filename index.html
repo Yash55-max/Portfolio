@@ -18,7 +18,7 @@
   <meta property="og:image:alt" content="Portrait of Yashwanth Ponnam">
   <meta name="twitter:card" content="summary">
 
-  <!-- Typography: Space Grotesk & Inter -->
+  <!-- Typography: Space Grotesk, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -48,7 +48,6 @@
       --ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Light Theme System */
     html[data-theme="light"] {
       --sc-canvas: #f7f6f2;
       --sc-surface: #ffffff;
@@ -98,7 +97,6 @@
       scroll-margin-top: 100px;
     }
 
-    /* Skip link */
     .skip-link {
       position: absolute;
       top: -60px;
@@ -353,8 +351,62 @@
     }
 
     /* -------------------------------------------------------------
-       HERO SECTION (#about) WITH TOP PORTRAIT ORIGIN
+       ABOUT WRAPPER SECTION (.about-section)
+       Holds Hero, Biography, and the 3D Sticky Portrait Journey
        ------------------------------------------------------------- */
+    .about-section {
+      position: relative;
+    }
+
+    /* 3D STICKY PORTRAIT JOURNEY
+       Matches exact reference site implementation (0yt5ir1aaj66y.js)
+       ------------------------------------------------------------- */
+    .portrait-journey {
+      position: absolute;
+      inset: 0 0 auto;
+      pointer-events: none;
+      z-index: 25;
+      display: block;
+    }
+    .portrait-sticky-stage {
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+    .portrait-card {
+      position: absolute;
+      transform-style: preserve-3d;
+      will-change: transform;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      background: var(--sc-surface);
+    }
+    .portrait-face {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      overflow: hidden;
+      background: var(--sc-surface);
+      transform-style: preserve-3d;
+      backface-visibility: visible;
+      -webkit-backface-visibility: visible;
+    }
+    .portrait-face img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(108%);
+      display: block;
+      backface-visibility: visible;
+      -webkit-backface-visibility: visible;
+      will-change: transform;
+    }
+
+    /* Hero Section */
     .hero-section {
       min-height: 100vh;
       display: flex;
@@ -362,7 +414,7 @@
       justify-content: space-between;
       position: relative;
       overflow: hidden;
-      padding-top: 90px;
+      padding-top: 100px;
       padding-bottom: 24px;
     }
 
@@ -384,38 +436,6 @@
       opacity: 0.03;
     }
 
-    /* Hero Top Portrait Origin: Where the single image begins */
-    .hero-portrait-origin {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 10;
-      height: 220px;
-      width: 100%;
-    }
-
-    /* The Single Traveling Portrait */
-    .traveling-portrait-frame {
-      width: 210px;
-      height: 210px;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 2px solid var(--sc-line);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-      background: var(--sc-surface);
-      transform-origin: center center;
-      will-change: transform;
-      pointer-events: auto;
-    }
-    .traveling-portrait-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(100%) contrast(108%);
-      display: block;
-    }
-
     .hero-content {
       position: relative;
       z-index: 2;
@@ -423,6 +443,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      margin-top: 2vh;
     }
 
     .hero-title {
@@ -450,6 +471,7 @@
       color: var(--sc-ink);
     }
 
+    /* Hero bottom bar & Portrait Slot */
     .hero-bottom-bar {
       position: relative;
       z-index: 2;
@@ -489,14 +511,27 @@
       50% { opacity: 0; }
     }
 
+    /* Hero Portrait Slot: Where the 3D card begins its journey */
+    .hero-portrait-slot {
+      width: clamp(200px, 26vw, 320px);
+      aspect-ratio: 1 / 1.15;
+      border-radius: 20px;
+      margin-inline: auto;
+      position: relative;
+      z-index: 3;
+      transform: translateY(24px);
+      visibility: hidden;
+    }
+
     /* -------------------------------------------------------------
        ABOUT / BIOGRAPHY SECTION (#biography)
-       3-column layout: Hi message (left) | Single Image (middle) | Statement (right)
+       3-column layout: Hi message (left) | 3D Portrait (center) | Statement (right)
        ------------------------------------------------------------- */
     .biography-section {
       padding-top: 100px;
       padding-bottom: 120px;
       position: relative;
+      z-index: 2;
     }
     .biography-grid {
       display: grid;
@@ -552,20 +587,19 @@
       color: var(--sc-ink-muted);
     }
 
-    /* Target Dock in the Middle for the Traveling Image */
+    /* Destination Dock in the Middle for the Traveling 3D Card */
     .bio-center {
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .bio-portrait-dock {
-      width: clamp(240px, 25vw, 320px);
-      height: clamp(240px, 25vw, 320px);
-      border-radius: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .bio-portrait-slot {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 1 / 1.15;
+      border-radius: 24px;
       position: relative;
+      visibility: hidden;
     }
 
     .bio-right {
@@ -700,7 +734,7 @@
     }
 
     /* -------------------------------------------------------------
-       GITHUB CONTRIBUTIONS HEATMAP & LIVE TIME (Under Tech Stack)
+       GITHUB CONTRIBUTIONS HEATMAP & LIVE TIME (Directly under Tech Stack)
        ------------------------------------------------------------- */
     .activity-section {
       padding-block: 80px 100px;
@@ -752,7 +786,6 @@
       margin-top: 4px;
     }
 
-    /* Live Telemetry Clock Card */
     .live-telemetry-card {
       background: var(--sc-surface-alt);
       border: 1px solid var(--sc-line);
@@ -1205,7 +1238,6 @@
 
     /* -------------------------------------------------------------
        CONTACT SECTION (#contact) - "Let's talk."
-       (external services updated)
        ------------------------------------------------------------- */
     .contact-section {
       padding-block: 120px;
@@ -1598,7 +1630,7 @@
     </div>
   </header>
 
-  <!-- Navigation Drawer (external services updated) -->
+  <!-- Navigation Drawer -->
   <div id="navBackdrop" class="nav-backdrop" aria-hidden="true"></div>
   <aside id="navigation-panel" class="nav-dialog" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <div class="nav-panel-top">
@@ -1643,11 +1675,25 @@
   <!-- MAIN SCROLL CONTAINER -->
   <main id="main">
 
-    <!-- 1. HERO SECTION (#about) -->
-    <section class="hero-section" id="about" aria-label="Software Engineer Headline">
-      <!-- Faint matrix code background watermark -->
-      <div class="glyph-background" aria-hidden="true">
-        <pre class="glyph-code-fallback">const yashwanth = {
+    <!-- ABOUT SECTION CONTAINER: Holds Hero, Biography, and 3D Traveling Portrait Card -->
+    <div class="about-section" id="about">
+
+      <!-- 3D Traveling Portrait Journey Stage (Strict Single Image) -->
+      <div class="portrait-journey" aria-hidden="true">
+        <div class="portrait-sticky-stage">
+          <div class="portrait-card" id="portraitCard">
+            <div class="portrait-face">
+              <img src="assets/profile.jpg" alt="Portrait of Yashwanth Ponnam" width="1280" height="1280" priority>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1. HERO VIEWPORT -->
+      <section class="hero-section" aria-label="Software Engineer Headline">
+        <!-- Faint matrix code background watermark -->
+        <div class="glyph-background" aria-hidden="true">
+          <pre class="glyph-code-fallback">const yashwanth = {
   name: "Yashwanth Ponnam",
   role: "DevOps & AI Systems Engineer",
   focus: ["Kubernetes (EKS)", "CI/CD & IaC", "LLM Serving & RAG"],
@@ -1659,83 +1705,81 @@
     { degree: "B.Tech Computer Science (Data Science)", college: "KIET", cgpa: "8.1+", graduating: "April 2026" }
   ]
 };</pre>
-      </div>
-
-      <!-- Top Portrait Origin: Single Image begins here above SOFTWARE / ENGINEER -->
-      <div class="hero-portrait-origin wrap" id="heroPortraitOrigin">
-        <div class="traveling-portrait-frame" id="travelingPortrait">
-          <img src="assets/profile.jpg" alt="Yashwanth Ponnam portrait" width="320" height="320" priority>
         </div>
-      </div>
 
-      <!-- Display Headline: < SOFTWARE / ENGINEER /> -->
-      <div class="hero-content wrap">
-        <h1 class="hero-title" aria-label="Software Engineer">
-          <span class="title-line">
-            <span class="hero-code-mark" aria-hidden="true">
-              <svg viewBox="20 0 110 160" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter">
-                <path opacity=".18" d="M105 30 48 80 105 130" transform="translate(4 5)"></path>
-                <path d="M105 30 48 80 105 130"></path>
-              </svg>
+        <!-- Display Headline: < SOFTWARE / ENGINEER /> -->
+        <div class="hero-content wrap">
+          <h1 class="hero-title" aria-label="Software Engineer">
+            <span class="title-line">
+              <span class="hero-code-mark" aria-hidden="true">
+                <svg viewBox="20 0 110 160" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter">
+                  <path opacity=".18" d="M105 30 48 80 105 130" transform="translate(4 5)"></path>
+                  <path d="M105 30 48 80 105 130"></path>
+                </svg>
+              </span>
+              SOFTWARE
             </span>
-            SOFTWARE
-          </span>
-          <span class="title-line">
-            ENGINEER
-            <span class="hero-code-mark" aria-hidden="true">
-              <svg viewBox="0 0 180 160" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter">
-                <path opacity=".18" d="M65 30 25 130M100 30 157 80 100 130" transform="translate(4 5)"></path>
-                <path d="M65 30 25 130M100 30 157 80 100 130"></path>
-              </svg>
+            <span class="title-line">
+              ENGINEER
+              <span class="hero-code-mark" aria-hidden="true">
+                <svg viewBox="0 0 180 160" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter">
+                  <path opacity=".18" d="M65 30 25 130M100 30 157 80 100 130" transform="translate(4 5)"></path>
+                  <path d="M65 30 25 130M100 30 157 80 100 130"></path>
+                </svg>
+              </span>
             </span>
-          </span>
-        </h1>
-      </div>
-
-      <!-- Hero Bottom Bar: ©2026 and {{ /DEVOPS & AI SYSTEMS }} -->
-      <div class="hero-bottom-bar wrap">
-        <div class="hero-meta-left">
-          <span>©2026</span>
+          </h1>
         </div>
-        <div class="hero-meta-right">
-          <span>{{&nbsp;</span><span>/DEVOPS &amp; AI SYSTEMS</span><span class="terminal-caret" aria-hidden="true"></span><span>&nbsp;}}</span>
-        </div>
-      </div>
-    </section>
 
-    <!-- 2. BIOGRAPHY / ABOUT SECTION (#biography) -->
-    <section class="biography-section" id="biography" aria-label="Biography">
-      <div class="wrap biography-grid">
-        <!-- Left Column: Hi, I'm Yashwanth + Currently at -->
-        <div class="bio-left">
-          <h2>Hi, I'm Yashwanth.</h2>
-          <p class="bio-subtitle">DevOps &amp; AI Systems Engineer.</p>
+        <!-- Hero Bottom Bar: ©2026, Origin Slot, and {{ /DEVOPS & AI SYSTEMS }} -->
+        <div class="hero-bottom-bar wrap">
+          <div class="hero-meta-left">
+            <span>©2026</span>
+          </div>
 
-          <div class="bio-current-block">
-            <p class="bio-current-label">Currently at</p>
-            <p class="bio-current-company">Cognifyz Technologies</p>
-            <p class="bio-current-role">Data Science &amp; AI Intern</p>
-            <p class="bio-current-loc">Andhra Pradesh, India</p>
+          <!-- Hero Origin Slot where the single 3D card begins peeking -->
+          <a href="#biography" class="hero-portrait-slot" aria-label="Scroll to biography"></a>
+
+          <div class="hero-meta-right">
+            <span>{{&nbsp;</span><span>/DEVOPS &amp; AI SYSTEMS</span><span class="terminal-caret" aria-hidden="true"></span><span>&nbsp;}}</span>
           </div>
         </div>
+      </section>
 
-        <!-- Center Column: Destination Dock for the Traveling Single Image -->
-        <div class="bio-center">
-          <div class="bio-portrait-dock" id="bioPortraitDock"></div>
-        </div>
+      <!-- 2. BIOGRAPHY SECTION (#biography) -->
+      <section class="biography-section" id="biography" aria-label="Biography">
+        <div class="wrap biography-grid">
+          <!-- Left Column: Hi, I'm Yashwanth + Currently at -->
+          <div class="bio-left">
+            <h2>Hi, I'm Yashwanth.</h2>
+            <p class="bio-subtitle">DevOps &amp; AI Systems Engineer.</p>
 
-        <!-- Right Column: Statement Text & Explore button -->
-        <div class="bio-right">
-          <p class="bio-statement">
-            I build <strong>production-grade Kubernetes platforms</strong> and <strong>agentic AI pipelines</strong>, automating operations and eliminating manual toil.
-          </p>
-          <a href="#projects" class="btn-explore">
-            <span>Explore projects</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
-          </a>
+            <div class="bio-current-block">
+              <p class="bio-current-label">Currently at</p>
+              <p class="bio-current-company">Cognifyz Technologies</p>
+              <p class="bio-current-role">Data Science &amp; AI Intern</p>
+              <p class="bio-current-loc">Andhra Pradesh, India</p>
+            </div>
+          </div>
+
+          <!-- Center Column: Destination Slot for the Single 3D Portrait -->
+          <div class="bio-center">
+            <div class="bio-portrait-slot"></div>
+          </div>
+
+          <!-- Right Column: Statement Text & Explore button -->
+          <div class="bio-right">
+            <p class="bio-statement">
+              I build <strong>production-grade Kubernetes platforms</strong> and <strong>agentic AI pipelines</strong>, automating operations and eliminating manual toil.
+            </p>
+            <a href="#projects" class="btn-explore">
+              <span>Explore projects</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- 3. TECH STACK SECTION (#skills) -->
     <section class="skills-section" id="skills" aria-label="Tech Stack">
@@ -1797,7 +1841,7 @@
       </div>
     </section>
 
-    <!-- 4. GITHUB CONTRIBUTIONS HEATMAP & LIVE TIME (Placed directly under Tech Stack) -->
+    <!-- 4. GITHUB CONTRIBUTIONS HEATMAP & LIVE TIME (Directly under Tech Stack) -->
     <section class="activity-section" id="contributions" aria-label="GitHub Contributions and Live Activity">
       <div class="wrap">
         <div class="activity-header-bar">
@@ -2086,7 +2130,7 @@
       </div>
     </section>
 
-    <!-- 7. CONTACT SECTION (#contact) - external services updated -->
+    <!-- 7. CONTACT SECTION (#contact) - "Let's talk." -->
     <section class="contact-section" id="contact" aria-label="Contact Section">
       <div class="wrap contact-grid">
         <div class="contact-left">
@@ -2104,7 +2148,6 @@
             <div id="copyTooltip" class="copy-tooltip">Copied to clipboard!</div>
           </div>
 
-          <!-- Social Links (Only LinkedIn and GitHub, external services updated) -->
           <div class="contact-social-links">
             <a href="https://www.linkedin.com/in/yashwanth-ponnam-a97921256/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -2136,7 +2179,7 @@
 
   </main>
 
-  <!-- 8. FOOTER & WHITE FINALE BAND (.footer-finale) - external services updated -->
+  <!-- 8. FOOTER & WHITE FINALE BAND (.footer-finale) -->
   <footer class="site-footer">
     <div class="wrap footer-top">
       <div class="footer-identity">
@@ -2216,7 +2259,7 @@
       <div style="margin-top:12px;">
         <a href="mailto:yashwanthponnam55@gmail.com?subject=Freelance%20Consulting%20Inquiry" class="btn-drawer-primary">
           <span>Book an Architecture Review</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </a>
       </div>
     </div>
@@ -2344,89 +2387,126 @@
     worldCloseBtn.addEventListener('click', () => closeModal(worldModal));
 
     /* -------------------------------------------------------------
-       SINGLE IMAGE TRAVEL & ROTATE SCROLL CONTROLLER
-       Travels from Hero origin (top of software engineer text)
-       down to the middle slot of Biography, rotating during scroll.
+       EXACT 3D PORTRAIT STICKY MOTION (from reference site 0yt5ir1aaj66y.js)
+       Translates, scales, and rotates 360deg in 3D perspective(1200px)
+       from the hero slot down into the middle biography slot.
        ------------------------------------------------------------- */
-    const travelingPortrait = document.getElementById('travelingPortrait');
-    const heroOrigin = document.getElementById('heroPortraitOrigin');
-    const bioDock = document.getElementById('bioPortraitDock');
+    function initPortraitMotion() {
+      const journey = document.querySelector('.portrait-journey');
+      const card = document.querySelector('.portrait-card');
+      const aboutSection = document.querySelector('.about-section');
+      const heroSlot = document.querySelector('.hero-portrait-slot');
+      const bioSlot = document.querySelector('.bio-portrait-slot');
 
-    function updatePortraitScroll() {
-      if (!travelingPortrait || !heroOrigin || !bioDock) return;
+      if (!journey || !card || !aboutSection || !heroSlot || !bioSlot) return;
 
-      const scrollY = window.scrollY || window.pageYOffset;
-      const originRect = heroOrigin.getBoundingClientRect();
-      const dockRect = bioDock.getBoundingClientRect();
+      const portraitImg = card.querySelector('img');
+      let rafId = 0;
+      let currentProgress = 0; // u in reference code
+      let targetProgress = 0;  // h in reference code
+      let startScrollY = 0;    // p
+      let travelDistance = 1;  // m
+      let scaleX = 0.5;        // f
+      let scaleY = 0.5;        // x
+      let deltaY = 0;          // j
+      let deltaX = 0;          // g
+      let startRadius = 20;    // y
+      let endRadius = 24;      // v
+      let lastTimestamp = 0;   // w
 
-      // Absolute document Y positions
-      const originDocY = originRect.top + scrollY;
-      const dockDocY = dockRect.top + scrollY;
+      function render() {
+        const sX = scaleX + (1 - scaleX) * currentProgress;
+        const sY = scaleY + (1 - scaleY) * currentProgress;
+        // Smoothstep easing a = u * u * (3 - 2 * u) matching reference site
+        const eased = currentProgress * currentProgress * (3 - 2 * currentProgress);
+        const transX = deltaX * (1 - currentProgress);
+        const transY = deltaY * (1 - currentProgress);
+        const rad = startRadius + (endRadius - startRadius) * currentProgress;
 
-      // Scroll range over which transition occurs
-      const travelDistance = dockDocY - originDocY;
-      const progress = Math.min(1, Math.max(0, scrollY / Math.max(1, travelDistance)));
+        // Exact 3D perspective flip matching reference site 0yt5ir1aaj66y.js & video (180deg flip)
+        const rotY = 180 * eased;
+        card.style.transform = `perspective(1200px) translate3d(${transX}px, ${transY}px, 0) scale(${sX}, ${sY}) rotateY(${rotY}deg)`;
+        card.style.borderRadius = `${rad}px`;
+        card.style.willChange = currentProgress > 0 && currentProgress < 1 ? 'transform' : 'auto';
 
-      // Rotation angle increases continuously with scroll
-      const rotationDeg = scrollY * 0.42;
-
-      if (progress >= 1) {
-        // Firmly seated inside the middle dock of biography
-        if (travelingPortrait.parentElement !== bioDock) {
-          bioDock.appendChild(travelingPortrait);
+        // Seamless unmirroring at edge-on 90deg transit so single image is crisp and right-side up
+        if (portraitImg) {
+          portraitImg.style.transform = eased >= 0.5 ? 'scaleX(-1) translateZ(1px)' : 'translateZ(1px)';
         }
-        travelingPortrait.style.position = 'relative';
-        travelingPortrait.style.top = '0';
-        travelingPortrait.style.left = '0';
-        travelingPortrait.style.width = '100%';
-        travelingPortrait.style.height = '100%';
-        travelingPortrait.style.aspectRatio = '1 / 1';
-        travelingPortrait.style.transform = 'rotate(' + rotationDeg + 'deg)';
-        travelingPortrait.style.zIndex = '10';
-      } else if (progress <= 0) {
-        // At origin above SOFTWARE / ENGINEER
-        if (travelingPortrait.parentElement !== heroOrigin) {
-          heroOrigin.appendChild(travelingPortrait);
-        }
-        travelingPortrait.style.position = 'relative';
-        travelingPortrait.style.top = '0';
-        travelingPortrait.style.left = '0';
-        travelingPortrait.style.width = '210px';
-        travelingPortrait.style.height = '210px';
-        travelingPortrait.style.aspectRatio = '1 / 1';
-        travelingPortrait.style.transform = 'rotate(' + rotationDeg + 'deg)';
-        travelingPortrait.style.zIndex = '10';
-      } else {
-        // Traveling between hero and biography: fixed floating layer
-        if (travelingPortrait.parentElement !== document.body) {
-          document.body.appendChild(travelingPortrait);
-        }
-        // Calculate viewport coordinates interpolated between origin and dock
-        const curViewportY = originRect.top + (dockRect.top - originRect.top) * progress;
-        const curViewportX = originRect.left + (dockRect.left - originRect.left) * progress;
-        const curWidth = 210 + (dockRect.width - 210) * progress;
-
-        travelingPortrait.style.position = 'fixed';
-        travelingPortrait.style.top = curViewportY + 'px';
-        travelingPortrait.style.left = curViewportX + 'px';
-        travelingPortrait.style.width = curWidth + 'px';
-        travelingPortrait.style.height = curWidth + 'px';
-        travelingPortrait.style.aspectRatio = '1 / 1';
-        travelingPortrait.style.transform = 'rotate(' + rotationDeg + 'deg)';
-        travelingPortrait.style.zIndex = '999';
       }
-    }
 
-    window.addEventListener('scroll', updatePortraitScroll, { passive: true });
-    window.addEventListener('resize', updatePortraitScroll);
-    updatePortraitScroll();
+      function loop(timestamp) {
+        const delta = lastTimestamp ? Math.min(timestamp - lastTimestamp, 64) : 16.67;
+        lastTimestamp = timestamp;
+        const isCoarse = window.matchMedia && window.matchMedia('(max-width: 700px) and (pointer: coarse)').matches;
+        const lagRate = isCoarse ? 100 : 65;
+        // Exponential smoothing constant (65ms desktop, 100ms coarse pointer) matching reference site
+        currentProgress += (targetProgress - currentProgress) * (1 - Math.exp(-delta / lagRate));
+        const isDone = Math.abs(targetProgress - currentProgress) < 1e-4;
+        if (isDone) currentProgress = targetProgress;
+        render();
+        if (!isDone) {
+          rafId = requestAnimationFrame(loop);
+        } else {
+          rafId = 0;
+          lastTimestamp = 0;
+        }
+      }
+
+      function onScroll() {
+        targetProgress = Math.max(0, Math.min(1, (window.scrollY - startScrollY) / travelDistance));
+        if (!rafId && targetProgress !== currentProgress) {
+          rafId = requestAnimationFrame(loop);
+        }
+      }
+
+      function recalculate() {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = 0;
+        lastTimestamp = 0;
+
+        const aboutRect = aboutSection.getBoundingClientRect();
+        const heroRect = heroSlot.getBoundingClientRect();
+        const bioRect = bioSlot.getBoundingClientRect();
+        const viewportHeight = document.documentElement.clientHeight;
+        const stickyTopOffset = (viewportHeight - bioRect.height) / 2;
+
+        startScrollY = aboutRect.top + window.scrollY;
+        travelDistance = bioRect.top + window.scrollY - startScrollY - stickyTopOffset;
+
+        if (travelDistance <= 0 || !bioRect.width) {
+          return;
+        }
+
+        scaleX = heroRect.width / bioRect.width;
+        scaleY = heroRect.height / bioRect.height;
+        deltaY = (heroRect.top + window.scrollY - startScrollY - stickyTopOffset) - (bioRect.height - heroRect.height) / 2;
+        deltaX = (heroRect.left + heroRect.width / 2) - (bioRect.left + bioRect.width / 2);
+        startRadius = 20 / Math.min(scaleX, scaleY);
+        endRadius = 24;
+
+        journey.style.height = `${travelDistance + viewportHeight}px`;
+        card.style.width = `${bioRect.width}px`;
+        card.style.height = `${bioRect.height}px`;
+        card.style.left = `${bioRect.left - aboutRect.left}px`;
+        card.style.top = `${stickyTopOffset}px`;
+
+        targetProgress = currentProgress = Math.max(0, Math.min(1, (window.scrollY - startScrollY) / travelDistance));
+        render();
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', recalculate);
+      recalculate();
+      if (document.fonts) document.fonts.ready.then(recalculate);
+    }
+    initPortraitMotion();
 
     /* -------------------------------------------------------------
        LIVE LOCAL TIME & DYNAMIC GREETING CONTROLLER
        ------------------------------------------------------------- */
     function updateLiveClockAndGreeting() {
       const now = new Date();
-      // Calculate India Standard Time (UTC + 05:30)
       const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
       const istDate = new Date(utc + (3600000 * 5.5));
 
