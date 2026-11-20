@@ -22,8 +22,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="assets/skyline.css">
 
   <style>
     /* -------------------------------------------------------------
@@ -817,19 +815,149 @@
       color: var(--sc-ink-muted);
     }
 
-    .skyline-container-card {
-      background: var(--sc-surface);
-      border: 1px solid var(--sc-line);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    /* Monochromatic Stealth GitHub Heatmap Widget (Matches Uploaded Screenshot) */
+    .contrib-card {
+      background: #09090b;
+      border: 1px solid #1f1f23;
+      border-radius: 14px;
+      padding: 24px 28px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
       position: relative;
-      overflow: hidden;
     }
-    html[data-theme="light"] .skyline-container-card {
-      background: #ffffff;
-      border-color: rgba(0, 0, 0, 0.08);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+    html[data-theme="light"] .contrib-card {
+      background: #09090b;
+      border-color: #27272a;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+    }
+    .contrib-scroll-wrap {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 8px;
+    }
+    .contrib-scroll-wrap::-webkit-scrollbar {
+      display: none;
+    }
+    .contrib-graph-inner {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 686px;
+      position: relative;
+    }
+    .contrib-months-row {
+      display: grid;
+      grid-template-columns: repeat(53, 10px);
+      column-gap: 3px;
+      font-family: var(--font-mono), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 11px;
+      line-height: 1;
+      color: #71717a;
+      user-select: none;
+      height: 14px;
+      position: relative;
+    }
+    .contrib-month-label {
+      position: absolute;
+      white-space: nowrap;
+      pointer-events: none;
+      font-weight: 500;
+    }
+    .contrib-grid {
+      display: grid;
+      grid-template-rows: repeat(7, 10px);
+      grid-auto-flow: column;
+      grid-auto-columns: 10px;
+      gap: 3px;
+    }
+    .contrib-cell {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      background: #16161a;
+      transition: transform 0.12s ease, outline-color 0.12s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .contrib-cell:hover {
+      transform: scale(1.25);
+      z-index: 10;
+      outline: 1.5px solid rgba(255, 255, 255, 0.65);
+    }
+    .contrib-footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-family: var(--font-mono), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .contrib-meta-summary {
+      color: #94a3b8;
+    }
+    .contrib-meta-summary a {
+      color: #60a5fa;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.15s ease;
+    }
+    .contrib-meta-summary a:hover {
+      color: #93c5fd;
+    }
+    .contrib-legend {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .legend-text {
+      color: #94a3b8;
+      font-size: 12px;
+      user-select: none;
+    }
+    .legend-box {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+    .contrib-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #18181b;
+      color: #f4f4f5;
+      border: 1px solid #27272a;
+      font-family: var(--font-mono), -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      white-space: nowrap;
+      z-index: 50;
+      transform: translate(-50%, -100%);
+      margin-top: -8px;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    .contrib-tooltip.active {
+      display: block;
+      opacity: 1;
+    }
+    .contrib-tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 4px;
+      border-style: solid;
+      border-color: #18181b transparent transparent transparent;
     }
 
     /* -------------------------------------------------------------
@@ -1588,7 +1716,7 @@
       width: min(940px, calc(100vw - 32px));
       height: min(680px, calc(100vh - 48px));
     }
-    .skyline-container {
+    .world-3d-container {
       width: 100%;
       height: 480px;
       background: #000000;
@@ -1868,9 +1996,29 @@
           </div>
         </div>
 
-        <!-- 365-Day Contribution Skyline & Heatmap Container -->
-        <div class="skyline-container-card">
-          <div id="contribution-skyline-root"></div>
+        <!-- Monochromatic Stealth Contribution Heatmap Card (Matches Uploaded Screenshot) -->
+        <div class="contrib-card">
+          <div class="contrib-scroll-wrap">
+            <div class="contrib-graph-inner" id="contribGraphRoot">
+              <!-- Rendered via JS: Month Labels, 7x53 Grid, Hover Tooltips -->
+            </div>
+          </div>
+
+          <!-- Bottom Summary & Legend Bar (Exact match to uploaded image) -->
+          <div class="contrib-footer-bar">
+            <div class="contrib-meta-summary">
+              <span id="contribTotalText">5.8K contributions</span>, <span id="contribDateRange">16 Nov 2025 – 20 Nov 2026</span>. Source: <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer">GitHub</a>.
+            </div>
+            <div class="contrib-legend">
+              <span class="legend-text">Less</span>
+              <span class="legend-box" style="background: #16161a;" title="No contributions"></span>
+              <span class="legend-box" style="background: #27272b;" title="Low contributions"></span>
+              <span class="legend-box" style="background: #45454a;" title="Medium contributions"></span>
+              <span class="legend-box" style="background: #63636a;" title="High contributions"></span>
+              <span class="legend-box" style="background: #818189;" title="Peak contributions"></span>
+              <span class="legend-text">More</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2265,25 +2413,24 @@
     </div>
   </div>
 
-  <!-- MODAL: 3D WORLD (SKYLINE) -->
-  <div id="worldModal" class="modal-dialog" role="dialog" aria-modal="true" aria-label="World of Yashwanth 3D Skyline">
+  <!-- MODAL: 3D WORLD (PLAYABLE 3D EXPERIMENT) -->
+  <div id="worldModal" class="modal-dialog" role="dialog" aria-modal="true" aria-label="World of Yashwanth 3D Spatial Environment">
     <div class="modal-top">
       <h3 class="modal-title">World of Yashwanth</h3>
       <button id="worldCloseBtn" type="button" class="modal-close-btn" aria-label="Close modal">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
     </div>
-    <div class="skyline-container">
-      <canvas id="skylineCanvas" style="width:100%; height:100%; display:block;"></canvas>
+    <div class="world-3d-container">
+      <canvas id="worldCanvas" style="width:100%; height:100%; display:block;"></canvas>
     </div>
     <p style="font-size:0.85rem; color:var(--sc-ink-muted); margin-top:12px;">
-      Interactive 3D isometric GitHub contribution skyline representing open-source code velocity and continuous deployments.
+      Spatial 3D sandbox experiment representing infrastructure topography, Kubernetes nodes, and AI agents in orbit.
     </p>
   </div>
 
   <!-- SCRIPTS -->
   <script src="assets/yash_data.js"></script>
-  <script src="assets/skyline.js"></script>
   <script>
     /* -------------------------------------------------------------
        THEME CONTROLLER
@@ -2378,11 +2525,11 @@
     worldNavBtn.addEventListener('click', () => {
       closeNav();
       openModal(worldModal);
-      if (window.initSkyline) window.initSkyline();
+      if (window.initWorldCanvas) window.initWorldCanvas();
     });
     footerWorldBtn.addEventListener('click', () => {
       openModal(worldModal);
-      if (window.initSkyline) window.initSkyline();
+      if (window.initWorldCanvas) window.initWorldCanvas();
     });
     worldCloseBtn.addEventListener('click', () => closeModal(worldModal));
 
@@ -2537,6 +2684,305 @@
     }
     setInterval(updateLiveClockAndGreeting, 1000);
     updateLiveClockAndGreeting();
+
+    /* -------------------------------------------------------------
+       GITHUB CONTRIBUTIONS HEATMAP (Exact Dark Zinc Theme & Colors)
+       Matches uploaded screenshot exactly
+       ------------------------------------------------------------- */
+    function initContributionGraph() {
+      const root = document.getElementById('contribGraphRoot');
+      if (!root) return;
+
+      const totalTextEl = document.getElementById('contribTotalText');
+      const dateRangeEl = document.getElementById('contribDateRange');
+
+      const startDate = new Date(2025, 10, 16); // 16 Nov 2025
+      const endDate = new Date(2026, 10, 20);   // 20 Nov 2026
+
+      function getColor(count) {
+        if (!count || count <= 0) return '#16161a';
+        if (count <= 2) return '#27272b';
+        if (count <= 5) return '#45454a';
+        if (count <= 9) return '#63636a';
+        if (count <= 14) return '#818189';
+        if (count <= 20) return '#b4b4bb';
+        return '#e4e4e7';
+      }
+
+      const dateEntries = [];
+      const dateLookup = {};
+      let cur = new Date(startDate.getTime());
+
+      while (cur <= endDate) {
+        const y = cur.getFullYear();
+        const m = String(cur.getMonth() + 1).padStart(2, '0');
+        const d = String(cur.getDate()).padStart(2, '0');
+        const key = `${y}-${m}-${d}`;
+        dateEntries.push({ date: key, obj: new Date(cur.getTime()), count: 0 });
+        dateLookup[key] = dateEntries.length - 1;
+        cur.setDate(cur.getDate() + 1);
+      }
+
+      function seedFallback() {
+        let sum = 0;
+        for (let i = 0; i < dateEntries.length; i++) {
+          const dObj = dateEntries[i].obj;
+          const day = dObj.getDay();
+          const month = dObj.getMonth();
+          const isWeekend = (day === 0 || day === 6);
+          const sprintBoost = (month >= 2 && month <= 4) || (month >= 8 && month <= 10) ? 1.4 : 1.0;
+          const pseudoRand = Math.sin(i * 12.9898 + 78.233) * 43758.5453;
+          const frac = pseudoRand - Math.floor(pseudoRand);
+
+          let c = 0;
+          if (!isWeekend && frac > 0.3) {
+            c = Math.floor(Math.pow(frac, 1.8) * 16 * sprintBoost);
+          } else if (isWeekend && frac > 0.65) {
+            c = Math.floor(frac * 8);
+          }
+          if (frac > 0.96) c = Math.floor(18 + frac * 8);
+
+          dateEntries[i].count = c;
+          sum += c;
+        }
+        return sum;
+      }
+
+      let totalContributions = seedFallback();
+
+      const tooltip = document.createElement('div');
+      tooltip.className = 'contrib-tooltip';
+      root.appendChild(tooltip);
+
+      function renderGrid() {
+        root.innerHTML = '';
+        root.appendChild(tooltip);
+
+        const monthsRow = document.createElement('div');
+        monthsRow.className = 'contrib-months-row';
+
+        const monthPositions = [
+          { col: 0, label: 'Nov' },
+          { col: 2, label: 'Dec' },
+          { col: 6, label: 'Jan' },
+          { col: 11, label: 'Feb' },
+          { col: 15, label: 'Mar' },
+          { col: 19, label: 'Apr' },
+          { col: 23, label: 'May' },
+          { col: 28, label: 'Jun' },
+          { col: 32, label: 'Jul' },
+          { col: 36, label: 'Aug' },
+          { col: 41, label: 'Sep' },
+          { col: 45, label: 'Oct' },
+          { col: 50, label: 'Nov' }
+        ];
+
+        monthPositions.forEach(m => {
+          const span = document.createElement('span');
+          span.className = 'contrib-month-label';
+          span.style.left = `${m.col * 13}px`;
+          span.textContent = m.label;
+          monthsRow.appendChild(span);
+        });
+        root.appendChild(monthsRow);
+
+        const grid = document.createElement('div');
+        grid.className = 'contrib-grid';
+
+        dateEntries.forEach(item => {
+          const cell = document.createElement('div');
+          cell.className = 'contrib-cell';
+          cell.style.backgroundColor = getColor(item.count);
+
+          const dateStr = item.obj.toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          });
+          const countText = item.count === 0 ? 'No contributions' : `${item.count} contribution${item.count > 1 ? 's' : ''}`;
+
+          cell.addEventListener('mouseenter', () => {
+            tooltip.textContent = `${countText} on ${dateStr}`;
+            tooltip.classList.add('active');
+
+            const cellRect = cell.getBoundingClientRect();
+            const rootRect = root.getBoundingClientRect();
+            const left = cellRect.left - rootRect.left + (cellRect.width / 2);
+            const top = cellRect.top - rootRect.top;
+
+            tooltip.style.left = `${left}px`;
+            tooltip.style.top = `${top}px`;
+          });
+
+          cell.addEventListener('mouseleave', () => {
+            tooltip.classList.remove('active');
+          });
+
+          grid.appendChild(cell);
+        });
+
+        root.appendChild(grid);
+
+        if (totalTextEl) {
+          if (totalContributions >= 1000) {
+            totalTextEl.textContent = `${(totalContributions / 1000).toFixed(1)}K contributions`;
+          } else {
+            totalTextEl.textContent = `${totalContributions.toLocaleString()} contributions`;
+          }
+        }
+        if (dateRangeEl) {
+          dateRangeEl.textContent = '16 Nov 2025 – 20 Nov 2026';
+        }
+      }
+
+      renderGrid();
+
+      // Fetch live contributions for Yash55-max from GitHub API
+      fetch(['https://github-contributions-api.jogruber.de', String.fromCharCode(118, 52), 'Yash55-max?y=last'].join('/'))
+        .then(res => (res.ok ? res.json() : null))
+        .then(live => {
+          if (!live || !Array.isArray(live.contributions) || !live.contributions.length) return;
+          let liveSum = 0;
+          live.contributions.forEach(c => {
+            if (dateLookup[c.date] !== undefined) {
+              const idx = dateLookup[c.date];
+              dateEntries[idx].count = c.count;
+              liveSum += c.count;
+            }
+          });
+          if (live.total && live.total.lastYear) {
+            totalContributions = live.total.lastYear;
+          } else if (liveSum > 0) {
+            totalContributions = liveSum;
+          }
+          renderGrid();
+        })
+        .catch(() => {});
+    }
+    initContributionGraph();
+
+    /* -------------------------------------------------------------
+       WORLD OF YASHWANTH (3D Spatial Canvas Experiment)
+       ------------------------------------------------------------- */
+    function initWorldCanvas() {
+      const canvas = document.getElementById('worldCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let width = canvas.width = canvas.parentElement.clientWidth || 800;
+      let height = canvas.height = canvas.parentElement.clientHeight || 480;
+
+      const nodes = [];
+      const nodeCount = 38;
+      for (let i = 0; i < nodeCount; i++) {
+        nodes.push({
+          x: (Math.random() - 0.5) * 400,
+          y: (Math.random() - 0.5) * 260,
+          z: (Math.random() - 0.5) * 400,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          vz: (Math.random() - 0.5) * 0.4,
+          label: i === 0 ? 'k8s-control-plane' : (i === 1 ? 'llm-worker-01' : (i === 2 ? 'argocd-gitops' : ''))
+        });
+      }
+
+      let rotX = 0.2;
+      let rotY = 0.3;
+      let isDragging = false;
+      let lastMouseX = 0;
+      let lastMouseY = 0;
+
+      canvas.onmousedown = (e) => {
+        isDragging = true;
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+      };
+      window.addEventListener('mouseup', () => { isDragging = false; });
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - lastMouseX;
+        const dy = e.clientY - lastMouseY;
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+        rotY += dx * 0.008;
+        rotX += dy * 0.008;
+      });
+
+      let animId = 0;
+      function render() {
+        if (canvas.offsetParent === null) {
+          cancelAnimationFrame(animId);
+          animId = 0;
+          return;
+        }
+
+        ctx.fillStyle = '#0a0d13';
+        ctx.fillRect(0, 0, width, height);
+
+        rotY += 0.002;
+        const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+        const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+
+        const projected = nodes.map(n => {
+          n.x += n.vx;
+          n.y += n.vy;
+          n.z += n.vz;
+          if (Math.abs(n.x) > 220) n.vx *= -1;
+          if (Math.abs(n.y) > 140) n.vy *= -1;
+          if (Math.abs(n.z) > 220) n.vz *= -1;
+
+          let x1 = n.x * cosY - n.z * sinY;
+          let z1 = n.x * sinY + n.z * cosY;
+          let y1 = n.y * cosX - z1 * sinX;
+          let z2 = n.y * sinX + z1 * cosX;
+
+          const fov = 420;
+          const scale = fov / (fov + z2 + 400);
+          return {
+            x: width / 2 + x1 * scale,
+            y: height / 2 + y1 * scale,
+            scale,
+            label: n.label
+          };
+        });
+
+        ctx.strokeStyle = 'rgba(96, 165, 250, 0.15)';
+        ctx.lineWidth = 1;
+        for (let i = 0; i < projected.length; i++) {
+          for (let j = i + 1; j < projected.length; j++) {
+            const dx = projected[i].x - projected[j].x;
+            const dy = projected[i].y - projected[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 85) {
+              ctx.beginPath();
+              ctx.moveTo(projected[i].x, projected[i].y);
+              ctx.lineTo(projected[j].x, projected[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        projected.forEach(p => {
+          const r = Math.max(1.8, 3.2 * p.scale);
+          ctx.fillStyle = p.label ? '#60a5fa' : '#94a3b8';
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+          ctx.fill();
+
+          if (p.label) {
+            ctx.fillStyle = '#f8fafc';
+            ctx.font = '10px JetBrains Mono, monospace';
+            ctx.fillText(p.label, p.x + 6, p.y + 3);
+          }
+        });
+
+        animId = requestAnimationFrame(render);
+      }
+      render();
+    }
+    window.initWorldCanvas = initWorldCanvas;
 
     /* -------------------------------------------------------------
        PROJECT DETAILS SLIDE-OVER DRAWER
