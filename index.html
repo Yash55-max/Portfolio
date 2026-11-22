@@ -3,20 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Yashwanth | DevOps & AI Systems Engineer</title>
-  <meta name="description" content="Portfolio of Yashwanth Ponnam, DevOps & AI Systems Engineer based in India. Kubernetes (EKS), CI/CD & IaC, LLM Serving & RAG pipelines.">
-  <meta name="theme-color" content="#11151c">
+  <title>Yashwanth Ponnam | DevOps &amp; AI Systems Engineer</title>
+  <meta name="description" content="Portfolio of Yashwanth Ponnam, DevOps &amp; AI Systems Engineer specializing in AWS EKS Kubernetes infrastructure, Terraform IaC, automated GitOps CI/CD, and autonomous LLM systems.">
+  <meta name="theme-color" content="#0a0d14">
+  <link rel="canonical" href="https://yashwanthponnam.dev/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" href="favicon.ico">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Yashwanth | DevOps & AI Systems Engineer">
-  <meta property="og:description" content="Kubernetes platforms, automated CI/CD pipelines, and agentic AI systems.">
+  <meta property="og:site_name" content="Yashwanth Ponnam Portfolio">
+  <meta property="og:title" content="Yashwanth Ponnam | DevOps &amp; AI Systems Engineer">
+  <meta property="og:description" content="Production Kubernetes (EKS) infrastructure, automated GitOps pipelines, and autonomous AI systems.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yashwanthponnam.dev/">
-  <meta property="og:image" content="assets/profile.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://yashwanthponnam.dev/assets/profile.jpg">
+  <meta property="og:image:secure_url" content="https://yashwanthponnam.dev/assets/profile.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Portrait of Yashwanth Ponnam">
-  <meta name="twitter:card" content="summary">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yashwanth Ponnam | DevOps &amp; AI Systems Engineer">
+  <meta name="twitter:description" content="Production Kubernetes (EKS) infrastructure, automated GitOps pipelines, and autonomous AI systems.">
+  <meta name="twitter:image" content="https://yashwanthponnam.dev/assets/profile.jpg">
+  <meta name="twitter:creator" content="@yashwanthponnam">
 
   <!-- Typography: Space Grotesk, Inter, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,18 +41,19 @@
        DESIGN SYSTEM & TOKENS
        ------------------------------------------------------------- */
     :root {
-      --sc-canvas: #11151c;
-      --sc-surface: #181c25;
-      --sc-surface-card: #151922;
-      --sc-surface-alt: #1c212d;
+      --sc-canvas: #0a0d14;
+      --sc-surface: #101622;
+      --sc-surface-card: #0d121c;
+      --sc-surface-alt: #161e2e;
       --sc-line: rgba(255, 255, 255, 0.08);
       --sc-line-light: rgba(255, 255, 255, 0.14);
       --sc-ink: #f5f4f0;
       --sc-ink-soft: #9ca3af;
       --sc-ink-muted: #6b7280;
-      --sc-accent: #ffd700;
-      --sc-folder-bg: #1a1e28;
-      --sc-folder-tab: #222735;
+      --sc-accent: #00d4ff;
+      --sc-accent-glow: rgba(0, 212, 255, 0.25);
+      --sc-folder-bg: #141a26;
+      --sc-folder-tab: #1d2536;
       --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -47,18 +61,50 @@
     }
 
     html[data-theme="light"] {
-      --sc-canvas: #f7f6f2;
+      --sc-canvas: #f6f8fb;
       --sc-surface: #ffffff;
       --sc-surface-card: #ffffff;
-      --sc-surface-alt: #ecebe6;
-      --sc-line: rgba(0, 0, 0, 0.09);
-      --sc-line-light: rgba(0, 0, 0, 0.15);
-      --sc-ink: #111827;
-      --sc-ink-soft: #4b5563;
-      --sc-ink-muted: #6b7280;
-      --sc-accent: #b45309;
-      --sc-folder-bg: #1e222c;
-      --sc-folder-tab: #262c38;
+      --sc-surface-alt: #eaf0f8;
+      --sc-line: rgba(0, 0, 0, 0.08);
+      --sc-line-light: rgba(0, 0, 0, 0.14);
+      --sc-ink: #0a0d14;
+      --sc-ink-soft: #475569;
+      --sc-ink-muted: #64748b;
+      --sc-accent: #0284c7;
+      --sc-accent-glow: rgba(2, 132, 199, 0.2);
+      --sc-folder-bg: #161b26;
+      --sc-folder-tab: #202737;
+    }
+
+    .folder-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 8px 0;
+    }
+    .chip-sm {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--sc-surface-alt);
+      color: var(--sc-ink-soft);
+      border: 1px solid var(--sc-line);
+      letter-spacing: 0.02em;
+    }
+    .drawer-architecture-block {
+      background: var(--sc-surface-card);
+      border: 1px solid var(--sc-line);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 14px;
+      margin-bottom: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      line-height: 1.45;
+      color: var(--sc-accent);
+      overflow-x: auto;
+      white-space: pre;
     }
 
     *, *::before, *::after {
@@ -1711,19 +1757,6 @@
       border-radius: 50%;
       background: var(--sc-surface-alt);
     }
-
-    #worldModal {
-      width: min(940px, calc(100vw - 32px));
-      height: min(680px, calc(100vh - 48px));
-    }
-    .world-3d-container {
-      width: 100%;
-      height: 480px;
-      background: #000000;
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-    }
   </style>
 </head>
 <body>
@@ -1782,13 +1815,14 @@
         <a href="#skills" class="menu-nav-link">Skills</a>
         <a href="#contributions" class="menu-nav-link">Activity</a>
         <a href="#experience" class="menu-nav-link">Experience</a>
-        <a href="javascript:void(0)" id="freelanceNavBtn" class="menu-nav-link">Freelance</a>
-        <a href="javascript:void(0)" id="worldNavBtn" class="menu-nav-link">World of Yashwanth</a>
+        <a href="freelance.html" class="menu-nav-link">Freelance &amp; Consulting</a>
       </div>
     </nav>
 
     <div class="nav-dialog-footer">
+      <!--email_off-->
       <a href="mailto:yashwanthponnam55@gmail.com" class="nav-email">yashwanthponnam55@gmail.com</a>
+      <!--/email_off-->
       <div class="nav-dialog-socials">
         <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer" class="nav-social-badge" aria-label="GitHub">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
@@ -1818,26 +1852,55 @@
       </div>
 
       <!-- 1. HERO VIEWPORT -->
-      <section class="hero-section" aria-label="Software Engineer Headline">
+      <section class="hero-section" aria-label="DevOps and AI Systems Engineer Headline">
         <!-- Faint matrix code background watermark -->
         <div class="glyph-background" aria-hidden="true">
-          <pre class="glyph-code-fallback">const yashwanth = {
+          <pre class="glyph-code-fallback">interface SystemsEngineer {
+  name: string;
+  role: string;
+  location: string;
+  education: { degree: string; college: string; cgpa: number; graduated: string; };
+  focus: string[];
+  infrastructure: { orchestration: string[]; iac: string[]; observability: string[]; };
+  aiSystems: { frameworks: string[]; retrieval: string[]; serving: string[]; };
+  featuredProjects: string[];
+  status: string;
+}
+
+export const engineer: SystemsEngineer = {
   name: "Yashwanth Ponnam",
   role: "DevOps & AI Systems Engineer",
-  focus: ["Kubernetes (EKS)", "CI/CD & IaC", "LLM Serving & RAG"],
-  experience: [
-    { role: "Data Science & AI Intern", company: "Cognifyz Technologies", city: "Andhra Pradesh, India", since: "January 2026", status: "Current" },
-    { role: "Systems & DevOps Engineer", company: "Independent Projects", status: "Ongoing" }
+  location: "Andhra Pradesh, India (UTC+5:30)",
+  education: {
+    degree: "B.Tech Computer Science & Engineering (Data Science)",
+    college: "KIET (Kakinada Institute of Engineering & Technology)",
+    cgpa: 8.1,
+    graduated: "April 2026"
+  },
+  focus: [
+    "AWS EKS Kubernetes Cluster Orchestration & Least-Privilege IRSA",
+    "Declarative Terraform Infrastructure as Code (IaC)",
+    "Automated GitOps CI/CD Pipelines (ArgoCD & GitHub Actions)",
+    "Production LLM Inference Serving & High-Throughput RAG Engines"
   ],
-  education: [
-    { degree: "B.Tech Computer Science (Data Science)", college: "KIET", cgpa: "8.1+", graduating: "April 2026" }
-  ]
+  infrastructure: {
+    orchestration: ["Kubernetes (EKS / kind)", "Docker", "Helm", "Containerd"],
+    iac: ["Terraform", "GitHub Actions CI/CD", "ArgoCD GitOps"],
+    observability: ["Prometheus", "Grafana", "Alertmanager", "SRE Golden Signals"]
+  },
+  aiSystems: {
+    frameworks: ["FastAPI", "LangGraph", "LangChain", "PyTorch"],
+    retrieval: ["ChromaDB", "Qdrant", "Semantic Embeddings"],
+    serving: ["Ollama", "vLLM", "HuggingFace"]
+  },
+  featuredProjects: ["llm-devops", "ClearLedger", "rag-api", "multi-agent-adk"],
+  status: "Available for full-time Platform, DevOps & AI Systems engineering"
 };</pre>
         </div>
 
-        <!-- Display Headline: < SOFTWARE / ENGINEER /> -->
+        <!-- Display Headline: < DEVOPS & AI / SYSTEMS ENGINEER /> -->
         <div class="hero-content wrap">
-          <h1 class="hero-title" aria-label="Software Engineer">
+          <h1 class="hero-title" aria-label="DevOps and AI Systems Engineer">
             <span class="title-line">
               <span class="hero-code-mark" aria-hidden="true">
                 <svg viewBox="20 0 110 160" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter">
@@ -1845,10 +1908,10 @@
                   <path d="M105 30 48 80 105 130"></path>
                 </svg>
               </span>
-              SOFTWARE
+              DEVOPS &amp; AI
             </span>
             <span class="title-line">
-              ENGINEER
+              SYSTEMS ENGINEER
               <span class="hero-code-mark" aria-hidden="true">
                 <svg viewBox="0 0 180 160" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter">
                   <path opacity=".18" d="M65 30 25 130M100 30 157 80 100 130" transform="translate(4 5)"></path>
@@ -1859,17 +1922,17 @@
           </h1>
         </div>
 
-        <!-- Hero Bottom Bar: ©2026, Origin Slot, and {{ /DEVOPS & AI SYSTEMS }} -->
+        <!-- Hero Bottom Bar: Identity, Origin Slot, and Technical Indicator -->
         <div class="hero-bottom-bar wrap">
           <div class="hero-meta-left">
-            <span>©2026</span>
+            <span>YASHWANTH PONNAM · 2026</span>
           </div>
 
           <!-- Hero Origin Slot where the single 3D card begins peeking -->
           <a href="#biography" class="hero-portrait-slot" aria-label="Scroll to biography"></a>
 
           <div class="hero-meta-right">
-            <span>{{&nbsp;</span><span>/DEVOPS &amp; AI SYSTEMS</span><span class="terminal-caret" aria-hidden="true"></span><span>&nbsp;}}</span>
+            <span>//&nbsp;</span><span>KUBERNETES · IAC · AGENTIC AI</span><span class="terminal-caret" aria-hidden="true"></span>
           </div>
         </div>
       </section>
@@ -1877,16 +1940,16 @@
       <!-- 2. BIOGRAPHY SECTION (#biography) -->
       <section class="biography-section" id="biography" aria-label="Biography">
         <div class="wrap biography-grid">
-          <!-- Left Column: Hi, I'm Yashwanth + Currently at -->
+          <!-- Left Column: Hi, I'm Yashwanth + Current Focus -->
           <div class="bio-left">
             <h2>Hi, I'm Yashwanth.</h2>
             <p class="bio-subtitle">DevOps &amp; AI Systems Engineer.</p>
 
             <div class="bio-current-block">
-              <p class="bio-current-label">Currently at</p>
-              <p class="bio-current-company">Cognifyz Technologies</p>
-              <p class="bio-current-role">Data Science &amp; AI Intern</p>
-              <p class="bio-current-loc">Andhra Pradesh, India</p>
+              <p class="bio-current-label">Current Focus</p>
+              <p class="bio-current-company">Cloud Platform &amp; AI Systems</p>
+              <p class="bio-current-role">DevOps &amp; Infrastructure Engineer</p>
+              <p class="bio-current-loc">Available for Full-Time Roles</p>
             </div>
           </div>
 
@@ -1898,7 +1961,7 @@
           <!-- Right Column: Statement Text & Explore button -->
           <div class="bio-right">
             <p class="bio-statement">
-              I build <strong>production-grade Kubernetes platforms</strong> and <strong>agentic AI pipelines</strong>, automating operations and eliminating manual toil.
+              I architect <strong>production Kubernetes platforms</strong> on AWS, automate delivery with <strong>declarative GitOps &amp; Terraform</strong>, and build resilient <strong>autonomous AI systems</strong>.
             </p>
             <a href="#projects" class="btn-explore">
               <span>Explore projects</span>
@@ -1914,7 +1977,7 @@
       <div class="wrap">
         <div class="section-header-row">
           <h2 class="section-heading">Tech Stack</h2>
-          <span class="section-subtext">The tools behind my work.</span>
+          <span class="section-subtext">Production stack &amp; core infrastructure technologies.</span>
         </div>
 
         <div class="skills-grid">
@@ -1990,13 +2053,13 @@
                 </svg>
                 <span>LIVE TIME (IST)</span>
               </div>
-              <div id="liveClockDisplay" class="telemetry-clock">--:--:-- -- IST</div>
+              <div id="liveClockDisplay" class="telemetry-clock">01:39:24 PM IST</div>
               <div class="telemetry-meta">Visakhapatnam, India · UTC+05:30</div>
             </div>
           </div>
         </div>
 
-        <!-- Monochromatic Stealth Contribution Heatmap Card (Matches Uploaded Screenshot) -->
+        <!-- Monochromatic Stealth Contribution Heatmap Card -->
         <div class="contrib-card">
           <div class="contrib-scroll-wrap">
             <div class="contrib-graph-inner" id="contribGraphRoot">
@@ -2004,10 +2067,10 @@
             </div>
           </div>
 
-          <!-- Bottom Summary & Legend Bar (Exact match to uploaded image) -->
+          <!-- Bottom Summary & Legend Bar -->
           <div class="contrib-footer-bar">
             <div class="contrib-meta-summary">
-              <span id="contribTotalText">5.8K contributions</span>, <span id="contribDateRange">16 Nov 2025 – 20 Nov 2026</span>. Source: <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer">GitHub</a>.
+              <span id="contribTotalText">861 contributions</span>, <span id="contribDateRange">16 Nov 2025 – 20 Nov 2026</span>. Source: <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer">GitHub</a>.
             </div>
             <div class="contrib-legend">
               <span class="legend-text">Less</span>
@@ -2029,7 +2092,7 @@
         <div class="section-header-row">
           <div>
             <h2 class="section-heading">Featured Projects</h2>
-            <p class="section-subtext" style="margin-top:6px;">Independent projects and professional work. Open a folder to explore a project or case study.</p>
+            <p class="section-subtext" style="margin-top:6px;">Selected production platforms and systems architecture. Explore a dossier to review infrastructure diagrams and source code.</p>
           </div>
           <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer" style="font-weight:600; font-size:0.95rem; color:var(--sc-ink); text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
             <span>GitHub</span>
@@ -2058,9 +2121,15 @@
               </div>
             </div>
             <div class="folder-meta">
-              <span class="folder-sub">Cognifyz &amp; Production · Case study</span>
+              <span class="folder-sub">AWS EKS &amp; Terraform · Cloud Platform</span>
+              <div class="folder-tags-row">
+                <span class="chip-sm">AWS EKS</span>
+                <span class="chip-sm">Terraform</span>
+                <span class="chip-sm">ArgoCD</span>
+                <span class="chip-sm">Prometheus</span>
+              </div>
               <a href="javascript:void(0)" class="folder-link-text open-drawer-btn" data-folder-id="llm-devops">
-                <span>Read case study</span>
+                <span>View architecture dossier</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
               </a>
             </div>
@@ -2086,7 +2155,13 @@
               </div>
             </div>
             <div class="folder-meta">
-              <span class="folder-sub">AP Reconciliation Copilot</span>
+              <span class="folder-sub">AP Reconciliation Copilot · AI Financial Systems</span>
+              <div class="folder-tags-row">
+                <span class="chip-sm">FastAPI</span>
+                <span class="chip-sm">Gemini API</span>
+                <span class="chip-sm">LangGraph</span>
+                <span class="chip-sm">React 18</span>
+              </div>
               <a href="javascript:void(0)" class="folder-link-text open-drawer-btn" data-folder-id="clearledger">
                 <span>View project</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
@@ -2114,7 +2189,13 @@
               </div>
             </div>
             <div class="folder-meta">
-              <span class="folder-sub">Local Vector Retrieval Backend</span>
+              <span class="folder-sub">Local Vector Retrieval · MLOps Engine</span>
+              <div class="folder-tags-row">
+                <span class="chip-sm">ChromaDB</span>
+                <span class="chip-sm">Ollama</span>
+                <span class="chip-sm">FastAPI</span>
+                <span class="chip-sm">Docker</span>
+              </div>
               <a href="javascript:void(0)" class="folder-link-text open-drawer-btn" data-folder-id="rag-api">
                 <span>View project</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
@@ -2142,7 +2223,13 @@
               </div>
             </div>
             <div class="folder-meta">
-              <span class="folder-sub">Autonomous Orchestration Framework</span>
+              <span class="folder-sub">Autonomous Swarm · Distributed Agentics</span>
+              <div class="folder-tags-row">
+                <span class="chip-sm">Python</span>
+                <span class="chip-sm">Google ADK</span>
+                <span class="chip-sm">AsyncIO</span>
+                <span class="chip-sm">Pydantic</span>
+              </div>
               <a href="javascript:void(0)" class="folder-link-text open-drawer-btn" data-folder-id="multi-agent">
                 <span>View project</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
@@ -2162,41 +2249,63 @@
         </button>
       </div>
       <div class="drawer-body">
-        <h3 id="drawerProjectTitle" class="drawer-title">Project Title</h3>
-        <p id="drawerProjectTagline" class="drawer-tagline">Project Tagline</p>
+        <h3 id="drawerProjectTitle" class="drawer-title">llm-devops</h3>
+        <p id="drawerProjectTagline" class="drawer-tagline">Production Kubernetes (EKS) Infrastructure for Resilient LLM Serving</p>
 
         <div class="drawer-facts">
           <div class="fact-item">
             <small>Client / Context</small>
-            <span id="drawerFactContext">Enterprise</span>
+            <span id="drawerFactContext">Cloud Infrastructure &amp; MLOps</span>
           </div>
           <div class="fact-item">
             <small>Role</small>
-            <span id="drawerFactRole">Lead Engineer</span>
+            <span id="drawerFactRole">Platform &amp; DevOps Engineer</span>
           </div>
           <div class="fact-item">
             <small>Core Stack</small>
-            <span id="drawerFactStack">Kubernetes, Terraform, AWS</span>
+            <span id="drawerFactStack">AWS EKS, Terraform, Helm, ArgoCD, Prometheus, Grafana</span>
           </div>
           <div class="fact-item">
             <small>Impact</small>
-            <span id="drawerFactImpact">99.95% Availability</span>
+            <span id="drawerFactImpact">Automated GitOps CD, &lt;15s rolling deploys, Prometheus alerting</span>
           </div>
         </div>
 
         <div class="drawer-narrative">
           <h4>Architecture &amp; Implementation</h4>
-          <p id="drawerStoryOverview">Overview paragraph describing the engineering challenges and solutions implemented.</p>
+          <p id="drawerStoryOverview">Engineered modular Terraform configurations provisioning Amazon EKS (Kubernetes v1.35), custom multi-AZ VPC networking, and least-privilege IAM Roles for Service Accounts (IRSA). Deployed containerized Ollama and FastAPI inference gateways decoupled via Kubernetes ClusterIP service discovery.</p>
+          
+          <div id="drawerArchitectureWrap" class="drawer-architecture-block">PUBLIC INTERNET
+       │ HTTPS / HTTP (:8000)
+       ▼
+AWS Classic Load Balancer (*.ap-south-1.elb.amazonaws.com)
+       │
+       ▼
+AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
+┌───────────────────────────────┬───────────────────────────────┐
+│ Public Subnet 1 (ap-south-1a) │ Public Subnet 2 (ap-south-1b) │
+│ Managed Node: t3.small        │ Managed Node: t3.small        │
+│                               │                               │
+│  FastAPI Serving Pod (Port 8000) ───▶ Ollama Pod (Port 11434)  │
+│          │                    │          │                    │
+│          ▼ /metrics           │          ▼ Dynamic Mount      │
+│  Prometheus Server            │  AWS EBS gp3 (EBS CSI)        │
+│  Alertmanager · Grafana       │  EBS CSI Controller (IRSA)    │
+└───────────────────────────────┴───────────────────────────────┘
+                                           │ OIDC AssumeRole
+                                           ▼
+                                AWS IAM Role: ebs-csi-irsa</div>
+
           <h4>Key Systems Outcomes</h4>
-          <p id="drawerStoryOutcomes">Detailed quantifiable outcomes, reliability metrics, and performance optimizations.</p>
+          <p id="drawerStoryOutcomes">Full-stack SRE Golden Signals monitoring with kube-prometheus-stack, Alertmanager incident routing validated through fault injection, and automated GitHub Actions CI/CD to GHCR.</p>
         </div>
 
         <div class="drawer-actions">
-          <a id="drawerActionDemo" href="#" target="_blank" rel="noopener noreferrer" class="btn-drawer-primary">
-            <span>Live Demonstration</span>
+          <a id="drawerActionDemo" href="https://github.com/Yash55-max/llm-devops#production-architecture" target="_blank" rel="noopener noreferrer" class="btn-drawer-primary">
+            <span>View Architecture</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
-          <a id="drawerActionRepo" href="#" target="_blank" rel="noopener noreferrer" class="btn-drawer-secondary">
+          <a id="drawerActionRepo" href="https://github.com/Yash55-max/llm-devops" target="_blank" rel="noopener noreferrer" class="btn-drawer-secondary">
             <span>Source Code</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
           </a>
@@ -2210,8 +2319,8 @@
         <div class="section-header-row">
           <h2 class="section-heading">Experience.</h2>
           <div style="text-align:right;">
-            <p class="section-subtext" style="font-weight:600; color:var(--sc-ink);">Current work.</p>
-            <p class="section-subtext">Back to the foundations.</p>
+            <p class="section-subtext" style="font-weight:600; color:var(--sc-ink);">Career Milestones.</p>
+            <p class="section-subtext">Systems &amp; Platform Engineering.</p>
           </div>
         </div>
 
@@ -2225,23 +2334,23 @@
             <!-- Stop 1 (Crest) -->
             <div class="stop-col">
               <div class="stop-node active"></div>
-              <span class="stop-pill-tag">Current role</span>
-              <span class="stop-date">January 2026 - Present</span>
-              <h3 class="stop-role">Data Science &amp; AI Intern</h3>
-              <p class="stop-org">Cognifyz Technologies</p>
-              <p class="stop-loc">Andhra Pradesh, India</p>
-              <p class="stop-desc">Engineered end-to-end predictive and LLM pipelines, automated data workflows, and improved model reliability.</p>
+              <span class="stop-pill-tag">Current Focus</span>
+              <span class="stop-date">April 2026 - Present</span>
+              <h3 class="stop-role">Cloud Platform &amp; AI Systems Engineer</h3>
+              <p class="stop-org">Independent Engineering</p>
+              <p class="stop-loc">AWS EKS &amp; Distributed Systems</p>
+              <p class="stop-desc">Architecting production Kubernetes clusters on AWS EKS, automated GitOps CI/CD delivery pipelines, and autonomous AI systems.</p>
             </div>
 
             <!-- Stop 2 (Trough) -->
             <div class="stop-col">
               <div class="stop-node"></div>
-              <span class="stop-pill-tag">Ongoing</span>
-              <span class="stop-date">2024 - Present</span>
-              <h3 class="stop-role">Systems &amp; DevOps Engineer</h3>
-              <p class="stop-org">Independent Projects</p>
-              <p class="stop-loc">Distributed Architecture</p>
-              <p class="stop-desc">Architected multi-cluster Kubernetes on AWS EKS, automated GitOps deployments, and infrastructure as code.</p>
+              <span class="stop-pill-tag">Completed</span>
+              <span class="stop-date">January 2026 - February 2026</span>
+              <h3 class="stop-role">Data Science &amp; AI Intern</h3>
+              <p class="stop-org">Cognifyz Technologies</p>
+              <p class="stop-loc">Andhra Pradesh, India</p>
+              <p class="stop-desc">Owned Python data pipelines, automated exploratory analysis (EDA), and machine learning baseline model benchmarking.</p>
             </div>
 
             <!-- Stop 3 (Crest) -->
@@ -2251,7 +2360,7 @@
               <h3 class="stop-role">B.Tech Computer Science</h3>
               <p class="stop-org">KIET</p>
               <p class="stop-loc">Data Science Specialization</p>
-              <p class="stop-desc">Graduating April 2026 with CGPA 8.1+. Rigorous foundation in algorithms, distributed systems, and machine learning.</p>
+              <p class="stop-desc">Graduated April 2026 with 8.1 CGPA. Rigorous foundation in algorithms, distributed systems, and machine learning.</p>
             </div>
 
             <!-- Stop 4 (Trough) -->
@@ -2283,13 +2392,15 @@
       <div class="wrap contact-grid">
         <div class="contact-left">
           <h2>Let's talk.</h2>
-          <p>Whether it's a full-time role or a systems collaboration, my inbox is open.</p>
+          <p>Open to full-time DevOps, Platform Engineering, and AI Systems roles, as well as high-impact infrastructure consulting.</p>
 
           <div class="contact-email-row">
+            <!--email_off-->
             <a href="mailto:yashwanthponnam55@gmail.com" class="contact-email-link">
               <span>yashwanthponnam55@gmail.com</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
             </a>
+            <!--/email_off-->
             <button id="copyEmailBtn" type="button" class="copy-btn" aria-label="Copy email address">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
             </button>
@@ -2343,8 +2454,7 @@
           <a href="#contributions">Activity</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
-          <a href="javascript:void(0)" id="footerFreelanceBtn">Freelance</a>
-          <a href="javascript:void(0)" id="footerWorldBtn">World of Yashwanth</a>
+          <a href="freelance.html">Freelance &amp; Consulting</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
@@ -2352,32 +2462,34 @@
       <div class="footer-col">
         <p>Get in touch</p>
         <div class="footer-col-links">
+          <!--email_off-->
           <a href="mailto:yashwanthponnam55@gmail.com" style="font-weight:700;">yashwanthponnam55@gmail.com</a>
+          <!--/email_off-->
           <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/yashwanth-ponnam-a97921256/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
     </div>
 
-    <!-- White Finale Band with Faint Watermark & Walking Manga Pedestrians -->
+    <!-- White Finale Band with Faint Watermark & Avatar -->
     <div class="footer-finale">
       <div class="wrap finale-header">
-        <p>See you around.</p>
+        <p>Designed for resilience. Engineered for scale.</p>
         <a href="#" class="back-to-top" aria-label="Back to top">
           <span>Back to top</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7M12 19V5"/></svg>
         </a>
       </div>
 
-      <div id="footerCrowdScene" class="crowd-stage" role="button" tabindex="0" aria-label="Crowd animation. Click to pause or play.">
+      <div id="footerCrowdScene" class="crowd-stage" role="button" tabindex="0" aria-label="Avatar display">
         <span class="crowd-huge-watermark" aria-hidden="true">YASHWANTH.</span>
         <canvas class="crowd-canvas crowd-canvas-back" id="crowdBackCanvas" aria-hidden="true"></canvas>
-        <img class="crowd-standing-figure" src="assets/yash-standing.svg" alt="Illustrated standing Yashwanth with yellow glasses and sneakers" width="160" height="460" loading="lazy">
+        <img class="crowd-standing-figure" src="assets/yash-standing.svg" alt="Illustrated avatar of Yashwanth Ponnam, DevOps &amp; AI Systems Engineer" width="160" height="460" loading="lazy">
         <canvas class="crowd-canvas crowd-canvas-front" id="crowdFrontCanvas" aria-hidden="true"></canvas>
       </div>
 
       <div class="crowd-caption">
-        <small>Finally, some traffic on my website.</small>
+        <small>Continuous delivery · Cloud-native reliability · Built by Yashwanth Ponnam</small>
       </div>
     </div>
   </footer>
@@ -2392,7 +2504,7 @@
     </div>
     <div style="display:flex; flex-direction:column; gap:20px;">
       <p style="font-size:1.05rem; color:var(--sc-ink-soft);">
-        I partner with venture-backed startups and engineering teams to design reliable cloud platforms and high-throughput AI pipelines.
+        I assist engineering teams in designing reliable Kubernetes clusters, automating Infrastructure as Code with Terraform, and deploying production-grade local AI and retrieval pipelines.
       </p>
       <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px;">
         <div style="background:var(--sc-surface-alt); padding:20px; border-radius:14px; border:1px solid var(--sc-line);">
@@ -2404,29 +2516,19 @@
           <p style="font-size:0.85rem; color:var(--sc-ink-muted);">Production RAG pipelines, agentic workflows with LangGraph, and sub-100ms local vector retrieval.</p>
         </div>
       </div>
-      <div style="margin-top:12px;">
+      <div style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap;">
+        <!--email_off-->
         <a href="mailto:yashwanthponnam55@gmail.com?subject=Freelance%20Consulting%20Inquiry" class="btn-drawer-primary">
           <span>Book an Architecture Review</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </a>
+        <!--/email_off-->
+        <a href="freelance.html" class="btn-drawer-secondary">
+          <span>View Dedicated Consulting Page</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
       </div>
     </div>
-  </div>
-
-  <!-- MODAL: 3D WORLD (PLAYABLE 3D EXPERIMENT) -->
-  <div id="worldModal" class="modal-dialog" role="dialog" aria-modal="true" aria-label="World of Yashwanth 3D Spatial Environment">
-    <div class="modal-top">
-      <h3 class="modal-title">World of Yashwanth</h3>
-      <button id="worldCloseBtn" type="button" class="modal-close-btn" aria-label="Close modal">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
-    <div class="world-3d-container">
-      <canvas id="worldCanvas" style="width:100%; height:100%; display:block;"></canvas>
-    </div>
-    <p style="font-size:0.85rem; color:var(--sc-ink-muted); margin-top:12px;">
-      Spatial 3D sandbox experiment representing infrastructure topography, Kubernetes nodes, and AI agents in orbit.
-    </p>
   </div>
 
   <!-- SCRIPTS -->
@@ -2445,11 +2547,11 @@
       if (theme === 'light') {
         themeIconSun.style.display = 'none';
         themeIconMoon.style.display = 'block';
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f6f2');
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f6f8fb');
       } else {
         themeIconSun.style.display = 'block';
         themeIconMoon.style.display = 'none';
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#11151c');
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0a0d14');
       }
     }
 
@@ -2494,44 +2596,28 @@
     });
 
     /* -------------------------------------------------------------
-       MODALS: FREELANCE & 3D WORLD
+       MODALS: FREELANCE & CONSULTING
        ------------------------------------------------------------- */
     const freelanceModal = document.getElementById('freelanceModal');
-    const freelanceNavBtn = document.getElementById('freelanceNavBtn');
-    const footerFreelanceBtn = document.getElementById('footerFreelanceBtn');
     const freelanceCloseBtn = document.getElementById('freelanceCloseBtn');
 
-    const worldModal = document.getElementById('worldModal');
-    const worldNavBtn = document.getElementById('worldNavBtn');
-    const footerWorldBtn = document.getElementById('footerWorldBtn');
-    const worldCloseBtn = document.getElementById('worldCloseBtn');
-
     function openModal(modal) {
+      if (!modal) return;
       modal.classList.add('open');
       navBackdrop.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
 
     function closeModal(modal) {
+      if (!modal) return;
       modal.classList.remove('open');
       navBackdrop.classList.remove('open');
       document.body.style.overflow = '';
     }
 
-    freelanceNavBtn.addEventListener('click', () => { closeNav(); openModal(freelanceModal); });
-    footerFreelanceBtn.addEventListener('click', () => openModal(freelanceModal));
-    freelanceCloseBtn.addEventListener('click', () => closeModal(freelanceModal));
-
-    worldNavBtn.addEventListener('click', () => {
-      closeNav();
-      openModal(worldModal);
-      if (window.initWorldCanvas) window.initWorldCanvas();
-    });
-    footerWorldBtn.addEventListener('click', () => {
-      openModal(worldModal);
-      if (window.initWorldCanvas) window.initWorldCanvas();
-    });
-    worldCloseBtn.addEventListener('click', () => closeModal(worldModal));
+    if (freelanceCloseBtn && freelanceModal) {
+      freelanceCloseBtn.addEventListener('click', () => closeModal(freelanceModal));
+    }
 
     /* -------------------------------------------------------------
        EXACT 3D PORTRAIT STICKY MOTION (from reference site 0yt5ir1aaj66y.js)
@@ -2748,7 +2834,20 @@
         return sum;
       }
 
-      let totalContributions = seedFallback();
+      // Initialize with cached contributions (real GitHub count: 861)
+      let totalContributions = 861;
+      if (window.YASH_CONTRIBUTIONS && Array.isArray(window.YASH_CONTRIBUTIONS)) {
+        let cachedSum = 0;
+        window.YASH_CONTRIBUTIONS.forEach(c => {
+          if (dateLookup[c.date] !== undefined) {
+            dateEntries[dateLookup[c.date]].count = c.count;
+            cachedSum += c.count;
+          }
+        });
+        totalContributions = window.YASH_CONTRIBUTIONS_TOTAL || cachedSum || 861;
+      } else {
+        totalContributions = seedFallback();
+      }
 
       const tooltip = document.createElement('div');
       tooltip.className = 'contrib-tooltip';
@@ -2825,11 +2924,7 @@
         root.appendChild(grid);
 
         if (totalTextEl) {
-          if (totalContributions >= 1000) {
-            totalTextEl.textContent = `${(totalContributions / 1000).toFixed(1)}K contributions`;
-          } else {
-            totalTextEl.textContent = `${totalContributions.toLocaleString()} contributions`;
-          }
+          totalTextEl.textContent = `${totalContributions.toLocaleString()} contributions`;
         }
         if (dateRangeEl) {
           dateRangeEl.textContent = '16 Nov 2025 – 20 Nov 2026';
@@ -2863,128 +2958,6 @@
     initContributionGraph();
 
     /* -------------------------------------------------------------
-       WORLD OF YASHWANTH (3D Spatial Canvas Experiment)
-       ------------------------------------------------------------- */
-    function initWorldCanvas() {
-      const canvas = document.getElementById('worldCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      let width = canvas.width = canvas.parentElement.clientWidth || 800;
-      let height = canvas.height = canvas.parentElement.clientHeight || 480;
-
-      const nodes = [];
-      const nodeCount = 38;
-      for (let i = 0; i < nodeCount; i++) {
-        nodes.push({
-          x: (Math.random() - 0.5) * 400,
-          y: (Math.random() - 0.5) * 260,
-          z: (Math.random() - 0.5) * 400,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          vz: (Math.random() - 0.5) * 0.4,
-          label: i === 0 ? 'k8s-control-plane' : (i === 1 ? 'llm-worker-01' : (i === 2 ? 'argocd-gitops' : ''))
-        });
-      }
-
-      let rotX = 0.2;
-      let rotY = 0.3;
-      let isDragging = false;
-      let lastMouseX = 0;
-      let lastMouseY = 0;
-
-      canvas.onmousedown = (e) => {
-        isDragging = true;
-        lastMouseX = e.clientX;
-        lastMouseY = e.clientY;
-      };
-      window.addEventListener('mouseup', () => { isDragging = false; });
-      window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        const dx = e.clientX - lastMouseX;
-        const dy = e.clientY - lastMouseY;
-        lastMouseX = e.clientX;
-        lastMouseY = e.clientY;
-        rotY += dx * 0.008;
-        rotX += dy * 0.008;
-      });
-
-      let animId = 0;
-      function render() {
-        if (canvas.offsetParent === null) {
-          cancelAnimationFrame(animId);
-          animId = 0;
-          return;
-        }
-
-        ctx.fillStyle = '#0a0d13';
-        ctx.fillRect(0, 0, width, height);
-
-        rotY += 0.002;
-        const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
-        const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
-
-        const projected = nodes.map(n => {
-          n.x += n.vx;
-          n.y += n.vy;
-          n.z += n.vz;
-          if (Math.abs(n.x) > 220) n.vx *= -1;
-          if (Math.abs(n.y) > 140) n.vy *= -1;
-          if (Math.abs(n.z) > 220) n.vz *= -1;
-
-          let x1 = n.x * cosY - n.z * sinY;
-          let z1 = n.x * sinY + n.z * cosY;
-          let y1 = n.y * cosX - z1 * sinX;
-          let z2 = n.y * sinX + z1 * cosX;
-
-          const fov = 420;
-          const scale = fov / (fov + z2 + 400);
-          return {
-            x: width / 2 + x1 * scale,
-            y: height / 2 + y1 * scale,
-            scale,
-            label: n.label
-          };
-        });
-
-        ctx.strokeStyle = 'rgba(96, 165, 250, 0.15)';
-        ctx.lineWidth = 1;
-        for (let i = 0; i < projected.length; i++) {
-          for (let j = i + 1; j < projected.length; j++) {
-            const dx = projected[i].x - projected[j].x;
-            const dy = projected[i].y - projected[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 85) {
-              ctx.beginPath();
-              ctx.moveTo(projected[i].x, projected[i].y);
-              ctx.lineTo(projected[j].x, projected[j].y);
-              ctx.stroke();
-            }
-          }
-        }
-
-        projected.forEach(p => {
-          const r = Math.max(1.8, 3.2 * p.scale);
-          ctx.fillStyle = p.label ? '#60a5fa' : '#94a3b8';
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
-          ctx.fill();
-
-          if (p.label) {
-            ctx.fillStyle = '#f8fafc';
-            ctx.font = '10px JetBrains Mono, monospace';
-            ctx.fillText(p.label, p.x + 6, p.y + 3);
-          }
-        });
-
-        animId = requestAnimationFrame(render);
-      }
-      render();
-    }
-    window.initWorldCanvas = initWorldCanvas;
-
-    /* -------------------------------------------------------------
        PROJECT DETAILS SLIDE-OVER DRAWER
        ------------------------------------------------------------- */
     const projectDrawer = document.getElementById('project-details-panel');
@@ -2993,51 +2966,55 @@
     const projectData = {
       'llm-devops': {
         title: 'llm-devops',
-        tagline: 'Production Kubernetes (EKS) Infrastructure for Resilient LLM Serving',
-        context: 'Enterprise Cloud Deployment',
-        role: 'DevOps & Systems Architect',
-        stack: 'AWS EKS, Terraform, Helm, ArgoCD, Prometheus',
-        impact: '99.95% API uptime, zero-downtime rolling upgrades',
-        overview: 'Engineered infrastructure as code to deploy and monitor distributed large language model endpoints. Automated self-healing pod management, ingress SSL termination, and horizontal pod autoscaling based on custom GPU and memory saturation metrics.',
-        outcomes: 'Reduced model failover time by 75% and achieved automated GitOps rollbacks through declarative ArgoCD synchronization.',
-        demo: 'https://github.com/Yash55-max',
-        repo: 'https://github.com/Yash55-max'
+        tagline: 'Self-serve LLM inference platform on AWS EKS with Terraform IaC & GitOps',
+        context: 'Cloud Infrastructure & MLOps',
+        role: 'Platform & DevOps Engineer',
+        stack: 'AWS EKS, Terraform, Helm, ArgoCD, Prometheus, Grafana',
+        impact: 'Automated GitOps CD, <15s rolling deploys, Prometheus alerting',
+        overview: 'Engineered modular Terraform configurations provisioning Amazon EKS (Kubernetes v1.35), custom multi-AZ VPC networking, and least-privilege IAM Roles for Service Accounts (IRSA). Deployed containerized Ollama and FastAPI inference gateways decoupled via Kubernetes ClusterIP service discovery.',
+        outcomes: 'Full-stack SRE Golden Signals monitoring with kube-prometheus-stack, Alertmanager incident routing validated through fault injection, and automated GitHub Actions CI/CD to GHCR.',
+        demo: 'https://github.com/Yash55-max/llm-devops#production-architecture',
+        repo: 'https://github.com/Yash55-max/llm-devops',
+        hasArch: true
       },
       'clearledger': {
         title: 'ClearLedger',
-        tagline: 'Multi-Agent Autonomous AP Invoice Reconciliation Platform',
-        context: 'Financial Systems & Operations',
+        tagline: 'Institutional Accounts Payable Reconciliation Copilot',
+        context: 'Financial Operations & AI Auditing',
         role: 'AI Systems Engineer',
-        stack: 'Python, FastAPI, LangGraph, Qdrant, PostgreSQL',
-        impact: '92% automated match rate, 12h -> 4min processing',
-        overview: 'Developed an autonomous multi-agent pipeline where OCR parser agents, ledger matching agents, and validation agents collaborate through a stateful graph to resolve discrepancies between invoices and ERP accounting databases.',
-        outcomes: 'Eliminated manual invoice data entry and provided real-time confidence scores with an audit trail for accounting compliance.',
-        demo: 'https://github.com/Yash55-max',
-        repo: 'https://github.com/Yash55-max'
+        stack: 'FastAPI, React 18, Gemini API, PostgreSQL, LangGraph',
+        impact: 'Deterministic invoice reconciliation paired with AI audit commentary',
+        overview: 'Built an institutional vendor reconciliation engine combining deterministic rule-based matching with generative AI executive commentary. Flags pricing anomalies, duplicate invoices, and contract variances in real time.',
+        outcomes: 'Automated end-to-end ledger auditing with high precision, providing financial controllers with structured confidence ratings and transparent audit logs.',
+        demo: 'https://github.com/Yash55-max/ClearLedger',
+        repo: 'https://github.com/Yash55-max/ClearLedger',
+        hasArch: false
       },
       'rag-api': {
         title: 'rag-api',
-        tagline: 'High-Throughput Local Vector Retrieval Backend',
-        context: 'Enterprise Search & Knowledge Bases',
+        tagline: 'High-Throughput Local Vector Retrieval & Document Embeddings',
+        context: 'Enterprise Knowledge Systems',
         role: 'Backend & Retrieval Engineer',
-        stack: 'FastAPI, Qdrant, Ollama, LangChain, Redis',
+        stack: 'FastAPI, ChromaDB, Ollama, LangChain, Docker',
         impact: 'Sub-60ms semantic search, zero cloud egress',
-        overview: 'Architected an air-gapped retrieval-augmented generation engine that ingests technical PDFs, splits documentation into semantic chunks, and serves real-time contextual completions via locally hosted quantized model weights.',
+        overview: 'Architected an asynchronous FastAPI backend paired with ChromaDB vector store and local Ollama model serving for low-latency contextual document embeddings.',
         outcomes: 'Guaranteed total data privacy for proprietary codebases while outperforming generic embeddings by 34% on domain-specific queries.',
-        demo: 'https://github.com/Yash55-max',
-        repo: 'https://github.com/Yash55-max'
+        demo: 'https://github.com/Yash55-max/rag-api',
+        repo: 'https://github.com/Yash55-max/rag-api',
+        hasArch: false
       },
       'multi-agent': {
         title: 'Multi-Agent ADK',
-        tagline: 'Autonomous Multi-Agent Orchestration & Tool Use Framework',
-        context: 'Open Source Agentics',
-        role: 'Core Author',
-        stack: 'Python, asyncio, LangGraph, Pydantic, SQLite',
-        impact: 'Modular plug-and-play agent swarms',
+        tagline: 'Autonomous Multi-Agent Orchestration & Tool Execution Swarm',
+        context: 'Distributed Agentic Systems',
+        role: 'Systems Author',
+        stack: 'Python, Google ADK, AsyncIO, LangGraph, Pydantic',
+        impact: 'Modular async worker routing & tool dispatch',
         overview: 'Designed a lightweight framework allowing distributed agents to exchange state, elect coordinators, delegate subtasks, and safely execute tool calls with sandboxed human-in-the-loop approvals.',
-        outcomes: 'Used across production scripts to automate codebase analysis, regression testing, and multi-step deployment pipelines.',
-        demo: 'https://github.com/Yash55-max',
-        repo: 'https://github.com/Yash55-max'
+        outcomes: 'Automated complex multi-step development pipelines, regression testing routines, and live telemetry tracking.',
+        demo: 'https://github.com/Yash55-max/multi-agent-adk',
+        repo: 'https://github.com/Yash55-max/multi-agent-adk',
+        hasArch: false
       }
     };
 
@@ -3053,6 +3030,18 @@
       document.getElementById('drawerStoryOutcomes').textContent = data.outcomes;
       document.getElementById('drawerActionDemo').href = data.demo;
       document.getElementById('drawerActionRepo').href = data.repo;
+
+      const archWrap = document.getElementById('drawerArchitectureWrap');
+      if (archWrap) {
+        archWrap.style.display = data.hasArch ? 'block' : 'none';
+      }
+
+      const demoBtn = document.getElementById('drawerActionDemo');
+      if (demoBtn) {
+        demoBtn.href = data.demo;
+        const span = demoBtn.querySelector('span');
+        if (span) span.textContent = data.hasArch ? 'View Architecture' : 'Project Overview';
+      }
 
       projectDrawer.classList.add('open');
       navBackdrop.classList.add('open');
