@@ -1,77 +1,79 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 460" width="160" height="460" fill="none">
-  <!-- Standing Yashwanth Character - Line art with yellow glasses and yellow sneakers -->
+  <!-- Standing Yashwanth Ponnam - Character line art with cyan-accented tech sneakers & minimalist frames -->
   <!-- Shadow -->
-  <ellipse cx="80" cy="446" rx="45" ry="8" fill="#000000" fill-opacity="0.12" />
+  <ellipse cx="80" cy="446" rx="45" ry="8" fill="#000000" fill-opacity="0.16" />
 
-  <!-- Shoes (Yellow sneakers) -->
+  <!-- Shoes (Tech sneakers with electric cyan accents) -->
   <g class="shoes">
     <!-- Left shoe -->
-    <path d="M52 422 L66 422 L68 440 L46 440 L44 432 Z" fill="#ffd700" stroke="#141414" stroke-width="2.5" stroke-linejoin="round"/>
-    <path d="M42 438 L72 438 L72 443 L42 443 Z" fill="#ffffff" stroke="#141414" stroke-width="2.5" stroke-linejoin="round"/>
-    <circle cx="56" cy="430" r="2" fill="#ffffff" stroke="#141414" stroke-width="1"/>
+    <path d="M52 422 L66 422 L68 440 L46 440 L44 432 Z" fill="#1e2430" stroke="#10141d" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M50 426 L64 426" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+    <path d="M42 438 L72 438 L72 443 L42 443 Z" fill="#f8fafc" stroke="#10141d" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="56" cy="430" r="2" fill="#00d4ff" stroke="#10141d" stroke-width="1"/>
     <!-- Right shoe -->
-    <path d="M94 422 L108 422 L116 432 L114 440 L92 440 Z" fill="#ffd700" stroke="#141414" stroke-width="2.5" stroke-linejoin="round"/>
-    <path d="M88 438 L118 438 L118 443 L88 443 Z" fill="#ffffff" stroke="#141414" stroke-width="2.5" stroke-linejoin="round"/>
-    <circle cx="104" cy="430" r="2" fill="#ffffff" stroke="#141414" stroke-width="1"/>
+    <path d="M94 422 L108 422 L116 432 L114 440 L92 440 Z" fill="#1e2430" stroke="#10141d" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M96 426 L110 426" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+    <path d="M88 438 L118 438 L118 443 L88 443 Z" fill="#f8fafc" stroke="#10141d" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="104" cy="430" r="2" fill="#00d4ff" stroke="#10141d" stroke-width="1"/>
   </g>
 
-  <!-- Trousers (Loose black pants) -->
+  <!-- Trousers (Modern relaxed fit dark trousers) -->
   <g class="trousers">
-    <path d="M48 235 L112 235 L118 424 L94 424 L82 280 L80 280 L68 424 L44 424 Z" fill="#1a1c23" stroke="#141414" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M48 235 L112 235 L118 424 L94 424 L82 280 L80 280 L68 424 L44 424 Z" fill="#141822" stroke="#0a0d14" stroke-width="3" stroke-linejoin="round"/>
     <!-- Creases -->
-    <path d="M58 270 L55 380" stroke="#2e323f" stroke-width="2" stroke-linecap="round"/>
-    <path d="M102 270 L105 380" stroke="#2e323f" stroke-width="2" stroke-linecap="round"/>
-    <path d="M78 300 L76 400" stroke="#2e323f" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M84 310 L86 400" stroke="#2e323f" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M58 270 L55 380" stroke="#242b3d" stroke-width="2" stroke-linecap="round"/>
+    <path d="M102 270 L105 380" stroke="#242b3d" stroke-width="2" stroke-linecap="round"/>
+    <path d="M78 300 L76 400" stroke="#242b3d" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M84 310 L86 400" stroke="#242b3d" stroke-width="1.5" stroke-linecap="round"/>
   </g>
 
-  <!-- Shirt (Black casual shirt with relaxed fit) -->
+  <!-- Shirt (Dark casual overshirt with relaxed posture) -->
   <g class="shirt">
-    <path d="M38 120 L122 120 L126 242 L34 242 Z" fill="#111318" stroke="#141414" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M38 120 L122 120 L126 242 L34 242 Z" fill="#0f131c" stroke="#0a0d14" stroke-width="3" stroke-linejoin="round"/>
     <!-- Arms / Sleeves -->
-    <path d="M38 120 L22 195 L34 230 L44 210 L38 160" fill="#111318" stroke="#141414" stroke-width="3" stroke-linejoin="round"/>
-    <path d="M122 120 L138 195 L126 230 L116 210 L122 160" fill="#111318" stroke="#141414" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M38 120 L22 195 L34 230 L44 210 L38 160" fill="#0f131c" stroke="#0a0d14" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M122 120 L138 195 L126 230 L116 210 L122 160" fill="#0f131c" stroke="#0a0d14" stroke-width="3" stroke-linejoin="round"/>
     <!-- Hands in pockets -->
-    <path d="M22 195 C22 220 32 235 44 235" fill="#f5dfd0" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M138 195 C138 220 128 235 116 235" fill="#f5dfd0" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M22 195 C22 220 32 235 44 235" fill="#f2d5c2" stroke="#0a0d14" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M138 195 C138 220 128 235 116 235" fill="#f2d5c2" stroke="#0a0d14" stroke-width="2.5" stroke-linecap="round"/>
     <!-- Placket & Buttons -->
-    <path d="M80 120 L80 240" stroke="#282c38" stroke-width="2.5" stroke-dasharray="1 12" stroke-linecap="round"/>
+    <path d="M80 120 L80 240" stroke="#1f2637" stroke-width="2.5" stroke-dasharray="1 12" stroke-linecap="round"/>
     <!-- Collar -->
-    <path d="M68 120 L80 134 L92 120" fill="none" stroke="#282c38" stroke-width="2.5"/>
+    <path d="M68 120 L80 134 L92 120" fill="none" stroke="#1f2637" stroke-width="2.5"/>
   </g>
 
   <!-- Neck -->
-  <path d="M72 95 L88 95 L88 122 L72 122 Z" fill="#eecdb7" stroke="#141414" stroke-width="2.5"/>
+  <path d="M72 95 L88 95 L88 122 L72 122 Z" fill="#e8c4ad" stroke="#0a0d14" stroke-width="2.5"/>
 
   <!-- Head & Face -->
   <g class="head">
-    <path d="M60 55 C60 25 100 25 100 55 C100 85 92 98 80 98 C68 98 60 85 60 55 Z" fill="#f7d7c4" stroke="#141414" stroke-width="2.5"/>
+    <path d="M60 55 C60 25 100 25 100 55 C100 85 92 98 80 98 C68 98 60 85 60 55 Z" fill="#f5d0ba" stroke="#0a0d14" stroke-width="2.5"/>
     
     <!-- Hair -->
-    <path d="M56 50 C54 28 68 15 80 14 C96 13 108 24 105 48 C102 30 92 24 80 24 C68 24 58 35 56 50 Z" fill="#141414"/>
-    <path d="M58 46 C52 56 54 70 56 75 C58 68 60 62 62 56 Z" fill="#141414"/>
-    <path d="M102 46 C108 56 106 70 104 75 C102 68 100 62 98 56 Z" fill="#141414"/>
+    <path d="M56 50 C54 28 68 15 80 14 C96 13 108 24 105 48 C102 30 92 24 80 24 C68 24 58 35 56 50 Z" fill="#0a0d14"/>
+    <path d="M58 46 C52 56 54 70 56 75 C58 68 60 62 62 56 Z" fill="#0a0d14"/>
+    <path d="M102 46 C108 56 106 70 104 75 C102 68 100 62 98 56 Z" fill="#0a0d14"/>
 
     <!-- Ears -->
-    <circle cx="58" cy="65" r="5" fill="#f7d7c4" stroke="#141414" stroke-width="2"/>
-    <circle cx="102" cy="65" r="5" fill="#f7d7c4" stroke="#141414" stroke-width="2"/>
+    <circle cx="58" cy="65" r="5" fill="#f5d0ba" stroke="#0a0d14" stroke-width="2"/>
+    <circle cx="102" cy="65" r="5" fill="#f5d0ba" stroke="#0a0d14" stroke-width="2"/>
 
     <!-- Smile & Nose -->
-    <path d="M80 66 L78 72 L82 72" stroke="#141414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M73 80 Q80 86 87 80" stroke="#141414" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M80 66 L78 72 L82 72" stroke="#0a0d14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M73 80 Q80 86 87 80" stroke="#0a0d14" stroke-width="2.5" stroke-linecap="round" fill="none"/>
 
-    <!-- Yellow Glasses -->
+    <!-- Minimalist Titanium / Cyan Accent Glasses -->
     <g class="glasses">
-      <rect x="64" y="54" width="13" height="11" rx="3" fill="rgba(255, 215, 0, 0.25)" stroke="#ffd700" stroke-width="3"/>
-      <rect x="83" y="54" width="13" height="11" rx="3" fill="rgba(255, 215, 0, 0.25)" stroke="#ffd700" stroke-width="3"/>
+      <rect x="64" y="54" width="13" height="11" rx="3" fill="rgba(0, 212, 255, 0.12)" stroke="#38bdf8" stroke-width="2.5"/>
+      <rect x="83" y="54" width="13" height="11" rx="3" fill="rgba(0, 212, 255, 0.12)" stroke="#38bdf8" stroke-width="2.5"/>
       <!-- Bridge -->
-      <path d="M77 58 L83 58" stroke="#ffd700" stroke-width="3" stroke-linecap="round"/>
+      <path d="M77 58 L83 58" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
       <!-- Temple arms -->
-      <path d="M64 58 L58 58" stroke="#ffd700" stroke-width="2.5"/>
-      <path d="M96 58 L102 58" stroke="#ffd700" stroke-width="2.5"/>
+      <path d="M64 58 L58 58" stroke="#38bdf8" stroke-width="2"/>
+      <path d="M96 58 L102 58" stroke="#38bdf8" stroke-width="2"/>
       <!-- Eyes behind glasses -->
-      <circle cx="70.5" cy="59.5" r="1.8" fill="#141414"/>
-      <circle cx="89.5" cy="59.5" r="1.8" fill="#141414"/>
+      <circle cx="70.5" cy="59.5" r="1.8" fill="#0a0d14"/>
+      <circle cx="89.5" cy="59.5" r="1.8" fill="#0a0d14"/>
     </g>
   </g>
 </svg>
