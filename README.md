@@ -2,7 +2,6 @@
 
 > Production-grade cloud infrastructure, automated Kubernetes orchestration, LLMOps pipelines, and autonomous AI systems.
 
-[![Live Portfolio](https://img.shields.io/badge/Live-Portfolio-050608?style=for-the-badge&logo=vercel&logoColor=7fe3ff)](https://github.com/Yash55-max/Portfolio)
 [![DevOps & AI](https://img.shields.io/badge/Focus-DevOps%20%26%20AI%20Systems-2f5dff?style=for-the-badge&logo=kubernetes&logoColor=white)](https://github.com/Yash55-max)
 [![GitHub](https://img.shields.io/badge/GitHub-Yash55--max-12234f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Yash55-max)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Yashwanth%20Ponnam-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yashwanth-ponnam)
