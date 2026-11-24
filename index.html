@@ -31,10 +31,10 @@
   <meta name="twitter:image" content="https://yashwanthponnam.dev/assets/profile.jpg">
   <meta name="twitter:creator" content="@yashwanthponnam">
 
-  <!-- Typography: Space Grotesk, Inter, JetBrains Mono -->
+  <!-- Typography: Outfit, DM Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* -------------------------------------------------------------
@@ -47,15 +47,15 @@
       --sc-surface-alt: #161e2e;
       --sc-line: rgba(255, 255, 255, 0.08);
       --sc-line-light: rgba(255, 255, 255, 0.14);
-      --sc-ink: #f5f4f0;
+      --sc-ink: #f0f4f8;
       --sc-ink-soft: #9ca3af;
-      --sc-ink-muted: #6b7280;
-      --sc-accent: #00d4ff;
-      --sc-accent-glow: rgba(0, 212, 255, 0.25);
+      --sc-ink-muted: #94a3b8;
+      --sc-accent: #60a5fa;
+      
       --sc-folder-bg: #141a26;
       --sc-folder-tab: #1d2536;
-      --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
       --ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -71,7 +71,7 @@
       --sc-ink-soft: #475569;
       --sc-ink-muted: #64748b;
       --sc-accent: #0284c7;
-      --sc-accent-glow: rgba(2, 132, 199, 0.2);
+      
       --sc-folder-bg: #161b26;
       --sc-folder-tab: #202737;
     }
@@ -100,7 +100,7 @@
       margin-top: 14px;
       margin-bottom: 20px;
       font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       line-height: 1.45;
       color: var(--sc-accent);
       overflow-x: auto;
@@ -126,7 +126,6 @@
     body {
       background-color: var(--sc-canvas);
       color: var(--sc-ink);
-      overflow-x: hidden;
       line-height: 1.5;
     }
 
@@ -178,12 +177,12 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 9999px;
       height: 48px;
-      padding: 0 14px 0 20px;
+      padding: 8px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
       transition: all 0.3s ease;
     }
     html[data-theme="light"] .header-inner {
@@ -191,6 +190,7 @@
       border-color: rgba(0, 0, 0, 0.12);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
     }
+
 
     .site-wordmark {
       font-family: var(--font-display);
@@ -201,7 +201,38 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 8px;
+    }
+
+    .nav-brand-badge {
+      position: relative;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-badge-svg {
+      width: 100%;
+      height: 100%;
+      animation: badgeSpin 14s linear infinite;
+      color: var(--sc-ink-soft);
+    }
+    @keyframes badgeSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .nav-badge-monogram {
+      position: absolute;
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+    }
+    html[data-theme="light"] .nav-badge-monogram {
+      color: #0a0d14;
     }
 
     .header-actions {
@@ -273,7 +304,7 @@
       bottom: 20px;
       width: min(400px, calc(100vw - 32px));
       background: #ffffff;
-      color: #11151c;
+      color: #0a0d14;
       border-radius: 28px;
       z-index: 1000;
       box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
@@ -302,13 +333,13 @@
       cursor: pointer;
       font-size: 0.85rem;
       font-weight: 600;
-      color: #11151c;
+      color: #0a0d14;
     }
     .nav-close-circle {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: #11151c;
+      background: #0a0d14;
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -330,7 +361,7 @@
       font-size: clamp(2.2rem, 5vw, 3rem);
       font-weight: 700;
       line-height: 1.1;
-      color: #11151c;
+      color: #0a0d14;
       text-decoration: none;
       letter-spacing: -0.03em;
       transition: color 0.2s, transform 0.2s;
@@ -354,7 +385,7 @@
       transition: color 0.2s;
     }
     .nav-menu-secondary a:hover {
-      color: #11151c;
+      color: #0a0d14;
     }
 
     .nav-dialog-footer {
@@ -367,7 +398,7 @@
     .nav-dialog-footer a.nav-email {
       font-weight: 600;
       font-size: 0.9rem;
-      color: #11151c;
+      color: #0a0d14;
       text-decoration: none;
     }
     .nav-dialog-socials {
@@ -378,7 +409,7 @@
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      background: #11151c;
+      background: #0a0d14;
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -396,58 +427,10 @@
 
     /* -------------------------------------------------------------
        ABOUT WRAPPER SECTION (.about-section)
-       Holds Hero, Biography, and the 3D Sticky Portrait Journey
+       Holds Hero and Biography
        ------------------------------------------------------------- */
     .about-section {
       position: relative;
-    }
-
-    /* 3D STICKY PORTRAIT JOURNEY
-       Matches exact reference site implementation (0yt5ir1aaj66y.js)
-       ------------------------------------------------------------- */
-    .portrait-journey {
-      position: absolute;
-      inset: 0 0 auto;
-      pointer-events: none;
-      z-index: 25;
-      display: block;
-    }
-    .portrait-sticky-stage {
-      height: 100vh;
-      position: sticky;
-      top: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
-    }
-    .portrait-card {
-      position: absolute;
-      transform-style: preserve-3d;
-      will-change: transform;
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-      background: var(--sc-surface);
-    }
-    .portrait-face {
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      overflow: hidden;
-      background: var(--sc-surface);
-      transform-style: preserve-3d;
-      backface-visibility: visible;
-      -webkit-backface-visibility: visible;
-    }
-    .portrait-face img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(100%) contrast(108%);
-      display: block;
-      backface-visibility: visible;
-      -webkit-backface-visibility: visible;
-      will-change: transform;
     }
 
     /* Hero Section */
@@ -487,35 +470,65 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      margin-top: 2vh;
+      margin-top: 3vh;
     }
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(3.2rem, 9.5vw, 8.5rem);
+      font-size: clamp(3rem, 8.8vw, 8rem);
       font-weight: 800;
-      line-height: 0.92;
+      line-height: 0.94;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--sc-ink);
       display: flex;
       flex-direction: column;
-      align-items: center;
+      width: 100%;
     }
     .title-line {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
+      gap: clamp(8px, 1.8vw, 20px);
+    }
+    .title-line-1 {
+      align-self: flex-start;
+      margin-left: clamp(0.5rem, 5vw, 5rem);
+    }
+    .title-line-2 {
+      align-self: flex-end;
+      margin-right: clamp(0.5rem, 5vw, 5rem);
     }
     .hero-code-mark svg {
-      width: clamp(2rem, 6.5vw, 5.5rem);
+      width: clamp(1.8rem, 5.5vw, 4.8rem);
       height: auto;
       vertical-align: middle;
       color: var(--sc-ink);
     }
 
-    /* Hero bottom bar & Portrait Slot */
+    /* Hero Portrait: Sharp-cornered square B&W photo overlapping headline bottom by 15-20% */
+    .hero-portrait-frame {
+      position: relative;
+      z-index: 5;
+      width: clamp(210px, 24vw, 300px);
+      aspect-ratio: 1 / 1;
+      margin-top: clamp(-50px, -5vw, -80px);
+      margin-bottom: 24px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--sc-line-light);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      background: var(--sc-surface);
+    }
+    .hero-portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: grayscale(100%) contrast(110%);
+      display: block;
+    }
+
+    /* Hero bottom bar */
     .hero-bottom-bar {
       position: relative;
       z-index: 2;
@@ -529,8 +542,9 @@
     .hero-meta-left {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+      font-size: clamp(1.1rem, 2.2vw, 1.8rem);
       letter-spacing: -0.02em;
+      color: var(--sc-ink);
     }
 
     .hero-meta-right {
@@ -542,34 +556,10 @@
       align-items: center;
       gap: 2px;
     }
-    .terminal-caret {
-      display: inline-block;
-      width: 8px;
-      height: 14px;
-      background: var(--sc-accent);
-      margin-left: 4px;
-      animation: blink 1s step-end infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    /* Hero Portrait Slot: Where the 3D card begins its journey */
-    .hero-portrait-slot {
-      width: clamp(200px, 26vw, 320px);
-      aspect-ratio: 1 / 1.15;
-      border-radius: 20px;
-      margin-inline: auto;
-      position: relative;
-      z-index: 3;
-      transform: translateY(24px);
-      visibility: hidden;
-    }
 
     /* -------------------------------------------------------------
        ABOUT / BIOGRAPHY SECTION (#biography)
-       3-column layout: Hi message (left) | 3D Portrait (center) | Statement (right)
+       3-column layout: Bio Details (left) | Second Portrait (center) | Pitch Statement (right)
        ------------------------------------------------------------- */
     .biography-section {
       padding-top: 100px;
@@ -598,6 +588,7 @@
       letter-spacing: -0.03em;
       line-height: 1.1;
       margin-bottom: 12px;
+      color: var(--sc-ink);
     }
     .bio-left .bio-subtitle {
       font-size: 1.15rem;
@@ -607,13 +598,13 @@
     }
     .bio-current-block {
       border-left: 2px solid var(--sc-line-light);
-      padding-left: 16px;
+      padding: 12px 16px 12px 24px;
     }
     .bio-current-label {
       font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       color: var(--sc-ink-muted);
       margin-bottom: 6px;
     }
@@ -631,19 +622,30 @@
       color: var(--sc-ink-muted);
     }
 
-    /* Destination Dock in the Middle for the Traveling 3D Card */
+    /* Second Portrait with 10-14px rounded corners */
     .bio-center {
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .bio-portrait-slot {
+    .bio-portrait-card {
       width: 100%;
       max-width: 320px;
-      aspect-ratio: 1 / 1.15;
-      border-radius: 24px;
-      position: relative;
-      visibility: hidden;
+      aspect-ratio: 1 / 1.18;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--sc-line-light);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      background: var(--sc-surface);
+      margin-inline: auto;
+    }
+    .bio-portrait-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      filter: grayscale(100%) contrast(108%);
+      display: block;
     }
 
     .bio-right {
@@ -683,8 +685,8 @@
         align-self: center;
       }
       .bio-current-block {
-        border-left: none;
-        padding-left: 0;
+        border-left: 2px solid var(--sc-line-light);
+        padding: 12px 16px 12px 24px;
       }
     }
 
@@ -709,6 +711,7 @@
     .section-subtext {
       font-size: 0.95rem;
       color: var(--sc-ink-soft);
+      max-width: 560px;
     }
 
     .skills-grid {
@@ -716,9 +719,15 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 36px;
     }
+    @media (min-width: 901px) {
+      .skill-category:nth-child(1) { margin-top: 0; }
+      .skill-category:nth-child(2) { margin-top: 48px; }
+      .skill-category:nth-child(3) { margin-top: 96px; }
+    }
     @media (max-width: 900px) {
       .skills-grid {
         grid-template-columns: 1fr;
+        gap: 32px;
       }
     }
 
@@ -748,40 +757,40 @@
       gap: 8px;
     }
     .chip {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--sc-line);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--sc-line-light);
       color: var(--sc-ink);
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       font-weight: 500;
-      padding: 6px 13px;
-      border-radius: 6px;
-      transition: background-color 0.2s, transform 0.2s;
-    }
-    html[data-theme="light"] .chip {
-      background: #eae9e5;
-      color: #1f2937;
-      border-color: rgba(0, 0, 0, 0.06);
-    }
-    .chip.highlight {
-      background: #ffffff;
-      color: #000000;
-      font-weight: 600;
-      border-color: #ffffff;
-    }
-    html[data-theme="light"] .chip.highlight {
-      background: #11151c;
-      color: #ffffff;
-      border-color: #11151c;
+      padding: 7px 14px;
+      border-radius: 8px;
+      transition: background-color 0.2s, color 0.2s, transform 0.15s, border-color 0.2s;
+      cursor: default;
+      user-select: none;
     }
     .chip:hover {
-      transform: translateY(-1px);
+      background: var(--sc-ink);
+      color: var(--sc-canvas);
+      border-color: var(--sc-ink);
+      transform: translateY(-2px);
+    }
+    html[data-theme="light"] .chip {
+      background: rgba(0, 0, 0, 0.04);
+      color: #0a0d14;
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+    html[data-theme="light"] .chip:hover {
+      background: #0a0d14;
+      color: #ffffff;
+      border-color: #0a0d14;
     }
 
     /* -------------------------------------------------------------
        GITHUB CONTRIBUTIONS HEATMAP & LIVE TIME (Directly under Tech Stack)
        ------------------------------------------------------------- */
     .activity-section {
-      padding-block: 80px 100px;
+      padding-top: 80px;
+      padding-bottom: 100px;
       border-top: 1px solid var(--sc-line);
     }
     .activity-header-bar {
@@ -792,31 +801,14 @@
       gap: 24px;
       margin-bottom: 32px;
     }
+    .activity-live-greeting,
     .activity-live-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--sc-surface-alt);
-      border: 1px solid var(--sc-line);
-      padding: 4px 12px;
-      border-radius: 9999px;
-      font-size: 0.8rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
       font-weight: 600;
+      letter-spacing: -0.01em;
       color: var(--sc-ink);
-      margin-bottom: 10px;
-    }
-    .live-pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-      animation: pulse-green 2s infinite;
-    }
-    @keyframes pulse-green {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+      margin-bottom: 6px;
     }
     .activity-title {
       font-family: var(--font-display);
@@ -844,9 +836,9 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       color: var(--sc-ink-muted);
     }
     .telemetry-clock {
@@ -867,13 +859,13 @@
       border: 1px solid #1f1f23;
       border-radius: 14px;
       padding: 24px 28px;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
       position: relative;
     }
     html[data-theme="light"] .contrib-card {
       background: #09090b;
       border-color: #27272a;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
     }
     .contrib-scroll-wrap {
       width: 100%;
@@ -886,23 +878,22 @@
       display: none;
     }
     .contrib-graph-inner {
-      display: inline-flex;
+      display: flex;
       flex-direction: column;
       gap: 8px;
-      min-width: 686px;
+      width: 100%;
+      min-width: 0;
       position: relative;
     }
     .contrib-months-row {
-      display: grid;
-      grid-template-columns: repeat(53, 10px);
-      column-gap: 3px;
+      position: relative;
+      width: 100%;
+      height: 16px;
       font-family: var(--font-mono), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-size: 11px;
       line-height: 1;
       color: #71717a;
       user-select: none;
-      height: 14px;
-      position: relative;
     }
     .contrib-month-label {
       position: absolute;
@@ -912,14 +903,17 @@
     }
     .contrib-grid {
       display: grid;
-      grid-template-rows: repeat(7, 10px);
+      grid-template-rows: repeat(7, 1fr);
       grid-auto-flow: column;
-      grid-auto-columns: 10px;
-      gap: 3px;
+      grid-auto-columns: 1fr;
+      gap: clamp(2px, 0.35vw, 4px);
+      width: 100%;
     }
     .contrib-cell {
-      width: 10px;
-      height: 10px;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      height: auto;
+      min-width: 6px;
       border-radius: 2px;
       background: #16161a;
       transition: transform 0.12s ease, outline-color 0.12s ease;
@@ -966,6 +960,12 @@
       font-size: 12px;
       user-select: none;
     }
+    
+    html[data-theme="light"] .contrib-footer-bar,
+    html[data-theme="light"] .contrib-meta-summary,
+    html[data-theme="light"] .legend-text {
+      color: #475569;
+    }
     .legend-box {
       width: 10px;
       height: 10px;
@@ -982,7 +982,7 @@
       font-size: 11px;
       padding: 6px 10px;
       border-radius: 6px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
       white-space: nowrap;
       z-index: 50;
       transform: translate(-50%, -100%);
@@ -1072,51 +1072,123 @@
 
     .folder-papers {
       position: absolute;
-      top: -14px;
-      left: 20px;
-      right: 20px;
-      height: 60px;
+      top: -24px;
+      left: 12px;
+      right: 12px;
+      height: 82px;
       pointer-events: none;
       z-index: 2;
     }
-    .folder-paper-dark {
+    .folder-paper-back {
       position: absolute;
       top: 0;
-      left: 10px;
-      right: 15px;
-      height: 48px;
-      background: #2a303f;
-      border-radius: 6px 6px 0 0;
-      transform: rotate(-1.5deg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: transform 0.35s var(--ease);
-    }
-    .folder-paper-white {
-      position: absolute;
-      top: 6px;
-      left: 20px;
-      right: 10px;
-      height: 52px;
-      background: #fdfdfc;
-      border-radius: 6px 6px 0 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      padding: 8px 10px;
+      left: 6px;
+      right: 16px;
+      height: 72px;
+      background: #111726;
+      border-radius: 8px 8px 0 0;
+      transform: rotate(-2.5deg);
+      padding: 6px 8px;
+      overflow: hidden;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: #60a5fa;
+      line-height: 1.35;
       display: flex;
       flex-direction: column;
-      gap: 3px;
       transition: transform 0.35s var(--ease);
     }
-    .doc-line {
-      height: 2px;
-      background: #d1d5db;
-      border-radius: 1px;
+    .folder-paper-front {
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      right: 6px;
+      height: 74px;
+      background: #f8fafc;
+      border-radius: 8px 8px 0 0;
+      transform: rotate(1.5deg);
+      padding: 6px 8px;
+      overflow: hidden;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: #0f172a;
+      line-height: 1.35;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.35s var(--ease);
     }
-
-    .project-folder:hover .folder-paper-white {
-      transform: translateY(-26px) rotate(-1.5deg);
+    .project-folder:hover .folder-paper-front {
+      transform: translateY(-26px) rotate(0deg);
     }
-    .project-folder:hover .folder-paper-dark {
-      transform: translateY(-12px) rotate(-2.5deg);
+    .project-folder:hover .folder-paper-back {
+      transform: translateY(-14px) rotate(-1.5deg);
+    }
+    .paper-tag-code {
+      color: #60a5fa;
+      font-weight: 700;
+      font-size: 11.5px;
+    }
+    .paper-line-code {
+      color: #60a5fa;
+      font-size: 11px;
+    }
+    .folder-paper-front .paper-line-code {
+      color: #475569;
+    }
+    .preview-sheet-header {
+      font-weight: 700;
+      font-size: 11.5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #0f172a;
+    }
+    .preview-badge-green {
+      color: #16a34a;
+      font-weight: 800;
+      font-size: 11px;
+    }
+    .preview-badge-blue {
+      color: #0284c7;
+      font-weight: 800;
+      font-size: 11px;
+    }
+    .preview-badge-purple {
+      color: #7c3aed;
+      font-weight: 800;
+      font-size: 11px;
+    }
+    .preview-badge-orange {
+      color: #ea580c;
+      font-weight: 800;
+      font-size: 11px;
+    }
+    .preview-sheet-metric {
+      color: #334155;
+      font-size: 11px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .preview-sheet-bar {
+      height: 4px;
+      background: #e2e8f0;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-block: 2px;
+    }
+    .preview-bar-fill {
+      height: 100%;
+      background: #0284c7;
+      border-radius: 2px;
+    }
+    .preview-sheet-footer {
+      font-size: 11px;
+      color: #475569;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .folder-front {
@@ -1138,7 +1210,7 @@
       height: 32px;
       border-radius: 8px;
       background: #ffffff;
-      color: #11151c;
+      color: #0a0d14;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1233,7 +1305,7 @@
       display: block;
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       color: var(--sc-ink-muted);
     }
     .fact-item span {
@@ -1251,6 +1323,7 @@
       line-height: 1.6;
       color: var(--sc-ink-soft);
       margin-bottom: 16px;
+      max-width: 560px;
     }
     .drawer-actions {
       display: flex;
@@ -1302,10 +1375,11 @@
       pointer-events: none;
     }
     .journey-road-base {
-      stroke: var(--sc-line-light);
-      stroke-width: 2;
+      stroke: var(--sc-accent);
+      stroke-width: 2.2;
       stroke-dasharray: 6 6;
       fill: none;
+      opacity: 0.65;
     }
     .journey-road-draw {
       stroke: var(--sc-ink);
@@ -1327,6 +1401,12 @@
       .roadmap-stops {
         grid-template-columns: 1fr;
         gap: 36px;
+        border-left: 2px dashed var(--sc-line-light);
+        padding-left: 24px;
+        margin-left: 12px;
+      }
+      .stop-node {
+        margin-left: -35px;
       }
       .journey-road {
         display: none;
@@ -1360,7 +1440,7 @@
       box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.25);
     }
     html[data-theme="light"] .stop-node.active {
-      background: #11151c;
+      background: #0a0d14;
       box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.15);
     }
 
@@ -1368,15 +1448,15 @@
       display: inline-block;
       align-self: flex-start;
       background: #ffffff;
-      color: #11151c;
-      font-size: 0.72rem;
+      color: #0a0d14;
+      font-size: 0.8rem;
       font-weight: 700;
       padding: 2px 10px;
       border-radius: 9999px;
       margin-bottom: 8px;
     }
     html[data-theme="light"] .stop-pill-tag {
-      background: #11151c;
+      background: #0a0d14;
       color: #ffffff;
     }
 
@@ -1603,7 +1683,7 @@
       font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       color: var(--sc-ink-muted);
       margin-bottom: 16px;
     }
@@ -1624,7 +1704,7 @@
 
     .footer-finale {
       background: #ffffff;
-      color: #11151c;
+      color: #0a0d14;
       padding-top: 36px;
       position: relative;
       overflow: hidden;
@@ -1641,7 +1721,7 @@
       font-size: clamp(1.4rem, 3vw, 2.2rem);
       font-weight: 800;
       letter-spacing: -0.03em;
-      color: #11151c;
+      color: #0a0d14;
     }
     .back-to-top {
       display: inline-flex;
@@ -1649,7 +1729,7 @@
       gap: 6px;
       font-size: 0.9rem;
       font-weight: 700;
-      color: #11151c;
+      color: #0a0d14;
       text-decoration: none;
       transition: transform 0.2s;
     }
@@ -1669,14 +1749,14 @@
     }
     .crowd-huge-watermark {
       position: absolute;
-      top: 35%;
+      top: 22%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: var(--font-display);
-      font-size: clamp(4rem, 16vw, 13rem);
+      font-size: clamp(4.5rem, 16vw, 13rem);
       font-weight: 900;
       letter-spacing: -0.04em;
-      color: rgba(0, 0, 0, 0.04);
+      color: #ebebeb;
       user-select: none;
       pointer-events: none;
       white-space: nowrap;
@@ -1709,7 +1789,7 @@
       text-align: center;
       padding: 16px;
       font-size: 0.85rem;
-      color: #6b7280;
+      color: #475569;
       border-top: 1px solid rgba(0, 0, 0, 0.06);
     }
 
@@ -1766,8 +1846,17 @@
   <!-- Floating Pill Header -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a href="#about" class="site-wordmark" aria-label="Yashwanth home">
-        <span>Yashwanth</span>
+      <a href="#about" class="site-wordmark" aria-label="Yashwanth Ponnam home">
+        <span class="nav-brand-badge" aria-hidden="true">
+          <svg viewBox="0 0 100 100" class="nav-badge-svg">
+            <path id="badgeRingPath" d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" fill="none"/>
+            <text font-size="10.5" font-family="'Space Grotesk', sans-serif" font-weight="700" fill="currentColor" letter-spacing="0.5">
+              <textPath href="#badgeRingPath">· YASHWANTH PONNAM · DEVOPS</textPath>
+            </text>
+          </svg>
+          <span class="nav-badge-monogram">YP</span>
+        </span>
+        <span class="site-wordmark-text">Yashwanth</span>
       </a>
       <div class="header-actions">
         <!-- Theme toggle: Dark / Light -->
@@ -1837,19 +1926,8 @@
   <!-- MAIN SCROLL CONTAINER -->
   <main id="main">
 
-    <!-- ABOUT SECTION CONTAINER: Holds Hero, Biography, and 3D Traveling Portrait Card -->
+    <!-- ABOUT SECTION CONTAINER: Holds Hero and Biography -->
     <div class="about-section" id="about">
-
-      <!-- 3D Traveling Portrait Journey Stage (Strict Single Image) -->
-      <div class="portrait-journey" aria-hidden="true">
-        <div class="portrait-sticky-stage">
-          <div class="portrait-card" id="portraitCard">
-            <div class="portrait-face">
-              <img src="assets/profile.jpg" alt="Portrait of Yashwanth Ponnam" width="1280" height="1280" priority>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- 1. HERO VIEWPORT -->
       <section class="hero-section" aria-label="DevOps and AI Systems Engineer Headline">
@@ -1901,17 +1979,17 @@ export const engineer: SystemsEngineer = {
         <!-- Display Headline: < DEVOPS & AI / SYSTEMS ENGINEER /> -->
         <div class="hero-content wrap">
           <h1 class="hero-title" aria-label="DevOps and AI Systems Engineer">
-            <span class="title-line">
+            <span class="title-line title-line-1">
               <span class="hero-code-mark" aria-hidden="true">
                 <svg viewBox="20 0 110 160" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter">
                   <path opacity=".18" d="M105 30 48 80 105 130" transform="translate(4 5)"></path>
                   <path d="M105 30 48 80 105 130"></path>
                 </svg>
               </span>
-              DEVOPS &amp; AI
+              <span>DEVOPS &amp; AI</span>
             </span>
-            <span class="title-line">
-              SYSTEMS ENGINEER
+            <span class="title-line title-line-2">
+              <span>SYSTEMS ENGINEER</span>
               <span class="hero-code-mark" aria-hidden="true">
                 <svg viewBox="0 0 180 160" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter">
                   <path opacity=".18" d="M65 30 25 130M100 30 157 80 100 130" transform="translate(4 5)"></path>
@@ -1920,19 +1998,21 @@ export const engineer: SystemsEngineer = {
               </span>
             </span>
           </h1>
+
+          <!-- Hero Portrait Frame: Square B&W photo overlapping headline bottom by 15-20% -->
+          <div class="hero-portrait-frame">
+            <img src="assets/profile.jpg" alt="Portrait of Yashwanth Ponnam, DevOps &amp; AI Systems Engineer" width="480" height="480" priority>
+          </div>
         </div>
 
-        <!-- Hero Bottom Bar: Identity, Origin Slot, and Technical Indicator -->
+        <!-- Hero Bottom Bar: Identity and Technical Indicator -->
         <div class="hero-bottom-bar wrap">
           <div class="hero-meta-left">
             <span>YASHWANTH PONNAM · 2026</span>
           </div>
 
-          <!-- Hero Origin Slot where the single 3D card begins peeking -->
-          <a href="#biography" class="hero-portrait-slot" aria-label="Scroll to biography"></a>
-
           <div class="hero-meta-right">
-            <span>//&nbsp;</span><span>KUBERNETES · IAC · AGENTIC AI</span><span class="terminal-caret" aria-hidden="true"></span>
+            <span>//&nbsp;</span><span>KUBERNETES · IAC · AGENTIC AI</span>
           </div>
         </div>
       </section>
@@ -1940,9 +2020,9 @@ export const engineer: SystemsEngineer = {
       <!-- 2. BIOGRAPHY SECTION (#biography) -->
       <section class="biography-section" id="biography" aria-label="Biography">
         <div class="wrap biography-grid">
-          <!-- Left Column: Hi, I'm Yashwanth + Current Focus -->
+          <!-- Left Column: Identity Details & Current Focus -->
           <div class="bio-left">
-            <h2>Hi, I'm Yashwanth.</h2>
+            <h2>I'm Yashwanth Ponnam.</h2>
             <p class="bio-subtitle">DevOps &amp; AI Systems Engineer.</p>
 
             <div class="bio-current-block">
@@ -1953,9 +2033,11 @@ export const engineer: SystemsEngineer = {
             </div>
           </div>
 
-          <!-- Center Column: Destination Slot for the Single 3D Portrait -->
+          <!-- Center Column: Second Portrait with Rounded Corners -->
           <div class="bio-center">
-            <div class="bio-portrait-slot"></div>
+            <div class="bio-portrait-card">
+              <img src="assets/profile.jpg" alt="Yashwanth Ponnam, Systems Engineer" width="340" height="420" loading="lazy">
+            </div>
           </div>
 
           <!-- Right Column: Statement Text & Explore button -->
@@ -1986,10 +2068,10 @@ export const engineer: SystemsEngineer = {
             <h3 class="skill-cat-title">DevOps &amp; Cloud</h3>
             <p class="skill-cat-desc">Kubernetes, CI/CD, Infrastructure as Code, Observability</p>
             <div class="chips-cluster">
-              <span class="chip highlight">Kubernetes (EKS)</span>
+              <span class="chip">Kubernetes (EKS)</span>
               <span class="chip">Docker</span>
               <span class="chip">Terraform</span>
-              <span class="chip highlight">Helm</span>
+              <span class="chip">Helm</span>
               <span class="chip">ArgoCD</span>
               <span class="chip">Prometheus</span>
               <span class="chip">Grafana</span>
@@ -2002,9 +2084,9 @@ export const engineer: SystemsEngineer = {
             <h3 class="skill-cat-title">AI &amp; Machine Learning</h3>
             <p class="skill-cat-desc">RAG Pipelines, Agentic Workflows, Semantic Search &amp; Evaluation</p>
             <div class="chips-cluster">
-              <span class="chip highlight">LangChain</span>
+              <span class="chip">LangChain</span>
               <span class="chip">LangGraph</span>
-              <span class="chip highlight">Qdrant</span>
+              <span class="chip">Qdrant</span>
               <span class="chip">FastAPI</span>
               <span class="chip">Ollama</span>
               <span class="chip">vLLM</span>
@@ -2018,14 +2100,14 @@ export const engineer: SystemsEngineer = {
             <h3 class="skill-cat-title">Languages &amp; Systems</h3>
             <p class="skill-cat-desc">High-throughput microservices, distributed stores, message queues</p>
             <div class="chips-cluster">
-              <span class="chip highlight">Python</span>
+              <span class="chip">Python</span>
               <span class="chip">Go</span>
               <span class="chip">TypeScript</span>
               <span class="chip">Bash</span>
-              <span class="chip highlight">PostgreSQL</span>
+              <span class="chip">PostgreSQL</span>
               <span class="chip">Redis</span>
               <span class="chip">Linux</span>
-              <span class="chip highlight">Git &amp; GitHub</span>
+              <span class="chip">Git &amp; GitHub</span>
             </div>
           </div>
         </div>
@@ -2037,10 +2119,7 @@ export const engineer: SystemsEngineer = {
       <div class="wrap">
         <div class="activity-header-bar">
           <div class="activity-header-left">
-            <div class="activity-live-badge">
-              <span class="live-pulse-dot"></span>
-              <span id="liveTimeGreeting">Good evening</span>
-            </div>
+            <p class="activity-live-greeting" id="liveTimeGreeting">Good morning</p>
             <h2 class="activity-title">GitHub Contributions</h2>
             <p class="activity-sub">Live commit telemetry &amp; code velocity · @Yash55-max</p>
           </div>
@@ -2106,11 +2185,19 @@ export const engineer: SystemsEngineer = {
             <div class="project-folder" data-folder-id="llm-devops" role="button" tabindex="0" aria-label="Open case study for llm-devops">
               <div class="folder-tab"></div>
               <div class="folder-papers">
-                <div class="folder-paper-dark"></div>
-                <div class="folder-paper-white">
-                  <div class="doc-line" style="width:75%;"></div>
-                  <div class="doc-line" style="width:90%;"></div>
-                  <div class="doc-line" style="width:60%;"></div>
+                <div class="folder-paper-back">
+                  <span class="paper-tag-code">~/infra $ tf apply</span>
+                  <span class="paper-line-code">+ aws_eks_cluster.prod</span>
+                  <span class="paper-line-code">+ helm_release.argocd</span>
+                </div>
+                <div class="folder-paper-front preview-sheet-eks">
+                  <div class="preview-sheet-header">
+                    <span>AWS EKS PROD</span>
+                    <span class="preview-badge-green">● READY</span>
+                  </div>
+                  <div class="preview-sheet-metric">3 Nodes · 12 Pods Running</div>
+                  <div class="preview-sheet-bar"><div class="preview-bar-fill" style="width:92%;"></div></div>
+                  <div class="preview-sheet-footer">GitOps Sync · SRE 99.9%</div>
                 </div>
               </div>
               <div class="folder-front">
@@ -2140,11 +2227,19 @@ export const engineer: SystemsEngineer = {
             <div class="project-folder" data-folder-id="clearledger" role="button" tabindex="0" aria-label="Open case study for ClearLedger">
               <div class="folder-tab"></div>
               <div class="folder-papers">
-                <div class="folder-paper-dark"></div>
-                <div class="folder-paper-white">
-                  <div class="doc-line" style="width:85%;"></div>
-                  <div class="doc-line" style="width:70%;"></div>
-                  <div class="doc-line" style="width:80%;"></div>
+                <div class="folder-paper-back">
+                  <span class="paper-tag-code">class RecCopilot:</span>
+                  <span class="paper-line-code">&nbsp;&nbsp;match_score = 0.994</span>
+                  <span class="paper-line-code">&nbsp;&nbsp;auto_approve(inv)</span>
+                </div>
+                <div class="folder-paper-front preview-sheet-cl">
+                  <div class="preview-sheet-header">
+                    <span>AP COPILOT</span>
+                    <span class="preview-badge-blue">99.4% MATCH</span>
+                  </div>
+                  <div class="preview-sheet-metric">INV-2026-081 · $14,250</div>
+                  <div class="preview-sheet-bar"><div class="preview-bar-fill" style="width:98%; background:#10b981;"></div></div>
+                  <div class="preview-sheet-footer">Audit Diff: Zero Discrepancy</div>
                 </div>
               </div>
               <div class="folder-front">
@@ -2174,11 +2269,19 @@ export const engineer: SystemsEngineer = {
             <div class="project-folder" data-folder-id="rag-api" role="button" tabindex="0" aria-label="Open case study for rag-api">
               <div class="folder-tab"></div>
               <div class="folder-papers">
-                <div class="folder-paper-dark"></div>
-                <div class="folder-paper-white">
-                  <div class="doc-line" style="width:65%;"></div>
-                  <div class="doc-line" style="width:88%;"></div>
-                  <div class="doc-line" style="width:55%;"></div>
+                <div class="folder-paper-back">
+                  <span class="paper-tag-code">POST /v1/query</span>
+                  <span class="paper-line-code">col: prod-docs-v2</span>
+                  <span class="paper-line-code">embed: nomic-embed</span>
+                </div>
+                <div class="folder-paper-front preview-sheet-rag">
+                  <div class="preview-sheet-header">
+                    <span>VECTOR RETRIEVAL</span>
+                    <span class="preview-badge-purple">42ms p95</span>
+                  </div>
+                  <div class="preview-sheet-metric">Top-5 Chunks · Cos: 0.884</div>
+                  <div class="preview-sheet-bar"><div class="preview-bar-fill" style="width:88%; background:#8b5cf6;"></div></div>
+                  <div class="preview-sheet-footer">ChromaDB + Ollama Engine</div>
                 </div>
               </div>
               <div class="folder-front">
@@ -2208,11 +2311,19 @@ export const engineer: SystemsEngineer = {
             <div class="project-folder" data-folder-id="multi-agent" role="button" tabindex="0" aria-label="Open case study for Multi-Agent ADK">
               <div class="folder-tab"></div>
               <div class="folder-papers">
-                <div class="folder-paper-dark"></div>
-                <div class="folder-paper-white">
-                  <div class="doc-line" style="width:90%;"></div>
-                  <div class="doc-line" style="width:60%;"></div>
-                  <div class="doc-line" style="width:75%;"></div>
+                <div class="folder-paper-back">
+                  <span class="paper-tag-code">pubsub.broadcast()</span>
+                  <span class="paper-line-code">workers: [coordinator]</span>
+                  <span class="paper-line-code">quorum: achieved</span>
+                </div>
+                <div class="folder-paper-front preview-sheet-swarm">
+                  <div class="preview-sheet-header">
+                    <span>AGENT SWARM</span>
+                    <span class="preview-badge-orange">DAG ACTIVE</span>
+                  </div>
+                  <div class="preview-sheet-metric">Coordinator ➔ Verifier</div>
+                  <div class="preview-sheet-bar"><div class="preview-bar-fill" style="width:94%; background:#f97316;"></div></div>
+                  <div class="preview-sheet-footer">AsyncIO Distributed Flow</div>
                 </div>
               </div>
               <div class="folder-front">
@@ -2408,8 +2519,14 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
           </div>
 
           <div class="contact-social-links">
-            <a href="https://www.linkedin.com/in/yashwanth-ponnam-a97921256/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/yashwanth-ponnam-a97921256/" target="_blank" rel="noopener noreferrer" class="contact-social-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/Yash55-max" target="_blank" rel="noopener noreferrer" class="contact-social-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              <span>GitHub</span>
+            </a>
           </div>
         </div>
 
@@ -2417,7 +2534,7 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
           <form class="contact-form" id="contactForm" action="mailto:yashwanthponnam55@gmail.com" method="post" enctype="text/plain">
             <div class="field-group">
               <label for="senderName">Your name</label>
-              <input type="text" id="senderName" name="name" placeholder="What should I call you?" required>
+              <input type="text" id="senderName" name="name" placeholder="Your name or organization" required>
             </div>
             <div class="field-group">
               <label for="senderEmail">Email address</label>
@@ -2425,7 +2542,7 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
             </div>
             <div class="field-group">
               <label for="senderMessage">What do you have in mind?</label>
-              <textarea id="senderMessage" name="message" placeholder="A little about your opportunity or project..." rows="3" required></textarea>
+              <textarea id="senderMessage" name="message" placeholder="Brief summary of your architecture, deployment goals, or role..." rows="3" required></textarea>
             </div>
             <button type="submit" class="btn-submit-draft">
               <span>Create email draft</span>
@@ -2619,121 +2736,7 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
       freelanceCloseBtn.addEventListener('click', () => closeModal(freelanceModal));
     }
 
-    /* -------------------------------------------------------------
-       EXACT 3D PORTRAIT STICKY MOTION (from reference site 0yt5ir1aaj66y.js)
-       Translates, scales, and rotates 360deg in 3D perspective(1200px)
-       from the hero slot down into the middle biography slot.
-       ------------------------------------------------------------- */
-    function initPortraitMotion() {
-      const journey = document.querySelector('.portrait-journey');
-      const card = document.querySelector('.portrait-card');
-      const aboutSection = document.querySelector('.about-section');
-      const heroSlot = document.querySelector('.hero-portrait-slot');
-      const bioSlot = document.querySelector('.bio-portrait-slot');
-
-      if (!journey || !card || !aboutSection || !heroSlot || !bioSlot) return;
-
-      const portraitImg = card.querySelector('img');
-      let rafId = 0;
-      let currentProgress = 0; // u in reference code
-      let targetProgress = 0;  // h in reference code
-      let startScrollY = 0;    // p
-      let travelDistance = 1;  // m
-      let scaleX = 0.5;        // f
-      let scaleY = 0.5;        // x
-      let deltaY = 0;          // j
-      let deltaX = 0;          // g
-      let startRadius = 20;    // y
-      let endRadius = 24;      // v
-      let lastTimestamp = 0;   // w
-
-      function render() {
-        const sX = scaleX + (1 - scaleX) * currentProgress;
-        const sY = scaleY + (1 - scaleY) * currentProgress;
-        // Smoothstep easing a = u * u * (3 - 2 * u) matching reference site
-        const eased = currentProgress * currentProgress * (3 - 2 * currentProgress);
-        const transX = deltaX * (1 - currentProgress);
-        const transY = deltaY * (1 - currentProgress);
-        const rad = startRadius + (endRadius - startRadius) * currentProgress;
-
-        // Exact 3D perspective flip matching reference site 0yt5ir1aaj66y.js & video (180deg flip)
-        const rotY = 180 * eased;
-        card.style.transform = `perspective(1200px) translate3d(${transX}px, ${transY}px, 0) scale(${sX}, ${sY}) rotateY(${rotY}deg)`;
-        card.style.borderRadius = `${rad}px`;
-        card.style.willChange = currentProgress > 0 && currentProgress < 1 ? 'transform' : 'auto';
-
-        // Seamless unmirroring at edge-on 90deg transit so single image is crisp and right-side up
-        if (portraitImg) {
-          portraitImg.style.transform = eased >= 0.5 ? 'scaleX(-1) translateZ(1px)' : 'translateZ(1px)';
-        }
-      }
-
-      function loop(timestamp) {
-        const delta = lastTimestamp ? Math.min(timestamp - lastTimestamp, 64) : 16.67;
-        lastTimestamp = timestamp;
-        const isCoarse = window.matchMedia && window.matchMedia('(max-width: 700px) and (pointer: coarse)').matches;
-        const lagRate = isCoarse ? 100 : 65;
-        // Exponential smoothing constant (65ms desktop, 100ms coarse pointer) matching reference site
-        currentProgress += (targetProgress - currentProgress) * (1 - Math.exp(-delta / lagRate));
-        const isDone = Math.abs(targetProgress - currentProgress) < 1e-4;
-        if (isDone) currentProgress = targetProgress;
-        render();
-        if (!isDone) {
-          rafId = requestAnimationFrame(loop);
-        } else {
-          rafId = 0;
-          lastTimestamp = 0;
-        }
-      }
-
-      function onScroll() {
-        targetProgress = Math.max(0, Math.min(1, (window.scrollY - startScrollY) / travelDistance));
-        if (!rafId && targetProgress !== currentProgress) {
-          rafId = requestAnimationFrame(loop);
-        }
-      }
-
-      function recalculate() {
-        if (rafId) cancelAnimationFrame(rafId);
-        rafId = 0;
-        lastTimestamp = 0;
-
-        const aboutRect = aboutSection.getBoundingClientRect();
-        const heroRect = heroSlot.getBoundingClientRect();
-        const bioRect = bioSlot.getBoundingClientRect();
-        const viewportHeight = document.documentElement.clientHeight;
-        const stickyTopOffset = (viewportHeight - bioRect.height) / 2;
-
-        startScrollY = aboutRect.top + window.scrollY;
-        travelDistance = bioRect.top + window.scrollY - startScrollY - stickyTopOffset;
-
-        if (travelDistance <= 0 || !bioRect.width) {
-          return;
-        }
-
-        scaleX = heroRect.width / bioRect.width;
-        scaleY = heroRect.height / bioRect.height;
-        deltaY = (heroRect.top + window.scrollY - startScrollY - stickyTopOffset) - (bioRect.height - heroRect.height) / 2;
-        deltaX = (heroRect.left + heroRect.width / 2) - (bioRect.left + bioRect.width / 2);
-        startRadius = 20 / Math.min(scaleX, scaleY);
-        endRadius = 24;
-
-        journey.style.height = `${travelDistance + viewportHeight}px`;
-        card.style.width = `${bioRect.width}px`;
-        card.style.height = `${bioRect.height}px`;
-        card.style.left = `${bioRect.left - aboutRect.left}px`;
-        card.style.top = `${stickyTopOffset}px`;
-
-        targetProgress = currentProgress = Math.max(0, Math.min(1, (window.scrollY - startScrollY) / travelDistance));
-        render();
-      }
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', recalculate);
-      recalculate();
-      if (document.fonts) document.fonts.ready.then(recalculate);
-    }
-    initPortraitMotion();
+    
 
     /* -------------------------------------------------------------
        LIVE LOCAL TIME & DYNAMIC GREETING CONTROLLER
@@ -2879,7 +2882,7 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
         monthPositions.forEach(m => {
           const span = document.createElement('span');
           span.className = 'contrib-month-label';
-          span.style.left = `${m.col * 13}px`;
+          span.style.left = `${(m.col / 53) * 100}%`;
           span.textContent = m.label;
           monthsRow.appendChild(span);
         });
@@ -3101,6 +3104,7 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
 
     /* -------------------------------------------------------------
        AUTHENTIC HAND-DRAWN MANGA/COMIC PEDESTRIAN CROWD SIMULATION
+       Expanded to 32 pedestrians across 3 layers with DevOps props
        ------------------------------------------------------------- */
     const backCanvas = document.getElementById('crowdBackCanvas');
     const frontCanvas = document.getElementById('crowdFrontCanvas');
@@ -3122,35 +3126,39 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
       resizeCanvases();
 
       const personTypes = [
-        { height: 165, hair: 'short', glasses: true, shirt: 'tee', bag: false },
-        { height: 175, hair: 'wavy', glasses: false, shirt: 'jacket', bag: true },
-        { height: 155, hair: 'ponytail', glasses: false, shirt: 'sweater', bag: false },
-        { height: 180, hair: 'buzz', glasses: true, shirt: 'hoodie', bag: true },
-        { height: 160, hair: 'curly', glasses: false, shirt: 'stripes', bag: false },
-        { height: 170, hair: 'messy', glasses: true, shirt: 'collar', bag: false }
+        { height: 165, hair: 'short', glasses: false, shirt: 'tee', bag: true, laptop: false, badge: true },
+        { height: 175, hair: 'curly', glasses: true, shirt: 'collar', bag: false, laptop: true, badge: false },
+        { height: 155, hair: 'short', glasses: false, shirt: 'stripes', bag: false, laptop: false, badge: true },
+        { height: 180, hair: 'curly', glasses: true, shirt: 'tee', bag: true, laptop: true, badge: true },
+        { height: 160, hair: 'short', glasses: false, shirt: 'collar', bag: true, laptop: false, badge: false },
+        { height: 170, hair: 'curly', glasses: true, shirt: 'stripes', bag: false, laptop: true, badge: true },
+        { height: 168, hair: 'short', glasses: false, shirt: 'tee', bag: false, laptop: true, badge: true },
+        { height: 172, hair: 'short', glasses: true, shirt: 'collar', bag: true, laptop: false, badge: true }
       ];
 
       const backPedestrians = [];
       const frontPedestrians = [];
 
-      for (let i = 0; i < 9; i++) {
+      // 14 background pedestrians
+      for (let i = 0; i < 14; i++) {
         backPedestrians.push({
-          x: (backCanvas.width / 9) * i + (Math.random() * 40 - 20),
+          x: ((backCanvas.width + 240) / 14) * i - 120 + (Math.random() * 40 - 20),
           speed: 0.45 + Math.random() * 0.35,
           dir: Math.random() > 0.5 ? 1 : -1,
           type: personTypes[i % personTypes.length],
-          scale: 0.82,
+          scale: 0.78 + Math.random() * 0.08,
           step: Math.random() * Math.PI * 2
         });
       }
 
-      for (let i = 0; i < 8; i++) {
+      // 18 foreground pedestrians
+      for (let i = 0; i < 18; i++) {
         frontPedestrians.push({
-          x: (frontCanvas.width / 8) * i + (Math.random() * 50 - 25),
-          speed: 0.75 + Math.random() * 0.45,
+          x: ((frontCanvas.width + 240) / 18) * i - 120 + (Math.random() * 40 - 20),
+          speed: 0.8 + Math.random() * 0.45,
           dir: Math.random() > 0.5 ? 1 : -1,
-          type: personTypes[(i + 2) % personTypes.length],
-          scale: 1.0,
+          type: personTypes[(i + 3) % personTypes.length],
+          scale: 0.98 + Math.random() * 0.12,
           step: Math.random() * Math.PI * 2
         });
       }
@@ -3160,7 +3168,7 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
         ctx.translate(p.x, groundY);
         ctx.scale(p.scale * p.dir, p.scale);
 
-        ctx.strokeStyle = '#11151c';
+        ctx.strokeStyle = '#0a0d14';
         ctx.fillStyle = '#ffffff';
         ctx.lineWidth = 2.2;
         ctx.lineCap = 'round';
@@ -3169,6 +3177,7 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
         const bounce = Math.sin(p.step) * 2.5;
         const legSwing = Math.sin(p.step) * 12;
 
+        // Legs
         ctx.beginPath();
         ctx.moveTo(-7, -45);
         ctx.lineTo(-7 + legSwing, 0);
@@ -3176,6 +3185,7 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
         ctx.lineTo(7 - legSwing, 0);
         ctx.stroke();
 
+        // Torso
         ctx.beginPath();
         ctx.rect(-14, -100 + bounce, 28, 55);
         ctx.fill();
@@ -3196,37 +3206,62 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
           ctx.stroke();
         }
 
+        // Head
         ctx.beginPath();
         ctx.arc(0, -118 + bounce, 14, 0, Math.PI * 2);
         ctx.fill();
         ctx.stroke();
 
-        ctx.fillStyle = '#11151c';
+        // Hair
+        ctx.fillStyle = '#0a0d14';
         ctx.beginPath();
         if (p.type.hair === 'short') {
           ctx.arc(0, -122 + bounce, 14, Math.PI, Math.PI * 2);
           ctx.lineTo(14, -118 + bounce);
           ctx.lineTo(-14, -118 + bounce);
-        } else if (p.type.hair === 'curly') {
-          ctx.arc(0, -124 + bounce, 16, Math.PI * 0.8, Math.PI * 2.2);
         } else {
-          ctx.arc(0, -121 + bounce, 14, Math.PI, Math.PI * 2);
+          ctx.arc(0, -124 + bounce, 16, Math.PI * 0.8, Math.PI * 2.2);
         }
         ctx.fill();
 
+        // Glasses
         if (p.type.glasses) {
-          ctx.strokeStyle = '#11151c';
+          ctx.strokeStyle = '#0a0d14';
           ctx.lineWidth = 1.8;
           ctx.beginPath();
           ctx.rect(1, -120 + bounce, 6, 5);
           ctx.stroke();
         }
 
+        // Bag
         if (p.type.bag) {
-          ctx.fillStyle = '#11151c';
+          ctx.fillStyle = '#0a0d14';
           ctx.beginPath();
           ctx.rect(-18, -90 + bounce, 6, 28);
           ctx.fill();
+        }
+
+        // Laptop prop
+        if (p.type.laptop) {
+          ctx.strokeStyle = '#0a0d14';
+          ctx.lineWidth = 1.8;
+          ctx.fillStyle = '#f1f5f9';
+          ctx.beginPath();
+          ctx.rect(-11, -55 + bounce, 16, 11);
+          ctx.fill();
+          ctx.stroke();
+        }
+
+        // DevOps Badge prop
+        if (p.type.badge) {
+          ctx.strokeStyle = '#60a5fa';
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.moveTo(0, -96 + bounce);
+          ctx.lineTo(0, -82 + bounce);
+          ctx.stroke();
+          ctx.fillStyle = '#0a0d14';
+          ctx.fillRect(-3, -82 + bounce, 6, 8);
         }
 
         ctx.restore();
@@ -3242,16 +3277,16 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
           for (const p of backPedestrians) {
             p.x += p.speed * p.dir;
             p.step += 0.08;
-            if (p.dir === 1 && p.x > backCanvas.width + 60) p.x = -60;
-            if (p.dir === -1 && p.x < -60) p.x = backCanvas.width + 60;
-            drawMangaPedestrian(bCtx, p, groundY - 15);
+            if (p.dir === 1 && p.x > backCanvas.width + 120) p.x = -120;
+            if (p.dir === -1 && p.x < -120) p.x = backCanvas.width + 120;
+            drawMangaPedestrian(bCtx, p, groundY - 14);
           }
 
           for (const p of frontPedestrians) {
             p.x += p.speed * p.dir;
             p.step += 0.1;
-            if (p.dir === 1 && p.x > frontCanvas.width + 80) p.x = -80;
-            if (p.dir === -1 && p.x < -80) p.x = frontCanvas.width + 80;
+            if (p.dir === 1 && p.x > frontCanvas.width + 120) p.x = -120;
+            if (p.dir === -1 && p.x < -120) p.x = frontCanvas.width + 120;
             drawMangaPedestrian(fCtx, p, groundY);
           }
         }
