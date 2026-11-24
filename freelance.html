@@ -29,7 +29,7 @@
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -41,11 +41,11 @@
       --sc-line-light: rgba(255, 255, 255, 0.14);
       --sc-ink: #f5f4f0;
       --sc-ink-soft: #9ca3af;
-      --sc-ink-muted: #6b7280;
-      --sc-accent: #00d4ff;
-      --sc-accent-glow: rgba(0, 212, 255, 0.25);
-      --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --sc-ink-muted: #94a3b8;
+      --sc-accent: #60a5fa;
+      
+      --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
       --ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -60,7 +60,7 @@
       --sc-ink-soft: #475569;
       --sc-ink-muted: #64748b;
       --sc-accent: #0284c7;
-      --sc-accent-glow: rgba(2, 132, 199, 0.2);
+      
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -114,8 +114,7 @@
       font-family: var(--font-mono);
       font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      letter-spacing: 0.02em;
       color: var(--sc-accent);
       background: rgba(0, 212, 255, 0.08);
       border: 1px solid var(--sc-line);
@@ -158,22 +157,21 @@
       transform: translateY(-3px);
       border-color: var(--sc-accent);
     }
-    .card-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: var(--sc-surface-alt);
-      color: var(--sc-accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-    }
     .card-title {
       font-family: var(--font-display);
       font-size: 1.25rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: var(--sc-ink);
+    }
+    .card-title-icon {
+      display: inline-flex;
+      align-items: center;
+      color: var(--sc-accent);
+      flex-shrink: 0;
     }
     .card-desc {
       font-size: 0.92rem;
@@ -186,7 +184,7 @@
       flex-wrap: wrap;
       gap: 6px;
       font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       color: var(--sc-ink-muted);
     }
     .card-tag {
@@ -229,7 +227,7 @@
       transition: all 0.2s var(--ease);
     }
     .btn-action:hover {
-      box-shadow: 0 0 24px var(--sc-accent-glow);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
       transform: translateY(-2px);
     }
   </style>
@@ -256,10 +254,7 @@
       <div class="offerings-grid">
         <div class="offering-card">
           <div>
-            <div class="card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-            </div>
-            <h2 class="card-title">Kubernetes &amp; Cloud Infrastructure</h2>
+            <h2 class="card-title"><span class="card-title-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span><span>Kubernetes &amp; Cloud Infrastructure</span></h2>
             <p class="card-desc">Production AWS EKS &amp; kind cluster setup, declarative Terraform modules, Helm packaging, and least-privilege IAM/IRSA security policies.</p>
           </div>
           <div class="card-tags">
@@ -272,10 +267,7 @@
 
         <div class="offering-card">
           <div>
-            <div class="card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
-            </div>
-            <h2 class="card-title">GitOps &amp; CI/CD Delivery</h2>
+            <h2 class="card-title"><span class="card-title-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg></span><span>GitOps &amp; CI/CD Delivery</span></h2>
             <p class="card-desc">Automated release pipelines with GitHub Actions, container vulnerability scans, immutable GHCR registry workflows, and ArgoCD synchronization.</p>
           </div>
           <div class="card-tags">
@@ -288,10 +280,7 @@
 
         <div class="offering-card">
           <div>
-            <div class="card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            </div>
-            <h2 class="card-title">LLMOps &amp; Vector Retrieval</h2>
+            <h2 class="card-title"><span class="card-title-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span>LLMOps &amp; Vector Retrieval</span></h2>
             <p class="card-desc">Asynchronous FastAPI model gateways, local model serving via Ollama / vLLM, semantic vector retrieval with ChromaDB/Qdrant, and RAG architectures.</p>
           </div>
           <div class="card-tags">
@@ -304,10 +293,7 @@
 
         <div class="offering-card">
           <div>
-            <div class="card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-            </div>
-            <h2 class="card-title">Observability &amp; Reliability</h2>
+            <h2 class="card-title"><span class="card-title-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span><span>Observability &amp; Reliability</span></h2>
             <p class="card-desc">Prometheus metric scrapers, SRE Golden Signals dashboards in Grafana, Alertmanager routing, and incident thresholds validated by fault injection.</p>
           </div>
           <div class="card-tags">
