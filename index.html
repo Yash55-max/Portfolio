@@ -6,7 +6,7 @@
   <title>Yashwanth Ponnam | DevOps &amp; AI Systems Engineer</title>
   <meta name="description" content="Portfolio of Yashwanth Ponnam, DevOps &amp; AI Systems Engineer specializing in AWS EKS Kubernetes infrastructure, Terraform IaC, automated GitOps CI/CD, and autonomous LLM systems.">
   <meta name="theme-color" content="#0a0d14">
-  <link rel="canonical" href="https://yashwanthponnam.dev/">
+  <link rel="canonical" href="https://yashwanthponnam.dpdns.org/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" href="favicon.ico">
 
@@ -15,21 +15,47 @@
   <meta property="og:title" content="Yashwanth Ponnam | DevOps &amp; AI Systems Engineer">
   <meta property="og:description" content="Production Kubernetes (EKS) infrastructure, automated GitOps pipelines, and autonomous AI systems.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yashwanthponnam.dev/">
+  <meta property="og:url" content="https://yashwanthponnam.dpdns.org/">
   <meta property="og:locale" content="en_US">
-  <meta property="og:image" content="https://yashwanthponnam.dev/assets/profile.jpg">
-  <meta property="og:image:secure_url" content="https://yashwanthponnam.dev/assets/profile.jpg">
+  <meta property="og:image" content="https://yashwanthponnam.dpdns.org/assets/og-image.jpg">
+  <meta property="og:image:secure_url" content="https://yashwanthponnam.dpdns.org/assets/og-image.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Portrait of Yashwanth Ponnam">
+  <meta property="og:image:alt" content="Yashwanth Ponnam - DevOps &amp; AI Systems Engineer">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Yashwanth Ponnam | DevOps &amp; AI Systems Engineer">
   <meta name="twitter:description" content="Production Kubernetes (EKS) infrastructure, automated GitOps pipelines, and autonomous AI systems.">
-  <meta name="twitter:image" content="https://yashwanthponnam.dev/assets/profile.jpg">
+  <meta name="twitter:image" content="https://yashwanthponnam.dpdns.org/assets/og-image.jpg">
   <meta name="twitter:creator" content="@yashwanthponnam">
+
+  <!-- Schema.org JSON-LD Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yashwanth Ponnam",
+    "jobTitle": "DevOps & AI Systems Engineer",
+    "url": "https://yashwanthponnam.dpdns.org/",
+    "sameAs": [
+      "https://github.com/Yash55-max",
+      "https://www.linkedin.com/in/yashwanth-ponnam-a97921256/"
+    ],
+    "knowsAbout": [
+      "Kubernetes",
+      "Terraform",
+      "AWS EKS",
+      "GitOps",
+      "ArgoCD",
+      "Prometheus",
+      "FastAPI",
+      "Autonomous Agents",
+      "LangGraph"
+    ]
+  }
+  </script>
 
   <!-- Typography: Outfit, DM Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -475,9 +501,9 @@
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 8.8vw, 8rem);
+      font-size: clamp(2.4rem, 8.5vw, 7.8rem);
       font-weight: 800;
-      line-height: 0.94;
+      line-height: 0.95;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--sc-ink);
@@ -488,15 +514,16 @@
     .title-line {
       display: inline-flex;
       align-items: center;
-      gap: clamp(8px, 1.8vw, 20px);
+      gap: clamp(6px, 1.6vw, 18px);
+      white-space: nowrap;
     }
     .title-line-1 {
       align-self: flex-start;
-      margin-left: clamp(0.5rem, 5vw, 5rem);
+      margin-left: clamp(0.5rem, 5vw, 4.5rem);
     }
     .title-line-2 {
       align-self: flex-end;
-      margin-right: clamp(0.5rem, 5vw, 5rem);
+      margin-right: clamp(0.5rem, 5vw, 4.5rem);
     }
     .hero-code-mark svg {
       width: clamp(1.8rem, 5.5vw, 4.8rem);
@@ -518,6 +545,25 @@
       border: 1px solid var(--sc-line-light);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
       background: var(--sc-surface);
+    }
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: clamp(1.9rem, 9.4vw, 2.8rem);
+        line-height: 1.05;
+      }
+      .title-line-1 {
+        margin-left: 0;
+        align-self: flex-start;
+      }
+      .title-line-2 {
+        margin-right: 0;
+        align-self: flex-end;
+      }
+      .hero-portrait-frame {
+        width: 180px;
+        margin-top: 14px;
+        margin-bottom: 20px;
+      }
     }
     .hero-portrait-frame img {
       width: 100%;
@@ -768,21 +814,39 @@
       cursor: default;
       user-select: none;
     }
-    .chip:hover {
+    .chip.chip-featured {
       background: var(--sc-ink);
       color: var(--sc-canvas);
       border-color: var(--sc-ink);
+      font-weight: 600;
+    }
+    .chip:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--sc-line-light);
       transform: translateY(-2px);
+    }
+    .chip.chip-featured:hover {
+      background: #ffffff;
+      color: #0a0d14;
+      border-color: #ffffff;
     }
     html[data-theme="light"] .chip {
       background: rgba(0, 0, 0, 0.04);
       color: #0a0d14;
       border-color: rgba(0, 0, 0, 0.1);
     }
-    html[data-theme="light"] .chip:hover {
+    html[data-theme="light"] .chip.chip-featured {
       background: #0a0d14;
       color: #ffffff;
       border-color: #0a0d14;
+    }
+    html[data-theme="light"] .chip:hover {
+      background: rgba(0, 0, 0, 0.08);
+      color: #0a0d14;
+    }
+    html[data-theme="light"] .chip.chip-featured:hover {
+      background: #000000;
+      color: #ffffff;
     }
 
     /* -------------------------------------------------------------
@@ -830,7 +894,7 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
     }
     .telemetry-top {
       display: flex;
@@ -890,7 +954,7 @@
       width: 100%;
       height: 16px;
       font-family: var(--font-mono), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 11px;
+      font-size: 12px;
       line-height: 1;
       color: #71717a;
       user-select: none;
@@ -979,7 +1043,7 @@
       color: #f4f4f5;
       border: 1px solid #27272a;
       font-family: var(--font-mono), -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 11px;
+      font-size: 12px;
       padding: 6px 10px;
       border-radius: 6px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
@@ -1091,7 +1155,7 @@
       padding: 6px 8px;
       overflow: hidden;
       font-family: var(--font-mono);
-      font-size: 11.5px;
+      font-size: 12px;
       color: #60a5fa;
       line-height: 1.35;
       display: flex;
@@ -1110,7 +1174,7 @@
       padding: 6px 8px;
       overflow: hidden;
       font-family: var(--font-mono);
-      font-size: 11.5px;
+      font-size: 12px;
       color: #0f172a;
       line-height: 1.35;
       display: flex;
@@ -1127,18 +1191,18 @@
     .paper-tag-code {
       color: #60a5fa;
       font-weight: 700;
-      font-size: 11.5px;
+      font-size: 12px;
     }
     .paper-line-code {
       color: #60a5fa;
-      font-size: 11px;
+      font-size: 12px;
     }
     .folder-paper-front .paper-line-code {
       color: #475569;
     }
     .preview-sheet-header {
       font-weight: 700;
-      font-size: 11.5px;
+      font-size: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1147,26 +1211,26 @@
     .preview-badge-green {
       color: #16a34a;
       font-weight: 800;
-      font-size: 11px;
+      font-size: 12px;
     }
     .preview-badge-blue {
       color: #0284c7;
       font-weight: 800;
-      font-size: 11px;
+      font-size: 12px;
     }
     .preview-badge-purple {
       color: #7c3aed;
       font-weight: 800;
-      font-size: 11px;
+      font-size: 12px;
     }
     .preview-badge-orange {
       color: #ea580c;
       font-weight: 800;
-      font-size: 11px;
+      font-size: 12px;
     }
     .preview-sheet-metric {
       color: #334155;
-      font-size: 11px;
+      font-size: 12px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1184,7 +1248,7 @@
       border-radius: 2px;
     }
     .preview-sheet-footer {
-      font-size: 11px;
+      font-size: 12px;
       color: #475569;
       white-space: nowrap;
       overflow: hidden;
@@ -1386,8 +1450,11 @@
       stroke-width: 2.5;
       fill: none;
       stroke-dasharray: 1200;
+      stroke-dashoffset: 1200;
+      transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .journey-road-draw.drawn {
       stroke-dashoffset: 0;
-      transition: stroke-dashoffset 1s ease;
     }
 
     .roadmap-stops {
@@ -1416,6 +1483,24 @@
     .stop-col {
       display: flex;
       flex-direction: column;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .stop-col.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .journey-road-draw {
+        stroke-dashoffset: 0 !important;
+        transition: none !important;
+      }
+      .stop-col {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
     }
     .stop-col:nth-child(1) { margin-top: 0px; }
     .stop-col:nth-child(2) { margin-top: 85px; }
@@ -1749,18 +1834,20 @@
     }
     .crowd-huge-watermark {
       position: absolute;
-      top: 22%;
+      top: 24%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: var(--font-display);
-      font-size: clamp(4.5rem, 16vw, 13rem);
+      font-size: clamp(2.2rem, 11vw, 11rem);
       font-weight: 900;
-      letter-spacing: -0.04em;
-      color: #ebebeb;
+      letter-spacing: -0.03em;
+      color: #d8d8d8;
       user-select: none;
       pointer-events: none;
       white-space: nowrap;
       z-index: 1;
+      max-width: 100vw;
+      text-align: center;
     }
     .crowd-canvas {
       position: absolute;
@@ -1836,6 +1923,261 @@
       height: 32px;
       border-radius: 50%;
       background: var(--sc-surface-alt);
+    }
+
+    /* -------------------------------------------------------------
+       B1: SHARED TRAVELING PORTRAIT STAGE
+       ------------------------------------------------------------- */
+    .shared-portrait-stage {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 100;
+      perspective: 1200px;
+      transform-style: preserve-3d;
+      display: none;
+    }
+    .shared-traveling-portrait {
+      position: absolute;
+      overflow: hidden;
+      border: 1px solid var(--sc-line-light);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      background: var(--sc-surface);
+      transform-origin: center center;
+      will-change: transform, border-radius;
+      pointer-events: none;
+    }
+    .shared-traveling-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(110%);
+      display: block;
+    }
+
+    /* -------------------------------------------------------------
+       B7: ASK AI ASSISTANT WIDGET
+       ------------------------------------------------------------- */
+    .ask-ai-trigger {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 550;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sc-ink);
+      color: var(--sc-canvas);
+      border: 1px solid var(--sc-ink);
+      padding: 10px 18px;
+      border-radius: 9999px;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+    .ask-ai-trigger:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.36);
+    }
+    .ai-assistant-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 555;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .ai-assistant-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .ai-assistant-modal {
+      position: fixed;
+      bottom: 84px;
+      right: 24px;
+      width: min(420px, calc(100vw - 32px));
+      height: min(560px, calc(100vh - 120px));
+      background: var(--sc-surface);
+      border: 1px solid var(--sc-line-light);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      z-index: 560;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+    .ai-modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--sc-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--sc-surface-alt);
+    }
+    .ai-modal-identity {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ai-avatar-thumb {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1.5px solid var(--sc-accent);
+      flex-shrink: 0;
+    }
+    .ai-avatar-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ai-assistant-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--sc-ink);
+      line-height: 1.2;
+    }
+    .ai-assistant-subtitle {
+      font-size: 0.78rem;
+      color: var(--sc-ink-muted);
+    }
+    .ai-modal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .ai-empty-state {
+      margin-block: auto;
+      text-align: center;
+    }
+    .ai-empty-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--sc-ink);
+      margin-bottom: 16px;
+    }
+    .ai-suggestions-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+    }
+    .ai-suggest-btn {
+      background: var(--sc-surface-alt);
+      border: 1px solid var(--sc-line);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 0.84rem;
+      color: var(--sc-ink);
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .ai-suggest-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--sc-accent);
+    }
+    .ai-messages-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .ai-msg {
+      display: flex;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .ai-msg.user {
+      justify-content: flex-end;
+    }
+    .ai-msg.user .ai-bubble {
+      background: var(--sc-accent);
+      color: #ffffff;
+      border-radius: 14px 14px 2px 14px;
+      padding: 8px 14px;
+      max-width: 82%;
+    }
+    .ai-msg.assistant .ai-bubble {
+      background: var(--sc-surface-alt);
+      border: 1px solid var(--sc-line);
+      color: var(--sc-ink);
+      border-radius: 14px 14px 14px 2px;
+      padding: 10px 14px;
+      max-width: 88%;
+    }
+    .ai-modal-footer {
+      padding: 14px 18px;
+      border-top: 1px solid var(--sc-line);
+      background: var(--sc-surface);
+    }
+    .ai-input-form {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .ai-chat-input {
+      flex: 1;
+      background: var(--sc-surface-alt);
+      border: 1px solid var(--sc-line);
+      border-radius: 9999px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      color: var(--sc-ink);
+      outline: none;
+    }
+    .ai-chat-input:focus {
+      border-color: var(--sc-accent);
+    }
+    .ai-send-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--sc-ink);
+      color: var(--sc-canvas);
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform 0.15s ease;
+    }
+    .ai-send-btn:hover {
+      transform: scale(1.06);
+    }
+    .ai-disclaimer-bar {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--sc-ink-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    @media (max-width: 600px) {
+      .ai-assistant-modal {
+        bottom: 0;
+        right: 0;
+        width: 100vw;
+        height: 82vh;
+        border-radius: 20px 20px 0 0;
+      }
+      .ask-ai-trigger {
+        bottom: 16px;
+        right: 16px;
+      }
     }
   </style>
 </head>
@@ -1976,9 +2318,9 @@ export const engineer: SystemsEngineer = {
 };</pre>
         </div>
 
-        <!-- Display Headline: < DEVOPS & AI / SYSTEMS ENGINEER /> -->
+        <!-- Display Headline: < DEVOPS & AI / ENGINEER /> -->
         <div class="hero-content wrap">
-          <h1 class="hero-title" aria-label="DevOps and AI Systems Engineer">
+          <h1 class="hero-title" aria-label="DevOps and AI Engineer">
             <span class="title-line title-line-1">
               <span class="hero-code-mark" aria-hidden="true">
                 <svg viewBox="20 0 110 160" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter">
@@ -1989,7 +2331,7 @@ export const engineer: SystemsEngineer = {
               <span>DEVOPS &amp; AI</span>
             </span>
             <span class="title-line title-line-2">
-              <span>SYSTEMS ENGINEER</span>
+              <span>ENGINEER</span>
               <span class="hero-code-mark" aria-hidden="true">
                 <svg viewBox="0 0 180 160" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter">
                   <path opacity=".18" d="M65 30 25 130M100 30 157 80 100 130" transform="translate(4 5)"></path>
@@ -2001,7 +2343,7 @@ export const engineer: SystemsEngineer = {
 
           <!-- Hero Portrait Frame: Square B&W photo overlapping headline bottom by 15-20% -->
           <div class="hero-portrait-frame">
-            <img src="assets/profile.jpg" alt="Portrait of Yashwanth Ponnam, DevOps &amp; AI Systems Engineer" width="480" height="480" priority>
+            <img src="assets/portrait-headshot.jpg" alt="Portrait of Yashwanth Ponnam, DevOps &amp; AI Systems Engineer" width="480" height="480" priority>
           </div>
         </div>
 
@@ -2036,7 +2378,7 @@ export const engineer: SystemsEngineer = {
           <!-- Center Column: Second Portrait with Rounded Corners -->
           <div class="bio-center">
             <div class="bio-portrait-card">
-              <img src="assets/profile.jpg" alt="Yashwanth Ponnam, Systems Engineer" width="340" height="420" loading="lazy">
+              <img src="assets/portrait-headshot.jpg" alt="Yashwanth Ponnam, Systems Engineer" width="340" height="420" loading="lazy">
             </div>
           </div>
 
@@ -2068,11 +2410,11 @@ export const engineer: SystemsEngineer = {
             <h3 class="skill-cat-title">DevOps &amp; Cloud</h3>
             <p class="skill-cat-desc">Kubernetes, CI/CD, Infrastructure as Code, Observability</p>
             <div class="chips-cluster">
-              <span class="chip">Kubernetes (EKS)</span>
+              <span class="chip chip-featured">Kubernetes (EKS)</span>
               <span class="chip">Docker</span>
-              <span class="chip">Terraform</span>
+              <span class="chip chip-featured">Terraform</span>
               <span class="chip">Helm</span>
-              <span class="chip">ArgoCD</span>
+              <span class="chip chip-featured">ArgoCD</span>
               <span class="chip">Prometheus</span>
               <span class="chip">Grafana</span>
               <span class="chip">AWS</span>
@@ -2085,10 +2427,10 @@ export const engineer: SystemsEngineer = {
             <p class="skill-cat-desc">RAG Pipelines, Agentic Workflows, Semantic Search &amp; Evaluation</p>
             <div class="chips-cluster">
               <span class="chip">LangChain</span>
-              <span class="chip">LangGraph</span>
+              <span class="chip chip-featured">LangGraph</span>
               <span class="chip">Qdrant</span>
-              <span class="chip">FastAPI</span>
-              <span class="chip">Ollama</span>
+              <span class="chip chip-featured">FastAPI</span>
+              <span class="chip chip-featured">Ollama</span>
               <span class="chip">vLLM</span>
               <span class="chip">HuggingFace</span>
               <span class="chip">RAGAS</span>
@@ -2100,13 +2442,13 @@ export const engineer: SystemsEngineer = {
             <h3 class="skill-cat-title">Languages &amp; Systems</h3>
             <p class="skill-cat-desc">High-throughput microservices, distributed stores, message queues</p>
             <div class="chips-cluster">
-              <span class="chip">Python</span>
-              <span class="chip">Go</span>
+              <span class="chip chip-featured">Python</span>
+              <span class="chip chip-featured">Go</span>
               <span class="chip">TypeScript</span>
               <span class="chip">Bash</span>
               <span class="chip">PostgreSQL</span>
               <span class="chip">Redis</span>
-              <span class="chip">Linux</span>
+              <span class="chip chip-featured">Linux</span>
               <span class="chip">Git &amp; GitHub</span>
             </div>
           </div>
@@ -2195,9 +2537,9 @@ export const engineer: SystemsEngineer = {
                     <span>AWS EKS PROD</span>
                     <span class="preview-badge-green">● READY</span>
                   </div>
-                  <div class="preview-sheet-metric">3 Nodes · 12 Pods Running</div>
+                  <div class="preview-sheet-metric">3 Nodes · 12 Pods (Lab Deployment)</div>
                   <div class="preview-sheet-bar"><div class="preview-bar-fill" style="width:92%;"></div></div>
-                  <div class="preview-sheet-footer">GitOps Sync · SRE 99.9%</div>
+                  <div class="preview-sheet-footer">GitOps Sync · SRE 99.9% (Benchmark)</div>
                 </div>
               </div>
               <div class="folder-front">
@@ -2235,11 +2577,11 @@ export const engineer: SystemsEngineer = {
                 <div class="folder-paper-front preview-sheet-cl">
                   <div class="preview-sheet-header">
                     <span>AP COPILOT</span>
-                    <span class="preview-badge-blue">99.4% MATCH</span>
+                    <span class="preview-badge-blue">99.4% (BENCHMARK)</span>
                   </div>
-                  <div class="preview-sheet-metric">INV-2026-081 · $14,250</div>
+                  <div class="preview-sheet-metric">INV-2026-081 · $14,250 (Synthetic)</div>
                   <div class="preview-sheet-bar"><div class="preview-bar-fill" style="width:98%; background:#10b981;"></div></div>
-                  <div class="preview-sheet-footer">Audit Diff: Zero Discrepancy</div>
+                  <div class="preview-sheet-footer">Audit Diff: Zero Discrepancy (Lab)</div>
                 </div>
               </div>
               <div class="folder-front">
@@ -2387,25 +2729,25 @@ export const engineer: SystemsEngineer = {
           <p id="drawerStoryOverview">Engineered modular Terraform configurations provisioning Amazon EKS (Kubernetes v1.35), custom multi-AZ VPC networking, and least-privilege IAM Roles for Service Accounts (IRSA). Deployed containerized Ollama and FastAPI inference gateways decoupled via Kubernetes ClusterIP service discovery.</p>
           
           <div id="drawerArchitectureWrap" class="drawer-architecture-block">PUBLIC INTERNET
-       │ HTTPS / HTTP (:8000)
+       │ HTTPS / HTTP (:443 / :80)
        ▼
-AWS Classic Load Balancer (*.ap-south-1.elb.amazonaws.com)
+AWS Application Load Balancer (ALB Ingress) [Public Subnets multi-AZ]
        │
-       ▼
+       ▼ NAT Gateway
 AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
-┌───────────────────────────────┬───────────────────────────────┐
-│ Public Subnet 1 (ap-south-1a) │ Public Subnet 2 (ap-south-1b) │
-│ Managed Node: t3.small        │ Managed Node: t3.small        │
-│                               │                               │
-│  FastAPI Serving Pod (Port 8000) ───▶ Ollama Pod (Port 11434)  │
-│          │                    │          │                    │
-│          ▼ /metrics           │          ▼ Dynamic Mount      │
-│  Prometheus Server            │  AWS EBS gp3 (EBS CSI)        │
-│  Alertmanager · Grafana       │  EBS CSI Controller (IRSA)    │
-└───────────────────────────────┴───────────────────────────────┘
-                                           │ OIDC AssumeRole
+┌───────────────────────────────┬───────────────────────────────┬───────────────────────────────┐
+│ Private Subnet (ap-south-1a)  │ Private Subnet (ap-south-1b)  │ Private Subnet (ap-south-1c)  │
+│ Managed Node 1: t3.small      │ Managed Node 2: t3.small      │ Managed Node 3: t3.small      │
+│                               │                               │                               │
+│  FastAPI Serving Pod (:8000) ───▶ Ollama Pod (Port 11434)     │  ArgoCD GitOps Synchronizer   │
+│          │                    │          │                    │          │                    │
+│          ▼ /metrics           │          ▼ Dynamic Mount      │          ▼ Webhook Sync       │
+│  Prometheus Server            │  AWS EBS gp3 (EBS CSI Driver) │  GitHub Container Registry    │
+│  Alertmanager · Grafana       │  Least-Privilege IRSA Policy  │  (Immutable semantic digests) │
+└───────────────────────────────┴───────────────────────────────┴───────────────────────────────┘
+                                           │ OIDC AssumeRoleWithWebIdentity
                                            ▼
-                                AWS IAM Role: ebs-csi-irsa</div>
+                                AWS IAM Role: ebs-csi-irsa (Least-Privilege)</div>
 
           <h4>Key Systems Outcomes</h4>
           <p id="drawerStoryOutcomes">Full-stack SRE Golden Signals monitoring with kube-prometheus-stack, Alertmanager incident routing validated through fault injection, and automated GitHub Actions CI/CD to GHCR.</p>
@@ -2502,7 +2844,7 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
     <section class="contact-section" id="contact" aria-label="Contact Section">
       <div class="wrap contact-grid">
         <div class="contact-left">
-          <h2>Let's talk.</h2>
+          <h2>Initiate Conversation.</h2>
           <p>Open to full-time DevOps, Platform Engineering, and AI Systems roles, as well as high-impact infrastructure consulting.</p>
 
           <div class="contact-email-row">
@@ -2533,21 +2875,24 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
         <div class="contact-right">
           <form class="contact-form" id="contactForm" action="mailto:yashwanthponnam55@gmail.com" method="post" enctype="text/plain">
             <div class="field-group">
-              <label for="senderName">Your name</label>
-              <input type="text" id="senderName" name="name" placeholder="Your name or organization" required>
+              <label for="senderName">Your Name / Organization</label>
+              <input type="text" id="senderName" name="name" placeholder="Name or organization" required>
             </div>
             <div class="field-group">
               <label for="senderEmail">Email address</label>
               <input type="email" id="senderEmail" name="email" placeholder="you@company.com" required>
             </div>
             <div class="field-group">
-              <label for="senderMessage">What do you have in mind?</label>
+              <label for="senderMessage">Project or role details</label>
               <textarea id="senderMessage" name="message" placeholder="Brief summary of your architecture, deployment goals, or role..." rows="3" required></textarea>
             </div>
             <button type="submit" class="btn-submit-draft">
-              <span>Create email draft</span>
+              <span>Dispatch Inquiry</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
             </button>
+            <p style="margin-top:14px; font-size:0.88rem; color:var(--sc-ink-muted);">
+              Prefer direct mail? <a href="mailto:yashwanthponnam55@gmail.com" style="color:var(--sc-accent); text-decoration:underline;">Email Yashwanth directly &rarr;</a>
+            </p>
           </form>
         </div>
       </div>
@@ -2572,6 +2917,7 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
           <a href="freelance.html">Freelance &amp; Consulting</a>
+          <a href="privacy.html">Privacy Policy</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
@@ -2598,8 +2944,8 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
         </a>
       </div>
 
-      <div id="footerCrowdScene" class="crowd-stage" role="button" tabindex="0" aria-label="Avatar display">
-        <span class="crowd-huge-watermark" aria-hidden="true">YASHWANTH.</span>
+      <div id="footerCrowdScene" class="crowd-stage" role="button" tabindex="0" aria-label="Avatar and DevOps crowd display">
+        <span class="crowd-huge-watermark" aria-hidden="true">YASHWANTH</span>
         <canvas class="crowd-canvas crowd-canvas-back" id="crowdBackCanvas" aria-hidden="true"></canvas>
         <img class="crowd-standing-figure" src="assets/yash-standing.svg" alt="Illustrated avatar of Yashwanth Ponnam, DevOps &amp; AI Systems Engineer" width="160" height="460" loading="lazy">
         <canvas class="crowd-canvas crowd-canvas-front" id="crowdFrontCanvas" aria-hidden="true"></canvas>
@@ -2611,42 +2957,68 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
     </div>
   </footer>
 
-  <!-- MODAL: FREELANCE SERVICES -->
-  <div id="freelanceModal" class="modal-dialog" role="dialog" aria-modal="true" aria-label="Freelance Consulting Offerings">
-    <div class="modal-top">
-      <h3 class="modal-title">Freelance &amp; Consulting</h3>
-      <button id="freelanceCloseBtn" type="button" class="modal-close-btn" aria-label="Close modal">
+  <!-- B1: SHARED TRAVELING PORTRAIT STAGE -->
+  <div id="sharedPortraitWrapper" class="shared-portrait-stage" aria-hidden="true">
+    <div id="sharedTravelingPortrait" class="shared-traveling-portrait">
+      <img src="assets/portrait-headshot.jpg" alt="" width="480" height="480">
+    </div>
+  </div>
+
+  <!-- B7: ASK AI ASSISTANT FLOATING PILL BUTTON -->
+  <button id="askAiTriggerBtn" class="ask-ai-trigger" type="button" aria-label="Open AI Assistant" aria-expanded="false" aria-controls="aiAssistantModal">
+    <span class="ai-sparkle-icon" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10a9.96 9.96 0 0 1-4.587-1.11L3 21l1.11-4.413A9.96 9.96 0 0 1 2 12 10 10 0 0 1 12 2z"/>
+        <path d="M8 12h.01M12 12h.01M16 12h.01"/>
+      </svg>
+    </span>
+    <span>Ask AI</span>
+  </button>
+
+  <!-- B7: ASK AI ASSISTANT MODAL DIALOG -->
+  <div id="aiAssistantBackdrop" class="ai-assistant-backdrop" aria-hidden="true"></div>
+  <aside id="aiAssistantModal" class="ai-assistant-modal" role="dialog" aria-modal="true" aria-label="Yashwanth's AI Assistant" hidden>
+    <div class="ai-modal-header">
+      <div class="ai-modal-identity">
+        <div class="ai-avatar-thumb">
+          <img src="assets/portrait-headshot.jpg" alt="" width="36" height="36">
+        </div>
+        <div>
+          <h3 class="ai-assistant-title">Yashwanth's AI Assistant</h3>
+          <p class="ai-assistant-subtitle">Projects, DevOps Architecture &amp; Skills</p>
+        </div>
+      </div>
+      <button id="aiModalCloseBtn" type="button" class="modal-close-btn" aria-label="Close AI Assistant">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
     </div>
-    <div style="display:flex; flex-direction:column; gap:20px;">
-      <p style="font-size:1.05rem; color:var(--sc-ink-soft);">
-        I assist engineering teams in designing reliable Kubernetes clusters, automating Infrastructure as Code with Terraform, and deploying production-grade local AI and retrieval pipelines.
-      </p>
-      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px;">
-        <div style="background:var(--sc-surface-alt); padding:20px; border-radius:14px; border:1px solid var(--sc-line);">
-          <h4 style="font-size:1.1rem; margin-bottom:6px;">Cloud &amp; DevOps Advisory</h4>
-          <p style="font-size:0.85rem; color:var(--sc-ink-muted);">Kubernetes migration, AWS EKS hardening, GitOps setup with ArgoCD, and automated self-healing CI/CD.</p>
-        </div>
-        <div style="background:var(--sc-surface-alt); padding:20px; border-radius:14px; border:1px solid var(--sc-line);">
-          <h4 style="font-size:1.1rem; margin-bottom:6px;">Applied LLM Systems</h4>
-          <p style="font-size:0.85rem; color:var(--sc-ink-muted);">Production RAG pipelines, agentic workflows with LangGraph, and sub-100ms local vector retrieval.</p>
+
+    <div class="ai-modal-body" id="aiChatBody">
+      <div class="ai-empty-state" id="aiEmptyState">
+        <p class="ai-empty-title">Ask anything about Yashwanth's systems</p>
+        <div class="ai-suggestions-grid">
+          <button type="button" class="ai-suggest-btn" data-query="What is your Kubernetes &amp; AWS EKS architecture?">What is your Kubernetes &amp; AWS EKS architecture?</button>
+          <button type="button" class="ai-suggest-btn" data-query="How does ClearLedger automate invoice reconciliation?">How does ClearLedger automate invoice reconciliation?</button>
+          <button type="button" class="ai-suggest-btn" data-query="What tools and languages do you work with?">What tools and languages do you work with?</button>
+          <button type="button" class="ai-suggest-btn" data-query="Are you available for full-time engineering roles?">Are you available for full-time engineering roles?</button>
         </div>
       </div>
-      <div style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap;">
-        <!--email_off-->
-        <a href="mailto:yashwanthponnam55@gmail.com?subject=Freelance%20Consulting%20Inquiry" class="btn-drawer-primary">
-          <span>Book an Architecture Review</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
-        </a>
-        <!--/email_off-->
-        <a href="freelance.html" class="btn-drawer-secondary">
-          <span>View Dedicated Consulting Page</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
-        </a>
+      <div class="ai-messages-list" id="aiMessagesList" role="log" aria-live="polite"></div>
+    </div>
+
+    <div class="ai-modal-footer">
+      <form id="aiChatForm" class="ai-input-form">
+        <input type="text" id="aiChatInput" class="ai-chat-input" placeholder="Ask about Yashwanth's systems..." maxlength="180" autocomplete="off" required>
+        <button type="submit" id="aiSendBtn" class="ai-send-btn" aria-label="Send query">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+        </button>
+      </form>
+      <div class="ai-disclaimer-bar">
+        <span>Portfolio knowledge engine · Strictly scoped</span>
+        <span id="aiRateLimitCounter">10/10 queries</span>
       </div>
     </div>
-  </div>
+  </aside>
 
   <!-- SCRIPTS -->
   <script src="assets/yash_data.js"></script>
@@ -2713,28 +3085,220 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
     });
 
     /* -------------------------------------------------------------
-       MODALS: FREELANCE & CONSULTING
+       B7: ASK AI ASSISTANT CONTROLLER
        ------------------------------------------------------------- */
-    const freelanceModal = document.getElementById('freelanceModal');
-    const freelanceCloseBtn = document.getElementById('freelanceCloseBtn');
+    const askAiTriggerBtn = document.getElementById('askAiTriggerBtn');
+    const aiAssistantModal = document.getElementById('aiAssistantModal');
+    const aiAssistantBackdrop = document.getElementById('aiAssistantBackdrop');
+    const aiModalCloseBtn = document.getElementById('aiModalCloseBtn');
+    const aiChatForm = document.getElementById('aiChatForm');
+    const aiChatInput = document.getElementById('aiChatInput');
+    const aiChatBody = document.getElementById('aiChatBody');
+    const aiMessagesList = document.getElementById('aiMessagesList');
+    const aiEmptyState = document.getElementById('aiEmptyState');
+    const aiRateLimitCounter = document.getElementById('aiRateLimitCounter');
 
-    function openModal(modal) {
-      if (!modal) return;
-      modal.classList.add('open');
-      navBackdrop.classList.add('open');
-      document.body.style.overflow = 'hidden';
+    let queryCount = parseInt(sessionStorage.getItem('yp_ai_queries') || '0', 10);
+    const MAX_QUERIES = 10;
+
+    function updateRateLimitUI() {
+      if (aiRateLimitCounter) {
+        aiRateLimitCounter.textContent = `${Math.max(0, MAX_QUERIES - queryCount)}/${MAX_QUERIES} queries`;
+      }
+    }
+    updateRateLimitUI();
+
+    function openAiModal() {
+      if (!aiAssistantModal) return;
+      aiAssistantModal.hidden = false;
+      aiAssistantBackdrop.classList.add('open');
+      askAiTriggerBtn.setAttribute('aria-expanded', 'true');
+      if (aiChatInput) aiChatInput.focus();
     }
 
-    function closeModal(modal) {
-      if (!modal) return;
-      modal.classList.remove('open');
-      navBackdrop.classList.remove('open');
-      document.body.style.overflow = '';
+    function closeAiModal() {
+      if (!aiAssistantModal) return;
+      aiAssistantModal.hidden = true;
+      aiAssistantBackdrop.classList.remove('open');
+      askAiTriggerBtn.setAttribute('aria-expanded', 'false');
+      askAiTriggerBtn.focus();
     }
 
-    if (freelanceCloseBtn && freelanceModal) {
-      freelanceCloseBtn.addEventListener('click', () => closeModal(freelanceModal));
+    if (askAiTriggerBtn) askAiTriggerBtn.addEventListener('click', openAiModal);
+    if (aiModalCloseBtn) aiModalCloseBtn.addEventListener('click', closeAiModal);
+    if (aiAssistantBackdrop) aiAssistantBackdrop.addEventListener('click', closeAiModal);
+
+    function getAiResponse(query) {
+      const q = query.toLowerCase();
+      if (q.includes('kubernetes') || q.includes('eks') || q.includes('cluster') || q.includes('node') || q.includes('helm')) {
+        return "Yashwanth architects production-grade Amazon EKS (v1.35) clusters managed declaratively with Terraform. His reference setup deploys managed node groups across 3 Availability Zones in private subnets, fronted by an AWS Application Load Balancer (ALB) and NAT Gateway. Services communicate via Kubernetes ClusterIP with least-privilege IAM Roles for Service Accounts (IRSA), monitored continuously by Prometheus and Grafana.";
+      }
+      if (q.includes('terraform') || q.includes('iac') || q.includes('argocd') || q.includes('gitops') || q.includes('ci/cd')) {
+        return "Yashwanth uses modular Terraform for multi-AZ VPCs, EKS control planes, and EBS CSI storage policies. For continuous delivery, he sets up automated GitOps pipelines with ArgoCD that synchronize application states directly from GitHub Container Registry (GHCR) with automated rollout verification.";
+      }
+      if (q.includes('clearledger') || q.includes('invoice') || q.includes('finance') || q.includes('copilot') || q.includes('accounting')) {
+        return "ClearLedger is Yashwanth's Accounts Payable Reconciliation Copilot. It combines high-speed deterministic invoice matching with LangGraph agentic commentary, catching pricing discrepancies, duplicate billings, and contract variances with 99.4% precision on synthetic test datasets.";
+      }
+      if (q.includes('rag') || q.includes('vector') || q.includes('embedding') || q.includes('chroma') || q.includes('ollama')) {
+        return "Yashwanth's rag-api is a high-throughput semantic search service built with FastAPI, local Ollama model serving, and ChromaDB. It achieves sub-60ms p95 search latency while keeping all proprietary documents completely local with zero cloud egress costs.";
+      }
+      if (q.includes('agent') || q.includes('swarm') || q.includes('adk') || q.includes('multi-agent')) {
+        return "Multi-Agent ADK is Yashwanth's autonomous agent framework. Built with Python AsyncIO, Google ADK, and LangGraph, it orchestrates distributed specialist agents that share memory, vote on task quorum, and safely execute tool calls with sandboxed human approval gates.";
+      }
+      if (q.includes('role') || q.includes('hire') || q.includes('available') || q.includes('job') || q.includes('full-time') || q.includes('consulting') || q.includes('contact') || q.includes('email')) {
+        return "Yashwanth graduated in April 2026 with a background in Data Science & AI and is currently available for full-time DevOps, Cloud Platform, and AI Systems Engineering positions. You can reach him directly at yashwanthponnam55@gmail.com or via LinkedIn!";
+      }
+      if (q.includes('stack') || q.includes('tool') || q.includes('language') || q.includes('skill')) {
+        return "Yashwanth's core stack includes: Kubernetes (AWS EKS), Terraform IaC, Docker, ArgoCD, Prometheus, Grafana, Python, Go, FastAPI, LangGraph, Ollama, ChromaDB, PostgreSQL, and Linux systems administration.";
+      }
+      return "I am Yashwanth's portfolio AI assistant. I can only provide details about Yashwanth's cloud platform engineering, Kubernetes architectures, automated GitOps pipelines, and AI systems. Feel free to ask about his AWS EKS setup, ClearLedger, rag-api, or his availability for full-time roles!";
     }
+
+    function appendMessage(sender, text) {
+      if (aiEmptyState) aiEmptyState.style.display = 'none';
+
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `ai-msg ${sender}`;
+
+      const bubbleDiv = document.createElement('div');
+      bubbleDiv.className = 'ai-bubble';
+
+      if (sender === 'user') {
+        bubbleDiv.textContent = text;
+        msgDiv.appendChild(bubbleDiv);
+        aiMessagesList.appendChild(msgDiv);
+        aiChatBody.scrollTop = aiChatBody.scrollHeight;
+      } else {
+        msgDiv.appendChild(bubbleDiv);
+        aiMessagesList.appendChild(msgDiv);
+
+        let idx = 0;
+        const speed = 12;
+        function typeChar() {
+          if (idx < text.length) {
+            bubbleDiv.textContent += text.charAt(idx);
+            idx++;
+            aiChatBody.scrollTop = aiChatBody.scrollHeight;
+            setTimeout(typeChar, speed);
+          }
+        }
+        typeChar();
+      }
+    }
+
+    if (aiChatForm) {
+      aiChatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const query = aiChatInput.value.trim();
+        if (!query) return;
+
+        if (queryCount >= MAX_QUERIES) {
+          appendMessage('user', query);
+          appendMessage('assistant', "Rate limit reached for this session (10 queries). Please contact Yashwanth directly via email at yashwanthponnam55@gmail.com!");
+          aiChatInput.value = '';
+          return;
+        }
+
+        queryCount++;
+        sessionStorage.setItem('yp_ai_queries', queryCount.toString());
+        updateRateLimitUI();
+
+        appendMessage('user', query);
+        aiChatInput.value = '';
+
+        setTimeout(() => {
+          const answer = getAiResponse(query);
+          appendMessage('assistant', answer);
+        }, 300);
+      });
+    }
+
+    document.querySelectorAll('.ai-suggest-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const q = btn.getAttribute('data-query');
+        if (q && aiChatInput) {
+          aiChatInput.value = q;
+          aiChatForm.dispatchEvent(new Event('submit'));
+        }
+      });
+    });
+
+    /* -------------------------------------------------------------
+       B1: SHARED TRAVELING PORTRAIT CONTROLLER (HERO -> INTRO)
+       ------------------------------------------------------------- */
+    const heroFrame = document.querySelector('.hero-portrait-frame');
+    const bioCard = document.querySelector('.bio-portrait-card');
+    const heroImg = heroFrame ? heroFrame.querySelector('img') : null;
+    const bioImg = bioCard ? bioCard.querySelector('img') : null;
+
+    const travelingEl = document.getElementById('sharedTravelingPortrait');
+    const travelingStage = document.getElementById('sharedPortraitWrapper');
+
+    function updateSharedPortrait() {
+      if (!heroFrame || !bioCard || !travelingEl || !travelingStage) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isMobile = window.innerWidth <= 768;
+
+      if (prefersReduced || isMobile) {
+        travelingStage.style.display = 'none';
+        if (heroImg) heroImg.style.visibility = 'visible';
+        if (bioImg) bioImg.style.visibility = 'visible';
+        return;
+      }
+
+      const heroRect = heroFrame.getBoundingClientRect();
+      const bioRect = bioCard.getBoundingClientRect();
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      const startY = heroFrame.offsetTop;
+      const endY = bioCard.offsetTop;
+      const totalDist = endY - startY;
+
+      if (totalDist <= 0) return;
+
+      const progress = Math.max(0, Math.min(1, (scrollY - 40) / (totalDist - 80)));
+
+      if (progress <= 0.02) {
+        travelingStage.style.display = 'none';
+        if (heroImg) heroImg.style.visibility = 'visible';
+        if (bioImg) bioImg.style.visibility = 'visible';
+      } else if (progress >= 0.98) {
+        travelingStage.style.display = 'none';
+        if (heroImg) heroImg.style.visibility = 'visible';
+        if (bioImg) bioImg.style.visibility = 'visible';
+      } else {
+        travelingStage.style.display = 'block';
+        if (heroImg) heroImg.style.visibility = 'hidden';
+        if (bioImg) bioImg.style.visibility = 'hidden';
+
+        const currX = heroRect.left + (bioRect.left - heroRect.left) * progress;
+        const currY = heroRect.top + (bioRect.top - heroRect.top) * progress;
+        const currW = heroRect.width + (bioRect.width - heroRect.width) * progress;
+        const currH = heroRect.height + (bioRect.height - heroRect.height) * progress;
+
+        const rotateY = Math.sin(progress * Math.PI) * 85;
+        const scale = 1 + Math.sin(progress * Math.PI) * 0.12;
+        const radius = 6 + progress * 8; // 6px -> 14px
+
+        travelingEl.style.width = currW + 'px';
+        travelingEl.style.height = currH + 'px';
+        travelingEl.style.borderRadius = radius + 'px';
+        travelingEl.style.transform = `translate3d(${currX}px, ${currY}px, 0) rotateY(${rotateY}deg) scale(${scale})`;
+      }
+    }
+
+    let portraitTicking = false;
+    window.addEventListener('scroll', () => {
+      if (!portraitTicking) {
+        requestAnimationFrame(() => {
+          updateSharedPortrait();
+          portraitTicking = false;
+        });
+        portraitTicking = true;
+      }
+    }, { passive: true });
+    window.addEventListener('resize', updateSharedPortrait);
 
     
 
@@ -2785,8 +3349,8 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
       const totalTextEl = document.getElementById('contribTotalText');
       const dateRangeEl = document.getElementById('contribDateRange');
 
-      const startDate = new Date(2025, 10, 16); // 16 Nov 2025
-      const endDate = new Date(2026, 10, 20);   // 20 Nov 2026
+      const startDate = new Date(2025, 10, 24); // 24 Nov 2025
+      const endDate = new Date(2026, 10, 24);   // 24 Nov 2026
 
       function getColor(count) {
         if (!count || count <= 0) return '#16161a';
@@ -2930,7 +3494,7 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
           totalTextEl.textContent = `${totalContributions.toLocaleString()} contributions`;
         }
         if (dateRangeEl) {
-          dateRangeEl.textContent = '16 Nov 2025 – 20 Nov 2026';
+          dateRangeEl.textContent = '24 Nov 2025 – 24 Nov 2026';
         }
       }
 
@@ -3021,7 +3585,9 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
       }
     };
 
-    function openProjectDrawer(id) {
+    let lastActiveTrigger = null;
+
+    function openProjectDrawer(id, updateHash = true) {
       const data = projectData[id] || projectData['llm-devops'];
       document.getElementById('drawerProjectTitle').textContent = data.title;
       document.getElementById('drawerProjectTagline').textContent = data.tagline;
@@ -3048,23 +3614,105 @@ AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
 
       projectDrawer.classList.add('open');
       navBackdrop.classList.add('open');
+      projectDrawer.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
+
+      if (updateHash) {
+        history.replaceState(null, '', '#project-' + id);
+      }
+      if (projectDrawerCloseBtn) {
+        projectDrawerCloseBtn.focus();
+      }
     }
 
     function closeProjectDrawer() {
       projectDrawer.classList.remove('open');
       navBackdrop.classList.remove('open');
+      projectDrawer.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
+
+      if (window.location.hash.startsWith('#project-')) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      if (lastActiveTrigger) {
+        lastActiveTrigger.focus();
+      }
     }
 
     document.querySelectorAll('.project-folder, .open-drawer-btn').forEach(btn => {
       btn.addEventListener('click', () => {
+        lastActiveTrigger = btn;
         const id = btn.getAttribute('data-folder-id');
         if (id) openProjectDrawer(id);
       });
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          lastActiveTrigger = btn;
+          const id = btn.getAttribute('data-folder-id');
+          if (id) openProjectDrawer(id);
+        }
+      });
     });
 
-    projectDrawerCloseBtn.addEventListener('click', closeProjectDrawer);
+    if (projectDrawerCloseBtn) {
+      projectDrawerCloseBtn.addEventListener('click', closeProjectDrawer);
+    }
+
+    /* -------------------------------------------------------------
+       B4: TIMELINE ROAD REVEAL CONTROLLER
+       ------------------------------------------------------------- */
+    const roadmapContainer = document.querySelector('.roadmap-container');
+    const roadDrawPath = document.querySelector('.journey-road-draw');
+    const stopCols = document.querySelectorAll('.stop-col');
+
+    if (roadmapContainer && roadDrawPath) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        roadDrawPath.classList.add('drawn');
+        stopCols.forEach(col => col.classList.add('visible'));
+      } else {
+        const roadObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              roadDrawPath.classList.add('drawn');
+              stopCols.forEach((col, idx) => {
+                setTimeout(() => {
+                  col.classList.add('visible');
+                }, 180 + idx * 160);
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+
+        roadObserver.observe(roadmapContainer);
+      }
+    }
+
+    /* -------------------------------------------------------------
+       GLOBAL KEYBOARD & HASH NAVIGATION LISTENER
+       ------------------------------------------------------------- */
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (projectDrawer && projectDrawer.classList.contains('open')) {
+          closeProjectDrawer();
+        }
+        if (navigationPanel && navigationPanel.classList.contains('open')) {
+          closeNav();
+        }
+        const aiModal = document.getElementById('aiAssistantModal');
+        if (aiModal && !aiModal.hidden) {
+          closeAiModal();
+        }
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash.startsWith('#project-')) {
+        const id = window.location.hash.replace('#project-', '');
+        if (projectData[id]) openProjectDrawer(id, false);
+      }
+    });
 
     /* -------------------------------------------------------------
        COPY EMAIL & TOAST NOTIFICATION

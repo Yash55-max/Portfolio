@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yashwanthponnam.dpdns.org/sitemap.xml
