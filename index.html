@@ -4475,7 +4475,7 @@
     }
 
     function playSfx(kind = 'click', loud = false) {
-      if (!sfxEnabled || !SFX_FILES[kind]) return;
+      if (!sfxEnabled || !SFX_FILES[kind]) return Promise.resolve(false);
       try {
         const vol = SFX_GAINS[kind]?.[loud ? 'loud' : 'normal'] ?? 0.3;
         stopActiveSfx(kind);
@@ -4484,7 +4484,7 @@
         if (Ctor) {
           if (!sharedAudioCtx) sharedAudioCtx = new Ctor();
           if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume().catch(() => {});
-          if (sfxBuffers[kind]) {
+          if (sfxBuffers[kind] && sharedAudioCtx.state === 'running') {
             const src = sharedAudioCtx.createBufferSource();
             src.buffer = sfxBuffers[kind];
             const g = sharedAudioCtx.createGain();
@@ -4494,17 +4494,22 @@
             src.onended = () => { if (activeSfx[kind] === src) delete activeSfx[kind]; };
             activeSfx[kind] = src;
             src.start(0);
-            return;
+            return Promise.resolve(true);
           }
           preloadSfx();
         }
 
-        // Direct WAV element playback on very first interaction before Web Audio decode finishes
+        // Direct WAV element playback (resolves true only if browser autoplay/gesture allows playback)
         const el = new Audio(SFX_FILES[kind]);
         el.volume = vol;
         activeSfx[kind] = el;
-        el.play().catch(() => {});
-      } catch (_) {}
+        return el.play().then(() => true).catch(() => {
+          if (activeSfx[kind] === el) delete activeSfx[kind];
+          return false;
+        });
+      } catch (_) {
+        return Promise.resolve(false);
+      }
     }
 
     /* -------------------------------------------------------------
@@ -5829,12 +5834,45 @@
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       let dismissed = false;
       let rafId = null;
+      let confirmPlayedOnLoad = false;
+
+      function cleanupUnlockListeners() {
+        window.removeEventListener('pointerdown', onFirstUnlockGesture, true);
+        window.removeEventListener('keydown', onFirstUnlockGesture, true);
+        window.removeEventListener('touchstart', onFirstUnlockGesture, true);
+      }
+
+      function onFirstUnlockGesture(e) {
+        cleanupUnlockListeners();
+        if (confirmPlayedOnLoad) return;
+        const target = e.target;
+        if (target && (target.closest?.('#introSkipBtn, #introIsoSvg'))) return;
+        confirmPlayedOnLoad = true;
+        playSfx('confirm', false);
+      }
+
+      // Play confirmation WAV immediately while loading; if browser autoplay policy blocks initial load,
+      // play cleanly on the visitor's first unlock gesture without double-triggering.
+      playSfx('confirm', false).then((played) => {
+        if (played) {
+          confirmPlayedOnLoad = true;
+          cleanupUnlockListeners();
+        } else if (!confirmPlayedOnLoad) {
+          window.addEventListener('pointerdown', onFirstUnlockGesture, { once: true, capture: true });
+          window.addEventListener('keydown', onFirstUnlockGesture, { once: true, capture: true });
+          window.addEventListener('touchstart', onFirstUnlockGesture, { once: true, capture: true });
+        }
+      });
 
       function dismissIntro(userTriggered = false) {
         if (dismissed) return;
         dismissed = true;
         if (rafId) cancelAnimationFrame(rafId);
-        if (userTriggered) playSfx('zoom', false);
+        if (userTriggered) {
+          confirmPlayedOnLoad = true;
+          cleanupUnlockListeners();
+          playSfx('confirm', false);
+        }
         document.documentElement.classList.remove('intro-active');
         overlay.classList.add('is-exiting');
         overlay.setAttribute('aria-hidden', 'true');
