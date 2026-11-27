@@ -77,19 +77,22 @@ An expandable repository containing 8 additional platforms, civic tech builds, s
 ```text
 Portfolio/
 ├── assets/
-│   ├── apple-touch-icon.png    # Web app / touch icon
-│   ├── hero-avatar-duo.jpg     # Alternating hero portrait (duo)
-│   ├── hero-avatar-solo.jpg    # Alternating hero portrait (solo)
-│   ├── og-image.jpg            # OpenGraph social preview card
-│   ├── portrait-headshot.jpg   # Editorial bio headshot
-│   └── yash_data.js            # Structured credentials & timeline dataset
-├── freelance.html              # Technical consulting & engagements page
-├── index.html                  # Core single-page portfolio (HTML, CSS, JS)
-├── index.md                    # Markdown profile summary for agents & readers
-├── llms.txt                    # Machine-readable portfolio summary
-├── privacy.html                # Privacy & analytics disclosure page
-├── sitemap.xml                 # Search engine sitemap
-└── README.md                   # Technical documentation and project overview
+│   ├── apple-touch-icon.png                  # Web app / touch icon
+│   ├── hero-avatar-duo.jpg                   # Alternating hero portrait (duo)
+│   ├── hero-avatar-solo.jpg                  # Alternating hero portrait (solo)
+│   ├── mixkit-sci-fi-click-900.wav           # Tactile UI click SFX
+│   ├── mixkit-sci-fi-confirmation-914.wav    # Copy/submit confirmation SFX
+│   ├── mixkit-sci-fi-interface-zoom-890.wav  # Panel/modal transition SFX
+│   ├── og-image.jpg                          # OpenGraph social preview card
+│   ├── portrait-headshot.jpg                 # Editorial bio headshot
+│   └── yash_data.js                          # Structured credentials & timeline dataset
+├── freelance.html                            # Technical consulting & engagements page
+├── index.html                                # Core single-page portfolio (HTML, CSS, JS)
+├── index.md                                  # Markdown profile summary for agents & readers
+├── llms.txt                                  # Machine-readable portfolio summary
+├── privacy.html                              # Privacy & analytics disclosure page
+├── sitemap.xml                               # Search engine sitemap
+└── README.md                                 # Technical documentation and project overview
 ```
 
 ---
