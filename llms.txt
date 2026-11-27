@@ -14,8 +14,8 @@ LinkedIn: https://www.linkedin.com/in/yashwanth-ponnam-a97921256/
 - [Privacy Policy](https://yashwanthponnam.dpdns.org/privacy.html)
 
 ## Flagship Systems
-- **llm-devops** (`https://github.com/Yash55-max/llm-devops`): Self-serve LLM inference platform on AWS EKS (v1.35) provisioned with modular Terraform, private multi-AZ subnets, ALB Ingress, NAT Gateway, least-privilege IRSA (`ebs-csi-irsa`), ArgoCD GitOps, and kube-prometheus-stack observability.
+- **llm-devops** (`https://github.com/Yash55-max/llm-devops`): Self-serve LLM inference platform on Kubernetes (local kind to AWS EKS v1.35, `ap-south-1a/1b`), modular Terraform (`10.0.0.0/16`), Ollama (`qwen2.5:0.5b`) + FastAPI behind an AWS Classic Load Balancer, OIDC `ebs-csi-irsa`, GitHub Actions (`ruff`/`pytest`/GHCR), ArgoCD GitOps, and kube-prometheus-stack Alertmanager fault-injection observability.
+- **BugShot** (`https://github.com/Yash55-max/BugShot`): Published `v3.1.0` Manifest V3 Chrome & Microsoft Edge extension to capture (viewport, full-page scroll-and-stitch, drag-select crop), annotate, and file bug reports to GitHub Issues with the last 20 interactions, console errors, and `4xx`/`5xx` requests attached.
+- **thermals** (`https://github.com/Yash55-max/thermals`): Native Linux Thermal Control Center (`asus-thermals-control` `v1.2.0`) with Tkinter GUI and headless `--status`/`--json` CLI; closed-loop thermal limiter cutting peak load temps `84.5°C -> 68–71°C` at `92%` throughput, strict `50` PWM fan floor, `80.0°C` emergency reset, battery caps (`60%`/`80%`/`100%`), and `.deb`/`PKGBUILD`/`RPM` packaging.
 - **ClearLedger** (`https://clear-ledger-chi.vercel.app` | `https://github.com/Yash55-max/ClearLedger`): Accounts Payable reconciliation platform pairing deterministic ledger matching with LangGraph/Gemini AI audit commentary.
-- **BugShot** (`https://github.com/Yash55-max/BugShot`): Published Manifest V3 browser extension for capturing, annotating, and filing visual bug reports directly to GitHub Issues.
 - **rag-api** (`https://github.com/Yash55-max/rag-api`): Async FastAPI vector retrieval API powered by ChromaDB and local Ollama inference (~42ms p95 local lab benchmark).
-- **Multi-Agent ADK** (`https://github.com/Yash55-max/multi-agent-adk`): Python AsyncIO coordinator-worker multi-agent orchestration framework.
