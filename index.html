@@ -2243,6 +2243,57 @@
       color: var(--dimension);
     }
 
+    .footer-blocks-stage {
+      position: relative;
+      padding: 14px 16px;
+      background: var(--background);
+    }
+
+    .footer-blocks-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+
+    .footer-blocks-mode-btn {
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--foreground);
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .footer-blocks-mode-btn:hover {
+      background: var(--accent-muted);
+      border-color: var(--ring);
+    }
+
+    .footer-blocks-canvas-wrap {
+      position: relative;
+      width: 100%;
+      height: 152px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 8px;
+      overflow: hidden;
+    }
+
+    .footer-blocks-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: crosshair;
+      touch-action: manipulation;
+    }
+
     /* -------------------------------------------------------------
        FLOATING DOCK, MODALS & DRAWERS
        ------------------------------------------------------------- */
@@ -3989,6 +4040,20 @@
         <span style="font-size: 0.875rem; color: var(--muted-foreground);">Production Kubernetes &amp; agentic AI systems.</span>
       </div>
 
+      <!-- ARCHITECTURAL BEVELLED BLOCKS ANIMATION (chanhdai.com theme) -->
+      <div class="footer-blocks-stage screen-line-bottom">
+        <div class="footer-blocks-top">
+          <span>FIG_YP · KINETIC BLOCK MATRIX</span>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <button id="footerBlocksCycleBtn" type="button" class="footer-blocks-mode-btn" title="Switch block animation pattern">Mode: Wave + YP</button>
+          </div>
+        </div>
+        <div class="footer-blocks-canvas-wrap">
+          <canvas id="footerBlocksCanvas" class="footer-blocks-canvas" aria-label="Interactive animated architectural blocks canvas — hover or click to ripple"></canvas>
+        </div>
+      </div>
+
+      <!-- COMPACT ATTRIBUTION & APPROVAL STRIP -->
       <dl class="footer-cad-dl screen-line-bottom">
         <div class="cad-field">
           <dt>Crafted by</dt>
@@ -3996,78 +4061,10 @@
         </div>
 
         <div class="cad-field">
-          <dt>Build</dt>
-          <dd><a href="https://github.com/Yash55-max/Portfolio/commits/staging" target="_blank" rel="noopener noreferrer" class="link-underline">staging</a></dd>
-        </div>
-
-        <div class="cad-field">
-          <dt>Updated</dt>
-          <dd><time datetime="2026-11-27">2026-11-27</time></dd>
-        </div>
-
-        <div class="cad-field">
-          <dt>Architecture</dt>
-          <dd>5 Systems · 4 Runbooks</dd>
-        </div>
-
-        <div class="cad-field">
-          <dt>Deployed on</dt>
-          <dd>GitHub Pages</dd>
-        </div>
-
-        <div class="cad-field">
-          <dt>Source code</dt>
-          <dd><a href="https://github.com/Yash55-max/Portfolio" target="_blank" rel="noopener noreferrer" class="link-underline">GitHub</a></dd>
-        </div>
-
-        <div class="cad-field">
-          <dt>License</dt>
-          <dd><a href="https://github.com/Yash55-max/Portfolio/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="link-underline">MIT License</a></dd>
-        </div>
-
-        <div class="cad-field">
-          <dt>Typeface</dt>
-          <dd>DM Sans &amp; JB Mono</dd>
-        </div>
-
-        <div class="cad-field span-2">
-          <dt>Stack</dt>
-          <dd>
-            <span>aws-eks@1.35</span>
-            <span>terraform / hcl</span>
-            <span>argocd / gitops</span>
-            <span>fastapi + langgraph</span>
-            <span>ollama + chromadb</span>
-          </dd>
-        </div>
-
-        <div class="cad-field">
-          <dt>Explore</dt>
-          <dd>
-            <a href="freelance.html" class="link-underline">Freelance</a>
-            <a href="privacy.html" class="link-underline">Privacy Policy</a>
-          </dd>
-        </div>
-
-        <div class="cad-field">
           <dt>For agents</dt>
           <dd>
             <a href="llms.txt" target="_blank" rel="noopener noreferrer" class="link-underline">llms.txt</a>
             <a href="index.md" target="_blank" rel="noopener noreferrer" class="link-underline">index.md</a>
-          </dd>
-        </div>
-
-        <div class="cad-field span-2">
-          <dt>Inspired by</dt>
-          <dd>
-            <ol class="cad-inspired-list">
-              <li><a href="https://chanhdai.com" target="_blank" rel="noopener noreferrer" class="link-underline">chanhdai.com</a></li>
-              <li>Tailwind CSS</li>
-              <li>shadcn/ui</li>
-              <li>Vercel</li>
-              <li>Fast Isometric</li>
-              <li>Lucide</li>
-            </ol>
           </dd>
         </div>
 
@@ -5200,7 +5197,196 @@
     })();
 
     /* -------------------------------------------------------------
-       11. COPY EMAIL & CONTACT FORM
+       11. FOOTER KINETIC BLOCK MATRIX (Daikanoid / CAD Monochrome Theme)
+       ------------------------------------------------------------- */
+    (function initFooterBlocksAnimation() {
+      const canvas = document.getElementById('footerBlocksCanvas');
+      const modeBtn = document.getElementById('footerBlocksCycleBtn');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const COLS = 24;
+      const ROWS = 6;
+      const YP_BITMAP = [
+        '.....XX..XX..XXXXXX.....',
+        '.....XX..XX..XX..XX.....',
+        '.....XXXXXX..XXXXXX.....',
+        '.......XX....XX.........',
+        '.......XX....XX.........',
+        '........................'
+      ];
+
+      const modes = ['Wave + YP', 'Cluster Flow', 'YP Signal'];
+      let modeIdx = 0;
+      let width = 0, height = 0;
+      let mouse = { x: -9999, y: -9999, active: false };
+      let ripples = [];
+      let visible = true;
+      let rafId = null;
+
+      function palette() {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        return isLight
+          ? {
+              bg: '#f4f4f5',
+              rest: '#e4e4e7',
+              mid: '#a1a1aa',
+              high: '#27272a',
+              accent: '#2563eb',
+              bevelHi: 'rgba(255,255,255,0.65)',
+              bevelLo: 'rgba(0,0,0,0.18)'
+            }
+          : {
+              bg: '#121215',
+              rest: '#1e1e24',
+              mid: '#3f3f46',
+              high: '#e4e4e7',
+              accent: '#60a5fa',
+              bevelHi: 'rgba(255,255,255,0.18)',
+              bevelLo: 'rgba(0,0,0,0.55)'
+            };
+      }
+
+      function resize() {
+        const parent = canvas.parentElement;
+        if (!parent) return;
+        const dpr = window.devicePixelRatio || 1;
+        width = canvas.clientWidth;
+        height = canvas.clientHeight;
+        if (!width || !height) return;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        if (reduced) draw(0);
+      }
+
+      function draw(ts) {
+        if (!width || !height) return;
+        const p = palette();
+        ctx.clearRect(0, 0, width, height);
+
+        const gap = 4;
+        const bw = (width - gap * (COLS - 1)) / COLS;
+        const bh = (height - gap * (ROWS - 1)) / ROWS;
+        const t = ts * 0.0018;
+
+        // Prune expired ripples
+        ripples = ripples.filter(r => (ts - r.t0) < 950);
+
+        for (let r = 0; r < ROWS; r++) {
+          for (let c = 0; c < COLS; c++) {
+            const x = c * (bw + gap);
+            const y = r * (bh + gap);
+            const cx = x + bw * 0.5;
+            const cy = y + bh * 0.5;
+
+            const isYpCell = YP_BITMAP[r]?.[c] === 'X';
+            let intensity = 0.08;
+
+            if (modeIdx === 0) {
+              const wave = Math.sin(c * 0.42 - t * 1.6 + r * 0.45) * 0.5 + 0.5;
+              intensity = isYpCell ? 0.58 + 0.32 * wave : 0.08 + 0.24 * Math.pow(wave, 2);
+            } else if (modeIdx === 1) {
+              const stream = ((c - t * 4.5 + r * 2) % 8 + 8) % 8;
+              intensity = stream < 2.2 ? (isYpCell ? 0.85 : 0.45) : (isYpCell ? 0.35 : 0.06);
+            } else {
+              const pulse = Math.sin(t * 2.4 + (c + r) * 0.35) * 0.5 + 0.5;
+              intensity = isYpCell ? 0.65 + 0.35 * pulse : 0.04;
+            }
+
+            if (mouse.active) {
+              const dist = Math.hypot(cx - mouse.x, cy - mouse.y);
+              if (dist < 110) {
+                intensity = Math.max(intensity, 0.3 + 0.7 * (1 - dist / 110));
+              }
+            }
+
+            let isRipplePeak = false;
+            for (const rp of ripples) {
+              const age = (ts - rp.t0) / 1000;
+              const radius = age * 360;
+              const dist = Math.hypot(cx - rp.x, cy - rp.y);
+              const band = Math.abs(dist - radius);
+              if (band < 36) {
+                const boost = (1 - band / 36) * Math.max(0, 1 - age * 1.1);
+                intensity = Math.min(1, intensity + boost * 0.85);
+                if (boost > 0.35) isRipplePeak = true;
+              }
+            }
+
+            const lift = reduced ? 0 : (intensity > 0.45 ? -(intensity - 0.45) * 2.4 : 0);
+            ctx.fillStyle = isRipplePeak
+              ? p.accent
+              : intensity > 0.72
+                ? p.high
+                : intensity > 0.32
+                  ? p.mid
+                  : p.rest;
+            ctx.fillRect(x, y + lift, bw, bh);
+
+            // Signature Daikanoid bevel highlight & bottom shadow edge
+            if (bw > 6 && bh > 6) {
+              ctx.fillStyle = p.bevelHi;
+              ctx.fillRect(x, y + lift, bw, 1.5);
+              ctx.fillRect(x, y + lift, 1.5, bh);
+              ctx.fillStyle = p.bevelLo;
+              ctx.fillRect(x, y + lift + bh - 1.5, bw, 1.5);
+              ctx.fillRect(x + bw - 1.5, y + lift, 1.5, bh);
+            }
+          }
+        }
+      }
+
+      function loop(ts) {
+        if (visible && !reduced) {
+          draw(ts);
+        }
+        rafId = requestAnimationFrame(loop);
+      }
+
+      canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse = { x: e.clientX - rect.left, y: e.clientY - rect.top, active: true };
+        if (reduced) draw(performance.now());
+      });
+
+      canvas.addEventListener('mouseleave', () => {
+        mouse.active = false;
+        if (reduced) draw(performance.now());
+      });
+
+      canvas.addEventListener('pointerdown', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        ripples.push({ x: e.clientX - rect.left, y: e.clientY - rect.top, t0: performance.now() });
+        playSoundFeedback(false);
+        if (reduced) draw(performance.now());
+      });
+
+      modeBtn?.addEventListener('click', () => {
+        modeIdx = (modeIdx + 1) % modes.length;
+        modeBtn.textContent = `Mode: ${modes[modeIdx]}`;
+        playSoundFeedback(false);
+        if (reduced) draw(performance.now());
+      });
+
+      if (window.IntersectionObserver) {
+        new IntersectionObserver((entries) => {
+          visible = entries[0]?.isIntersecting ?? true;
+        }, { rootMargin: '60px' }).observe(canvas);
+      }
+
+      if (window.ResizeObserver && canvas.parentElement) {
+        new ResizeObserver(resize).observe(canvas.parentElement);
+      }
+
+      resize();
+      if (!reduced) rafId = requestAnimationFrame(loop);
+    })();
+
+    /* -------------------------------------------------------------
+       12. COPY EMAIL & CONTACT FORM
        ------------------------------------------------------------- */
     function copyEmail(triggerId) {
       const email = 'yashwanthponnam55@gmail.com';
