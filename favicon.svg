@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="12" fill="#09090b"/>
-  <g transform="translate(8, 15.2) scale(1.3333)">
+  <g transform="translate(8.25, 2) scale(2.5)">
     <path d="M2 4H7V11H12V4H17V15H12V20H7V15H2V4Z" fill="#fafafa"/>
-    <path d="M21 4H34V14H26V20H21V4ZM26 8V10H29V8H26Z" fill="#fafafa" fill-rule="evenodd"/>
   </g>
 </svg>
