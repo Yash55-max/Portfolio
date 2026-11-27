@@ -17,12 +17,11 @@ A high-performance developer portfolio built with pure HTML5, CSS3, and ES6+ Jav
 ## Core Systems & Features
 
 ### 1. High-Signal Flagship Systems
-- **llm-devops (Production LLM Infrastructure)**: Self-serve LLM inference platform on Kubernetes spanning local kind clusters to AWS EKS with Terraform Infrastructure as Code (IaC), automated CI/CD pipelines, and full-stack observability via Prometheus, Grafana, and Alertmanager.
+- **llm-devops (Production LLM Infrastructure)**: Self-serve LLM inference platform on Kubernetes spanning local `kind` clusters to AWS EKS (`v1.35`, `ap-south-1a`/`1b`) with modular Terraform (`10.0.0.0/16`), Ollama (`qwen2.5:0.5b`) + FastAPI behind an AWS Classic Load Balancer, least-privilege OIDC IRSA (`ebs-csi-irsa`), GitHub Actions (`ruff`/`pytest`/GHCR), ArgoCD GitOps, and `kube-prometheus-stack` observability.
+- **BugShot (v3.1.0 Manifest V3 Browser Extension)**: Published Microsoft Edge Add-on & Chrome extension to capture (viewport, full-page scroll-and-stitch, drag-select crop), annotate on canvas, and file bug reports directly to GitHub Issues with auto-attached user interactions, console errors, and `4xx`/`5xx` network failures.
+- **thermals (v1.2.0 Linux Thermal Control Center)**: Native Linux GUI and headless `--json` CLI (`asus-thermals-control`) monitoring CPU/GPU/NVMe/fan/battery `hwmon` telemetry, running a closed-loop thermal limiter (`84.5°C` down to `68°C–71°C` at `92%` throughput), enforcing `50` PWM stall floors & `80.0°C` emergency auto-restore, and managing ACPI battery charge limits (`60%`/`80%`/`100%`).
 - **ClearLedger (Enterprise AP Reconciliation Copilot)**: Institutional accounts payable auditing platform pairing a deterministic matching engine with AI executive commentary and automated variance classification using FastAPI, React 18, and the Gemini API.
 - **rag-api (High-Throughput Vector Retrieval)**: Asynchronous FastAPI backend powered by ChromaDB vector store and local Ollama model serving for low-latency contextual retrieval and document embeddings.
-- **multi-agent-adk (Autonomous Multi-Agent Orchestration)**: Multi-agent productivity engine built with Google ADK, featuring orchestrator routing, specialized task agents, dynamic calendar execution, and persistent memory tools.
-- **FlowSync AI (Geo-Distributed Queue Management)**: Real-time routing and density monitoring system deployed on Google Cloud Run supporting large-scale venue navigation scenarios.
-- **FairHire AI (MLOps & Fairness Auditing)**: Enterprise hiring audit suite utilizing Fairlearn for bias mitigation in tabular datasets and local/global SHAP explainability visualizations.
 
 ### 2. Secondary Project Archive
 An expandable repository containing 8 additional platforms, civic tech builds, simulation models, and web applications:
@@ -78,11 +77,19 @@ An expandable repository containing 8 additional platforms, civic tech builds, s
 ```text
 Portfolio/
 ├── assets/
-│   ├── anime.min.js    # Anime.js animation engine
-│   ├── gojo.png        # Floating assistant companion
-│   └── profile.jpg     # Lead architect portrait & background
-├── index.html          # Core single-page application (Markup, CSS, and JS)
-└── README.md           # Technical documentation and project overview
+│   ├── apple-touch-icon.png    # Web app / touch icon
+│   ├── hero-avatar-duo.jpg     # Alternating hero portrait (duo)
+│   ├── hero-avatar-solo.jpg    # Alternating hero portrait (solo)
+│   ├── og-image.jpg            # OpenGraph social preview card
+│   ├── portrait-headshot.jpg   # Editorial bio headshot
+│   └── yash_data.js            # Structured credentials & timeline dataset
+├── freelance.html              # Technical consulting & engagements page
+├── index.html                  # Core single-page portfolio (HTML, CSS, JS)
+├── index.md                    # Markdown profile summary for agents & readers
+├── llms.txt                    # Machine-readable portfolio summary
+├── privacy.html                # Privacy & analytics disclosure page
+├── sitemap.xml                 # Search engine sitemap
+└── README.md                   # Technical documentation and project overview
 ```
 
 ---

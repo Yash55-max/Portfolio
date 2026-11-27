@@ -2974,8 +2974,8 @@
 
         <div class="panel-content">
           <ul class="about-list">
-            <li>I'm a <strong>DevOps &amp; AI Systems Engineer</strong> architecting production Kubernetes clusters on AWS EKS, modular Terraform IaC, and declarative GitOps CI/CD pipelines.</li>
-            <li>Built <a href="#project-llm-devops" class="open-drawer-link" data-folder-id="llm-devops">llm-devops</a> (multi-AZ EKS + Ollama), <a href="#project-clearledger" class="open-drawer-link" data-folder-id="clearledger">ClearLedger</a> (AP reconciliation copilot), <a href="#project-bugshot" class="open-drawer-link" data-folder-id="bugshot">BugShot</a> (published Edge extension), <a href="#project-rag-api" class="open-drawer-link" data-folder-id="rag-api">rag-api</a> (~42ms p95 local lab benchmark), and <a href="#project-multi-agent" class="open-drawer-link" data-folder-id="multi-agent">Multi-Agent ADK</a>.</li>
+            <li>I'm a <strong>DevOps &amp; AI Systems Engineer</strong> architecting Kubernetes platforms on AWS EKS, modular Terraform IaC, declarative GitOps pipelines, and native Linux systems tooling.</li>
+            <li>Built <a href="#project-llm-devops" class="open-drawer-link" data-folder-id="llm-devops">llm-devops</a> (AWS EKS + Ollama + Prometheus), <a href="#project-bugshot" class="open-drawer-link" data-folder-id="bugshot">BugShot</a> (published Manifest V3 Edge &amp; Chrome extension), <a href="#project-thermals" class="open-drawer-link" data-folder-id="thermals">thermals</a> (Linux hwmon thermal control center), <a href="#project-clearledger" class="open-drawer-link" data-folder-id="clearledger">ClearLedger</a>, and <a href="#project-rag-api" class="open-drawer-link" data-folder-id="rag-api">rag-api</a>.</li>
           </ul>
         </div>
 
@@ -3024,49 +3024,49 @@
           <h3 class="subband-heading screen-line-bottom">Verified Shipped Milestones</h3>
           <div class="highlights-spotlight-grid">
             <button type="button" class="spotlight-card open-drawer-btn" data-folder-id="llm-devops">
-              <p class="spotlight-quote">Engineered a multi-AZ AWS EKS (v1.35) platform with Terraform VPC isolation, OIDC IRSA least-privilege storage roles, and ArgoCD GitOps delivery.</p>
+              <p class="spotlight-quote">Engineered an AWS EKS (v1.35) inference platform with Terraform VPC modules, OIDC ebs-csi-irsa storage roles, ArgoCD GitOps, and Alertmanager fault-injection drills.</p>
               <div class="spotlight-footer"><strong>llm-devops</strong><span>HCL · Kubernetes · AWS</span></div>
             </button>
 
-            <button type="button" class="spotlight-card open-drawer-btn" data-folder-id="clearledger">
-              <p class="spotlight-quote">Paired deterministic vendor invoice matching with LangGraph AI audit commentary, hitting 99.4% accuracy on synthetic AP reconciliation fixtures.</p>
-              <div class="spotlight-footer"><strong>ClearLedger</strong><span>FastAPI · LangGraph · React</span></div>
+            <button type="button" class="spotlight-card open-drawer-btn" data-folder-id="thermals">
+              <p class="spotlight-quote">Built a native Linux thermal control center that cut sustained CPU load temps from 84.5°C to 68–71°C at 92% throughput with strict PWM fan and battery charge rails.</p>
+              <div class="spotlight-footer"><strong>thermals (v1.2.0)</strong><span>Python · hwmon · Linux</span></div>
             </button>
 
             <div class="marquee-box">
               <div class="marquee-row left">
                 <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="llm-devops">
-                  <p class="marquee-tile-quote">Multi-AZ AWS EKS (v1.35) cluster with Terraform VPC isolation, NAT Gateway, and OIDC IRSA.</p>
+                  <p class="marquee-tile-quote">AWS EKS (v1.35) platform serving Ollama qwen2.5:0.5b + FastAPI with OIDC IRSA and ArgoCD.</p>
                   <div class="marquee-tile-meta"><span>llm-devops</span><span>HCL · EKS</span></div>
+                </button>
+                <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="bugshot">
+                  <p class="marquee-tile-quote">Manifest V3 Chrome &amp; Edge extension with full-page stitch, canvas annotations, and DevTools auto-capture.</p>
+                  <div class="marquee-tile-meta"><span>BugShot v3.1</span><span>Edge Add-ons</span></div>
+                </button>
+                <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="thermals">
+                  <p class="marquee-tile-quote">Closed-loop Linux hwmon thermal limiter dropping peak load 15°C+ while keeping 92% throughput.</p>
+                  <div class="marquee-tile-meta"><span>thermals</span><span>Linux · hwmon</span></div>
                 </button>
                 <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="clearledger">
                   <p class="marquee-tile-quote">Deterministic AP invoice reconciliation paired with LangGraph commentary (99.4% benchmark).</p>
                   <div class="marquee-tile-meta"><span>ClearLedger</span><span>FastAPI · React</span></div>
                 </button>
-                <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="bugshot">
-                  <p class="marquee-tile-quote">Published Manifest V3 Edge Add-on filing annotated bug screenshots straight to GitHub Issues.</p>
-                  <div class="marquee-tile-meta"><span>BugShot</span><span>Edge Add-ons</span></div>
-                </button>
-                <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="rag-api">
-                  <p class="marquee-tile-quote">Offline vector retrieval service running Ollama nomic-embed + ChromaDB (~42ms p95 lab).</p>
-                  <div class="marquee-tile-meta"><span>rag-api</span><span>Local AI</span></div>
-                </button>
                 <!-- Duplicate track -->
                 <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="llm-devops" aria-hidden="true" tabindex="-1">
-                  <p class="marquee-tile-quote">Multi-AZ AWS EKS (v1.35) cluster with Terraform VPC isolation, NAT Gateway, and OIDC IRSA.</p>
+                  <p class="marquee-tile-quote">AWS EKS (v1.35) platform serving Ollama qwen2.5:0.5b + FastAPI with OIDC IRSA and ArgoCD.</p>
                   <div class="marquee-tile-meta"><span>llm-devops</span><span>HCL · EKS</span></div>
+                </button>
+                <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="bugshot" aria-hidden="true" tabindex="-1">
+                  <p class="marquee-tile-quote">Manifest V3 Chrome &amp; Edge extension with full-page stitch, canvas annotations, and DevTools auto-capture.</p>
+                  <div class="marquee-tile-meta"><span>BugShot v3.1</span><span>Edge Add-ons</span></div>
+                </button>
+                <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="thermals" aria-hidden="true" tabindex="-1">
+                  <p class="marquee-tile-quote">Closed-loop Linux hwmon thermal limiter dropping peak load 15°C+ while keeping 92% throughput.</p>
+                  <div class="marquee-tile-meta"><span>thermals</span><span>Linux · hwmon</span></div>
                 </button>
                 <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="clearledger" aria-hidden="true" tabindex="-1">
                   <p class="marquee-tile-quote">Deterministic AP invoice reconciliation paired with LangGraph commentary (99.4% benchmark).</p>
                   <div class="marquee-tile-meta"><span>ClearLedger</span><span>FastAPI · React</span></div>
-                </button>
-                <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="bugshot" aria-hidden="true" tabindex="-1">
-                  <p class="marquee-tile-quote">Published Manifest V3 Edge Add-on filing annotated bug screenshots straight to GitHub Issues.</p>
-                  <div class="marquee-tile-meta"><span>BugShot</span><span>Edge Add-ons</span></div>
-                </button>
-                <button type="button" class="marquee-tile open-drawer-btn" data-folder-id="rag-api" aria-hidden="true" tabindex="-1">
-                  <p class="marquee-tile-quote">Offline vector retrieval service running Ollama nomic-embed + ChromaDB (~42ms p95 lab).</p>
-                  <div class="marquee-tile-meta"><span>rag-api</span><span>Local AI</span></div>
                 </button>
               </div>
 
@@ -3136,8 +3136,8 @@
           <button type="button" class="cap-cell open-drawer-btn" data-folder-id="llm-devops"><span>Prometheus &amp; Grafana</span><span class="cap-arrow" aria-hidden="true">&nearr;</span></button>
           <button type="button" class="cap-cell open-drawer-btn" data-folder-id="clearledger"><span>AP Reconciliation AI</span><span class="cap-arrow" aria-hidden="true">&nearr;</span></button>
           <button type="button" class="cap-cell open-drawer-btn" data-folder-id="rag-api"><span>Local Vector RAG</span><span class="cap-arrow" aria-hidden="true">&nearr;</span></button>
-          <button type="button" class="cap-cell open-drawer-btn" data-folder-id="rag-api"><span>Ollama Model Serving</span><span class="cap-arrow" aria-hidden="true">&nearr;</span></button>
-          <button type="button" class="cap-cell open-drawer-btn" data-folder-id="multi-agent"><span>Multi-Agent ADK</span><span class="cap-arrow" aria-hidden="true">&nearr;</span></button>
+          <button type="button" class="cap-cell open-drawer-btn" data-folder-id="bugshot"><span>Chrome &amp; Edge MV3</span><span class="cap-arrow" aria-hidden="true">&nearr;</span></button>
+          <button type="button" class="cap-cell open-drawer-btn" data-folder-id="thermals"><span>Linux Thermal Control</span><span class="cap-arrow" aria-hidden="true">&nearr;</span></button>
         </div>
       </section>
 
@@ -3158,14 +3158,42 @@
               <div class="bp-preview-frame">
                 <div class="bp-preview-top"><span>~/infra $ tf apply</span><span class="bp-badge">EKS v1.35</span></div>
                 <div class="bp-nodes-row">
-                  <div class="bp-node">ALB Ingress</div><span>&rarr;</span>
-                  <div class="bp-node active">Private AZs</div><span>&rarr;</span>
-                  <div class="bp-node">IRSA + EBS</div>
+                  <div class="bp-node">CLB :8000</div><span>&rarr;</span>
+                  <div class="bp-node active">Ollama :11434</div><span>&rarr;</span>
+                  <div class="bp-node">EBS gp3 IRSA</div>
                 </div>
-                <div class="bp-preview-top"><span>3 Nodes · 12 Pods (Lab)</span><span>GitOps Sync</span></div>
+                <div class="bp-preview-top"><span>ap-south-1a/1b · qwen2.5:0.5b</span><span>GitOps Sync</span></div>
               </div>
               <h3 class="bp-title">llm-devops · AWS EKS Platform</h3>
-              <p class="bp-desc">Private multi-AZ subnets, NAT Gateway, ClusterIP inference serving, and Prometheus SRE alerts.</p>
+              <p class="bp-desc">Terraform VPC + EKS v1.35 serving FastAPI &amp; Ollama, ArgoCD GitOps, and Alertmanager SRE alerts.</p>
+            </button>
+
+            <button type="button" class="blueprint-item open-drawer-btn screen-line-top screen-line-bottom" data-folder-id="bugshot">
+              <div class="bp-preview-frame">
+                <div class="bp-preview-top"><span>manifest_version: 3</span><span class="bp-badge">v3.1.0 Live</span></div>
+                <div class="bp-nodes-row">
+                  <div class="bp-node">Stitch &amp; Draw</div><span>&rarr;</span>
+                  <div class="bp-node active">Console + Net</div><span>&rarr;</span>
+                  <div class="bp-node">GitHub API</div>
+                </div>
+                <div class="bp-preview-top"><span>Last 20 Steps · 4xx/5xx</span><span>1-Click Issue</span></div>
+              </div>
+              <h3 class="bp-title">BugShot · Screenshot-to-Issue</h3>
+              <p class="bp-desc">Multi-context Chrome &amp; Edge MV3 extension stitching full-page captures, annotations, and runtime logs.</p>
+            </button>
+
+            <button type="button" class="blueprint-item open-drawer-btn screen-line-top screen-line-bottom" data-folder-id="thermals">
+              <div class="bp-preview-frame">
+                <div class="bp-preview-top"><span>$ thermals --json</span><span class="bp-badge">v1.2.0</span></div>
+                <div class="bp-nodes-row">
+                  <div class="bp-node">hwmon / ACPI</div><span>&rarr;</span>
+                  <div class="bp-node active">Thermal Limiter</div><span>&rarr;</span>
+                  <div class="bp-node">50 PWM Rail</div>
+                </div>
+                <div class="bp-preview-top"><span>84.5&deg;C &rarr; 68-71&deg;C</span><span>92% Throughput</span></div>
+              </div>
+              <h3 class="bp-title">thermals · Linux Control Center</h3>
+              <p class="bp-desc">Closed-loop Linux thermal limiter, strict PWM fan rails, and ACPI battery charge caps for desktop &amp; CLI.</p>
             </button>
 
             <button type="button" class="blueprint-item open-drawer-btn screen-line-top screen-line-bottom" data-folder-id="clearledger">
@@ -3180,34 +3208,6 @@
               </div>
               <h3 class="bp-title">ClearLedger · AP Reconciliation</h3>
               <p class="bp-desc">Deterministic vendor invoice matching paired with LangGraph generative AI audit commentary.</p>
-            </button>
-
-            <button type="button" class="blueprint-item open-drawer-btn screen-line-top screen-line-bottom" data-folder-id="rag-api">
-              <div class="bp-preview-frame">
-                <div class="bp-preview-top"><span>POST /v1/query</span><span class="bp-badge">~42ms p95 (Lab)</span></div>
-                <div class="bp-nodes-row">
-                  <div class="bp-node">nomic-embed</div><span>&rarr;</span>
-                  <div class="bp-node active">ChromaDB</div><span>&rarr;</span>
-                  <div class="bp-node">Ollama LLM</div>
-                </div>
-                <div class="bp-preview-top"><span>Top-5 · Cos 0.884 (Lab)</span><span>Zero Egress</span></div>
-              </div>
-              <h3 class="bp-title">rag-api · Local Vector Engine</h3>
-              <p class="bp-desc">Async FastAPI retrieval pipeline benchmarked at ~42ms p95 locally with zero external egress.</p>
-            </button>
-
-            <button type="button" class="blueprint-item open-drawer-btn screen-line-top screen-line-bottom" data-folder-id="multi-agent">
-              <div class="bp-preview-frame">
-                <div class="bp-preview-top"><span>pubsub.broadcast()</span><span class="bp-badge">DAG Active</span></div>
-                <div class="bp-nodes-row">
-                  <div class="bp-node">Coordinator</div><span>&rarr;</span>
-                  <div class="bp-node active">Worker Pool</div><span>&rarr;</span>
-                  <div class="bp-node">Verifier</div>
-                </div>
-                <div class="bp-preview-top"><span>AsyncIO Swarm</span><span>Approval Gates</span></div>
-              </div>
-              <h3 class="bp-title">Multi-Agent ADK · Swarm Flow</h3>
-              <p class="bp-desc">Distributed specialist agent orchestration with shared state and sandboxed tool calls.</p>
             </button>
           </div>
         </div>
@@ -3708,7 +3708,7 @@
                 <h3 class="split-row-title">
                   <button type="button" class="split-row-trigger" aria-expanded="true" aria-controls="proj-body-llm">llm-devops</button>
                 </h3>
-                <dl class="meta-dl" style="padding-left:0;"><dd>08.2026 — &infin; · AWS EKS &amp; Terraform Platform</dd></dl>
+                <dl class="meta-dl" style="padding-left:0;"><dd>08.2026 — 09.2026 · AWS EKS, Terraform &amp; GitOps Platform</dd></dl>
               </div>
               <a href="https://github.com/Yash55-max/llm-devops" target="_blank" rel="noopener noreferrer" class="split-row-ext" aria-label="Open llm-devops on GitHub" title="Open repository">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
@@ -3717,13 +3717,13 @@
             </div>
           </div>
           <div id="proj-body-llm" class="split-row-body">
-            <p class="bp-desc">Self-serve LLM inference platform progressing from local kind clusters to production AWS EKS (Kubernetes v1.35) with Terraform IaC, GitOps ArgoCD, and Prometheus/Alertmanager SRE monitoring.</p>
+            <p class="bp-desc">Self-serve LLM inference platform progressing from local kind clusters to AWS EKS (Kubernetes v1.35) serving quantized Ollama (<code>qwen2.5:0.5b</code>) and a decoupled FastAPI gateway behind an AWS Classic Load Balancer.</p>
             <ul class="tree-bullets">
-              <li>3 Nodes · 12 Pods (Lab Deployment) inside private subnets across 3 Availability Zones (<code>ap-south-1a/b/c</code>).</li>
-              <li>Scoped IAM Roles for Service Accounts (<code>ebs-csi-irsa</code>) via OIDC federation instead of node-wide policies.</li>
-              <li>Automated GitOps rolling deployments from GHCR digests validated with fault-injection alert drills.</li>
+              <li>Modular Terraform provisions VPC <code>10.0.0.0/16</code> across <code>ap-south-1a</code> &amp; <code>ap-south-1b</code>, <code>t3.small</code> managed nodes, and OIDC least-privilege IRSA (<code>ebs-csi-irsa</code>) for dynamic EBS <code>gp3</code> storage.</li>
+              <li>GitHub Actions runs <code>ruff</code> + <code>pytest</code> and pushes immutable SHA digests to GHCR; ArgoCD automates GitOps sync inside the <code>llm-serving</code> namespace.</li>
+              <li>Instrumented with <code>kube-prometheus-stack</code> SRE Golden Signals dashboards and Alertmanager fault-injection firing tests.</li>
             </ul>
-            <p class="honest-note"><strong>What I would change:</strong> Replace the single-region NAT Gateway with AWS VPC Interface Endpoints for ECR/STS in higher-traffic environments to eliminate idle hourly NAT cost.</p>
+            <p class="honest-note"><strong>What I would change:</strong> Place EKS worker nodes in private subnets behind an ALB + NAT Gateway/VPC Endpoints instead of public subnets for stricter network isolation.</p>
             <div class="row-actions">
               <button type="button" class="eink-btn open-drawer-btn" data-folder-id="llm-devops">Open Architecture Dossier</button>
               <a href="https://github.com/Yash55-max/llm-devops#readme" target="_blank" rel="noopener noreferrer" class="eink-btn">README &rarr;</a>
@@ -3732,9 +3732,9 @@
               <li class="tag-pill">AWS EKS</li>
               <li class="tag-pill">Terraform</li>
               <li class="tag-pill">ArgoCD</li>
-              <li class="tag-pill">Helm</li>
+              <li class="tag-pill">Ollama</li>
+              <li class="tag-pill">FastAPI</li>
               <li class="tag-pill">Prometheus</li>
-              <li class="tag-pill">Grafana</li>
             </ul>
           </div>
         </div>
@@ -3743,6 +3743,85 @@
         <div class="split-row">
           <div class="split-row-head">
             <span class="icon-tile split-row-icon" aria-hidden="true">02</span>
+            <div class="split-row-main">
+              <div class="split-row-info">
+                <h3 class="split-row-title">
+                  <button type="button" class="split-row-trigger" aria-expanded="false" aria-controls="proj-body-bugshot">BugShot</button>
+                </h3>
+                <dl class="meta-dl" style="padding-left:0;"><dd>05.2026 — 07.2026 · v3.1.0 Manifest V3 Edge &amp; Chrome Extension</dd></dl>
+              </div>
+              <a href="https://github.com/Yash55-max/BugShot" target="_blank" rel="noopener noreferrer" class="split-row-ext" aria-label="Open BugShot on GitHub" title="Open repository">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              </a>
+              <span class="chevron-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg></span>
+            </div>
+          </div>
+          <div id="proj-body-bugshot" class="split-row-body" hidden>
+            <p class="bp-desc">Published Microsoft Edge Add-on &amp; Chrome Manifest V3 extension (<code>v3.1.0</code>) built to capture, annotate, and file bug reports directly to GitHub Issues in one click.</p>
+            <ul class="tree-bullets">
+              <li>Multi-context architecture (<code>background/</code>, <code>content/</code>, <code>devtools/</code>, <code>popup/</code>) supporting viewport capture, full-page scroll-and-stitch capture, drag-select crop, and a 3s DevTools console countdown.</li>
+              <li>Built-in annotation suite with freehand pen, rectangle, arrow, text overlays, 4 colors, and per-stroke undo prior to GitHub issue creation.</li>
+              <li>Auto-attaches the last 20 user interactions (steps to reproduce), intercepted console errors/rejections, failed <code>4xx</code>/<code>5xx</code> XHR/fetch requests, environment metadata, and a live DevTools panel tab.</li>
+            </ul>
+            <p class="honest-note"><strong>Limitation:</strong> Targets Chromium Manifest V3 APIs (<code>chrome.devtools</code> / Edge Add-ons); Firefox WebExtension packaging is not yet included.</p>
+            <div class="row-actions">
+              <button type="button" class="eink-btn open-drawer-btn" data-folder-id="bugshot">Open Project Dossier</button>
+              <a href="https://microsoftedge.microsoft.com/addons/detail/bugshot-%E2%80%94-screenshot-to-b/lnbigkmakadfhlnboifiapodmabfplmb" target="_blank" rel="noopener noreferrer" class="eink-btn">Edge Store &rarr;</a>
+              <a href="https://github.com/Yash55-max/BugShot#readme" target="_blank" rel="noopener noreferrer" class="eink-btn">README &rarr;</a>
+            </div>
+            <ul class="tree-tags">
+              <li class="tag-pill">JavaScript</li>
+              <li class="tag-pill">Manifest V3</li>
+              <li class="tag-pill">Chrome DevTools API</li>
+              <li class="tag-pill">Canvas API</li>
+              <li class="tag-pill">GitHub REST API</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="split-row">
+          <div class="split-row-head">
+            <span class="icon-tile split-row-icon" aria-hidden="true">03</span>
+            <div class="split-row-main">
+              <div class="split-row-info">
+                <h3 class="split-row-title">
+                  <button type="button" class="split-row-trigger" aria-expanded="false" aria-controls="proj-body-thermals">thermals</button>
+                </h3>
+                <dl class="meta-dl" style="padding-left:0;"><dd>11.2026 · v1.2.0 Linux Thermal &amp; Power Control Center</dd></dl>
+              </div>
+              <a href="https://github.com/Yash55-max/thermals" target="_blank" rel="noopener noreferrer" class="split-row-ext" aria-label="Open thermals on GitHub" title="Open repository">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              </a>
+              <span class="chevron-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg></span>
+            </div>
+          </div>
+          <div id="proj-body-thermals" class="split-row-body" hidden>
+            <p class="bp-desc">Native Linux desktop application &amp; headless CLI (<code>asus-thermals-control</code> <code>v1.2.0</code>) for monitoring hardware telemetry and actively governing temperatures, cooling policies, fan curves, and ACPI battery charge limits.</p>
+            <ul class="tree-bullets">
+              <li>Closed-loop graduated thermal limiter tested reducing sustained CPU peak temperature from <code>84.5&deg;C</code> to <code>68&deg;C&ndash;71&deg;C</code> (<code>~15&deg;C&ndash;16&deg;C</code> cooler) while sustaining <code>92%</code> compute throughput.</li>
+              <li>Enforces strict PWM fan safety rails (<code>50</code> PWM / <code>~20%</code> stall floor, <code>80.0&deg;C</code> emergency automatic reset, plus <code>SIGINT</code>/<code>SIGTERM</code>/<code>SIGHUP</code>/<code>atexit</code> hardware state cleanup).</li>
+              <li>Verified on ASUS Vivobook Go E1504FA (Ryzen 5 7520U <code>k10temp</code>, Radeon 610M <code>amdgpu</code>, NVMe, <code>asus-nb-wmi</code>) with Intel/NVIDIA <code>hwmon</code> support, battery caps (<code>60%</code>/<code>80%</code>/<code>100%</code>), <code>.deb</code>/<code>PKGBUILD</code>/<code>RPM</code> packaging, and <code>--json</code> CLI for Waybar/Polybar.</li>
+            </ul>
+            <p class="honest-note"><strong>Limitation:</strong> Custom PWM fan speed and battery charge threshold writes depend on kernel <code>hwmon</code> / WMI driver exposure on the host laptop.</p>
+            <div class="row-actions">
+              <button type="button" class="eink-btn open-drawer-btn" data-folder-id="thermals">Open Project Dossier</button>
+              <a href="https://github.com/Yash55-max/thermals#readme" target="_blank" rel="noopener noreferrer" class="eink-btn">README &rarr;</a>
+            </div>
+            <ul class="tree-tags">
+              <li class="tag-pill">Python</li>
+              <li class="tag-pill">Linux hwmon / ACPI</li>
+              <li class="tag-pill">Tkinter GUI</li>
+              <li class="tag-pill">Waybar / CLI JSON</li>
+              <li class="tag-pill">.deb / RPM / AUR</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Project 4 (Extra) -->
+        <div class="split-row extra-item" data-group="proj" hidden>
+          <div class="split-row-head">
+            <span class="icon-tile split-row-icon" aria-hidden="true">04</span>
             <div class="split-row-main">
               <div class="split-row-info">
                 <h3 class="split-row-title">
@@ -3778,49 +3857,10 @@
           </div>
         </div>
 
-        <!-- Project 3 -->
-        <div class="split-row">
-          <div class="split-row-head">
-            <span class="icon-tile split-row-icon" aria-hidden="true">03</span>
-            <div class="split-row-main">
-              <div class="split-row-info">
-                <h3 class="split-row-title">
-                  <button type="button" class="split-row-trigger" aria-expanded="false" aria-controls="proj-body-bugshot">BugShot</button>
-                </h3>
-                <dl class="meta-dl" style="padding-left:0;"><dd>05.2026 — 08.2026 · Manifest V3 Edge Extension</dd></dl>
-              </div>
-              <a href="https://github.com/Yash55-max/BugShot" target="_blank" rel="noopener noreferrer" class="split-row-ext" aria-label="Open BugShot on GitHub" title="Open repository">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-              </a>
-              <span class="chevron-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg></span>
-            </div>
-          </div>
-          <div id="proj-body-bugshot" class="split-row-body" hidden>
-            <p class="bp-desc">Published Microsoft Edge Add-on enabling developers to capture, annotate, and file visual bug reports straight to GitHub Issues in one workflow.</p>
-            <ul class="tree-bullets">
-              <li>Multi-context Manifest V3 architecture: background service worker, content scripts, and custom DevTools panel.</li>
-              <li>Automatically captures viewport/browser metadata and console context without tab switching.</li>
-              <li>Integrated with the GitHub REST API for one-click issue submission and image asset attachment.</li>
-            </ul>
-            <p class="honest-note"><strong>Limitation:</strong> Targets Chromium Manifest V3 APIs (<code>chrome.devtools</code> / Edge Add-ons); Mozilla Firefox WebExtension port is not yet packaged.</p>
-            <div class="row-actions">
-              <button type="button" class="eink-btn open-drawer-btn" data-folder-id="bugshot">Open Project Dossier</button>
-              <a href="https://microsoftedge.microsoft.com/addons/detail/bugshot-%E2%80%94-screenshot-to-b/lnbigkmakadfhlnboifiapodmabfplmb" target="_blank" rel="noopener noreferrer" class="eink-btn">Edge Store &rarr;</a>
-              <a href="https://github.com/Yash55-max/BugShot#readme" target="_blank" rel="noopener noreferrer" class="eink-btn">README &rarr;</a>
-            </div>
-            <ul class="tree-tags">
-              <li class="tag-pill">JavaScript</li>
-              <li class="tag-pill">Manifest V3</li>
-              <li class="tag-pill">Chrome DevTools API</li>
-              <li class="tag-pill">GitHub REST API</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Project 4 (Extra) -->
+        <!-- Project 5 (Extra) -->
         <div class="split-row extra-item" data-group="proj" hidden>
           <div class="split-row-head">
-            <span class="icon-tile split-row-icon" aria-hidden="true">04</span>
+            <span class="icon-tile split-row-icon" aria-hidden="true">05</span>
             <div class="split-row-main">
               <div class="split-row-info">
                 <h3 class="split-row-title">
@@ -3851,44 +3891,6 @@
               <li class="tag-pill">FastAPI</li>
               <li class="tag-pill">LangChain</li>
               <li class="tag-pill">Docker</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Project 5 (Extra) -->
-        <div class="split-row extra-item" data-group="proj" hidden>
-          <div class="split-row-head">
-            <span class="icon-tile split-row-icon" aria-hidden="true">05</span>
-            <div class="split-row-main">
-              <div class="split-row-info">
-                <h3 class="split-row-title">
-                  <button type="button" class="split-row-trigger" aria-expanded="false" aria-controls="proj-body-adk">Multi-Agent ADK</button>
-                </h3>
-                <dl class="meta-dl" style="padding-left:0;"><dd>04.2026 · Distributed Agent Orchestration</dd></dl>
-              </div>
-              <a href="https://github.com/Yash55-max/multi-agent-adk" target="_blank" rel="noopener noreferrer" class="split-row-ext" aria-label="Open Multi-Agent ADK on GitHub" title="Open repository">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-              </a>
-              <span class="chevron-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg></span>
-            </div>
-          </div>
-          <div id="proj-body-adk" class="split-row-body" hidden>
-            <p class="bp-desc">Python AsyncIO orchestration framework where distributed specialist agents delegate subtasks and verify Pydantic tool calls safely.</p>
-            <ul class="tree-bullets">
-              <li>Structured coordinator-to-verifier execution flow with typed Pydantic message contracts.</li>
-              <li>Includes human-in-the-loop gate hooks prior to external state mutations.</li>
-            </ul>
-            <p class="honest-note"><strong>Limitation:</strong> Orchestration prototype storing shared run state in local memory; durable crash recovery requires external Postgres checkpointers.</p>
-            <div class="row-actions">
-              <button type="button" class="eink-btn open-drawer-btn" data-folder-id="multi-agent">Open Project Dossier</button>
-              <a href="https://github.com/Yash55-max/multi-agent-adk" target="_blank" rel="noopener noreferrer" class="eink-btn">GitHub &rarr;</a>
-            </div>
-            <ul class="tree-tags">
-              <li class="tag-pill">Python</li>
-              <li class="tag-pill">Google ADK</li>
-              <li class="tag-pill">AsyncIO</li>
-              <li class="tag-pill">LangGraph</li>
-              <li class="tag-pill">Pydantic</li>
             </ul>
           </div>
         </div>
@@ -4237,10 +4239,10 @@
       <button type="button" class="cmd-item" data-cmd="scroll:#experience"><span>Go to Experience</span><span class="kbd-chip">Section</span></button>
       <button type="button" class="cmd-item" data-cmd="scroll:#recognition"><span>Go to Recognition</span><span class="kbd-chip">Section</span></button>
       <button type="button" class="cmd-item" data-cmd="dossier:llm-devops"><span>Open llm-devops Architecture Dossier</span><span class="kbd-chip">Dossier</span></button>
-      <button type="button" class="cmd-item" data-cmd="dossier:clearledger"><span>Open ClearLedger Project Dossier</span><span class="kbd-chip">Dossier</span></button>
       <button type="button" class="cmd-item" data-cmd="dossier:bugshot"><span>Open BugShot Extension Dossier</span><span class="kbd-chip">Dossier</span></button>
+      <button type="button" class="cmd-item" data-cmd="dossier:thermals"><span>Open thermals Linux Control Dossier</span><span class="kbd-chip">Dossier</span></button>
+      <button type="button" class="cmd-item" data-cmd="dossier:clearledger"><span>Open ClearLedger Project Dossier</span><span class="kbd-chip">Dossier</span></button>
       <button type="button" class="cmd-item" data-cmd="dossier:rag-api"><span>Open rag-api Project Dossier</span><span class="kbd-chip">Dossier</span></button>
-      <button type="button" class="cmd-item" data-cmd="dossier:multi-agent"><span>Open Multi-Agent ADK Dossier</span><span class="kbd-chip">Dossier</span></button>
       <button type="button" class="cmd-item" data-cmd="dossier:runbook-nat"><span>Read Runbook: Private Subnets &amp; NAT GW</span><span class="kbd-chip">Runbook</span></button>
       <button type="button" class="cmd-item" data-cmd="action:ai"><span>Open Yashwanth's AI Assistant</span><span class="kbd-chip">AI</span></button>
       <button type="button" class="cmd-item" data-cmd="action:copy-email"><span>Copy Email (yashwanthponnam55@gmail.com)</span><span class="kbd-chip">Copy</span></button>
@@ -4803,16 +4805,16 @@
     const projectData = {
       'llm-devops': {
         title: 'llm-devops',
-        tagline: 'Self-serve LLM inference platform on AWS EKS with Terraform IaC & GitOps',
-        context: 'Cloud Infrastructure & MLOps (08.2026 – Present)',
+        tagline: 'Self-serve LLM inference platform on Kubernetes — from local kind to AWS EKS',
+        context: 'Cloud Infrastructure & MLOps (08.2026 – 09.2026)',
         role: 'Platform & DevOps Engineer',
-        stack: 'AWS EKS, Terraform, Helm, ArgoCD, Prometheus, Grafana',
-        impact: 'Automated GitOps CD, rolling deploys, Prometheus alerting',
-        overview: 'Engineered modular Terraform configurations provisioning Amazon EKS (Kubernetes v1.35), custom multi-AZ VPC networking, and least-privilege IAM Roles for Service Accounts (IRSA). Deployed containerized Ollama and FastAPI inference gateways decoupled via Kubernetes ClusterIP service discovery.',
-        outcomes: 'Full-stack SRE Golden Signals monitoring with kube-prometheus-stack, Alertmanager incident routing validated through fault injection, and automated GitHub Actions CI/CD to GHCR.',
+        stack: 'HCL, Terraform, AWS EKS (v1.35), Ollama, FastAPI, ArgoCD, Prometheus, Grafana',
+        impact: 'Automated GitOps CD, OIDC IRSA storage, Alertmanager fault drills',
+        overview: 'Engineered modular Terraform modules provisioning Amazon EKS (Kubernetes v1.35, t3.small nodes across ap-south-1a & ap-south-1b in VPC 10.0.0.0/16) and a least-privilege OIDC IRSA role (ebs-csi-irsa) for dynamic gp3 volumes. Deployed quantized Ollama (qwen2.5:0.5b on :11434) + FastAPI gateway (:8000) in the llm-serving namespace behind an AWS Classic Load Balancer.',
+        outcomes: 'GitHub Actions enforces ruff + pytest and publishes immutable SHA digests to GHCR for ArgoCD reconciliation, backed by kube-prometheus-stack Golden Signals and verified Alertmanager fault-injection firing tests.',
         demo: 'https://github.com/Yash55-max/llm-devops#readme',
         repo: 'https://github.com/Yash55-max/llm-devops',
-        customBlock: 'PUBLIC INTERNET\n       │ HTTPS / HTTP (:443 / :80)\n       ▼\nAWS ALB Ingress [Public Subnets multi-AZ] ──▶ NAT Gateway\n       │\n       ▼\nAWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16\n  Private AZs (1a/1b/1c): t3.small × 3 · FastAPI → Ollama · ArgoCD · Prom'
+        customBlock: 'PUBLIC INTERNET (:8000)\n       │\n       ▼\nAWS Classic Load Balancer [*.ap-south-1.elb.amazonaws.com]\n       │\n       ▼\nAWS EKS CLUSTER (v1.35 · ap-south-1a/1b · VPC 10.0.0.0/16)\n  FastAPI Gateway (:8000) ──▶ Ollama qwen2.5:0.5b (:11434) [ebs-csi-irsa gp3]\n  GitHub Actions (ruff + pytest + GHCR SHA) ──▶ ArgoCD ──▶ kube-prometheus-stack'
       },
       'clearledger': {
         title: 'ClearLedger',
@@ -4829,16 +4831,16 @@
       },
       'bugshot': {
         title: 'BugShot',
-        tagline: 'Manifest V3 Screenshot-to-GitHub-Issues Browser Extension',
-        context: 'Developer Tooling · Microsoft Edge Add-ons Store (05.2026 – 08.2026)',
+        tagline: 'Capture, annotate, and file bug reports to GitHub in one click (v3.1.0)',
+        context: 'Developer Tooling · Microsoft Edge Add-ons & Chrome MV3 (05.2026 – 07.2026)',
         role: 'Extension Architect',
-        stack: 'JavaScript, Manifest V3, Chrome DevTools API, GitHub REST API',
-        impact: 'Published live on Microsoft Edge Add-ons Store',
-        overview: 'Built and published a multi-context Manifest V3 browser extension combining a background service worker, content scripts, and a custom DevTools panel to capture, annotate, and file bug reports directly to GitHub Issues.',
-        outcomes: 'Eliminates manual screenshot saving and tab switching by attaching annotated captures and runtime browser metadata straight into repository issue threads.',
+        stack: 'JavaScript, Manifest V3, Chrome DevTools API, Canvas API, GitHub REST API',
+        impact: 'Published live on Microsoft Edge Add-ons Store (v3.1.0)',
+        overview: 'Built a multi-context Manifest V3 Chrome & Edge extension (background/, content/, devtools/, popup/) supporting viewport capture, full-page scroll-and-stitch screenshots, drag-select crop, 3s DevTools console countdown, and canvas annotations (freehand, rectangle, arrow, text, 4 colors, per-stroke undo).',
+        outcomes: 'Auto-attaches the last 20 user interactions (steps to reproduce), intercepted console errors/rejections, fetch/XHR 4xx/5xx failures, environment metadata (URL, OS, viewport, browser), and a dedicated DevTools panel tab directly into GitHub Issues.',
         demo: 'https://microsoftedge.microsoft.com/addons/detail/bugshot-%E2%80%94-screenshot-to-b/lnbigkmakadfhlnboifiapodmabfplmb',
         repo: 'https://github.com/Yash55-max/BugShot',
-        customBlock: 'BugShot Flow:\n  [Content Script] + [DevTools Panel] ─▶ [Background SW] ─▶ GitHub REST API (/issues)'
+        customBlock: 'BugShot v3.1.0 Flow:\n  [Stitch/Crop + Canvas Annotate] + [20 Steps + Console Errors + 4xx/5xx]\n       │\n       ▼\n  [MV3 Service Worker + DevTools Panel] ──▶ GitHub REST API (/issues)'
       },
       'rag-api': {
         title: 'rag-api',
@@ -4853,18 +4855,18 @@
         repo: 'https://github.com/Yash55-max/rag-api',
         customBlock: 'rag-api Flow:\n  POST /v1/query ─▶ [FastAPI] ─▶ [ChromaDB + nomic-embed] (~42ms p95) ─▶ [Ollama]'
       },
-      'multi-agent': {
-        title: 'Multi-Agent ADK',
-        tagline: 'Autonomous Multi-Agent Orchestration & Tool Execution Swarm',
-        context: 'Distributed Agentic Systems (04.2026)',
+      'thermals': {
+        title: 'thermals',
+        tagline: 'Native Linux Thermal Control Center & Hardware Telemetry Daemon (v1.2.0)',
+        context: 'Linux Systems Engineering · asus-thermals-control (11.2026)',
         role: 'Systems Author',
-        stack: 'Python, Google ADK, AsyncIO, LangGraph, Pydantic',
-        impact: 'Modular async worker routing & Pydantic tool contracts',
-        overview: 'Designed a lightweight framework allowing distributed specialist agents to exchange typed Pydantic state, coordinate subtasks, and execute tool calls behind human-in-the-loop gate checks.',
-        outcomes: 'Validated multi-step coordinator-to-verifier pipelines cleanly in AsyncIO queues prior to adding persistent checkpointers.',
-        demo: 'https://github.com/Yash55-max/multi-agent-adk',
-        repo: 'https://github.com/Yash55-max/multi-agent-adk',
-        customBlock: 'Multi-Agent ADK:\n  [Coordinator] ─▶ [AsyncIO Workers] ─▶ [Pydantic Verifier] ─▶ [Approval Gate]'
+        stack: 'Python, Linux hwmon/sysfs, ACPI platform_profile, Tkinter GUI, CLI (--json), .deb/RPM/PKGBUILD',
+        impact: '84.5°C → 68–71°C sustained load (-15°C–16°C) at 92% throughput',
+        overview: 'Built a native Linux control center (GUI + headless --status / --list-hardware / --json CLI for Waybar/Polybar) that monitors CPU/GPU/NVMe/fan/battery telemetry across AMD k10temp/amdgpu, Intel coretemp/intel_pstate, NVIDIA SMI, and asus-nb-wmi sysfs interfaces while enforcing closed-loop cooling policies.',
+        outcomes: 'Graduated thermal limiter reduced ASUS Vivobook Go E1504FA (Ryzen 5 7520U) sustained peak temperatures from 84.5°C to 68–71°C at 92% throughput. Enforces a strict 50 PWM (~20%) fan stall floor, 80.0°C emergency restore, 60%/80%/100% battery charge caps, throttling detection, and clean SIGINT/SIGTERM/SIGHUP/atexit hardware restoration.',
+        demo: 'https://github.com/Yash55-max/thermals#readme',
+        repo: 'https://github.com/Yash55-max/thermals',
+        customBlock: 'thermals Control Loop (v1.2.0):\n  [hwmon / k10temp / amdgpu / NVMe] ─▶ [Graduated Thermal Limiter]\n       │                                        │\n       ▼                                        ▼\n  [Waybar --json / Tkinter UI]          [50 PWM Floor | 80°C Emergency Reset | BAT0 Cap]'
       },
       'runbook-nat': {
         title: 'Runbook: Private Subnets & NAT Gateway on EKS',
@@ -5057,13 +5059,14 @@
 
     function getAiResponse(query) {
       const q = query.toLowerCase();
-      if (q.includes('kubernetes') || q.includes('eks')) return "Yashwanth architects multi-AZ Amazon EKS (v1.35) clusters with Terraform VPC isolation, OIDC IRSA least-privilege roles, ArgoCD GitOps delivery, and Prometheus/Grafana monitoring.";
+      if (q.includes('kubernetes') || q.includes('eks') || q.includes('llm-devops')) return "llm-devops provisions AWS EKS (v1.35, ap-south-1a/1b) via modular Terraform, serves Ollama qwen2.5:0.5b + FastAPI behind an AWS Classic Load Balancer, uses ebs-csi-irsa for EBS gp3, and ships with ArgoCD GitOps + kube-prometheus-stack Alertmanager drills.";
+      if (q.includes('thermal') || q.includes('linux') || q.includes('hwmon') || q.includes('fan') || q.includes('battery')) return "thermals (asus-thermals-control v1.2.0) is a native Linux GUI + headless --json CLI for hwmon/ACPI telemetry and cooling control. Its graduated thermal limiter cut peak load temps from 84.5°C to 68–71°C at 92% throughput with a 50 PWM fan floor and 80°C emergency auto-restore.";
+      if (q.includes('bugshot') || q.includes('extension')) return "BugShot (v3.1.0) is a published Manifest V3 Microsoft Edge & Chrome extension with viewport/full-page stitch captures, canvas annotations, and automatic attachment of the last 20 user steps, console errors, and 4xx/5xx requests straight to GitHub Issues.";
       if (q.includes('clearledger') || q.includes('invoice')) return "ClearLedger combines deterministic vendor invoice matching with LangGraph AI audit commentary, benchmarked at 99.4% accuracy on synthetic AP datasets.";
-      if (q.includes('bugshot')) return "BugShot is a Manifest V3 Microsoft Edge Add-on built by Yashwanth to capture, annotate, and submit visual bug reports straight to GitHub Issues.";
       if (q.includes('rag') || q.includes('chroma') || q.includes('ollama')) return "rag-api pairs FastAPI, ChromaDB, and local Ollama embeddings to deliver ~42ms p95 semantic lookup latency locally with zero external egress.";
       if (q.includes('role') || q.includes('available') || q.includes('hire')) return "Yashwanth graduated from KIET (B.Tech CSE Data Science, 8.1/10 CGPA) and is open to full-time DevOps, Platform Engineering, and AI Systems roles at yashwanthponnam55@gmail.com.";
-      if (q.includes('tool') || q.includes('language') || q.includes('stack')) return "Core stack: Kubernetes (AWS EKS), Terraform, ArgoCD, Docker, Prometheus, Grafana, Python, FastAPI, LangGraph, Ollama, ChromaDB, TypeScript, and PostgreSQL.";
-      return "Ask about AWS EKS (llm-devops), ClearLedger, BugShot, rag-api, certifications, or full-time engineering availability.";
+      if (q.includes('tool') || q.includes('language') || q.includes('stack')) return "Core stack: Kubernetes (AWS EKS), Terraform, ArgoCD, Docker, Prometheus, Grafana, Python, Linux hwmon/ACPI, FastAPI, LangGraph, Ollama, ChromaDB, TypeScript, and JavaScript (Manifest V3).";
+      return "Ask about llm-devops (AWS EKS), BugShot (v3.1.0 Edge/Chrome extension), thermals (Linux hwmon control center), ClearLedger, rag-api, or full-time engineering availability.";
     }
 
     function appendMessage(sender, text) {
