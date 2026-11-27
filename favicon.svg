@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="10" fill="#050608" stroke="#7fe3ff" stroke-width="4"/>
-  <!-- High Tech Matrix Grid Details -->
-  <line x1="8" y1="32" x2="56" y2="32" stroke="#12234f" stroke-width="2" stroke-dasharray="4,4"/>
-  <line x1="32" y1="8" x2="32" y2="56" stroke="#12234f" stroke-width="2" stroke-dasharray="4,4"/>
-  <!-- Stylized Y Logo -->
-  <path d="M18 16 L32 36 L46 16 M32 36 L32 50" fill="none" stroke="#7fe3ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="32" cy="36" r="4" fill="#a855f7"/>
+  <rect width="64" height="64" rx="12" fill="#09090b"/>
+  <g transform="translate(8.25, 2) scale(2.5)">
+    <path d="M2 4H7V11H12V4H17V15H12V20H7V15H2V4Z" fill="#fafafa"/>
+  </g>
 </svg>
