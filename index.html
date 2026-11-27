@@ -73,6 +73,9 @@
       const savedTheme = localStorage.getItem('theme') || 'dark';
       document.documentElement.setAttribute('data-theme', savedTheme);
       document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('intro-active');
+      }
     } catch (_) {}
   </script>
 
@@ -2601,7 +2604,87 @@
       border-top: 1px solid var(--line);
     }
 
+    html.intro-active,
+    html.intro-active body {
+      overflow: hidden;
+    }
+
+    #introLoader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #000000;
+      display: grid;
+      place-items: center;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html[data-theme="light"] #introLoader {
+      background: #fafafa;
+    }
+
+    #introLoader.is-exiting {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.025);
+      pointer-events: none;
+    }
+
+    #introLoader[hidden] {
+      display: none !important;
+    }
+
+    .intro-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .intro-iso-svg {
+      width: 220px;
+      height: 210px;
+      overflow: visible;
+      cursor: pointer;
+    }
+
+    .intro-skip-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(24, 24, 27, 0.72);
+      color: #a1a1aa;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .intro-skip-btn:hover {
+      color: #fafafa;
+      border-color: rgba(255, 255, 255, 0.32);
+    }
+
+    html[data-theme="light"] .intro-skip-btn {
+      border-color: rgba(0, 0, 0, 0.14);
+      background: rgba(244, 244, 245, 0.85);
+      color: #52525b;
+    }
+
+    html[data-theme="light"] .intro-skip-btn:hover {
+      color: #09090b;
+      border-color: rgba(0, 0, 0, 0.3);
+    }
+
     @media (prefers-reduced-motion: reduce) {
+      #introLoader { display: none !important; }
       *, *::before, *::after {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
@@ -2611,6 +2694,17 @@
   </style>
 </head>
 <body>
+
+  <!-- 0. ISOMETRIC 4-BLOCK INTRO LOADER (Reveals portfolio after choreographed morph) -->
+  <div id="introLoader" role="dialog" aria-label="Loading Yashwanth Ponnam portfolio">
+    <div class="intro-stage">
+      <svg id="introIsoSvg" class="intro-iso-svg" viewBox="-115 -80 230 215" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g id="introShadowLayer" opacity="0.16"></g>
+        <g id="introCubesLayer"></g>
+      </svg>
+    </div>
+    <button id="introSkipBtn" type="button" class="intro-skip-btn" aria-label="Skip intro animation">Skip &rarr;</button>
+  </div>
 
   <!-- 1. STICKY TOP SITE HEADER (chanhdai.com pattern) -->
   <header class="site-header">
@@ -5720,6 +5814,199 @@
       const body = encodeURIComponent(['Hi Yashwanth,', '', msg, '', 'Best regards,', name, email].join('\n'));
       window.location.href = 'mailto:yashwanthponnam55@gmail.com?subject=' + subject + '&body=' + body;
     });
+
+    /* -------------------------------------------------------------
+       13. ISOMETRIC 4-BLOCK PRE-DISPLAY INTRO ANIMATION
+       ------------------------------------------------------------- */
+    (function initIntroPreloader() {
+      const overlay = document.getElementById('introLoader');
+      const cubesLayer = document.getElementById('introCubesLayer');
+      const shadowLayer = document.getElementById('introShadowLayer');
+      const skipBtn = document.getElementById('introSkipBtn');
+      const isoSvg = document.getElementById('introIsoSvg');
+      if (!overlay || !cubesLayer || !shadowLayer) return;
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let dismissed = false;
+      let rafId = null;
+
+      function dismissIntro(userTriggered = false) {
+        if (dismissed) return;
+        dismissed = true;
+        if (rafId) cancelAnimationFrame(rafId);
+        if (userTriggered) playSfx('zoom', false);
+        document.documentElement.classList.remove('intro-active');
+        overlay.classList.add('is-exiting');
+        overlay.setAttribute('aria-hidden', 'true');
+        setTimeout(() => { overlay.hidden = true; }, 470);
+      }
+
+      if (reduced) {
+        dismissIntro(false);
+        return;
+      }
+
+      skipBtn?.addEventListener('click', () => dismissIntro(true));
+      isoSvg?.addEventListener('click', () => dismissIntro(true));
+      window.addEventListener('keydown', (e) => {
+        if (!dismissed && (e.key === 'Escape' || e.key === ' ' || e.key === 'Enter')) {
+          e.preventDefault();
+          dismissIntro(true);
+        }
+      });
+
+      // 30-degree isometric projection centered around origin
+      const S = 22;
+      const COS30 = 0.8660254;
+      const SIN30 = 0.5;
+      const NS = 'http://www.w3.org/2000/svg';
+
+      function proj(x, y, z, yOffset = 0) {
+        return [
+          (x - y) * COS30 * S,
+          (x + y) * SIN30 * S - z * S + yOffset
+        ];
+      }
+
+      function polyStr(pts) {
+        return pts.map(p => `${p[0].toFixed(2)},${p[1].toFixed(2)}`).join(' ');
+      }
+
+      function isLightTheme() {
+        return document.documentElement.getAttribute('data-theme') === 'light';
+      }
+
+      // Choreographed 4-cube formations matching the screencast loop:
+      // Stepped L-cluster -> Zigzag S-tetromino -> Staggered Plus/Cross -> Compact 2x2 diamond
+      const STATES = [
+        [[-0.5, -0.5, 0], [0.5, -0.5, 0], [-0.5, 0.5, 0], [-0.5, -0.5, 1]],
+        [[-1, -0.5, 0], [0, -0.5, 0], [0, 0.5, 0], [1, 0.5, 0]],
+        [[-1, 0, 0], [0, 0, 0], [1, 0, 0], [0, 1, 0]],
+        [[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0]]
+      ].map(coords => {
+        const cx = coords.reduce((s, c) => s + c[0], 0) / coords.length;
+        const cy = coords.reduce((s, c) => s + c[1], 0) / coords.length;
+        return coords.map(c => [c[0] - cx, c[1] - cy, c[2]]);
+      });
+
+      function easeInOutQuart(t) {
+        return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+      }
+
+      function createSvgEl(tag) {
+        return document.createElementNS(NS, tag);
+      }
+
+      const cubeNodes = Array.from({ length: 4 }, () => {
+        const g = createSvgEl('g');
+        const top = createSvgEl('polygon');
+        const left = createSvgEl('polygon');
+        const right = createSvgEl('polygon');
+        g.appendChild(left);
+        g.appendChild(right);
+        g.appendChild(top);
+        cubesLayer.appendChild(g);
+        return { g, top, left, right };
+      });
+
+      const shadowNodes = Array.from({ length: 4 }, () => {
+        const p = createSvgEl('polygon');
+        shadowLayer.appendChild(p);
+        return p;
+      });
+
+      function updateColors() {
+        const light = isLightTheme();
+        const topFill = light ? '#ffffff' : '#f4f4f5';
+        const leftFill = light ? '#d4d4d8' : '#d4d4d8';
+        const rightFill = light ? '#71717a' : '#9ca3af';
+        const strokeCol = light ? 'rgba(9,9,11,0.16)' : 'none';
+        const shFill = light ? '#52525b' : '#a1a1aa';
+        cubeNodes.forEach(n => {
+          n.top.setAttribute('fill', topFill);
+          n.left.setAttribute('fill', leftFill);
+          n.right.setAttribute('fill', rightFill);
+          [n.top, n.left, n.right].forEach(poly => {
+            poly.setAttribute('stroke', strokeCol);
+            poly.setAttribute('stroke-width', light ? '0.5' : '0');
+            poly.setAttribute('stroke-linejoin', 'round');
+          });
+        });
+        shadowNodes.forEach(s => s.setAttribute('fill', shFill));
+      }
+      updateColors();
+
+      const CYCLE_MS = 1880;
+      const START_TIME = performance.now();
+
+      function renderFrame(now) {
+        if (dismissed) return;
+        const elapsed = Math.max(0, now - START_TIME);
+        const phase = ((elapsed % CYCLE_MS) / CYCLE_MS) * STATES.length;
+        const i0 = Math.floor(phase) % STATES.length;
+        const i1 = (i0 + 1) % STATES.length;
+        const localT = phase - Math.floor(phase);
+        // Brief magnetic pause at each formation (0..0.22 hold, 0.22..1.0 glide)
+        const moveT = localT < 0.22 ? 0 : easeInOutQuart((localT - 0.22) / 0.78);
+
+        const cubes = [];
+        for (let i = 0; i < 4; i++) {
+          const a = STATES[i0][i];
+          const b = STATES[i1][i];
+          const x = a[0] + (b[0] - a[0]) * moveT;
+          const y = a[1] + (b[1] - a[1]) * moveT;
+          const z = a[2] + (b[2] - a[2]) * moveT;
+          cubes.push({ idx: i, x, y, z, depth: x + y + z * 1.02 });
+        }
+
+        // Back-to-front painter sort
+        cubes.sort((p, q) => p.depth - q.depth);
+
+        const floatY = Math.sin(elapsed * 0.004) * 2.2;
+        const h = 0.88; // crisp voxel proportion
+
+        cubes.forEach((c) => {
+          const node = cubeNodes[c.idx];
+          cubesLayer.appendChild(node.g);
+
+          const x0 = c.x - 0.5, x1 = c.x + 0.5;
+          const y0 = c.y - 0.5, y1 = c.y + 0.5;
+          const z0 = c.z, z1 = c.z + h;
+
+          const p001 = proj(x0, y0, z1, floatY);
+          const p101 = proj(x1, y0, z1, floatY);
+          const p111 = proj(x1, y1, z1, floatY);
+          const p011 = proj(x0, y1, z1, floatY);
+          const p110 = proj(x1, y1, z0, floatY);
+          const p010 = proj(x0, y1, z0, floatY);
+          const p100 = proj(x1, y0, z0, floatY);
+
+          node.top.setAttribute('points', polyStr([p001, p101, p111, p011]));
+          node.left.setAttribute('points', polyStr([p011, p111, p110, p010]));
+          node.right.setAttribute('points', polyStr([p101, p111, p110, p100]));
+
+          // Matching projected floor reflection shadow cleanly below
+          const sh = shadowNodes[c.idx];
+          const sy = 56;
+          sh.setAttribute('points', polyStr([
+            proj(x0, y0, 0, sy),
+            proj(x1, y0, 0, sy),
+            proj(x1, y1, 0, sy),
+            proj(x0, y1, 0, sy)
+          ]));
+        });
+
+        if (elapsed >= CYCLE_MS) {
+          dismissIntro(false);
+          return;
+        }
+        rafId = requestAnimationFrame(renderFrame);
+      }
+
+      renderFrame(START_TIME);
+      rafId = requestAnimationFrame(renderFrame);
+      setTimeout(() => dismissIntro(false), CYCLE_MS + 350);
+    })();
   </script>
 </body>
 </html>
