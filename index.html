@@ -341,7 +341,7 @@
     .nav-links {
       display: none;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       font-size: 0.84rem;
       color: var(--ink-muted);
     }
@@ -353,6 +353,7 @@
     }
 
     .nav-links a {
+      white-space: nowrap;
       transition: color 0.15s ease;
     }
 
@@ -364,6 +365,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      flex-shrink: 0;
     }
 
     .cmd-btn {
@@ -377,6 +379,8 @@
       background: var(--bg-subtle);
       color: var(--ink-muted);
       font-size: 0.78rem;
+      white-space: nowrap;
+      flex-shrink: 0;
       transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
     }
 
@@ -393,6 +397,7 @@
       border: 1px solid var(--edge);
       border-radius: 4px;
       color: var(--ink-muted);
+      white-space: nowrap;
     }
 
     .icon-btn {
@@ -695,9 +700,8 @@
     }
 
     .info-text {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
     }
 
     .info-text a:hover {
@@ -1948,7 +1952,7 @@
       top: 0;
       right: 0;
       bottom: 0;
-      width: min(640px, 100vw);
+      width: min(740px, 100vw);
       background: var(--bg);
       border-left: 1px solid var(--edge-strong);
       z-index: 500;
@@ -2380,7 +2384,7 @@
             <span class="info-icon-box" aria-hidden="true">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </span>
-            <span class="info-text">DevOps &amp; AI Systems @ Independent Engineering</span>
+            <span class="info-text">DevOps &amp; AI @ Independent Engineering</span>
           </div>
 
           <div class="info-item">
@@ -3393,23 +3397,22 @@
         <div id="drawerArchitectureWrap" class="drawer-architecture-block">PUBLIC INTERNET
        │ HTTPS / HTTP (:443 / :80)
        ▼
-AWS Application Load Balancer (ALB Ingress) [Public Subnets multi-AZ]
+AWS ALB Ingress [Public Subnets multi-AZ] ──▶ NAT Gateway
        │
-       ▼ NAT Gateway
+       ▼
 AWS EKS CLUSTER (ap-south-1) · VPC 10.0.0.0/16
-┌───────────────────────────────┬───────────────────────────────┬───────────────────────────────┐
-│ Private Subnet (ap-south-1a)  │ Private Subnet (ap-south-1b)  │ Private Subnet (ap-south-1c)  │
-│ Managed Node 1: t3.small      │ Managed Node 2: t3.small      │ Managed Node 3: t3.small      │
-│                               │                               │                               │
-│  FastAPI Serving Pod (:8000) ───▶ Ollama Pod (Port 11434)     │  ArgoCD GitOps Synchronizer   │
-│          │                    │          │                    │          │                    │
-│          ▼ /metrics           │          ▼ Dynamic Mount      │          ▼ Webhook Sync       │
-│  Prometheus Server            │  AWS EBS gp3 (EBS CSI Driver) │  GitHub Container Registry    │
-│  Alertmanager · Grafana       │  Least-Privilege IRSA Policy  │  (Immutable semantic digests) │
-└───────────────────────────────┴───────────────────────────────┴───────────────────────────────┘
-                                           │ OIDC AssumeRoleWithWebIdentity
-                                           ▼
-                                AWS IAM Role: ebs-csi-irsa (Least-Privilege)</div>
+┌──────────────────────┬──────────────────────┬──────────────────────┐
+│ Private (ap-south-1a)│ Private (ap-south-1b)│ Private (ap-south-1c)│
+│ Node 1: t3.small     │ Node 2: t3.small     │ Node 3: t3.small     │
+│                      │                      │                      │
+│ FastAPI (:8000) ─────▶ Ollama (:11434)      │ ArgoCD GitOps Sync   │
+│      │               │      │               │      │               │
+│      ▼ /metrics      │      ▼ Dynamic Mount │      ▼ Webhook       │
+│ Prometheus/Grafana   │ EBS gp3 (CSI Driver) │ GHCR Digest Rollout  │
+└──────────────────────┴──────────────────────┴──────────────────────┘
+                                 │ OIDC AssumeRoleWithWebIdentity
+                                 ▼
+                      IAM Role: ebs-csi-irsa (Least-Privilege)</div>
 
         <h4>Key Systems Outcomes</h4>
         <p id="drawerStoryOutcomes">Full-stack SRE Golden Signals monitoring with kube-prometheus-stack, Alertmanager incident routing validated through fault injection, and automated GitHub Actions CI/CD to GHCR.</p>
