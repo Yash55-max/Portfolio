@@ -873,6 +873,7 @@
       height: 112px;
       border-radius: 9999px;
       margin: -1px;
+      cursor: pointer;
     }
 
     @media (min-width: 384px) {
@@ -889,20 +890,27 @@
       }
     }
 
-    .avatar-box img {
+    .avatar-box img.avatar-slide {
+      position: absolute;
+      inset: 0;
       display: block;
       width: 100%;
       height: 100%;
       border-radius: inherit;
       object-fit: cover;
-      filter: grayscale(100%) contrast(1.06);
       user-select: none;
-      transition: transform 0.35s var(--ease), filter 0.35s ease;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
     }
 
-    .avatar-box:hover img {
+    .avatar-box img.avatar-slide.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .avatar-box:hover img.avatar-slide.is-active {
       transform: scale(1.03);
-      filter: grayscale(0%) contrast(1.02);
     }
 
     .avatar-ring-overlay {
@@ -2760,8 +2768,9 @@
         <!-- Left Column (row-span-2): Bottom-aligned Circular Avatar + Ø160 DiameterDimension -->
         <div class="profile-avatar-col">
           <div class="avatar-shell-rail screen-line-top">
-            <div class="avatar-box">
-              <img src="assets/hero-avatar.jpg" alt="Illustrated monochrome profile portrait of Yashwanth Ponnam" width="160" height="160">
+            <div class="avatar-box" id="heroAvatarBox" role="button" tabindex="0" title="Click to switch portrait" aria-label="Profile portrait — alternates automatically or click to toggle">
+              <img class="avatar-slide is-active" src="assets/hero-avatar-duo.jpg" alt="Illustrated monochrome portrait of Yashwanth Ponnam and companion" width="160" height="160">
+              <img class="avatar-slide" src="assets/hero-avatar-solo.jpg" alt="Monochrome studio portrait of Yashwanth Ponnam" width="160" height="160">
               <span class="avatar-flag-badge" title="Andhra Pradesh, India" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <rect width="24" height="8" y="0" fill="#FF9933"/>
@@ -5105,6 +5114,39 @@
             window.speechSynthesis.speak(utter);
           }
         });
+      }
+
+      // Alternating Hero Avatar Slideshow (duo <-> solo, pauses on hover, click to toggle)
+      const avatarBox = document.getElementById('heroAvatarBox');
+      if (avatarBox) {
+        const slides = Array.from(avatarBox.querySelectorAll('.avatar-slide'));
+        let activeAvatarIdx = 0;
+        let avatarHovered = false;
+
+        function setAvatarSlide(nextIdx) {
+          slides.forEach((img, idx) => img.classList.toggle('is-active', idx === nextIdx));
+          activeAvatarIdx = nextIdx;
+        }
+
+        avatarBox.addEventListener('mouseenter', () => { avatarHovered = true; });
+        avatarBox.addEventListener('mouseleave', () => { avatarHovered = false; });
+        avatarBox.addEventListener('click', () => {
+          playSoundFeedback(false);
+          setAvatarSlide((activeAvatarIdx + 1) % slides.length);
+        });
+        avatarBox.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            playSoundFeedback(false);
+            setAvatarSlide((activeAvatarIdx + 1) % slides.length);
+          }
+        });
+
+        if (!reduced && slides.length > 1) {
+          setInterval(() => {
+            if (!avatarHovered) setAvatarSlide((activeAvatarIdx + 1) % slides.length);
+          }, 4200);
+        }
       }
 
       // LogosSwap 4-slot staggered grid
