@@ -1,0 +1,21 @@
+# Yashwanth Ponnam
+
+> DevOps & AI Systems Engineer — Kubernetes (AWS EKS), Terraform IaC, automated GitOps CI/CD, and autonomous LLM systems.
+
+Canonical URL: https://yashwanthponnam.dpdns.org/
+Contact: yashwanthponnam55@gmail.com
+GitHub: https://github.com/Yash55-max
+LinkedIn: https://www.linkedin.com/in/yashwanth-ponnam-a97921256/
+
+## Key Pages
+- [Home & Engineering Portfolio](https://yashwanthponnam.dpdns.org/index.html)
+- [Markdown Profile Summary](https://yashwanthponnam.dpdns.org/index.md)
+- [Freelance & Consulting](https://yashwanthponnam.dpdns.org/freelance.html)
+- [Privacy Policy](https://yashwanthponnam.dpdns.org/privacy.html)
+
+## Flagship Systems
+- **llm-devops** (`https://github.com/Yash55-max/llm-devops`): Self-serve LLM inference platform on AWS EKS (v1.35) provisioned with modular Terraform, private multi-AZ subnets, ALB Ingress, NAT Gateway, least-privilege IRSA (`ebs-csi-irsa`), ArgoCD GitOps, and kube-prometheus-stack observability.
+- **ClearLedger** (`https://clear-ledger-chi.vercel.app` | `https://github.com/Yash55-max/ClearLedger`): Accounts Payable reconciliation platform pairing deterministic ledger matching with LangGraph/Gemini AI audit commentary.
+- **BugShot** (`https://github.com/Yash55-max/BugShot`): Published Manifest V3 browser extension for capturing, annotating, and filing visual bug reports directly to GitHub Issues.
+- **rag-api** (`https://github.com/Yash55-max/rag-api`): Async FastAPI vector retrieval API powered by ChromaDB and local Ollama inference (~42ms p95 local lab benchmark).
+- **Multi-Agent ADK** (`https://github.com/Yash55-max/multi-agent-adk`): Python AsyncIO coordinator-worker multi-agent orchestration framework.
